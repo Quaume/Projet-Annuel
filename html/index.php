@@ -14,7 +14,7 @@
         <link href="STYLES/footer.css" rel="stylesheet">     
     </head>
     <body>
-        <?php include 'TEMPLATES/header-index.php'; ?>
+        <?php include 'TEMPLATES/header-index.ph'; ?>
         <div class="masthead" style="background-image: url(RESSOURCES/IMG-CONTENT/Banner.png);">
             <div class="color-overlay d-flex justify-content-center align-items-center">
                 <div class="row">
