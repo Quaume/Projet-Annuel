@@ -1,0 +1,47 @@
+.profile{
+    width:100px;
+    height: 110px;
+    border: 1px solid #789395;
+    border-radius:30px;
+}
+.userProfile{
+    color:#789395;
+}
+.btn{
+    background-color: #789395;
+    border-radius: 2rem;
+}
+.btn-outline-secondary{
+    color:#3A3845;
+    border-color: #789395;
+}
+.block1{
+    width:360px;
+    height:380px;
+    background-color: #789395;
+    border-radius:40px;
+}
+block3{
+    width:360px;
+    height:380px;
+    background-color: #789395;
+    border-radius:40px;
+}
+.darkBlock{
+    height:130px;
+    background-color: #3A3845;
+    border-radius:20px;
+    padding:1.5rem;
+}
+
+.statsBlock{
+    position: absolute;
+
+    background-color: #789395;
+    border-radius: 35px;
+}
+
+.stats{
+    background-color: #3A3845;
+    border-radius:10px;
+}
