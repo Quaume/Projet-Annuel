@@ -20,7 +20,7 @@ if(
 	count($_POST)!=8
 ){
 
-	die("Formulaire incorrect !");
+	die("Invalid form !");
 
 }
 

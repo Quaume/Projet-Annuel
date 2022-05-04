@@ -1,96 +1,99 @@
-<?php include 'header-home.php'?>
-<div class="container">
-    <div class="row d-flex justify-content-around mt-5">
-        <div class="col-2 me-5">
-            <a href="#">
-                <div class="d-flex align-items-center">
+<?php include "header-home.php"; ?>
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="d-block p-2 col-10">
+            <span class="d-inline">
+                <a href="#">
                     <img src="../../RESSOURCES/IMG-CONTENT/dosV.png" class="profile" alt="profile">
-                    <p class="font-weight-light userProfile ms-2">@Username</p>
-                </div>
-            </a>
+                </a>
+            </span>
+            <span class="d-inline font-weight-light ps-1 userProfile">
+                <a href="#">@Username</a>
+            </span>
         </div>
 
-        <div class="col-7"></div>
-        
-        <div class="col-2 mt-4 ms-5 ps-4">
-            <button type="button" class="btn btn-outline-secondary">My rights requests</button>
+        <div class="d-block p-2 col-2  d-flex align-items-center">
+            <span class="d-block ms-3 ps-1" data-bs-toggle="popover" data-bs-trigger="hover focus">
+                <button type="button" class="btn btn-outline-secondary" title="See">My rights requests</button>
+            </span>
         </div>
     </div>
-
+    
     <div class="row mt-5">
-        <div class="col-2 block1">
-            <div class="d-flex justify-content-evenly pt-3 mt-4">
-                <div class="darkBlock">
-                    <a href="#" class="">
-                        <img src="../../RESSOURCES/IMG-CONTENT/note.png" width="50" class="img-responsive ms-4 pb-3" alt="Create Track"><p>Create Track</p>
-                    </a>
-                </div>
-
-                <div class="darkBlock">
-                    <a href="#" class="">
-                        <img src="../../RESSOURCES/IMG-CONTENT/vinyl.png" width="50" class="img-responsive ms-4 pb-3" alt="Create Album"><p>Create Track</p>
-                    </a>
-                </div>
+        <!-------------------------------------------------PROFILE BLOCK-------------------------------------------------------------->
+        <div class="d-block p-2 block1 col-3">
+            <div class="d-flex justify-content-center">
+                <a href="#">
+                    <img src="../../RESSOURCES/IMG-CONTENT/dosV.png" class="profile2" alt="edit">
+                </a>
             </div>
-
-            <div class="d-flex justify-content-evenly mt-5">
-                <div class="darkBlock">
-                    <a href="#" class="">
-                        <img src="../../RESSOURCES/IMG-CONTENT/doc.png"  width="50" class="img-responsive ms-4 pb-3" alt="My Files"><p>Create Track</p>
-                    </a>
-                </div>
-
-                <div class="darkBlock">
-                    <a href="#" class="">
-                        <img src="../../RESSOURCES/IMG-CONTENT/notif.png" width="50" class="img-responsive ms-4 pb-3" alt="..."><p>Create Track</p>
-                    </a>
-                </div>
+            <div>
+                <p class="text-center fs-6 p-1">Account Type</p>
+                <button type="button" class="btn btn-outline-dark pe-5 ps-5">Edit Profile</button>
+                <p class="text-center fs-3 pt-3">Followers : </p>
+                <p class="text-center fs-3 pt-3">Track : </p>
+            </div>
+            <div>
+                <p class="text-center fs-5 mt-4 pt-2 pb-2 bio">Bio</p>
+                <p class="text-center fs-6 mt-2 registered">Registered since</p>
             </div>
         </div>
 
-
-        <div class="col-7">
-            <h3 class="text-highlight">WESH</h3>
-            <div class="row  mb-5 statsBlock">
-                <div class="col ps-5">
-                    <a href="#" class="ps-5">
-                        <p class="fw-normal fs-5 text-center stats">
-                            <img src="../../RESSOURCES/IMG-CONTENT/eye.png"  width="25px" alt=""> 200 Views
-                        </p>
-                    </a>
+        <!-------------------------------------------------STATUS BLOCK-------------------------------------------------------------->
+    
+        <div class="col-6 d-block  ms-5">
+            <!---------STATS---------->
+            <div class="row d-block statsBlock">
+                <div class="d-block d-flex justify-content-center">
+                    <div class="d-inline darkBlock">
+                        <img src="../../ressources/IMG-CONTENT/eye.png" alt="">
+                        <span>200 Views</span>
+                    </div>
+                    <div class="d-inline darkBlock">
+                        <img src="../../ressources/IMG-CONTENT/bubble.png" alt="">
+                        <span>50 Comments</span>
+                    </div>
                 </div>
-                <div class="col ps-5 pe-5">
-                    <a href="#" class="ps-5">
-                        <p class="fw-normal fs-5 text-center stats">
-                            <img src="../../RESSOURCES/IMG-CONTENT/bubble.png"  width="25px" alt=""> 50 Comments
-                        </p>
-                    </a>
-                </div>
-                <div class="w-100"></div>
-                <div class="col ps-5">
-                    <a href="#" class="ps-5">
-                        <p class="fw-normal fs-5 text-center stats">
-                            <img src="../../RESSOURCES/IMG-CONTENT/like.png"   width="25px" alt=""> 100 likes
-                        </p>
-                    </a>
-                </div>
-                <div class="col ps-5 pe-5">
-                    <a href="#" class="ps-5">
-                        <p class="fw-normal fs-5 text-center stats">
-                            <img src="../../RESSOURCES/IMG-CONTENT/request.png"  width="25px" alt=""> 15 Request Rights
-                        </p>
-                    </a>
+    
+                <div class="d-block d-flex justify-content-center">
+                    <div class="d-inline darkBlock">
+                        <img src="../../ressources/IMG-CONTENT/like.png" alt="">
+                        <span>200 Views</span>
+                    </div>
+                    <div class="d-inline darkBlock">
+                        <img src="../../ressources/IMG-CONTENT/request.png" alt="">
+                        <span>50 Comments</span>
+                    </div>
                 </div>
             </div>
 
-
-            <div class="row">
-                <div class="col">HELLO</div>
-                <div class="col">HELLO</div>
+            <!---------HISTORIQUE POST---------->
+            <div class="row mt-5">
+                <div class="col-6">
+                    <div class="d-inline d-flex justify-content-center p-2">
+                        <div class="dash-block overflow-auto">
+                            <p class="subtitle darkB text-center ms-4 mt-3 pt-1">Unfinished</p>
+                            <div class="">
+                                <img src="../../ressources/IMG-CONTENT/Bouge.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------RECENTLY POST---------->
+                <div class="col-6">
+                    <div class="d-inline d-flex justify-content-center p-2">
+                        <div class="dash-block">
+                            <p class="subtitle darkB text-center ms-4 mt-3 pt-1">Recently Post</p>
+                            <div class="mt-3 ms-5 RecentlyBlock">
+                                <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse mt-3 ms-3" alt="">             
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-        <div class="col-2 block3"></div>
+        <!-------------------------------------------------EDIT BLOCK-------------------------------------------------------------->
+        <div class="d-block p-2 block1 col-3"></div>
     </div>
 </div>
