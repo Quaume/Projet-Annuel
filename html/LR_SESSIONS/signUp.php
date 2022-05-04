@@ -38,7 +38,7 @@
              <option value="Beatmaker" class="form-control-md text-center">Beatmaker</option>
         </select><br>
          <input type="text" name="captcha" class="form-control-md text-center mt-3 formsbtns px-5 py-1" placeholder="Captcha"><br>
-         <input type="checkbox" name="cgu"  required="required" class="mt-3"> CGU<br> 
+         <input type="checkbox" name="cgu"  required="required" class="mt-3">CGU<br> 
          <input type="submit" class="form-control-md text-center mt-3 formsbtns px-4 py-1" value="Sign Up"> 
          </form>
 
