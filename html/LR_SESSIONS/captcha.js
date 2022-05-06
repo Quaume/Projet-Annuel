@@ -35,6 +35,10 @@
     // Tableau données vérification
     let verify = []
 
+    // Booléen Captcha Complété
+
+    let captchaCompleted = false;
+
 /*** Ajout events quand click sur carrés ***/
 
     Array.from(captchaSquares).forEach((square) => {
@@ -45,6 +49,12 @@
         // Vérification si captcha Complété
         square.addEventListener('click', checkCompletion)
     })
+/**/
+
+/*** Ajout event mouseover pour vérif captcha ***/
+
+signUpButton.addEventListener('mouseover', isButtonActivated)
+
 /**/
 
 /*** Initialisation des couleurs random des différents carrés ***/
@@ -85,18 +95,27 @@
     }
 /**/
 
+/*** Activation / Désactivation du bouton signUp ***/
+
+function isButtonActivated(){
+    if(captchaCompleted == false){
+        signUp.setAttribute("disabled", true)
+    }
+}
+
+/**/
+
 /*** Vérification Compétion du Captcha quand clic ***/
     function checkCompletion() {
         if (verify.length == 9) {
             completed.innerHTML = "Captcha Completed"
             captchaVerif.textContent = "Captcha Has Been Completed"
-            console.log(signUp)
+            captchaCompleted = true;
             signUp.removeAttribute("disabled")
         }else{
             completed.innerHTML = ""
             captchaVerif.textContent = "Click To Complete The Captcha"
-            signUp.setAttribute("disabled", true)
-            console.log(signUp)
+            captchaCompleted = false;
         }
     }
 /**/
