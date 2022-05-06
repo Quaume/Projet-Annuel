@@ -24,9 +24,6 @@ if(
 
 }
 
-
-
-
 //récupérer les données du formulaire
 $username = $_POST["username"];
 $email = $_POST["email"];
@@ -111,22 +108,20 @@ if( $pwd != $pwdConfirm){
 	$errors[] = "Passwords does not match";
 }
 
-
 if(count($errors) == 0){
-
-	$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users (username, email, birthday, pwd, accountType) 
+	$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users (username, email, birthday, pwd, accountType,) 
 		VALUES (:username, :email, :birthday, :pwd, :accountType);");
 
 
 	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
 	
 	$queryPrepared->execute([
-								"username"=>$username,
-								"email"=>$email,
-								"birthday"=>$birthday,
-								"pwd"=>$pwd,
-								"accountType"=>$accountType
-							]);
+		"username"=>$username,
+		"email"=>$email,
+		"birthday"=>$birthday,
+		"pwd"=>$pwd,
+		"accountType"=>$accountType
+	]);
 
 	header("Location: ../LR_SESSIONS/signIn.php");	
 
@@ -135,8 +130,7 @@ if(count($errors) == 0){
 	$_SESSION['errors'] = $errors;
 	header("Location: ../LR_SESSIONS/signUp.php");
 }
-
-
+include 'mailTest.php';
 //Si aucune erreur insérer l'utilisateur en base de données puis rediriger sur la page de connexion
 
 
