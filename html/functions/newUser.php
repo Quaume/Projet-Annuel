@@ -14,13 +14,12 @@ if(
 	!isset($_POST["password"]) ||
 	!isset($_POST["passwordConfirm"]) ||
 	!isset($_POST["accountType"]) ||
-	!isset($_POST["captcha"]) ||
 	!isset($_POST["cgu"]) ||
 
-	count($_POST)!=8
+	count($_POST)!=7
 ){
 
-	die("Formulaire incorrect !");
+	die("Invalid form !");
 
 }
 
@@ -34,7 +33,6 @@ $birthday = $_POST["birthday"];
 $pwd = $_POST["password"];
 $pwdConfirm = $_POST["passwordConfirm"];
 $accountType = $_POST["accountType"];
-$captcha = $_POST["captcha"];
 $cgu = $_POST["cgu"];
 
 
@@ -135,10 +133,3 @@ if(count($errors) == 0){
 	$_SESSION['errors'] = $errors;
 	header("Location: ../LR_SESSIONS/signUp.php");
 }
-
-
-//Si aucune erreur insérer l'utilisateur en base de données puis rediriger sur la page de connexion
-
-
-//Si il y a des erreurs rediriger sur la page d'inscription et afficher les erreurs
-
