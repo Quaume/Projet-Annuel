@@ -1,12 +1,29 @@
-.profile{
-    width:100px;
-    height: 110px;
-    border: 1px solid #789395;
-    border-radius:30px;
+p{
+    margin-bottom:0em!important;
 }
+/*====================USER PROFILE===========================*/
 .userProfile{
     color:#789395;
 }
+
+.profile{
+    width:80px;
+    height: 80px;
+    border: 1px solid #789395;
+    border-radius:50px;
+}
+/*====================GREEN BLOCK EDIT USER PROFILE===========================*/
+.bio{
+    border-bottom: 1px solid #3A3845;
+}
+.profile2{
+    width:60px;
+    height: 60px;
+    border: 1px solid #94B49F;
+    border-radius:50px;
+}
+/*====================REQUEST BTN===========================*/
+
 .btn{
     background-color: #789395;
     border-radius: 2rem;
@@ -15,33 +32,88 @@
     color:#3A3845;
     border-color: #789395;
 }
+
+/*====================PROFILE BTN===========================*/
+
+.btn-outline-dark {
+    color: #F7CCAC;
+    border-color: #3A3845;
+    background-color: #3A3845;
+    margin-left: 5em!important;
+}
+.btn-outline-dark:hover {
+    color: #F7CCAC;
+    background-color: #FFF6EA;
+    border-color: #FFF6EA;
+}
+
+/*====================BLOCK===========================*/
 .block1{
     width:360px;
     height:380px;
     background-color: #789395;
     border-radius:40px;
 }
-block3{
-    width:360px;
-    height:380px;
-    background-color: #789395;
-    border-radius:40px;
+
+/*====================SECOND BLOCK (Stats)============================*/
+
+.dash-block{
+width: 200px;
+height: 185px;
+
+background: #789395;
+border-radius: 30px;
 }
-.darkBlock{
-    height:130px;
+
+/*====================BACKGROUND BLOCK (RECENTLY POST & UNFINISHED)============================*/
+
+.darkB{ 
+width: 150px;
+height: 30px;
+
+background: #3A3845;
+border-radius: 10px;
+}
+
+/*SUBTITLE recently post & unfinished*/
+.subtitle{
+    color:#F7CCAC;
+}
+
+/*====================BACKGROUND BLOCK RECENTLY POST============================*/
+
+.RecentlyBlock {
+width: 105px;
+height: 110px;
+
+background: #3A3845;
+border-radius: 25px;
+}
+/*====================IMG BACKGROUND BLOCK (Stats : EYE,LIKE,REQUEST,COMMENT)============================*/
+
+.darkBlock{ 
     background-color: #3A3845;
     border-radius:20px;
-    padding:1.5rem;
+    padding:1rem;
 }
+
+/*====================BACKGROUND GREEN BLOCK (Stats : EYE,LIKE,REQUEST,COMMENT)============================*/
 
 .statsBlock{
-    position: absolute;
-
     background-color: #789395;
     border-radius: 35px;
+    width: 460px;
+    height: 124px;
 }
+/*==================== MEDIA QUERY TESTS =================*/
+/*
+@media (max-width:900px) {
+    statsBlock{
+        flex-direction: column;
+    }
+}
+*/
 
-.stats{
-    background-color: #3A3845;
-    border-radius:10px;
-}
+
+
+

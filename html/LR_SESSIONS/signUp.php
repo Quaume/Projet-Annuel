@@ -76,6 +76,7 @@
         </div>
          <input type="checkbox" name="cgu"  required="required" class="mt-3"><a type="button" class="formsbtns px-2" href='cgu.html'>CGU</a><br> 
          <input type="submit" disabled="disabled" id="signUp" class="form-control-md text-center mt-3 formsbtns px-4 py-1" value="Sign Up"> 
+
          </form>
 
          <input type="button" onclick="window.location.href='signIn.php'" class="form-control-md text-center mt-4 formsbtns px-3 py-1 mb-5" value="I Already Have An Account"> 
