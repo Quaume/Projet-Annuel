@@ -60,7 +60,11 @@ input:checked + .slider:before{
 /*----------------------------------------------------------------*/
 
 input.form-control{
-    border-color: #789395;
+    border-color: #3A3845;
+    outline-color: #3A3845 !important;
+}
+.form-control:focus{
+    border-color: #3A3845;
 }
 /*SEARCH-BTN*/
 .search{

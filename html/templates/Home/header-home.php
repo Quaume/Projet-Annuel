@@ -83,6 +83,9 @@
                                 <img src="../../RESSOURCES/IMAGES-HEADER/search-logo2.png" class="search img-responsive ms-2 mt-1" alt="Search">
                             </a>                                   
                         </form>
+                        <a href="#">
+                            <img src="../../RESSOURCES/IMG-CONTENT/dosV.png" class="profile" alt="profile">
+                        </a>
                     </div>
                 </nav>
             </div>
