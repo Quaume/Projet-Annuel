@@ -5,7 +5,7 @@
         <div class="d-block p-2 col-10">
             <span class="d-inline">
                 <a href="#">
-                    <img src="../../RESSOURCES/IMG-CONTENT/dosV.png" class="profile" alt="profile">
+                    <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile" alt="profile">
                 </a>
             </span>
             <span class="d-inline font-weight-light ps-1 userProfile">
@@ -15,7 +15,160 @@
 
         <div class="d-block p-2 col-2  d-flex align-items-center">
             <span class="d-block ms-3 ps-1" data-bs-toggle="popover" data-bs-trigger="hover focus">
-                <button type="button" class="btn btn-outline-secondary" title="See">My rights requests</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">My request Rights</button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirm / Decline</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-----------------------REQUEST PROFILE LIST GROUP----------------------->
+                        <div class="modal-body">
+                        <!-----------------------BEATMAKER REQUEST----------------------->
+                        <h6 class="p-2 border-bottom">Beatmaker</h6>
+                            <ul class="list-group list-group-light mb-4">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" alt="" style="width: 45px; height: 45px"class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <span class="badge rounded-pill badge-success">
+                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">N</button>
+                                    </span>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <span class="badge rounded-pill badge-success">
+                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">N</button>
+                                    </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        <!-----------------------ARTIST REQUEST----------------------->
+                        <h6 class="p-2 border-top border-bottom">Artist</h6>
+                            <ul class="list-group list-group-light">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" alt="" style="width: 45px; height: 45px"class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <span class="badge rounded-pill badge-success">
+                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">N</button>
+                                    </span>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <span class="badge rounded-pill badge-success">
+                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">N</button>
+                                    </span>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <span class="badge rounded-pill badge-success">
+                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">N</button>
+                                    </span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-----------------------LISTENER REQUEST----------------------->
+                        <h6 class="p-2 border-top border-bottom">listener</h6>
+                            <ul class="list-group list-group-light">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" alt="" style="width: 45px; height: 45px"class="rounded-circle" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <span class="badge rounded-pill badge-success">
+                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">N</button>
+                                    </span>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <span class="badge rounded-pill badge-success">
+                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">N</button>
+                                    </span>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">@Username</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <span class="badge rounded-pill badge-success">
+                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">N</button>
+                                    </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             </span>
         </div>
     </div>
@@ -25,7 +178,7 @@
         <div class="d-block p-2 block1 col-3">
             <div class="d-flex justify-content-center">
                 <a href="#">
-                    <img src="../../RESSOURCES/IMG-CONTENT/dosV.png" class="profile2" alt="edit">
+                    <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile2" alt="edit">
                 </a>
             </div>
             <div>

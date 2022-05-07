@@ -7,9 +7,9 @@ p{
 }
 
 .profile{
-    width:80px;
-    height: 80px;
-    border: 1px solid #789395;
+    width:50px;
+    height: 50px;
+    border: 1px solid #3A3845;
     border-radius:50px;
 }
 /*====================GREEN BLOCK EDIT USER PROFILE===========================*/
@@ -31,6 +31,9 @@ p{
 .btn-outline-secondary{
     color:#3A3845;
     border-color: #789395;
+}
+.btn.btn-outline-secondary:active{
+    color: #94B49F;
 }
 
 /*====================PROFILE BTN===========================*/
@@ -113,7 +116,55 @@ border-radius: 25px;
     }
 }
 */
+/*===========================MODAL CONTENT==============================*/
+.modal-content {
+    background-color: #94B49F;
+    border-radius:40px;
+}
+.modal-header {
+    border-bottom: none;
+}
+.modal-title {
+    background-color: #F7CCAC;
+    border-radius: 20px;
+    padding: 0.5rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    margin-left:8.5rem;
+}
+.modal-header .close{
+    margin:none;
+}
+.modal-footer{
+    border-top: none;
+}
+/*====================LIST GROUP REQUEST===================================*/
+.btn-outline-info{
+    color: #3A3845;
+    border-color: #F7CCAC;
+    background-color: #F7CCAC;
+    outline:none !important;
+}
+.btn-outline-info:hover{
+    background-color: #3A3845;
+    border-color: #F7CCAC;
+}
+.btn-outline-info:active{
+    background-color: #94B49F;
+    color: #F7CCAC;
+}
 
-
-
-
+.list-group-item{
+    color:#3A3845;
+    background-color: transparent !important;
+}
+h6{
+    color: #3A3845;
+    border-top: #3A3845;
+}
+.border-top{
+    color: #3A3845;
+}
+.border-bottom{
+    color: #3A3845 !important;
+}
