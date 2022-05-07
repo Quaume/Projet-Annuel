@@ -28,7 +28,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <!-----------------------REQUEST PROFILE----------------------->
+                        <!-----------------------REQUEST PROFILE LIST GROUP----------------------->
                         <div class="modal-body">
                         <!-----------------------BEATMAKER REQUEST----------------------->
                         <h6 class="p-2 border-bottom">Beatmaker</h6>
