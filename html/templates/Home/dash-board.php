@@ -5,7 +5,7 @@
         <div class="d-block p-2 col-10">
             <span class="d-inline">
                 <a href="#">
-                    <img src="../../RESSOURCES/IMG-CONTENT/dosV.png" class="profile" alt="profile">
+                    <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile" alt="profile">
                 </a>
             </span>
             <span class="d-inline font-weight-light ps-1 userProfile">
@@ -178,7 +178,7 @@
         <div class="d-block p-2 block1 col-3">
             <div class="d-flex justify-content-center">
                 <a href="#">
-                    <img src="../../RESSOURCES/IMG-CONTENT/dosV.png" class="profile2" alt="edit">
+                    <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile2" alt="edit">
                 </a>
             </div>
             <div>

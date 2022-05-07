@@ -1,5 +1,4 @@
 <?php include "header-home.php";?>
-
     <!-- CAROUSEL -->
     <div class="container mt-5 pb-5">
         <div class="row">
@@ -13,13 +12,13 @@
                 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../RESSOURCES/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
+                        <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../RESSOURCES/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
+                        <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../RESSOURCES/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
+                        <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
                     </div>
                 </div>
             </div>
@@ -30,9 +29,9 @@
     <div class="container">
         <div class="row">
             <div class="d-flex justify-content-around mt-5">
-                <div class="block"> <img class="pulse" src="../../RESSOURCES/IMG-CONTENT/pulse.png"></div>
-                <div class="block"> <img class="pulse" src="../../RESSOURCES/IMG-CONTENT/pulse.png"></div>
-                <div class="block"> <img class="pulse" src="../../RESSOURCES/IMG-CONTENT/pulse.png"></div>
+                <div class="block"> <img class="pulse" src="../../ressources/IMG-CONTENT/pulse.png"></div>
+                <div class="block"> <img class="pulse" src="../../ressources/IMG-CONTENT/pulse.png"></div>
+                <div class="block"> <img class="pulse" src="../../ressources/IMG-CONTENT/pulse.png"></div>
             </div>
         </div>
         <div class="row pb-5 mb-5">
