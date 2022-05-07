@@ -32,7 +32,7 @@
                         $_SESSION['email'] = $_POST['email'];
                         $_SESSION['id'] = $results["id"];
                         $_SESSION['token'] = $token;
-                        header("location: ../templates/homed/home.php");
+                        header("location: ../templates/Home/home.php");
 
                     }else{
                         echo "<h5 class='errors mt-3'>Incorrect login informations</h5>";

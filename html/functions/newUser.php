@@ -2,7 +2,7 @@
 session_start();
 
 require "functions.php";
-
+require "PHP-Mailer/PHPMailerAutoload.php";
 
 
 //Est-ce que je recois ce que j'ai demandé
@@ -107,10 +107,8 @@ if( $pwd != $pwdConfirm){
 }
 
 if(count($errors) == 0){
-	$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users (username, email, birthday, pwd, accountType,) 
-		VALUES (:username, :email, :birthday, :pwd, :accountType);");
-
-
+	$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users(username, email, birthday, pwd, accountType) VALUES (:username, :email, :birthday, :pwd, :accountType);");
+	
 	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
 	
 	$queryPrepared->execute([
@@ -118,7 +116,8 @@ if(count($errors) == 0){
 		"email"=>$email,
 		"birthday"=>$birthday,
 		"pwd"=>$pwd,
-		"accountType"=>$accountType
+		"accountType"=>$accountType,
+		"userKey"=>$userKey,
 	]);
 
 	header("Location: ../LR_SESSIONS/signIn.php");	
@@ -128,3 +127,4 @@ if(count($errors) == 0){
 	$_SESSION['errors'] = $errors;
 	header("Location: ../LR_SESSIONS/signUp.php");
 }
+        
