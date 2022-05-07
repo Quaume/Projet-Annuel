@@ -6,7 +6,7 @@
                     <div class="col-sm-2 d-flex align-items-end mt-5">
                         <p class="lead pb-2 username ms-5">@Utrackofficial</p>
                         <a href="#" class="ms-3">
-                            <img src="../../RESSOURCES/IMG-CONTENT/dosV.png" alt="Profile" class="rounded-circle img-size">
+                            <img src="../../ressources/IMG-CONTENT/dosV.png" alt="Profile" class="rounded-circle img-size">
                         </a>
                     </div>
                 </div>
@@ -26,13 +26,13 @@
                 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../../RESSOURCES/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
+                        <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../RESSOURCES/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
+                        <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
                     </div>
                     <div class="carousel-item">
-                        <img src="../../RESSOURCES/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
+                        <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
 
     <div class="d-flex align-items-end flex-column">
         <a href="#" class="goTop">
-            <img src="../../RESSOURCES/IMG-CONTENT/pushbtn.png" class="pushbtn img-responsive" alt="go Top">
+            <img src="../../ressources/IMG-CONTENT/pushbtn.png" class="pushbtn img-responsive" alt="go Top">
         </a >
     </div>
 
@@ -49,9 +49,9 @@
     <div class="container">
         <div class="row">
             <div class="d-flex justify-content-around mt-5">
-                <div class="block"> <img class="pulse" src="../../RESSOURCES/IMG-CONTENT/pulse.png"></div>
-                <div class="block"> <img class="pulse" src="../../RESSOURCES/IMG-CONTENT/pulse.png"></div>
-                <div class="block"> <img class="pulse" src="../../RESSOURCES/IMG-CONTENT/pulse.png"></div>
+                <div class="block"> <img class="pulse" src="../../ressources/IMG-CONTENT/pulse.png"></div>
+                <div class="block"> <img class="pulse" src="../../ressources/IMG-CONTENT/pulse.png"></div>
+                <div class="block"> <img class="pulse" src="../../ressources/IMG-CONTENT/pulse.png"></div>
             </div>
         </div>
         <div class="row pb-5 mb-5">
