@@ -2,8 +2,13 @@
 session_start();
 
 require "functions.php";
-require "PHP-Mailer/PHPMailerAutoload.php";
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
 //Est-ce que je recois ce que j'ai demandé
 
@@ -106,25 +111,61 @@ if( $pwd != $pwdConfirm){
 	$errors[] = "Passwords does not match";
 }
 
-if(count($errors) == 0){
-	$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users(username, email, birthday, pwd, accountType) VALUES (:username, :email, :birthday, :pwd, :accountType);");
+if(count($errors) != 0){
+	$_SESSION['errors'] = $errors;
+	header("Location: ../LR_SESSIONS/signUp.php");
+	
+}else{
+	$userKey = rand(100000,999999);
+	$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users(username, email, birthday, pwd, accountType,userKey) VALUES (:username, :email, :birthday, :pwd, :accountType, :userKey);");
 	
 	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
 	
-	$queryPrepared->execute([
-		"username"=>$username,
+	$queryPrepared->execute(
+		["username"=>$username,
 		"email"=>$email,
 		"birthday"=>$birthday,
 		"pwd"=>$pwd,
 		"accountType"=>$accountType,
-		"userKey"=>$userKey,
-	]);
+		"userKey"=>$userKey]
+	);
+	/*=======================FONCTION PHP MAILER=====================================*/
+		function sendConfirmMail($to, $UserKey, &$errors){
+			$mail = new PHPMailer(true);
 
-	header("Location: ../LR_SESSIONS/signIn.php");	
+			try {
+				//Server settings
+				$mail->isSMTP();                                            
+				$mail->Host       = 'smtp.gmail.com';                     
+				$mail->SMTPAuth   = true;                                   
+				$mail->Username   = 'Utrack';                     
+				$mail->Password   = 'utrack.off@gmail.com';                               
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+				$mail->Port       = 465;                                   
 
-}else{
-	
-	$_SESSION['errors'] = $errors;
-	header("Location: ../LR_SESSIONS/signUp.php");
+				//Recipients
+				$mail->setFrom('utrack.off@gmail.com', 'Utrack');
+				$mail->addAddress($to);                                 
+
+				//Content
+				$mail->isHTML(true);                                 
+				$mail->Subject = 'utrack confirmation e-mail !';
+				$mail->Body    = 'Click on the link to confirm your email.<br><a href="http://localhost:7777/Projet-Annuel/html/LR_SESSIONS/signIn.php?userKey='.$userKey.'">Confirmation link</a>';
+				$mail->send();
+			} catch (Exception $e) {
+				$errors[] = 'Failed to send email, please try again.';
+			}
+		}
+	/*============================================================*/
+
+	sendConfirmMail($email, $userKey, $errors);
+
+	if (count($errors) != 0) {
+        $_SESSION['errors'] = $errors;
+    }
+    else 
+    {
+        //$_SESSION['verified'] = 1;
+    }
+	header("Location: ../LR_SESSIONS/signIn.php");
 }
-        
