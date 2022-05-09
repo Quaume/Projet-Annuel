@@ -130,7 +130,7 @@ if(count($errors) != 0){
 		"userKey"=>$userKey]
 	);
 	/*=======================FONCTION PHP MAILER=====================================*/
-		function sendConfirmMail($to, $UserKey, &$errors){
+		function sendConfirmMail($to, $userKey, &$errors){
 			$mail = new PHPMailer(true);
 
 			try {
@@ -150,9 +150,10 @@ if(count($errors) != 0){
 				//Content
 				$mail->isHTML(true);                                 
 				$mail->Subject = 'Utrack confirmation e-mail !';
-				$mail->Body    = 'Click on the link to confirm your email.<br>
-				<a href="http://localhost/Projet-Annuel/html/LR_SESSIONS/confirmLink.php?&userKey='.$userKey.'">
-				Confirmation link</a>';
+				$mail->Body    = 'Validate your account.<br>
+				<a href="http://localhost/Projet-Annuel/html/functions/confirmLink.php?id='.$_SESSION['id'].'&userKey='.$userKey.'">
+					Confirmation link
+				</a>';
 
 				$mail->send();
 			} catch (Exception $e) {
@@ -166,9 +167,8 @@ if(count($errors) != 0){
 	if (count($errors) != 0) {
         $_SESSION['errors'] = $errors;
     }
-    else 
-    {
+    else {
         //$_SESSION['verified'] = 1;
+		header("Location: ../LR_SESSIONS/signIn.php");
     }
-	header("Location: ../LR_SESSIONS/signIn.php");
 }

@@ -1,20 +1,18 @@
-
-   
 /*==================== VerifLink =================*/
-<?php require_once 'newUser.php';
+<?php require_once 'functions.php';
 $pdo = connectDB();
 $errors = [];
 
 if (isset($_GET['userKey']) && !empty($_GET['userKey'])) 
 {
-    $confirmKey = $_GET['userKey'];
-    $query=$pdo->prepare('SELECT * FROM petitchat_user WHERE userKey=:userKey AND verified=:verified');
-    $query->execute(['userKey'=>$confirmKey, 'verified'=>0]);
+    $validKey = $_GET['userKey'];
+    $query=$pdo->prepare('SELECT * FROM utrackpa_users WHERE userKey=:userKey AND verified=:verified');
+    $query->execute(['userKey'=>$validKey, 'verified'=>0]);
 
     if (!empty($query->fetch())) 
     {
-        $query=$pdo->prepare('UPDATE petitchat_user SET verified=:verified WHERE userKey=:userKey');
-        $query->execute(['userKey'=>$confirmKey, 'verified'=>1]);
+        $query=$pdo->prepare('UPDATE utrackpa_users SET verified=:verified WHERE userKey=:userKey');
+        $query->execute(['userKey'=>$validKey, 'verified'=>1]);
         //$_SESSION['confirm'] = 1;
     }
     else
@@ -24,8 +22,9 @@ if (isset($_GET['userKey']) && !empty($_GET['userKey']))
 }
 if (count($errors) != 0) {
     $_SESSION['errors'] = $errors;
+}else{
+    header('Location: ../templates/home/Home.php');
 }
-header('Location: ../index.php');
 /*
 $pdo = connectDB();
 if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['userKey']) && !empty($_GET['id'])){
