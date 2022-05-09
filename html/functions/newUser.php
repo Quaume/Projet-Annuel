@@ -138,8 +138,8 @@ if(count($errors) != 0){
 				$mail->isSMTP();                                            
 				$mail->Host       = 'smtp.gmail.com';                     
 				$mail->SMTPAuth   = true;                                   
-				$mail->Username   = 'Utrack Off';                     
-				$mail->Password   = 'utrack.off@gmail.com';                               
+				$mail->Username   = 'utrack.off@gmail.com';                     
+				$mail->Password   = 'utrackOff777';                               
 				$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            
 				$mail->Port       = 587;                                   
 
@@ -151,7 +151,7 @@ if(count($errors) != 0){
 				$mail->isHTML(true);                                 
 				$mail->Subject = 'Utrack confirmation e-mail !';
 				$mail->Body    = 'Click on the link to confirm your email.<br>
-				<a href="http://localhost:7777/Projet-Annuel/html/LR_SESSIONS/signIn.php?userKey='.$userKey.'">
+				<a href="http://localhost/Projet-Annuel/html/LR_SESSIONS/confirmLink.php?&userKey='.$userKey.'">
 				Confirmation link</a>';
 
 				$mail->send();
