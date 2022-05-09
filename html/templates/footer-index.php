@@ -1,10 +1,10 @@
 <div class="container-fluid">
             <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-md-4 col-sm-6">
                     <p class="lead text-center">About us</p>
                     <p class="text-center font-weight-light">Utrack is a small company based in France that wants to revolutionize the music era!</p>
                 </div>
-                <div class="col-4">
+                <div class="col-md-4 col-sm-6">
                     <p class="lead text-center">Follows us</p>
                     <div class="d-flex justify-content-center p-2">
                         <svg width="38" height="39" viewBox="0 0 38 39" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@
                     </div>   
                 </div>
 
-                <div class="col-4">
+                <div class="col-md-4 col-sm-6">
                     <p class="lead text-center">Newsletters</p>
                     <p class="text-center p-1">Stay update with our latest</p>
                     <div class="input-group mb-4">
