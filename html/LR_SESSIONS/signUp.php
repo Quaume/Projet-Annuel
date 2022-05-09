@@ -41,7 +41,7 @@
         </select><br>
 
         <!-- Modal Captcha -->
-        <button class="formsbtns py-1 px-3 my-2" data-bs-toggle="modal" data-bs-target="#modalCaptcha" id="captchaVerif">Click To Complete The Captcha</button><br>
+        <a type="button" class="formsbtns py-1 px-3 my-2" data-bs-toggle="modal" data-bs-target="#modalCaptcha" id="captchaVerif">Click To Complete The Captcha</a><br>
         
         <div class="modal fade" id="modalCaptcha" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">

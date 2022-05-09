@@ -1,4 +1,8 @@
-<?php include "header-home.php"; ?>
+<?php
+session_start();
+require "../../functions/functions.php"; 
+include "header-home.php"; 
+?>
 <div class="container mt-5">
 
     <div class="row">
@@ -9,14 +13,14 @@
                 </a>
             </span>
             <span class="d-inline font-weight-light ps-1 userProfile">
-                <a href="#">@Username</a>
+                <a href="#">@Username <?php //getUserUsername($_SESSION["token"]); print($_SESSION["token"]); ?></a>
             </span>
         </div>
 
         <div class="d-block p-2 col-2  d-flex align-items-center">
             <span class="d-block ms-3 ps-1" data-bs-toggle="popover" data-bs-trigger="hover focus">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">My request Rights</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">My Rights Requests</button>
                 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -24,14 +28,11 @@
                         <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Confirm / Decline</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
                         </div>
                         <!-----------------------REQUEST PROFILE LIST GROUP----------------------->
                         <div class="modal-body">
                         <!-----------------------BEATMAKER REQUEST----------------------->
-                        <h6 class="p-2 border-bottom">Beatmaker</h6>
+                        <h6 class="p-2 border-bottom border-dark">Beatmaker</h6>
                             <ul class="list-group list-group-light mb-4">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <div class="d-flex align-items-center">
@@ -54,25 +55,16 @@
                                         <p class="fw-bold mb-1">@Username</p>
                                         <p class="text-muted mb-0"></p>
                                     </div>
-                                    </div>
-                                </li>
-
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
-                                    <div class="ms-3">
-                                        <p class="fw-bold mb-1">@Username</p>
-                                        <p class="text-muted mb-0"></p>
-                                    </div>
                                     <span class="badge rounded-pill badge-success">
                                         <button type="button" class="btn btn-outline-info">Y</button>
                                         <button type="button" class="btn btn-outline-info">N</button>
                                     </span>
                                     </div>
                                 </li>
+
                             </ul>
                         <!-----------------------ARTIST REQUEST----------------------->
-                        <h6 class="p-2 border-top border-bottom">Artist</h6>
+                        <h6 class="p-2 border-top border-bottom border-dark">Artist</h6>
                             <ul class="list-group list-group-light">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <div class="d-flex align-items-center">
@@ -102,22 +94,9 @@
                                     </div>
                                 </li>
 
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
-                                    <div class="ms-3">
-                                        <p class="fw-bold mb-1">@Username</p>
-                                        <p class="text-muted mb-0"></p>
-                                    </div>
-                                    <span class="badge rounded-pill badge-success">
-                                        <button type="button" class="btn btn-outline-info">Y</button>
-                                        <button type="button" class="btn btn-outline-info">N</button>
-                                    </span>
-                                    </div>
-                                </li>
                             </ul>
                             <!-----------------------LISTENER REQUEST----------------------->
-                        <h6 class="p-2 border-top border-bottom">listener</h6>
+                        <h6 class="p-2 border-top border-bottom border-dark mt-4">Listener</h6>
                             <ul class="list-group list-group-light">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <div class="d-flex align-items-center">
@@ -127,7 +106,7 @@
                                         <p class="text-muted mb-0"></p>
                                     </div>
                                     <span class="badge rounded-pill badge-success">
-                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">Y </button>
                                         <button type="button" class="btn btn-outline-info">N</button>
                                     </span>
                                     </div>
@@ -141,29 +120,16 @@
                                         <p class="text-muted mb-0"></p>
                                     </div>
                                     <span class="badge rounded-pill badge-success">
-                                        <button type="button" class="btn btn-outline-info">Y</button>
+                                        <button type="button" class="btn btn-outline-info">Y </button>
                                         <button type="button" class="btn btn-outline-info">N</button>
                                     </span>
                                     </div>
                                 </li>
 
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                    <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle" alt=""style="width: 45px; height: 45px" />
-                                    <div class="ms-3">
-                                        <p class="fw-bold mb-1">@Username</p>
-                                        <p class="text-muted mb-0"></p>
-                                    </div>
-                                    <span class="badge rounded-pill badge-success">
-                                        <button type="button" class="btn btn-outline-info">Y</button>
-                                        <button type="button" class="btn btn-outline-info">N</button>
-                                    </span>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" data-bs-dismiss="modal" class="btn btn-outline-secondary"aria-label="Close">Close</button>
                         </div>
                     </div>
 
@@ -173,9 +139,10 @@
         </div>
     </div>
     
-    <div class="row mt-5">
+    <div class="row mt-5 d-flex justify-content-center">
+
         <!-------------------------------------------------PROFILE BLOCK-------------------------------------------------------------->
-        <div class="d-block p-2 block1 col-3">
+        <div class="d-block p-2 block1 col-lg-4 col-md-12 mt-4 me-sm-3">
             <div class="d-flex justify-content-center">
                 <a href="#">
                     <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile2" alt="edit">
@@ -195,35 +162,51 @@
 
         <!-------------------------------------------------STATUS BLOCK-------------------------------------------------------------->
     
-        <div class="col-6 d-block  ms-5">
+        <div class="col-lg-4 col-md-12 mt-4">
             <!---------STATS---------->
-            <div class="row d-block statsBlock">
-                <div class="d-block d-flex justify-content-center">
-                    <div class="d-inline darkBlock">
-                        <img src="../../ressources/IMG-CONTENT/eye.png" alt="">
-                        <span>200 Views</span>
+  
+                <div class="content-center ms-sm-5">
+                    <div class="row">
+
+                        <div class="col-sm-5 p-3 darkB text-center mt-2">
+                            <span class="badge rounded-pill badge-success">
+                            <img src="../../ressources/IMG-CONTENT/eye.png" alt="">
+                            <h6>200 Views</h6>
+                            </span>
+                        </div>
+
+                        <div class="col-sm-5 p-3 darkB ms-sm-5 text-center mt-2">
+                            <span class="badge rounded-pill badge-success">
+                            <img src="../../ressources/IMG-CONTENT/bubble.png" alt="">
+                            <h6>200 Views</h6>
+                            </span>
+                        </div>
+                        
                     </div>
-                    <div class="d-inline darkBlock">
-                        <img src="../../ressources/IMG-CONTENT/bubble.png" alt="">
-                        <span>50 Comments</span>
+
+                    <div class="row mt-2">
+
+                        <div class="col-sm-5 p-3 darkB text-center mt-2">
+                            <span class="badge rounded-pill badge-success">
+                            <img src="../../ressources/IMG-CONTENT/like.png" alt="">
+                            <h6>200 Views</h6>
+                            </span>
+                        </div>
+
+                        <div class="col-sm-5 p-3 darkB ms-sm-5 text-center mt-2">
+                            <span class="badge rounded-pill badge-success">
+                            <img src="../../ressources/IMG-CONTENT/request.png" alt="">
+                            <h6>200 Views</h6>
+                            </span>
+                        </div>
+
                     </div>
                 </div>
-    
-                <div class="d-block d-flex justify-content-center">
-                    <div class="d-inline darkBlock">
-                        <img src="../../ressources/IMG-CONTENT/like.png" alt="">
-                        <span>200 Views</span>
-                    </div>
-                    <div class="d-inline darkBlock">
-                        <img src="../../ressources/IMG-CONTENT/request.png" alt="">
-                        <span>50 Comments</span>
-                    </div>
-                </div>
-            </div>
+
 
             <!---------HISTORIQUE POST---------->
-            <div class="row mt-5">
-                <div class="col-6">
+            <div class="row mt-4 ms-3">
+                <div class="col-lg-6">
                     <div class="d-inline d-flex justify-content-center p-2">
                         <div class="dash-block overflow-auto">
                             <p class="subtitle darkB text-center ms-4 mt-3 pt-1">Unfinished</p>
@@ -234,7 +217,7 @@
                     </div>
                 </div>
                 <!---------RECENTLY POST---------->
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="d-inline d-flex justify-content-center p-2">
                         <div class="dash-block">
                             <p class="subtitle darkB text-center ms-4 mt-3 pt-1">Recently Post</p>
@@ -246,7 +229,10 @@
                 </div>
             </div>
         </div>
+
         <!-------------------------------------------------EDIT BLOCK-------------------------------------------------------------->
-        <div class="d-block p-2 block1 col-3"></div>
+        <div class="d-block p-2 block1 col-lg-4 col-md-12 ms-5 mt-4"></div>
+
+
     </div>
 </div>

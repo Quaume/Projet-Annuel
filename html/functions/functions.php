@@ -52,7 +52,17 @@ function isConnected(){
 
 }
 
+/* User Informations */
 
+function getUserUsername($token){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT id FROM utrackpa_users WHERE email=:email AND token=:token");	
+	$queryPrepared->execute(["email"=>$_SESSION["email"], "token"=>$token]);
+	
+	return $queryPrepared->fetch();
+
+}
 
 
 

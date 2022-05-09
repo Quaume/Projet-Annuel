@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <footer class="blockquote">
+        <footer class>
             <?php include 'templates/footer-index.php'; ?>
         </footer>
     </body>
