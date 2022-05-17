@@ -1,4 +1,7 @@
-<?php include "header-home.php";?>
+<?php
+    session_start();
+    include "header-home.php";
+?>
     <!-- CAROUSEL -->
     <div class="container mt-5 pb-5">
         <div class="row">

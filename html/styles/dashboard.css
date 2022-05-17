@@ -1,167 +1,205 @@
-p{
-    margin-bottom:0em!important;
-}
-/*====================USER PROFILE===========================*/
-.userProfile{
-    color:#789395;
-}
+    p {
+        margin-bottom: 0em!important;
+    }
+    /*====================USER PROFILE===========================*/
+    
+    .userProfile {
+        color: #789395;
+    }
+    
+    .profile {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #3A3845;
+        border-radius: 50px;
+    }
+   /*============================================================*/
+    .img-thumbnail{
+        background-color: transparent; !important;
+        border:none;
+    }
+    /*============================================================*/
+    /*====================GREEN BLOCK EDIT USER PROFILE===========================*/
+    
+    .bio {
+        border-bottom: 1px solid #3A3845;
+    }
+    
+    .profile2 {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #94B49F;
+        border-radius: 50px;
+    }
+    /*====================REQUEST BTN===========================*/
+    
+    .btn {
+        background-color: #789395;
+        border-radius: 2rem;
+    }
+    
+    .btn-outline-secondary {
+        color: #3A3845;
+        border-color: #789395;
+    }
+    
+    .btn.btn-outline-secondary:active {
+        color: #94B49F;
+    }
+    /*====================PROFILE BTN===========================*/
+    .btn-outline-dark {
+        color: #3A3845;
+        border-color: #789395;
+        background-color: #789395;
+    }
+    
+    .btn-outline-dark:hover {
+        color: #F7CCAC;
+        background-color: #FFF6EA;
+        border-color: #FFF6EA;
+    }
+    /*====================STATS BTN===========================*/
+    .form-select{
+        color: #789395;
+        border-color: #3A3845;
+        background-color: #3A3845;
+        border-radius: 2rem;
+    }
 
-.profile{
-    width:50px;
-    height: 50px;
-    border: 1px solid #3A3845;
-    border-radius:50px;
-}
-/*====================GREEN BLOCK EDIT USER PROFILE===========================*/
-.bio{
-    border-bottom: 1px solid #3A3845;
-}
-.profile2{
-    width:60px;
-    height: 60px;
-    border: 1px solid #94B49F;
-    border-radius:50px;
-}
-/*====================REQUEST BTN===========================*/
-
-.btn{
-    background-color: #789395;
-    border-radius: 2rem;
-}
-.btn-outline-secondary{
-    color:#3A3845;
-    border-color: #789395;
-}
-.btn.btn-outline-secondary:active{
-    color: #94B49F;
-}
-
-/*====================PROFILE BTN===========================*/
-
-.btn-outline-dark {
-    color: #F7CCAC;
-    border-color: #3A3845;
-    background-color: #3A3845;
-    margin-left: 5em!important;
-}
-.btn-outline-dark:hover {
-    color: #F7CCAC;
-    background-color: #FFF6EA;
-    border-color: #FFF6EA;
-}
-
-/*====================BLOCK===========================*/
-.block1{
-    width:360px;
-    height:380px;
-    background-color: #789395;
-    border-radius:40px;
-}
-
-/*====================SECOND BLOCK (Stats)============================*/
-
-.dash-block{
-width: 200px;
-height: 185px;
-
-background: #789395;
-border-radius: 30px;
-}
-
-/*====================BACKGROUND BLOCK (RECENTLY POST & UNFINISHED)============================*/
-
-.darkB{ 
-background: #789395;
-border-radius: 20px;
-}
-
-/*SUBTITLE recently post & unfinished*/
-.subtitle{
-    color:#F7CCAC;
-}
-
-/*====================BACKGROUND BLOCK RECENTLY POST============================*/
-
-.RecentlyBlock {
-width: 105px;
-height: 110px;
-
-background: #3A3845;
-border-radius: 25px;
-}
-/*====================IMG BACKGROUND BLOCK (Stats : EYE,LIKE,REQUEST,COMMENT)============================*/
-
-.darkBlock{ 
-    background-color: #3A3845;
-    border-radius:20px;
-    padding:1rem;
-}
-
-/*====================BACKGROUND GREEN BLOCK (Stats : EYE,LIKE,REQUEST,COMMENT)============================*/
-
-.statsBlock{
-    background-color: #789395;
-    border-radius: 35px;
-    width: 460px;
-    height: 124px;
-}
-/*==================== MEDIA QUERY TESTS =================*/
-/*
+    /*====================BLOCK===========================*/
+    
+    .block1 {
+        width: 360px;
+        height: 380px;
+        background-color: #789395;
+        border-radius: 40px;
+    }
+    /*====================SECOND BLOCK (Stats)============================*/
+    
+    .dash-block {
+        width: 200px;
+        height: 185px;
+        background: #789395;
+        border-radius: 30px;
+    }
+    /*====================BACKGROUND BLOCK (RECENTLY POST & UNFINISHED)============================*/
+    
+    .darkB {
+        background: #3A3845;
+        border-radius: 20px;
+    }
+    /*SUBTITLE recently post & unfinished*/
+    
+    .subtitle {
+        color: #F7CCAC;
+    }
+    /*====================BACKGROUND BLOCK RECENTLY POST============================*/
+    
+    .recentlyBlock {
+        width: 105px;
+        height: 110px;
+        background: #3A3845;
+        border-radius: 25px;
+    }
+    .recentlyPost{
+        padding-right: 2rem !important;
+        padding-left: 2rem !important;
+    }
+    /*====================IMG BACKGROUND BLOCK (Stats : EYE,LIKE,REQUEST,COMMENT)============================*/
+    
+    .darkBlock {
+        background-color: #3A3845;
+        border-radius: 20px;
+        padding: 1rem;
+    }
+    /*====================BACKGROUND GREEN BLOCK (Stats : EYE,LIKE,REQUEST,COMMENT)============================*/
+    
+    .statsBlock {
+        background-color: #789395;
+        border-radius: 35px;
+    }
+    /*==================== MEDIA QUERY TESTS =================*/
+    /*
 @media (max-width:900px) {
     statsBlock{
         flex-direction: column;
     }
 }
 */
-/*===========================MODAL CONTENT==============================*/
-.modal-content {
-    background-color: #94B49F;
-    border-radius:40px;
-}
-.modal-header {
-    border-bottom: none;
-}
-.modal-title {
-    background-color: #F7CCAC;
-    border-radius: 20px;
-    padding: 0.5rem;
-    padding-right: 3rem;
-    padding-left: 3rem;
-    margin-left: 7rem;
-}
-.modal-header .close{
-    margin:none;
-}
-.modal-footer{
-    border-top: none;
-}
+    /*===========================MODAL CONTENT==============================*/
+    
+    .modal-content {
+        background-color: #94B49F;
+        border-radius: 40px;
+    }
+    
+    .modal-header {
+        border-bottom: none;
+    }
+    
+    .modal-title {
+        background-color: #F7CCAC;
+        border-radius: 20px;
+        padding: 0.5rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+        margin-left: 7rem;
+    }
+    
+    .modal-header .close {
+        margin: none;
+    }
+    
+    .modal-footer {
+        border-top: none;
+    }
+    /*====================LIST GROUP REQUEST===================================*/
+    
+    .btn-outline-light {
+        color: #3A3845;
+        border-color: #F7CCAC;
+        background-color: #F7CCAC;
+    }
+    
+    .btn-outline-light:hover {
+        background-color: #3A3845;
+        border-color: #F7CCAC;
+    }
+    
+    .btn-outline-light:active {
+        background-color: #94B49F;
+        color: #F7CCAC;
+    }
+    
+    .list-group-item {
+        color: #3A3845;
+        background-color: transparent !important;
+    }
+    
+    h6 {
+        color: #3A3845;
+        border-top: #3A3845;
+    }
+    
+    .border-top {
+        color: #3A3845 !important;
+    }
 
-/*====================LIST GROUP REQUEST===================================*/
-.btn-outline-info{
-    color: #3A3845;
-    border-color: #F7CCAC;
-    background-color: #F7CCAC;
-}
-.btn-outline-info:hover{
-    background-color: #3A3845;
-    border-color: #F7CCAC;
-}
-.btn-outline-info:active{
-    background-color: #94B49F;
-    color: #F7CCAC;
-}
-
-.list-group-item{
-    color:#3A3845;
-    background-color: transparent !important;
-}
-h6{
-    color: #3A3845;
-    border-top: #3A3845;
-}
-.border-top{
-    color: #3A3845;
-}
-.border-bottom{
+    
+    .border-bottom {
+        color: #3A3845 !important;
+    }
+    /*=====================================BADGE COLORS=======================================*/
+    .badge{
+        color: #F7CCAC;
+    }
+    /*=====================================OFFCANVAS COLORS=======================================*/
+    .offcanvas{
+        background-color: #789395;
+    }
+    .offcanvas-title{
+        color: #3A3845;
+    }
+.text-decoration-underline{
     color: #3A3845 !important;
 }
