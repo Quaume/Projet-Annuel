@@ -33,17 +33,11 @@ require '../../functions/functions.php';
                         <img src="../../ressources/IMAGES-HEADER/Utrack_logo.png" width="150" height="65" alt="Logo">
                     </a>
 
-<<<<<<< HEAD
                     <a href=../../functions/testback.php>
                     Test back
                     </a>    
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-=======
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
->>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -128,72 +122,7 @@ require '../../functions/functions.php';
                                 <img src="../../ressources/IMAGES-HEADER/logout.png" class="ms-3" width="40"
                                     alt="logout">
                             </a>
-<<<<<<< HEAD
-
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Deuxième Dropdown -->
-                        <div class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown link
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Troisième Dropdown -->
-                        <div class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown link
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                        <!-- LIGHTMODE-DARKMODE -->
-                        <div class="switchMode mt-1 me-5">
-                            <a href="" id="lightMode">
-                                <img src="../../ressources/IMAGES-HEADER/DARKMODE.png" width="80px" alt="">
-                            </a>
-                        </div>
-        
-                        <!--SEARCH-BAR-->
-
-                        <div class="mt-1">
-                            <form class="d-flex justify-content-center form-inline my-2 my-lg-0 me-5">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                <a href="#">
-                                    <img src="../../ressources/IMAGES-HEADER/search-logo2.png" class="search img-responsive ms-2 mt-1" alt="Search">
-                                </a>                                   
-                            </form>
-                        </div>
-
-                        <a href="dash-board.php">
-                            <?php printf(getUserUsername()) ?>
-                            <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile ms-3" alt="profile">
-                        </a>
-
-                        <a href="../../functions/logout.php" class="ps-3 mt-1">
-                            <img src="../../ressources/IMAGES-HEADER/logout.png" class="ms-3" width="40" alt="logout">
-                        </a>
-
-=======
                         </ul>
->>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
                     </div>
                 </nav>
             </div>

@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include "header-home.php";
 ?>
     <!-- CAROUSEL -->
