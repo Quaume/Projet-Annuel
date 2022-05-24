@@ -38,6 +38,9 @@ $accountType = $_POST["accountType"];
 $cgu = $_POST["cgu"];
 
 
+//SESSION USERNAME
+$_SESSION["userName"] = $username;
+
 
 //nettoyer les données
 
@@ -47,6 +50,7 @@ $accountType = strtolower(trim($accountType));
 
 //vérifier les données
 $errors = [];
+$verified = [];
 
 // Message compte inscrit
 $confirm = [];
@@ -118,6 +122,7 @@ if(count($errors) != 0){
 	$_SESSION['errors'] = $errors;
 	header("Location: ../LR_SESSIONS/signUp.php");
 	
+<<<<<<< HEAD
 }else{
 	$confirm[] = "Your account has been created successfully";
 	$_SESSION['confirm'] = $confirm;
@@ -137,43 +142,72 @@ if(count($errors) != 0){
 	/*=======================FONCTION PHP MAILER=====================================*/
 		function sendConfirmMail($to, $userKey, &$errors){
 			$mail = new PHPMailer(true);
+=======
+}else {
+    $userKey = rand(100000, 999999);
+    $queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users(username, email, birthday, pwd, accountType,userKey) VALUES (:username, :email, :birthday, :pwd, :accountType, :userKey);");
+>>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
 
-			try {
-				//Server settings
-				$mail->isSMTP();                                            
-				$mail->Host       = 'smtp.gmail.com';                     
-				$mail->SMTPAuth   = true;                                   
-				$mail->Username   = 'utrack.off@gmail.com';                     
-				$mail->Password   = 'utrackOff777';                               
-				$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            
-				$mail->Port       = 587;                                   
+    $pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-				//Recipients
-				$mail->setFrom('utrack.off@gmail.com', 'Utrack');
-				$mail->addAddress($to);                                 
+    $queryPrepared->execute(
+        ["username" => $username,
+            "email" => $email,
+            "birthday" => $birthday,
+            "pwd" => $pwd,
+            "accountType" => $accountType,
+            "userKey" => $userKey]
+    );
+    /*=======================FONCTION PHP MAILER=====================================*/
+    function sendConfirmMail($to, $userKey, &$errors)
+    {
+        $mail = new PHPMailer(true);
 
+<<<<<<< HEAD
 				//Content
 				$mail->isHTML(true);                                 
 				$mail->Subject = 'Utrack confirmation e-mail !';
 				$mail->Body    = 'Validate your account.<br>
 				<a href="http://localhost/ProjetAnnuel/html/functions/confirmLink.php?id='.$_SESSION['id'].'&userKey='.$userKey.'">
+=======
+        try {
+            //Server settings
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'utrack.off@gmail.com';
+            $mail->Password = 'utrackOff777';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+
+            //Recipients
+            $mail->setFrom('utrack.off@gmail.com', 'Utrack');
+            $mail->addAddress($to);
+
+            //Content
+            $mail->isHTML(true);
+            $mail->Subject = 'Utrack confirmation e-mail !';
+            $mail->Body = 'Validate your account.<br>
+				<a href="http://localhost/Projet-Annuel/html/functions/confirmLink.php?id=' . $_SESSION['id'] . '&userKey=' . $userKey . '">
+>>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
 					Confirmation link
 				</a>';
 
-				$mail->send();
-			} catch (Exception $e) {
-				$errors[] = 'Failed to send email, please try again.';
-			}
-		}
-	/*============================================================*/
-
-	sendConfirmMail($email, $userKey, $errors);
-
-	if (count($errors) != 0) {
-        $_SESSION['errors'] = $errors;
+            $mail->send();
+        } catch (Exception $e) {
+            $errors[] = 'Failed to send email, please try again.';
+        }
     }
-    else {
-        //$_SESSION['verified'] = 1;
-		header("Location: ../LR_SESSIONS/signIn.php");
+
+    /*============================================================*/
+
+    sendConfirmMail($email, $userKey, $errors);
+
+    if (count($errors) != 0) {
+        $_SESSION['errors'] = $errors;
+    } else {
+        //$_SESSION['confirm'] = 1;
+        header("Location: ../LR_SESSIONS/signIn.php");
     }
 }
+

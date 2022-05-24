@@ -1,12 +1,13 @@
 <?php
 require "config.inc.php";
+session_start();
 
 function connectDB(){
 	//création d'une nouvelle connexion à notre bdd
 	try{
 		
 		$pdo = new PDO( DB_DRIVER.":host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT , DB_USER , DB_PWD );
-
+		
     	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
@@ -54,17 +55,114 @@ function isConnected(){
 
 /* User Informations */
 
-function getUserUsername($token){
+// All Users 
 
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT id FROM utrackpa_users WHERE email=:email AND token=:token");	
-	$queryPrepared->execute(["email"=>$_SESSION["email"], "token"=>$token]);
+function getAllUsers(){
 	
-	return $queryPrepared->fetch();
-
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
 }
 
 
+// Username
+function getUserUsername(){
 
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT username FROM utrackpa_users WHERE token=:token");	
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
 
+}
 
+// Birthday
+function getUserBirthday(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT birthday FROM utrackpa_users WHERE token=:token");	
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+// Id
+function getUserId(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT id FROM utrackpa_users WHERE token=:token");	
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+// AccountType
+function getUserAccountType(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT accountType FROM utrackpa_users WHERE token=:token");	
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+// Email
+function getUserEmail(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT email FROM utrackpa_users WHERE token=:token");	
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+// Date Inserted
+function getUserDateInserted(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT dateInserted FROM utrackpa_users WHERE token=:token");	
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+// Date Updated
+function getUserDateUpdated(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT dateUpdated FROM utrackpa_users WHERE token=:token");	
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+// Verified
+function getUserVerified(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT verified FROM utrackpa_users WHERE token=:token");	
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	if($queryPrepared->fetch()[0] == 1){
+		return(
+			"Your account has been verified"
+		);
+	} else if ($queryPrepared->fetch() == 0){
+		return(
+			"Your account must be verified"
+		);
+	} else {
+		return(
+			"What are you doing with our website ?"
+		);
+	}
+
+}

@@ -13,6 +13,18 @@ a{
 a:hover{
     color: #5f7d80;
 }
+/*=============================DROPDOWN===================================*/
+/*UL BACKGROUND*/
+.dropdown-menu{
+    color: #3A3845;
+    background-color: #F7CCAC !important;
+}
+/*LI FOCUS*/
+.dropdown-item:focus, .dropdown-item:hover{
+    color: #F7CCAC;
+    background-color: #3A3845 !important;
+}
+/*================================================================*/
 /*================================================================*/
 /* Toggle switch TEST*/
 /*
