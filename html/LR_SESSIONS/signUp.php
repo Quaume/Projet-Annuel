@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	require "../functions/functions.php";
 ?>
 
@@ -11,7 +10,7 @@
      <div class="col-lg-4 col-sm-3 col-0 "></div>
      <div class="col-lg-4 col-sm-6 col-12 commoncontainer">
 
-         <?php
+            <?php
 				if(!empty($_SESSION['errors'])){
 					echo "<div class='errors mt-3'>";
                     foreach ($_SESSION['errors'] as $error){
@@ -20,7 +19,7 @@
                     echo "</div>";
 					unset($_SESSION['errors']);
 				}
-			?>
+		    ?>
 
          <h2 class="mt-3">Sign Up</h2>
 
@@ -74,6 +73,8 @@
             </div>
         </div>
         </div>
+        <!-- Fin Modal -->
+
          <input type="checkbox" name="cgu"  required="required" class="mt-3"><a type="button" class="formsbtns px-2" href='cgu.html'>CGU</a><br> 
          <input type="submit" disabled="disabled" id="signUp" class="form-control-md text-center mt-3 formsbtns px-4 py-1" value="Sign Up"> 
 

@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	require "../functions/functions.php";
 ?>
 
@@ -39,6 +38,16 @@
                     }
 
                 }
+
+				if(!empty($_SESSION['confirm'])){
+					echo "<div class='confirm mt-3'>";
+                    foreach ($_SESSION['confirm'] as $confirm){
+                        echo "$confirm<br>";
+                    }
+                    echo "</div>";
+					unset($_SESSION['confirm']);
+				}
+
             ?>
                     
             <h2 class="mt-4 text-center">Sign In</h2>

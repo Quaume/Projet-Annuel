@@ -1,3 +1,6 @@
+<?php
+require '../../functions/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +27,10 @@
                     <a class="navbar-brand ms-5" href="Home.php">
                         <img src="../../ressources/IMAGES-HEADER/Utrack_logo.png"  width="150" height="65" alt="Logo">
                     </a>
+
+                    <a href=../../functions/testback.php>
+                    Test back
+                    </a>    
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -93,9 +100,8 @@
                             </form>
                         </div>
 
-
-
                         <a href="dash-board.php">
+                            <?php printf(getUserUsername()) ?>
                             <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile ms-3" alt="profile">
                         </a>
 

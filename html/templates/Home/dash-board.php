@@ -1,6 +1,4 @@
 <?php
-session_start();
-require "../../functions/functions.php"; 
 include "header-home.php"; 
 ?>
 <div class="container mt-5">

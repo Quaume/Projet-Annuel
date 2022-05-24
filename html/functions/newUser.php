@@ -48,6 +48,9 @@ $accountType = strtolower(trim($accountType));
 //vérifier les données
 $errors = [];
 
+// Message compte inscrit
+$confirm = [];
+
 //Email OK
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 	$errors[] = "Email is not valid";
@@ -116,9 +119,11 @@ if(count($errors) != 0){
 	header("Location: ../LR_SESSIONS/signUp.php");
 	
 }else{
+	$confirm[] = "Your account has been created successfully";
+	$_SESSION['confirm'] = $confirm;
+
 	$userKey = rand(100000,999999);
 	$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users(username, email, birthday, pwd, accountType,userKey) VALUES (:username, :email, :birthday, :pwd, :accountType, :userKey);");
-	
 	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
 	
 	$queryPrepared->execute(
@@ -151,7 +156,7 @@ if(count($errors) != 0){
 				$mail->isHTML(true);                                 
 				$mail->Subject = 'Utrack confirmation e-mail !';
 				$mail->Body    = 'Validate your account.<br>
-				<a href="http://localhost/Projet-Annuel/html/functions/confirmLink.php?id='.$_SESSION['id'].'&userKey='.$userKey.'">
+				<a href="http://localhost/ProjetAnnuel/html/functions/confirmLink.php?id='.$_SESSION['id'].'&userKey='.$userKey.'">
 					Confirmation link
 				</a>';
 
