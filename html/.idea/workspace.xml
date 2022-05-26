@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5bac2197-d769-4f39-914f-756c4134b9e9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TEST" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/IMAGES-HEADER/dark-txt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/IMAGES-HEADER/light-txt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/IMAGES-HEADER/nightMode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/IMG-CONTENT/Mr.morale.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ressources/IMG-CONTENT/placeholder1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LR_SESSIONS/signUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/LR_SESSIONS/signUp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/IMAGES-HEADER/DARKMODE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/IMAGES-HEADER/lightmode.png" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/IMAGES-HEADER/lightmode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/dash-board.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/dash-board.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Home/header-home.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Home/header-home.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="9ceda42a-4dba-4890-bf2a-2af566533d1e" />
+        <option name="url" value="https://github.com/Quaume/Projet-Annuel.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.0.8" />
+  <component name="ProjectId" id="28yrynd4HCNvZ4jAATxUaiPd68U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Applications/MAMP/htdocs/Projet-Annuel/html",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ssh.settings",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "mariadb"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/utrackForum/includes/forum-layout" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dash-board.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://utrack.website/templates/Home/dash-board.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.dash-board.php" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5bac2197-d769-4f39-914f-756c4134b9e9" name="Changes" comment="" />
+      <created>1652199924012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652199924012</updated>
+      <workItem from="1652199925444" duration="1180000" />
+      <workItem from="1652280275727" duration="3916000" />
+      <workItem from="1652285133372" duration="317000" />
+      <workItem from="1652285606309" duration="143000" />
+      <workItem from="1652286315416" duration="2763000" />
+      <workItem from="1652289092892" duration="59291000" />
+      <workItem from="1653325578262" duration="2633000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

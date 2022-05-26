@@ -79,7 +79,7 @@
 
          </form>
 
-         <input type="button" onclick="window.location.href='signIn.php'" class="form-control-md text-center mt-4 formsbtns px-3 py-1 mb-5" value="I Already Have An Account"> 
+            <input type="button" onclick="window.location.href='signIn.php'" class="form-control-md text-center mt-4 formsbtns px-3 py-1 mb-5" value="I Already Have An Account">
 
      </div>
 

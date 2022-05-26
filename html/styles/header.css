@@ -1,20 +1,50 @@
-.header{
+.header {
     position: relative;
     background-color: #3A3845;
-    color: #789395;   
+    color: #789395;
     top: 0px;
     font-size: 17px;
 }
 
-a{
+a {
     text-decoration: none;
     color: #789395;
 }
-a:hover{
+
+a:hover {
     color: #5f7d80;
 }
+
+<<<<<<< Updated upstream=======
+/*=============================DROPDOWN===================================*/
+
+
+/*UL BACKGROUND*/
+
+.dropdown-menu {
+    color: #3A3845;
+    background-color: #F7CCAC !important;
+}
+
+
+/*LI FOCUS*/
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: #F7CCAC;
+    background-color: #3A3845 !important;
+}
+
+
 /*================================================================*/
+
+>>>>>>>Stashed changes
+/*================================================================*/
+
+
 /* Toggle switch TEST*/
+
+
 /*
 .switch{
     position: relative;
@@ -59,17 +89,31 @@ input:checked + .slider:before{
 
 /*----------------------------------------------------------------*/
 
-input.form-control{
+input.form-control {
     border-color: #3A3845;
     outline-color: #3A3845 !important;
+    color: #F7CCAC;
 }
-.form-control:focus{
+
+.form-control:focus {
     border-color: #3A3845;
 }
+
+
 /*SEARCH-BTN*/
-.search{
+
+.search {
     height: 30px;
     width: 30px;
 }
 
+.form-switch .form-check-input {
+    background-image: url(../ressources/IMAGES-HEADER/nightMode.png) !important;
+    background-color: #FFF6EA !important;
+}
 
+.form-switch .form-check-input:checked {
+    background-image: url(../ressources/IMAGES-HEADER/lightmode.png) !important;
+    background-color: #3A3845 !important;
+    border-color: #3A3845 !important;
+}

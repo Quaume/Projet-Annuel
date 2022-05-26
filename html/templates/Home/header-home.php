@@ -54,17 +54,34 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 </div>
-                            </li>
-                            
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+
+                            <!-- LIGHTMODE-DARKMODE -->
+                            <div class="switchMode mt-2 me-5">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                </div>
+                            </div>
+
+                            <!--SEARCH-BAR-->
+
+                            <div class="mt-1">
+                                <form class="d-flex justify-content-center form-inline my-2 my-lg-0 me-5">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <a href="#">
+                                        <img src="../../ressources/IMAGES-HEADER/search-logo2.png"
+                                            class="search img-responsive ms-2 mt-1" alt="Search">
+                                    </a>
+                                </form>
+                            </div>
+
+                            <div class="img-thumbnail img-circle">
+                                <div type="file" id="formFile">
+                                    <a href="dash-board.php">
+                                        <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile img-circle" type="file" >
+                                    </a>
+                                    <span class="position-absolute"></span>
                                 </div>
                             </li>
                         </ul>
