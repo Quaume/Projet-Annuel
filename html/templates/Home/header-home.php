@@ -46,8 +46,8 @@ require '../../functions/functions.php';
 
 
                             <!-- DropDowns -->
-                            <div class="d-flex me-5">
-                                <!-- Premier Dropdown -->
+                            <div class="d-flex mt-2 me-5">
+                                <!-- First Dropdown -->
                                 <div class="dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +61,7 @@ require '../../functions/functions.php';
                                     </ul>
                                 </div>
 
-                                <!-- Deuxième Dropdown -->
+                                <!-- Second Dropdown -->
                                 <div class="dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,7 +74,7 @@ require '../../functions/functions.php';
                                     </ul>
                                 </div>
 
-                                <!-- Troisième Dropdown -->
+                                <!-- Third Dropdown -->
                                 <div class="dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,15 +89,15 @@ require '../../functions/functions.php';
                             </div>
 
                             <!-- LIGHTMODE-DARKMODE -->
-                            <div class="switchMode mt-1 me-5">
-                                <a href="" id="lightMode">
-                                    <img src="../../ressources/IMAGES-HEADER/DARKMODE.png" width="80px" alt="">
-                                </a>
+                            <div class="switchMode mt-3 me-5">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                </div>
                             </div>
 
                             <!--SEARCH-BAR-->
 
-                            <div class="mt-1">
+                            <div class="mt-2">
                                 <form class="d-flex justify-content-center form-inline my-2 my-lg-0 me-5">
                                     <input class="form-control mr-sm-2" type="search" placeholder="Search"
                                         aria-label="Search">
@@ -117,10 +117,9 @@ require '../../functions/functions.php';
                                 </div>
                             </div>
 
-
+                        <!--logout--->
                             <a href="../../functions/logout.php" class="ps-3 mt-1">
-                                <img src="../../ressources/IMAGES-HEADER/logout.png" class="ms-3" width="40"
-                                    alt="logout">
+                                <img src="../../ressources/IMAGES-HEADER/logout.png" class="ms-3 mt-1" width="40" alt="logout">
                             </a>
                         </ul>
                     </div>
