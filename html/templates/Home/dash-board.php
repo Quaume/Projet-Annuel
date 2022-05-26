@@ -333,13 +333,15 @@ include "header-home.php";
             <div class="row">
                 <div class="col-6 mt-3">
                     <!---CREATE TRACK------>
-                    <div class="d-inline-flex p-2 mb-5">
+                    <div class="d-inline-flex p-2">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-dark darkBlock" data-bs-toggle="modal"
-                            data-bs-target="#myFirstModal">
-                            <img src="../../ressources/IMG-CONTENT/note.png" width="60" alt="">
-                            <p class="subtitle pt-1">Create Track</p>
-                        </button>
+                        <div class="">
+                            <button type="button" class="btn darkBlock" data-bs-toggle="modal"
+                                data-bs-target="#myFirstModal">
+                                <img src="../../ressources/IMG-CONTENT/note.png" width="60" alt="">
+                                <p class="subtitle pt-1">Create Track</p>
+                            </button>
+                        </div>
 
                         <!-- Modal Create track-->
                         <div class="modal fade" id="myFirstModal">
@@ -358,14 +360,13 @@ include "header-home.php";
                                             <label for="trackType" class="form-label">TRACK TYPE</label>
                                             <select id="trackType" class="form-select">
                                             <option selected>Beat..</option>
-                                            <option>...</option>
-                                            <option>...</option>
-                                            <option>...</option>
-                                            <option>...</option>
-                                            <option>...</option>
-                                            <option>...</option>
-                                            <option>...</option>
-                                            <option>...</option>
+                                            <option>Trap</option>
+                                            <option>Rap / Old School</option>
+                                            <option>R&B</option>
+                                            <option>Pop Rock</option>
+                                            <option>Latin Pop</option>
+                                            <option>Uk Drill</option>
+                                            <option>Jersey Concept</option>
                                             </select>
                                         </div>
                                     </div>
@@ -378,7 +379,7 @@ include "header-home.php";
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        <button type="submit" class="btn btn-primary">Create Track</button>
                                     </div>
                                 </div>
                             </div>
@@ -387,32 +388,102 @@ include "header-home.php";
 
                     <div class="d-inline-flex p-2">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-light darkBlock" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                            <img src="../../ressources/IMG-CONTENT/vinyl.png" width="60" alt="">
-                            <p class="subtitle pt-1">Create Track</p>
-                        </button>
+                        <div class="mt-5">
+                            <button type="button" class="btn darkBlockF" data-bs-toggle="modal"
+                                data-bs-target="#myFirstModal2">
+                                <img src="../../ressources/IMG-CONTENT/doc.png" width="60" alt="">
+                                <p class="subtitle pt-1">My Files</p>
+                            </button>
+                        </div>
+                        <!-- Modal File track-->
+                        <div class="modal fade" id="myFirstModal2">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">My File</div>
+                                    <div class="modal-body"></div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal2">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-6 mt-3">
-                    <div class="d-inline-flex p-2 mb-5">
+                <div class="d-inline-flex p-2 mb-5">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-info darkBlock" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                            <img src="../../ressources/IMG-CONTENT/doc.png" width="55" alt="">
-                            <p class="subtitle pt-1">Create Track</p>
+                        <button type="button" class="btn darkBlock" data-bs-toggle="modal"
+                            data-bs-target="#myFirstModal3">
+                            <img src="../../ressources/IMG-CONTENT/vinyl.png" width="55" alt="">
+                            <p class="subtitle pt-1">Create Album</p>
                         </button>
+
+                        <!-- Modal Album-->
+                        <div class="modal fade" id="myFirstModal3">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header"></div>
+                                    <div class="modal-body">
+                                    <form class="row g-3">
+                                    <div class="d-flex flex-column mb-3">
+                                        <div class="col-md-8">
+                                            <label for="inputTitle" class="form-label">Title*</label>
+                                            <input type="text" class="form-control" id="inputTitle" placeholder="New Track">
+                                        </div>
+                                        
+                                        <div class="col-md-4 mt-5">
+                                            <label for="trackType" class="form-label">TRACK TYPE</label>
+                                            <select id="trackType" class="form-select">
+                                            <option selected>Beat..</option>
+                                            <option>Trap</option>
+                                            <option>Rap / Old School</option>
+                                            <option>R&B</option>
+                                            <option>Pop Rock</option>
+                                            <option>Latin Pop</option>
+                                            <option>Uk Drill</option>
+                                            <option>Jersey Concept</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <label for="formFileLg" class="form-label">Large file input example</label>
+                                        <input class="form-control form-control-lg" id="formFileLg" type="file">
+                                    </div>
+                                    </form>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal3">Close</button>
+                                        <button type="submit" class="btn btn-primary">Create Album</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
-                    <div class="d-inline-flex p-2">
+                    <div class="d-inline-flex p-2 mb-5">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-warning darkBlock" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                            <img src="../../ressources/IMG-CONTENT/notif.png" width="55" alt="">
+                        <button type="button" class="btn darkBlock" data-bs-toggle="modal"
+                            data-bs-target="#myFirstModal4">
+                            <img src="../../ressources/IMG-CONTENT/notif.png" width="60" alt="">
                             <p class="subtitle pt-1">Create Track</p>
                         </button>
+
+                        <!-- Modal Notif-->
+                        <div class="modal fade" id="myFirstModal4">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">NOTIF</div>
+                                    <div class="modal-body"></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal4">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
