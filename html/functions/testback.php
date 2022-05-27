@@ -86,8 +86,5 @@ echo("Récupération de tous les Utilisateurs =>");
         }
 
         ?>
-
-                            
-
     </tbody>
 </table>

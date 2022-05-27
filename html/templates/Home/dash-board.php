@@ -142,7 +142,9 @@ include "header-home.php";
     <!-- PROFILE USER -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-            <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle profile">
+            <a href="#" alt="Modify my profile">
+                <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle profile">
+            </a>
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">@Username</h5>
             <br>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -156,6 +158,7 @@ include "header-home.php";
                 <div class="list-group">
                     <a href="#" class="text-center list-group-item list-group-item-action">Change my profile image</a>
                     <a href="#" class="text-center list-group-item list-group-item-action">Make an Avatar</a>
+                    <a href="../../functions/testback.php" class="text-center list-group-item list-group-item-action">My Account</a>
                     <a href="#" class="text-center list-group-item list-group-item-action">Edit Bio</a>
                 </div>
             </div>

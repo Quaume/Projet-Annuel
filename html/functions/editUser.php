@@ -3,7 +3,7 @@ require "functions.php";
 
 //Vérification de l'utilisateur
 
-$id = $_GET["id"];
+$id = $_SESSION["id"];
 
 if(!isConnected()){
 	die("Il faut se connecter !!!");
@@ -22,20 +22,23 @@ if(!isConnected()){
         <th>Id</th>
         <th>Username</th>
         <th>Email</th>
+        <th>Profile Image</th>
     </tr>
          <tr>
             <td>'.$user["id"].'</td>
             <td>'.$user["username"].'</td>
             <td>'.$user["email"].'</td>
+            <td>'.$user["img_profile"].'</td>
         </tr>
     </table>
     <h1>Vos modifications</h1>
-        <form method="POST" action="editedUser.php?id='.$user["id"].'">
+        <form method="POST" action="editedUser.php?id='.$user["id"].'" enctype="multipart/form-data">
             
             <input type="text" class="form-control" name="username" placeholder="Votre username"><br>
             <input type="email" class="form-control" name="email" placeholder="Votre email"><br>
             <input type="text" class="form-control" name="pwd" placeholder="Votre nouveau mot de passe"><br>
 
+            <input type="file" class="btn btn-primary" name="img-profile"><br>
             <input type="submit" class="btn btn-primary" value="Valider les modifications">
 
         </form>

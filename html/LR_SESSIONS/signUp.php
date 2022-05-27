@@ -1,6 +1,4 @@
 <?php
-	session_start();
-
 	require "../functions/functions.php";
 ?>
 <?php include "formheader.php"?>
