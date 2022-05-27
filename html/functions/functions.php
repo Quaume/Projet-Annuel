@@ -99,7 +99,14 @@ function getUserId(){
 	return $queryPrepared->fetch()[0];
 
 }
+//img_profile
+function getUserImg(){
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_users WHERE token=:token");
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
 
+	return $queryPrepared->fetch()[0];
+}
 // AccountType
 function getUserAccountType(){
 

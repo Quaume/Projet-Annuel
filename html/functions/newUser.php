@@ -122,31 +122,9 @@ if(count($errors) != 0){
 	$_SESSION['errors'] = $errors;
 	header("Location: ../LR_SESSIONS/signUp.php");
 	
-<<<<<<< HEAD
-}else{
-	$confirm[] = "Your account has been created successfully";
-	$_SESSION['confirm'] = $confirm;
-
-	$userKey = rand(100000,999999);
-	$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users(username, email, birthday, pwd, accountType,userKey) VALUES (:username, :email, :birthday, :pwd, :accountType, :userKey);");
-	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
-	
-	$queryPrepared->execute(
-		["username"=>$username,
-		"email"=>$email,
-		"birthday"=>$birthday,
-		"pwd"=>$pwd,
-		"accountType"=>$accountType,
-		"userKey"=>$userKey]
-	);
-	/*=======================FONCTION PHP MAILER=====================================*/
-		function sendConfirmMail($to, $userKey, &$errors){
-			$mail = new PHPMailer(true);
-=======
 }else {
     $userKey = rand(100000, 999999);
     $queryPrepared = $pdo->prepare("INSERT INTO utrackpa_users(username, email, birthday, pwd, accountType,userKey) VALUES (:username, :email, :birthday, :pwd, :accountType, :userKey);");
->>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
 
     $pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
@@ -163,13 +141,6 @@ if(count($errors) != 0){
     {
         $mail = new PHPMailer(true);
 
-<<<<<<< HEAD
-				//Content
-				$mail->isHTML(true);                                 
-				$mail->Subject = 'Utrack confirmation e-mail !';
-				$mail->Body    = 'Validate your account.<br>
-				<a href="http://localhost/ProjetAnnuel/html/functions/confirmLink.php?id='.$_SESSION['id'].'&userKey='.$userKey.'">
-=======
         try {
             //Server settings
             $mail->isSMTP();
@@ -189,7 +160,6 @@ if(count($errors) != 0){
             $mail->Subject = 'Utrack confirmation e-mail !';
             $mail->Body = 'Validate your account.<br>
 				<a href="http://localhost/Projet-Annuel/html/functions/confirmLink.php?id=' . $_SESSION['id'] . '&userKey=' . $userKey . '">
->>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
 					Confirmation link
 				</a>';
 

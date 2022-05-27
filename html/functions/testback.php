@@ -40,6 +40,8 @@ echo "<br> Date updated : ";
 printf(getUserDateUpdated());
 echo "<br> Verified : ";
 printf(getUserVerified());
+echo "<br> Image Profile : ";
+printf(getUserImg());
 
 echo "<br><br><br><br><br>";
 
@@ -48,6 +50,7 @@ echo("Récupération de tous les Utilisateurs =>");
     <table class="table">
     <thead>
         <tr>
+            <th>Image Profile</th>
             <th>Id</th>
             <th>Username</th>
             <th>Birthday</th>
@@ -65,6 +68,7 @@ echo("Récupération de tous les Utilisateurs =>");
         foreach (getAllUsers() as $user){
             echo '<tr>
 
+                    <td>'.$user["img_profile"].'</td>
                     <td>'.$user["id"].'</td>
                     <td>'.$user["username"].'</td>
                     <td>'.$user["birthday"].'</td>
@@ -86,8 +90,5 @@ echo("Récupération de tous les Utilisateurs =>");
         }
 
         ?>
-
-                            
-
     </tbody>
 </table>

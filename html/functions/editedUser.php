@@ -19,6 +19,7 @@ $user = $queryPrepared->fetch();
 $email = $_POST["email"];
 $username = $_POST["username"];
 $pwd = $_POST["pwd"];
+$img_profile = $_FILES["img-profile"];
 
 //nettoyer les données
 
@@ -29,6 +30,32 @@ $pwd = trim($pwd);
 //vérifier les données
 $errors = [];
 $confirm = [];
+
+//img-profile
+if(isset($img_profile) && !empty($img_profile['name'])){
+	$max_size = 2097152;
+	$extension = array('jpeg','jpg','png');
+	if($img_profile['size'] <= $max_size){
+		//je renvoie l'extension de fichier en ignorant le caractère '.'
+		$extensionUpload = strtolower(substr(strrchr($img_profile['name'], '.'),1));
+		if(in_array($extensionUpload, $extension)){
+			// Creation de chemin du fichier
+			$path = "../ressources/img-profile/".$username.".".$extensionUpload;
+			//On va deplacer se fichier stocker temporairement et le placer dans path
+			$result = move_uploaded_file($img_profile['tmp_name'],$path);
+			if($result){
+				$queryPrepared = $pdo->prepare("UPDATE utrackpa_users SET img_profile = :img_profile WHERE id =:id");
+				$queryPrepared->execute(array(
+					'img_profile'=>$username.'.'.$extensionUpload,
+					'id'=>$id));	
+			}else{
+				$error[] = "Failed import";
+			}
+		}
+	}else{
+		$errors[] = "Your profile picture should not exceed 2Mb";
+	}
+}
 
 //Email OK
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
