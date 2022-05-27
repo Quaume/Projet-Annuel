@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-<?php
-	require "../functions/functions.php";
-?>
-=======
 <?php	require "../functions/functions.php"; ?>
->>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
 
 <?php include "formheader.php"; ?>
     <div class="container-fluid mb-4 pt-2">

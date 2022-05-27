@@ -141,7 +141,7 @@ include "header-home.php";
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
                     <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle profile">
-                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">@Username</h5>
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel"><?php printf(getUserUsername());?></h5>
                     <br>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
@@ -174,7 +174,7 @@ include "header-home.php";
                     <p class="text-center mb-1">Hello Utrack !</p>
 
                     <div class="d-flex justify-content-center">
-                        <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since DD/MM/YYYY</p>
+                        <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since <?php printf(getUserDateInserted()); ?></p>
                         <br>
                     </div>
 

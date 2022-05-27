@@ -1,20 +1,12 @@
 <?php
-<<<<<<< HEAD
-=======
-	session_start();
-
->>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
 	require "../functions/functions.php";
 ?>
 <?php include "formheader.php"?>
 <div class="container-fluid mt-1">
 
-<<<<<<< HEAD
-=======
-    <div class="row header text-center form-group" </div>
+    <div class="row header text-center form-group">
         <div class="col-lg-4 col-sm-3 col-0 "></div>
         <div class="col-lg-4 col-sm-6 col-12 commoncontainer">
->>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
             <?php
 				if(!empty($_SESSION['errors'])){
 					echo "<div class='errors mt-3'>";
@@ -97,14 +89,6 @@
                 class="form-control-md text-center mt-4 formsbtns px-3 py-1 mb-5" value="I Already Have An Account">
 
         </div>
-<<<<<<< HEAD
-        </div>
-        <!-- Fin Modal -->
-
-         <input type="checkbox" name="cgu"  required="required" class="mt-3"><a type="button" class="formsbtns px-2" href='cgu.html'>CGU</a><br> 
-         <input type="submit" disabled="disabled" id="signUp" class="form-control-md text-center mt-3 formsbtns px-4 py-1" value="Sign Up"> 
-=======
->>>>>>> d36f9c4d1dcc918a8e5b2b6b06a93d40c733ad30
 
         <div class="col-lg-4 col-sm-3 col-0"></div>
 
