@@ -174,7 +174,7 @@ include "header-home.php";
                     <p class="text-center mb-1">Hello Utrack !</p>
 
                     <div class="d-flex justify-content-center">
-                        <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since <?php printf(getUserDateInserted()); ?></p>
+                        <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since DD/MM/YYYY</p>
                         <br>
                     </div>
 
