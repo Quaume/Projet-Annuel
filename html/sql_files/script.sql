@@ -1,3 +1,10 @@
+create table utrackpa_admins
+(
+    id         int         not null
+        primary key,
+    name_admin varchar(30) not null
+);
+
 create table utrackpa_albums
 (
     id            int auto_increment
@@ -9,12 +16,43 @@ create table utrackpa_albums
     img_profile   varchar(255) default '0'               not null
 );
 
+create table utrackpa_favoris_track
+(
+    id        int         not null
+        primary key,
+    trackName varchar(20) null,
+    artist    varchar(20) null
+);
+
 create table utrackpa_followers
 (
     id        int auto_increment
         primary key,
     followers int null,
     following int null
+);
+
+create table utrackpa_forum
+(
+    id            int auto_increment
+        primary key,
+    title         varchar(20)                         not null,
+    dateOfRelease timestamp default CURRENT_TIMESTAMP not null,
+    category      varchar(20)                         not null,
+    subCategory   varchar(20)                         not null,
+    likes         int                                 null,
+    author        varchar(20)                         not null
+);
+
+create table utrackpa_messages
+(
+    user_id        int                                 not null
+        primary key,
+    title          varchar(20)                         not null,
+    messageContent varchar(255)                        not null,
+    author         int                                 not null,
+    date_writted   timestamp default CURRENT_TIMESTAMP not null,
+    likes          int                                 null
 );
 
 create table utrackpa_newsletter
