@@ -1,12 +1,14 @@
 <?php  
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require "functions.php";  
-
 //Vérification de l'utilisateur
 
 $id = $_SESSION["id"];
 
 if(!isConnected()){
-	die("Il faut se connecter !!!");
+	die("You need to log in !!!");
 }
     $pdo = connectDB();
 
@@ -28,7 +30,11 @@ if(!isConnected()){
             <td>'.$user["id"].'</td>
             <td>'.$user["username"].'</td>
             <td>'.$user["email"].'</td>
-            <td>'.$user["img_profile"].'</td>
+            <td>'.var_dump($user[0]);
+                //if(!empty($user["img_profile"])){
+                    '<img src="../ressources/img-profile/<?=var_dump($user[0]);? width="80">'
+                //}
+            .'</td>
         </tr>
     </table>
     <h1>Vos modifications</h1>

@@ -40,7 +40,7 @@ if(isset($img_profile) && !empty($img_profile['name'])){
 		$extensionUpload = strtolower(substr(strrchr($img_profile['name'], '.'),1));
 		if(in_array($extensionUpload, $extension)){
 			// Creation de chemin du fichier
-			$path = "../ressources/img-profile".$username.".".$extensionUpload;
+			$path = "../ressources/img-profile/".$username.".".$extensionUpload;
 			//On va deplacer se fichier stocker temporairement et le placer dans path
 			$result = move_uploaded_file($img_profile['tmp_name'],$path);
 			if($result){
