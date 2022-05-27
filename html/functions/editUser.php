@@ -12,7 +12,7 @@ if(!isConnected()){
 }
     $pdo = connectDB();
 
-    $queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users");
+    $queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users WHERE id = $id");
     $queryPrepared->execute();
     $user = $queryPrepared->fetch();
     echo'
@@ -30,10 +30,8 @@ if(!isConnected()){
             <td>'.$user["id"].'</td>
             <td>'.$user["username"].'</td>
             <td>'.$user["email"].'</td>
-            <td>'.var_dump($user[0]);
-                //if(!empty($user["img_profile"])){
-                    '<img src="../ressources/img-profile/<?=var_dump($user[0]);? width="80">'
-                //}
+            <td>
+            <img src="../ressources/img-profile/'.$user["img_profile"].' "width="80">'
             .'</td>
         </tr>
     </table>
@@ -50,7 +48,6 @@ if(!isConnected()){
         </form>
 
     ';
-
     if(!empty($_SESSION['errors'])){
         foreach($_SESSION['errors'] as $error){
             echo
