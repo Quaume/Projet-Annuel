@@ -38,7 +38,7 @@ if(!isConnected()){
             <input type="email" class="form-control" name="email" placeholder="Votre email"><br>
             <input type="text" class="form-control" name="pwd" placeholder="Votre nouveau mot de passe"><br>
 
-            <input type="file" class="btn btn-primary" name="img-profile"><br>
+            <input type="file" class="btn btn-primary" name="img-profile" accept=".png,.jpg,.jpeg"><br>
             <input type="submit" class="btn btn-primary" value="Valider les modifications">
 
         </form>
