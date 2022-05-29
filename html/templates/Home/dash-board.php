@@ -145,7 +145,7 @@ include "header-home.php";
             <a href="#" alt="Modify my profile">
                 <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle profile">
             </a>
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">@Username</h5>
+            <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel"><?php printf(getUserUsername());?></h5>
             <br>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -302,7 +302,7 @@ include "header-home.php";
                                     <p class="text-muted mb-0"></p>
                                 </div>
                             </div>
-                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">View</a>
+                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">Listen</a>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
@@ -313,7 +313,7 @@ include "header-home.php";
                                     <p class="text-muted mb-0"></p>
                                 </div>
                             </div>
-                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">View</a>
+                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">Listen</a>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
@@ -325,7 +325,7 @@ include "header-home.php";
                                 </div>
                             </div>
 
-                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">View</a>
+                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">Listen</a>
                         </li>
                     </ul>
                 </div>
