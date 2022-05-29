@@ -106,9 +106,9 @@ require '../../functions/functions.php';
 
                             <div class="img-thumbnail img-circle">
                                 <div type="file" id="formFile">
-                                    <a href="dash-board.php">
+                                    <a href="dash-board.php ps-2">
                                         <?php printf(getUserUsername());?>
-                                        <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile img-circle" type="file" >
+                                        <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile img-circle ms-1" type="file" >
                                     </a>
                                     <span class="position-absolute"></span>
                                 </div>

@@ -22,7 +22,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="ressources/IMG-CONTENT/icon-admin.png" alt="logo">
+                    <img src="ressources/IMG-CONTENT/enceintes.png" height="30" alt="logo">
                 </span>
 
                 <div class="text logo-text">
