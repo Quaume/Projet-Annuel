@@ -173,3 +173,76 @@ function getUserVerified(){
 	}
 
 }
+
+
+///// FOLLOWS /////
+
+//Recupe tous follows
+function getFollows(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_followers");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
+
+}
+
+//Recup followers user connecté
+function getUserFollowers($user){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_followers WHERE followed = '$user'");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
+
+}
+
+//Recupe followed user connecté
+function getUserFollowed($user){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT followed FROM utrackpa_followers WHERE follower = '$user'");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
+
+}
+
+//Verif si user follow ou pas
+function isUserFollowed($user,$followed){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT follower FROM utrackpa_followers WHERE follower = '$user' AND followed = '$followed'");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetch();
+
+}
+
+
+
+///// NewsLetter /////
+
+//Recup liste abonnés newsletter
+function getSubscribedToNewsletter(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT email FROM utrackpa_newsletter");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
+
+}
+
+//Verif si user abonné ou pas
+function isSubscribedToNewsletter(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT 'email' FROM utrackpa_newsletter WHERE email = '".getUserEmail()."'");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetch();
+
+}

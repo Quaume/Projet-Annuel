@@ -1,3 +1,7 @@
+<?php
+require 'functions/functions.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,55 +143,43 @@
             <table class="table mt-4 usrList">
                 <thead>
                     <tr>
+                        <th scope="col">Profile picture</th>
                         <th scope="col">Id</th>
                         <th scope="col">Username</th>
-                        <th scope="col">Tracks</th>
+                        <th scope="col">Birthday</th>
                         <th scope="col">Email</th>
+                        <th scope="col">AccountType</th>
+                        <th scope="col">DateInserted</th>
+                        <th scope="col">DateUpdated</th>
                         <th scope="col">Verified</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>5</td>
-                        <td>@mdo</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>7</td>
-                        <td>user@gmail.com</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>9</td>
-                        <td>user@gmail.com</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>8</td>
-                        <td>@mdo</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>10</td>
-                        <td>user@gmail.com</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>oui</td>
-                    </tr>
+                <?php
+                foreach (getAllUsers() as $user){
+                    echo '<tr>
+
+                    <td><img src="ressources/img-profile/'.$user["img_profile"].'" height="50"></td>
+                    <td>'.$user["id"].'</td>
+                    <td>'.$user["username"].'</td>
+                    <td>'.$user["birthday"].'</td>
+                    <td>'.$user["email"].'</td>
+                    <td>'.$user["accountType"].'</td>
+                    <td>'.$user["dateInserted"].'</td>
+                    <td>'.$user["dateUpdated"].'</td>
+                    <td>'.$user["verified"].'</td>
+                    
+                    <td>
+                    <div class="btn-group">
+                        <a href="deleteUser.php?id='.$user["id"].'" class="btn">Supprimer</a>
+                        <a href="editUser.php?id='.$user["id"].'" class="btn" >Modifier</a>
+                    </div>
+                    </td>
+
+                </tr>';
+
+                }
+                ?>
                 </tbody>
             </table>
         </div>

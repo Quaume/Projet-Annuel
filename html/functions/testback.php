@@ -41,12 +41,12 @@ printf(getUserDateUpdated());
 echo "<br> Verified : ";
 printf(getUserVerified());
 echo "<br> Image Profile : ";
-printf(getUserImg());
+printf("<img src=../ressources/img-profile/".getUserImg()." width=30>");
 
 echo "<br><br><br><br><br>";
 
-echo("Récupération de tous les Utilisateurs =>");
 ?>
+<h4>Récupération de tous les Utilisateurs et peut follow/unfollow =></h4>
     <table class="table">
     <thead>
         <tr>
@@ -82,9 +82,18 @@ echo("Récupération de tous les Utilisateurs =>");
                     <div class="btn-group">
                         <a href="deleteUser.php?id='.$user["id"].'" class="btn btn-danger">Supprimer</a>
                         <a href="editUser.php?id='.$user["id"].'" class="btn btn-warning" >Modifier</a>
-                    </div>
-                    </td>
+        ';
+        if($user["username"] != getUserUsername()){
 
+        if(empty(isUserFollowed(getUserUsername(),$user["username"]))){
+            echo'<a href="follow.php?follower='.getUserUsername().'&amp;followed='.$user["username"].'" class="btn btn-info" >Follow</a>';
+        }else{
+            echo'<a href="unfollow.php?follower='.getUserUsername().'&amp;followed='.$user["username"].'" class="btn btn-info">Unfollow</a>';
+        }
+        }
+        '            
+                        </div>
+                    </td>
                 </tr>';
 
         }
@@ -92,3 +101,102 @@ echo("Récupération de tous les Utilisateurs =>");
         ?>
     </tbody>
 </table>
+
+<h4>Récupération des Followers =></h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>follower</th>
+            <th>followed</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <?php
+        foreach (getFollows() as $follow){
+            echo '<tr>
+                    <td>'.$follow['follower'].'</td>
+                    <td>'.$follow['followed'].'</td>
+                </tr>';
+
+        }
+
+        ?>
+    </tbody>
+</table>
+
+<h4>Récupération des Follows de l'utilisateur connecté =></h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>You Follow Them</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <?php
+        foreach (getUserFollowed(getUserUsername()) as $follow){
+            echo '<tr>
+                <td>'.$follow['followed'].'</td>
+                </tr>';
+        }
+        ?>
+    </tbody>
+</table>
+
+<h4>Récupération des Followers de l'utilisateur connecté =></h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>They Follow You</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <?php
+        foreach (getUserFollowers(getUserUsername()) as $follow){
+            echo '<tr>
+                <td>'.$follow['follower'].'</td>
+                </tr>';
+        }
+        ?>
+    </tbody>
+</table>
+
+
+
+<h4>Newsletter</h4>
+
+
+<h4>Récupération des Followers =></h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Emails</th>
+            <th>
+                <?php
+                if(empty(isSubscribedToNewsletter())){
+                echo'<a href="addToNewsLetter.php" class="btn btn-success">Subscribe to newsletter</a>';
+                }else{
+                echo'<a href="removeFromNewsLetter.php" class="btn btn-success">Unsubscribe from newsletter</a>';   
+                }
+                ?>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <?php
+        foreach (getSubscribedToNewsletter() as $subscribed){
+            echo '<tr>
+                    <td>'.$subscribed['email'].'</td>
+                </tr>';
+
+        }
+
+        ?>
+    </tbody>
+</table>
+
+
+
