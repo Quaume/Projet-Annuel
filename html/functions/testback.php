@@ -68,7 +68,7 @@ echo "<br><br><br><br><br>";
         foreach (getAllUsers() as $user){
             echo '<tr>
 
-                    <td>'.$user["img_profile"].'</td>
+                    <td><img src="../ressources/img-profile/'.$user["img_profile"].'" width="30"</td>
                     <td>'.$user["id"].'</td>
                     <td>'.$user["username"].'</td>
                     <td>'.$user["birthday"].'</td>
@@ -197,6 +197,13 @@ echo "<br><br><br><br><br>";
         ?>
     </tbody>
 </table>
+
+<form method="post" action="sendNewsletter.php" class="form-group">
+    <input type="text" name="mailbody" class="form-control" placeholder="Write the Newsletter ...">
+    <input type="submit" value="Send the newsletter">
+</form>
+
+
 
 
 
