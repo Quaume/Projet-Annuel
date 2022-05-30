@@ -1,8 +1,9 @@
 create table utrackpa_admins
 (
-    id         int         not null
-        primary key,
-    name_admin varchar(30) not null
+    name_admin varchar(30)  not null,
+    pwd        varchar(255) not null,
+    id         int auto_increment
+        primary key
 );
 
 create table utrackpa_albums
@@ -85,7 +86,7 @@ create table utrackpa_users
     accountType  varchar(15)                          not null,
     dateInserted timestamp  default CURRENT_TIMESTAMP not null,
     dateUpdated  timestamp                            null on update CURRENT_TIMESTAMP,
-    img_profile  varchar(255)                         not null,
+    img_profile  varchar(255)                         null,
     token        char(40)                             null,
     verified     tinyint(1) default 0                 null,
     userKey      int                                  not null

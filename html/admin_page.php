@@ -143,15 +143,16 @@ require 'functions/functions.php'
             <table class="table mt-4 usrList">
                 <thead>
                     <tr>
-                        <th scope="col">Profile picture</th>
-                        <th scope="col">Id</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Birthday</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">AccountType</th>
-                        <th scope="col">DateInserted</th>
-                        <th scope="col">DateUpdated</th>
-                        <th scope="col">Verified</th>
+                        <th scope="col" class="text-center">Profile picture</th>
+                        <th scope="col" class="text-center">Id</th>
+                        <th scope="col" class="text-center">Username</th>
+                        <th scope="col" class="text-center">Birthday</th>
+                        <th scope="col" class="text-center">Email</th>
+                        <th scope="col" class="text-center">Acc_Type</th>
+                        <th scope="col" class="text-center">DateInserted</th>
+                        <th scope="col" class="text-center">DateUpdated</th>
+                        <th scope="col" class="text-center">Verified</th>
+                        <th scope="col" class="text-center">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -170,9 +171,16 @@ require 'functions/functions.php'
                     <td>'.$user["verified"].'</td>
                     
                     <td>
-                    <div class="btn-group">
-                        <a href="deleteUser.php?id='.$user["id"].'" class="btn">Supprimer</a>
-                        <a href="editUser.php?id='.$user["id"].'" class="btn" >Modifier</a>
+                    <div class="btn-group" role="group">
+                        <a href="deleteUser.php?id='.$user["id"].'" >
+                            <button type="button" class="btn"><img src="ressources/IMG-CONTENT/cross.png" width="20" height="20" alt="Delete"></button>
+                        </a>
+                        <a href="editUser.php?id='.$user["id"].'" >
+                            <button type="button" class="btn"><img src="ressources/IMG-CONTENT/pen.png" width="20" height="20" alt="edit"></button>
+                        </a>
+                        <a href="editUser.php?id='.$user["id"].'" >    
+                            <button type="button" class="btn"><img src="ressources/IMG-CONTENT/tools.png" width="20" height="20" alt="Tools_edit"></button>    
+                        </a>
                     </div>
                     </td>
 
