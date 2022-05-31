@@ -246,3 +246,13 @@ function isSubscribedToNewsletter(){
 	return $queryPrepared->fetch();
 
 }
+
+function isAdmin(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT 'username' FROM utrackpa_admins WHERE username = '".getUserUsername()."'");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetch();
+
+}

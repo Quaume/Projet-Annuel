@@ -122,6 +122,7 @@ require 'functions/functions.php'
             </a>
         </div>
     </nav>
+    <!--
         <div class="text blockUsr">
             <div class="d-flex justify-content-evenly mt-1">
                 <div class="d-flex align-items-center mt-3">
@@ -138,8 +139,10 @@ require 'functions/functions.php'
                 </div>
             </div>
         </div>
+    -->
 
         <div class="tableList p-4">
+            <div class="overflow-auto" style="height:500px">
             <table class="table mt-4 usrList">
                 <thead>
                     <tr>
@@ -160,7 +163,7 @@ require 'functions/functions.php'
                 foreach (getAllUsers() as $user){
                     echo '<tr>
 
-                    <td><img src="ressources/img-profile/'.$user["img_profile"].'" height="50"></td>
+                    <td><img src="ressources/img-profile/'.$user["img_profile"].'" height="30"></td>
                     <td>'.$user["id"].'</td>
                     <td>'.$user["username"].'</td>
                     <td>'.$user["birthday"].'</td>
@@ -178,9 +181,6 @@ require 'functions/functions.php'
                         <a href="editUser.php?id='.$user["id"].'" >
                             <button type="button" class="btn"><img src="ressources/IMG-CONTENT/pen.png" width="20" height="20" alt="edit"></button>
                         </a>
-                        <a href="editUser.php?id='.$user["id"].'" >    
-                            <button type="button" class="btn"><img src="ressources/IMG-CONTENT/tools.png" width="20" height="20" alt="Tools_edit"></button>    
-                        </a>
                     </div>
                     </td>
 
@@ -190,6 +190,7 @@ require 'functions/functions.php'
                 ?>
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 

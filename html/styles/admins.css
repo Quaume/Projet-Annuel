@@ -320,9 +320,7 @@ body.dark .home .text{
 }
     
 .tableList{
-    top:370px;
-    right: 2%;
-    height: 370px;
+    right: 5%;
     border-radius: 10px;
     position:absolute;
     background-color: var(--primary-color-light);
@@ -335,4 +333,8 @@ background-color: var(--text-color);
 
 thead, tbody, tfoot, tr, td, th{
     border-color: #F7CCAC !important;
+}
+
+td{
+    color: #94B49F;
 }
