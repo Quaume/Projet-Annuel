@@ -1,5 +1,8 @@
 <?php
-include "header-home.php"; 
+include "header-home.php";
+
+unset($_SESSION['errors']);
+unset($_SESSION['confirm']);
 ?>
 <div class="container mt-3 mb-5">
     <div class="row">
@@ -45,21 +48,6 @@ include "header-home.php";
                                                 <button type="button" class="btn btn-outline-light">N</button>
                                             </span>
                                         </li>
-    
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle"
-                                                    alt="" style="width: 45px; height: 45px" />
-                                                <div class="ms-3">
-                                                    <p class="fw-bold mb-1">@Username</p>
-                                                    <p class="text-muted mb-0"></p>
-                                                </div>
-                                            </div>
-                                            <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light">Y</button>
-                                                <button type="button" class="btn btn-outline-light">N</button>
-                                            </span>
-                                        </li>
                                     </ul>
                                     <!-----------------------ARTIST REQUEST----------------------->
                                     <h6 class="p-2 border-bottom border-dark">Artist</h6>
@@ -68,21 +56,6 @@ include "header-home.php";
                                             <div class="d-flex align-items-center">
                                                 <img src="../../ressources/IMG-CONTENT/enceintes.png" alt=""
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
-                                                <div class="ms-3">
-                                                    <p class="fw-bold mb-1">@Username</p>
-                                                    <p class="text-muted mb-0"></p>
-                                                </div>
-                                            </div>
-                                            <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light">Y</button>
-                                                <button type="button" class="btn btn-outline-light">N</button>
-                                            </span>
-                                        </li>
-    
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle"
-                                                    alt="" style="width: 45px; height: 45px" />
                                                 <div class="ms-3">
                                                     <p class="fw-bold mb-1">@Username</p>
                                                     <p class="text-muted mb-0"></p>
@@ -111,21 +84,6 @@ include "header-home.php";
                                                 <button type="button" class="btn btn-outline-light">N</button>
                                             </span>
                                         </li>
-    
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle"
-                                                    alt="" style="width: 45px; height: 45px" />
-                                                <div class="ms-3">
-                                                    <p class="fw-bold mb-1">@Username</p>
-                                                    <p class="text-muted mb-0"></p>
-                                                </div>
-                                            </div>
-                                            <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light">Y </button>
-                                                <button type="button" class="btn btn-outline-light">N</button>
-                                            </span>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -139,27 +97,92 @@ include "header-home.php";
             </span>
         </div>
     </div>
+
     <!-- PROFILE USER -->
+
+    <!-- MODALS -->
+    <!-- Profile Picture -->
+    <div class="modal fade" id="modalProfilePicture" tabindex="-1" role="dialog" aria-labelledby="modalProfilePictureLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Change my profile image</h5>
+                    <button type="button" data-bs-dismiss="modal" class="btn"
+                    aria-label="Close">Close</button>
+                </div>
+                <div class="modal-body text-center form-group">
+                    <div class="overflow-auto" style="height:180px;">
+                        <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
+                            <input type="file" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1" name="img-profile" accept=".png,.jpg,.jpeg"><br>
+                            <input type="submit" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1" value="Validate">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    
+    <!-- Account -->
+    <div class="modal fade" id="modalAccount" tabindex="-1" role="dialog" aria-labelledby="modalAccountLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Modify Your Account</h5>
+                    <button type="button" data-bs-dismiss="modal" class="btn"
+                    aria-label="Close">Close</button>
+                </div>
+
+                <div class="modal-body text-center form-group">
+                    <div class="overflow-auto" style="height:400px;">
+
+                        <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
+                            <label>Current Username : <?php printf(getUserUsername());?></label><br>
+                            <label>Current Email : <?php printf(getUserEmail());?></label>
+                            <input type="text" class="form-control" name="username" placeholder="New Username"><br>
+                            <input type="email" class="form-control" name="email" placeholder="New Email"><br>
+                            <input type="text" class="form-control" name="pwd" placeholder="New Password"><br>
+                            <input type="submit" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1" value="Validate">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--        -->
+
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <a href="#" alt="Modify my profile">
-                <img src="../../ressources/IMG-CONTENT/enceintes.png" class="rounded-circle profile">
+                <img src="../../ressources/img-profile/<?php printf(getUserImg());?>" class="rounded-circle profile">
             </a>
             <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel"><?php printf(getUserUsername());?></h5>
             <br>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="d-flex justify-content-evenly followers">
-            <p>Followers<span class="badge">300</span></p>
+            <p>Followers<span class="badge"><?php printf(count(getUserFollowers(getUserUsername())));?></span></p>
             <p>Track created<span class="badge">20</span></p>
         </div>
         <div class="offcanvas-body">
             <div>
                 <div class="list-group">
-                    <a href="#" class="text-center list-group-item list-group-item-action">Change my profile image</a>
-                    <a href="#" class="text-center list-group-item list-group-item-action">Make an Avatar</a>
-                    <a href="../../functions/testback.php" class="text-center list-group-item list-group-item-action">My Account</a>
-                    <a href="#" class="text-center list-group-item list-group-item-action">Edit Bio</a>
+                <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"
+                    data-bs-target="#modalProfilePicture">Change my profile image</a>
+                <a href="#" class="text-center list-group-item list-group-item-action">Make an Avatar</a>
+                <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"
+                    data-bs-target="#modalAccount">My Account</a>
+                <a href="#" class="text-center list-group-item list-group-item-action">Edit Bio</a>
+
+                <?php
+                if(isAdmin()){
+                    echo'
+                    <a href="../../functions/testback.php" class="text-center list-group-item list-group-item-action">Admins Dashboard</a>
+                    ';
+                }
+                ?>
+
                 </div>
             </div>
 
@@ -170,6 +193,17 @@ include "header-home.php";
                     </button>
                 </a>
             </div>
+
+            <div class="d-flex justify-content-evenly mt-3 mb-2">
+                <?php
+                    if(empty(isSubscribedToNewsletter())){
+                        echo'<a href="../../functions/addToNewsLetter.php" class="btn btn-outline-light">Subscribe to newsletter</a>';
+                    }else{
+                        echo'<a href="../../functions/removeFromNewsLetter.php" class="btn btn-outline-light">Unsubscribe from newsletter</a>';   
+                    }
+                ?>
+            </div>
+
         </div>
         <footer class="">
             <div class="d-flex justify-content-center">
@@ -179,7 +213,7 @@ include "header-home.php";
             <p class="text-center mb-1">Hello Utrack !</p>
 
             <div class="d-flex justify-content-center">
-                <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since DD/MM/YYYY</p>
+                <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since <?php printf(getUserDateInserted()); ?></p>
                 <br>
             </div>
 

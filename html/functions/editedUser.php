@@ -2,7 +2,7 @@
 
 require "functions.php";
 
-$id = $_GET["id"];
+$id = $_SESSION["id"];
 if(!isConnected()){
 	die("Il faut se connecter !!!");
 }
@@ -125,9 +125,9 @@ if(count($errors) == 0){
 
 	$_SESSION["confirm"] = $confirm;
 
-	header("Location: editUser.php?id=$user[id]");
+	header("Location: ../templates/Home/dash-board.php");
 
 }else{
 	$_SESSION['errors'] = $errors;
-	header("Location: editUser.php?id=$user[id]");
+	header("Location: ../templates/Home/dash-board.php");
 }

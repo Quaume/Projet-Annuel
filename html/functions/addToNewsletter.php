@@ -12,5 +12,5 @@
         ]
     );
 
-    header("Location: testback.php")
+    header("Location: ../templates/Home/dash-board.php")
 ?>

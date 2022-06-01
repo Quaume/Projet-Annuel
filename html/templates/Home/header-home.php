@@ -108,7 +108,7 @@ require '../../functions/functions.php';
                                 <div type="file" id="formFile">
                                     <a href="dash-board.php">
                                         <?php printf(getUserUsername());?>
-                                        <img src="../../ressources/IMG-CONTENT/dosV.png" class="profile img-circle ms-1" type="file" >
+                                        <img src="../../ressources/img-profile/<?php printf(getUserImg());?>" class="profile img-circle ms-1" type="file">
                                     </a>
                                     <span class="position-absolute"></span>
                                 </div>
