@@ -1,10 +1,9 @@
 create table utrackpa_admins
 (
-    name_admin varchar(30)  not null,
-    pwd        varchar(255) not null,
-    id         int auto_increment
-        primary key
-);
+    username varchar(20) not null,
+    PRIMARY KEY (username))
+    CHARACTER SET utf8
+    COLLATE utf8_general_ci;
 
 create table utrackpa_albums
 (
