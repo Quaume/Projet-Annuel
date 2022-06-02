@@ -117,7 +117,7 @@ require 'functions/functions.php'
     <div class="home">
     <nav class="navbar">
         <div class="container d-flex justify-content-start ms-5">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="templates/Home/dash-board.php">
                 <img src="ressources/IMAGES-HEADER/logo-utrack.png" alt="" width="200" height="100">
             </a>
         </div>
@@ -140,9 +140,9 @@ require 'functions/functions.php'
             </div>
         </div>
     -->
-
         <div class="tableList p-4">
             <div class="overflow-auto" style="height:500px">
+            <h4>Users List</h4>
             <table class="table mt-4 usrList">
                 <thead>
                     <tr>
