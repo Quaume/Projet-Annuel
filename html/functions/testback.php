@@ -92,9 +92,9 @@ echo "<br><br><br><br><br>";
         }
         }
         '            
-                        </div>
-                    </td>
-                </tr>';
+                    </div>
+                </td>
+            </tr>';
 
         }
 

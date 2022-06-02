@@ -1,3 +1,6 @@
+:root{
+    --bs-border-color : #3A3845 !important;
+}
     p {
         margin-bottom: 0em!important;
     }
@@ -93,7 +96,7 @@
     /*SUBTITLE recently post & unfinished*/
     
     .subtitle {
-        color: #F7CCAC;
+        color: #F7CCAC !important;
     }
     /*====================BACKGROUND BLOCK RECENTLY POST============================*/
     
@@ -165,6 +168,19 @@
         border-top: none;
     }
     /*====================LIST GROUP REQUEST===================================*/
+    .btn-outline-danger{
+        color: #3A3845 !important;
+        border-color: #F7CCAC !important;
+        background-color: #F7CCAC !important;
+    }
+    .btn-outline-danger:hover{
+        background-color: #3A3845 !important;
+        border-color: #F7CCAC !important;
+    }
+    .btn-outline-danger:active{
+        background-color: #C84361 !important;
+        color: #F7CCAC !important;
+    }
     
     .btn-outline-light {
         color: #3A3845;
@@ -194,11 +210,11 @@
     }
     
     .border-top {
-        color: #3A3845 !important;
+        border-top: 1px solid var(--bs-border-color) !important;
     }
     
     .border-bottom {
-        color: #3A3845 !important;
+        border-bottom: 1px solid var(--bs-border-color) !important;
     }
     /*=====================================BADGE COLORS=======================================*/
     
@@ -224,3 +240,39 @@
         color: #3A3845 !important;
         text-decoration: none !important;
     }
+
+
+
+    /*=====================================LABEL MODAL=======================================*/
+
+    label{
+        width: 320px;
+        border-radius: 20px;
+        color: #3A3845 !important;
+        background-color: #F7CCAC !important;
+    }
+
+        /*=====================================EDIT TITLE MODAL=======================================*/
+        h5{
+            color: #3A3845;
+        }
+        .pr_modal{
+            
+            border-radius: 15px;
+            background-color: #F7CCAC;
+        }
+
+        .border {
+            border: 1px solid #3A3845 !important;
+        }
+        /*=====================================EDIT INPUT MODAL=======================================*/
+        .form-control {
+            border-radius: 20px;
+            color: #F7CCAC !important;
+            background-color: #3A3845;
+        }
+        .form-control:focus {
+            background-color: #3A3845;
+        }
+        
+        /*===================================== INPUT TRACK=======================================*/

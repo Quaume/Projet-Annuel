@@ -45,7 +45,7 @@ unset($_SESSION['confirm']);
                                             </div>
                                             <span class="badge rounded-pill badge-success">
                                                 <button type="button" class="btn btn-outline-light">Y</button>
-                                                <button type="button" class="btn btn-outline-light">N</button>
+                                                <button type="button" class="btn btn-outline-danger">N</button>
                                             </span>
                                         </li>
                                     </ul>
@@ -63,7 +63,7 @@ unset($_SESSION['confirm']);
                                             </div>
                                             <span class="badge rounded-pill badge-success">
                                                 <button type="button" class="btn btn-outline-light">Y</button>
-                                                <button type="button" class="btn btn-outline-light">N</button>
+                                                <button type="button" class="btn btn-outline-danger">N</button>
                                             </span>
                                         </li>
                                     </ul>
@@ -81,7 +81,7 @@ unset($_SESSION['confirm']);
                                             </div>
                                             <span class="badge rounded-pill badge-success">
                                                 <button type="button" class="btn btn-outline-light">Y </button>
-                                                <button type="button" class="btn btn-outline-light">N</button>
+                                                <button type="button" class="btn btn-outline-danger">N</button>
                                             </span>
                                         </li>
                                     </ul>
@@ -105,18 +105,25 @@ unset($_SESSION['confirm']);
     <div class="modal fade" id="modalProfilePicture" tabindex="-1" role="dialog" aria-labelledby="modalProfilePictureLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5>Change my profile image</h5>
-                    <button type="button" data-bs-dismiss="modal" class="btn"
-                    aria-label="Close">Close</button>
+                <div class="modal-header d-flex justify-content-evenly">
+                    <h5 class="pr_modal p-2">my profile image</h5>
                 </div>
                 <div class="modal-body text-center form-group">
-                    <div class="overflow-auto" style="height:180px;">
+                <div class="d-flex justify-content-center mb-3">
+                    <label>Current Image Profile : </label>
+                </div>
+                <div class="rounded-circle">
+                    <?="<img class=border src=../../ressources/img-profile/".getUserImg()." width=100>";?> 
+                </div>
+                    <div class="overflow-auto" style="height: 180px;">
                         <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
                             <input type="file" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1" name="img-profile" accept=".png,.jpg,.jpeg"><br>
-                            <input type="submit" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1" value="Validate">
+                            <input type="submit" class="btn form-control-md text-center formsbtns mt-5 px-3 py-1" value="Validate">
                         </form>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-bs-dismiss="modal" class="btn" aria-label="Close">Close</button>
                 </div>
             </div>
         </div>
@@ -126,18 +133,16 @@ unset($_SESSION['confirm']);
     <div class="modal fade" id="modalAccount" tabindex="-1" role="dialog" aria-labelledby="modalAccountLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5>Modify Your Account</h5>
-                    <button type="button" data-bs-dismiss="modal" class="btn"
-                    aria-label="Close">Close</button>
+                <div class="modal-header d-flex justify-content-evenly">
+                    <h5 class="pr_modal p-2">Modify Your Account</h5>
                 </div>
 
                 <div class="modal-body text-center form-group">
                     <div class="overflow-auto" style="height:400px;">
 
                         <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
-                            <label>Current Username : <?php printf(getUserUsername());?></label><br>
-                            <label>Current Email : <?php printf(getUserEmail());?></label>
+                            <label class="mb-3 p-2">Current Username : <?php printf(getUserUsername());?></label><br>
+                            <label class="mb-3 p-2">Current Email : <?php printf(getUserEmail());?></label>
                             <input type="text" class="form-control" name="username" placeholder="New Username"><br>
                             <input type="email" class="form-control" name="email" placeholder="New Email"><br>
                             <input type="text" class="form-control" name="pwd" placeholder="New Password"><br>
@@ -145,6 +150,10 @@ unset($_SESSION['confirm']);
                         </form>
 
                     </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" data-bs-dismiss="modal" class="btn" aria-label="Close">Close</button>
                 </div>
             </div>
         </div>
@@ -193,7 +202,6 @@ unset($_SESSION['confirm']);
                     </button>
                 </a>
             </div>
-
             <div class="d-flex justify-content-evenly mt-3 mb-2">
                 <?php
                     if(empty(isSubscribedToNewsletter())){
@@ -203,11 +211,11 @@ unset($_SESSION['confirm']);
                     }
                 ?>
             </div>
-
         </div>
+
         <footer class="">
             <div class="d-flex justify-content-center">
-                <p class="fs-6 fw-light mb-2 mt-2 text-decoration-underline">About Me</p>
+                <p class="fs-6 fw-light mb-2 mt-2 border-bottom">About Me</p>
                 <br>
             </div>
             <p class="text-center mb-1">Hello Utrack !</p>
@@ -216,7 +224,6 @@ unset($_SESSION['confirm']);
                 <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since <?php printf(getUserDateInserted()); ?></p>
                 <br>
             </div>
-
         </footer>
     </div>
     <div class="row mt-5 d-flex justify-content-center">
@@ -387,30 +394,7 @@ unset($_SESSION['confirm']);
                                     <div class="modal-header"></div>
                                     <div class="modal-body">
                                     <form class="row g-3">
-                                    <div class="d-flex flex-column mb-3">
-                                        <div class="col-md-8">
-                                            <label for="inputTitle" class="form-label">Title*</label>
-                                            <input type="text" class="form-control" id="inputTitle" placeholder="New Track">
-                                        </div>
                                         
-                                        <div class="col-md-4 mt-5">
-                                            <label for="trackType" class="form-label">TRACK TYPE</label>
-                                            <select id="trackType" class="form-select">
-                                            <option selected>Beat..</option>
-                                            <option>Trap</option>
-                                            <option>Rap / Old School</option>
-                                            <option>R&B</option>
-                                            <option>Pop Rock</option>
-                                            <option>Latin Pop</option>
-                                            <option>Uk Drill</option>
-                                            <option>Jersey Concept</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="">
-                                        <label for="formFileLg" class="form-label">Large file input example</label>
-                                        <input class="form-control form-control-lg" id="formFileLg" type="file">
-                                    </div>
                                     </form>
                                     </div>
 

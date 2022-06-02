@@ -66,7 +66,15 @@ function getAllUsers(){
 	return $queryPrepared->fetchAll();
 }
 
+//Bio 
+function getUsrBio(){
+	$pdo = connectDB();
 
+	$queryPrepared = $pdo->prepare("SELECT bio FROM utrackpa_users WHERE token=:token");
+	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+
+	return $queryPrepared->fetch()[0];
+}
 // Username
 function getUserUsername(){
 
