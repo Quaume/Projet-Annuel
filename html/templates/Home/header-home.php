@@ -124,4 +124,5 @@ require '../../functions/functions.php';
                 </nav>
             </div>
         </div>
+        <script src="lightDarkMode.js" type="text/javascript"></script>
     </header>

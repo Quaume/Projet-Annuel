@@ -1,8 +1,14 @@
 :root{
-    --bs-border-color : #3A3845 !important;
+    --bs-border-color : #F7CCAC;
 }
     p {
         margin-bottom: 0em!important;
+    }
+    .pr_usr_request{
+        color: #F7CCAC;
+    }
+    .title_rqst{
+        color: #F7CCAC;
     }
     /*====================USER PROFILE===========================*/
     
@@ -44,6 +50,11 @@
     
     .btn-outline-secondary {
         color: #3A3845;
+        border-color: #789395;
+    }
+    .btn-outline-secondary:hover {
+        color: #F7CCAC;
+        background-color: #FFF6EA;
         border-color: #789395;
     }
     
@@ -146,6 +157,9 @@
         background-color: #94B49F;
         border-radius: 40px;
     }
+    .bg-edit{
+        background-color: #3A3845;
+    }
     
     .modal-header {
         border-bottom: none;
@@ -237,8 +251,12 @@
 
     /*=====================================FAVTRACK=======================================*/
     .btn-link{
-        color: #3A3845 !important;
+        color: #F7CCAC;
+        background-color: #3A3845;
         text-decoration: none !important;
+    }
+    .btn-link:hover{
+        color: #94B49F;
     }
 
 
@@ -266,13 +284,16 @@
             border: 1px solid #3A3845 !important;
         }
         /*=====================================EDIT INPUT MODAL=======================================*/
-        .form-control {
+        .edit-form {
             border-radius: 20px;
-            color: #F7CCAC !important;
-            background-color: #3A3845;
+            color: #3A3845 !important;
+            background-color: #F7CCAC;
         }
-        .form-control:focus {
-            background-color: #3A3845;
+        .edit-form:focus {
+            background-color: #F7CCAC;
         }
         
-        /*===================================== INPUT TRACK=======================================*/
+        .btn_f_v_edit{
+            background-color: #F7CCAC;
+            color: #3A3845;
+        }

@@ -1,8 +1,9 @@
 <?php
 
-include "includes/bdd.php";
+include "../functions/functions.php";
 
-$query = $bdd -> query('SELECT id_bouche, id_barbe, id_yeux, id_sourcil, id_visage, id_cheveux FROM AVATAR WHERE email="'.$_SESSION['compte'].'"');
+$pdo = connectDB();
+$queryPrepared = $pdo -> queryPrepared('SELECT id_bouche, id_barbe, id_yeux, id_sourcil, id_visage, id_cheveux FROM AVATAR WHERE email="'.$_SESSION['compte'].'"');
 $avatar = $query -> fetch();
 
  ?>

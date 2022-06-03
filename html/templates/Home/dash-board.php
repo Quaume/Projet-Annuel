@@ -23,7 +23,7 @@ unset($_SESSION['confirm']);
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content bg-edit">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Confirm / Decline</h5>
                             </div>
@@ -32,55 +32,55 @@ unset($_SESSION['confirm']);
                             <div class="modal-body">
                                 <div class="overflow-auto" style="height:410px;">
                                     <!-----------------------BEATMAKER REQUEST----------------------->
-                                    <h6 class="p-2 border-bottom border-dark">Beatmaker</h6>
+                                    <h6 class="p-2 border-bottom title_rqst">Beatmaker</h6>
                                     <ul class="list-group list-group-light mb-4">
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
                                                 <img src="../../ressources/IMG-CONTENT/enceintes.png" alt=""
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1">@Username</p>
+                                                    <p class="fw-bold mb-1 pr_usr_request">@Username</p>
                                                     <p class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light">Y</button>
+                                                <button type="button" class="btn btn-outline-light me-3">Y</button>
                                                 <button type="button" class="btn btn-outline-danger">N</button>
                                             </span>
                                         </li>
                                     </ul>
                                     <!-----------------------ARTIST REQUEST----------------------->
-                                    <h6 class="p-2 border-bottom border-dark">Artist</h6>
+                                    <h6 class="p-2 border-bottom title_rqst">Artist</h6>
                                     <ul class="list-group list-group-light">
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
                                                 <img src="../../ressources/IMG-CONTENT/enceintes.png" alt=""
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1">@Username</p>
+                                                    <p class="fw-bold mb-1 pr_usr_request">@Username</p>
                                                     <p class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light">Y</button>
+                                                <button type="button" class="btn btn-outline-light me-3">Y</button>
                                                 <button type="button" class="btn btn-outline-danger">N</button>
                                             </span>
                                         </li>
                                     </ul>
                                     <!-----------------------LISTENER REQUEST----------------------->
-                                    <h6 class="p-2 border-bottom border-dark mt-4">Listener</h6>
+                                    <h6 class="p-2 border-bottom title_rqst mt-4">Listener</h6>
                                     <ul class="list-group list-group-light">
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
                                                 <img src="../../ressources/IMG-CONTENT/enceintes.png" alt=""
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1">@Username</p>
+                                                    <p class="fw-bold mb-1 pr_usr_request">@Username</p>
                                                     <p class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light">Y </button>
+                                                <button type="button" class="btn btn-outline-light me-3">Y </button>
                                                 <button type="button" class="btn btn-outline-danger">N</button>
                                             </span>
                                         </li>
@@ -104,7 +104,7 @@ unset($_SESSION['confirm']);
     <!-- Profile Picture -->
     <div class="modal fade" id="modalProfilePicture" tabindex="-1" role="dialog" aria-labelledby="modalProfilePictureLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content bg-edit">
                 <div class="modal-header d-flex justify-content-evenly">
                     <h5 class="pr_modal p-2">my profile image</h5>
                 </div>
@@ -117,13 +117,13 @@ unset($_SESSION['confirm']);
                 </div>
                     <div class="overflow-auto" style="height: 180px;">
                         <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
-                            <input type="file" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1" name="img-profile" accept=".png,.jpg,.jpeg"><br>
-                            <input type="submit" class="btn form-control-md text-center formsbtns mt-5 px-3 py-1" value="Validate">
+                            <input type="file" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1 btn_f_v_edit" name="img-profile" accept=".png,.jpg,.jpeg"><br>
+                            <input type="submit" class="btn form-control-md text-center formsbtns mt-5 px-3 py-1 btn_f_v_edit" value="Validate">
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" data-bs-dismiss="modal" class="btn" aria-label="Close">Close</button>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn_f_v_edit" aria-label="Close">Close</button>
                 </div>
             </div>
         </div>
@@ -132,7 +132,7 @@ unset($_SESSION['confirm']);
     <!-- Account -->
     <div class="modal fade" id="modalAccount" tabindex="-1" role="dialog" aria-labelledby="modalAccountLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content bg-edit">
                 <div class="modal-header d-flex justify-content-evenly">
                     <h5 class="pr_modal p-2">Modify Your Account</h5>
                 </div>
@@ -143,17 +143,17 @@ unset($_SESSION['confirm']);
                         <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
                             <label class="mb-3 p-2">Current Username : <?php printf(getUserUsername());?></label><br>
                             <label class="mb-3 p-2">Current Email : <?php printf(getUserEmail());?></label>
-                            <input type="text" class="form-control" name="username" placeholder="New Username"><br>
-                            <input type="email" class="form-control" name="email" placeholder="New Email"><br>
-                            <input type="text" class="form-control" name="pwd" placeholder="New Password"><br>
-                            <input type="submit" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1" value="Validate">
+                            <input type="text" class="form-control edit-form" name="username" placeholder="New Username"><br>
+                            <input type="email" class="form-control edit-form" name="email" placeholder="New Email"><br>
+                            <input type="text" class="form-control edit-form" name="pwd" placeholder="New Password"><br>
+                            <input type="submit" class="btn form-control-md text-center formsbtns mt-4 px-3 py-1 btn_f_v_edit" value="Validate">
                         </form>
 
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" data-bs-dismiss="modal" class="btn" aria-label="Close">Close</button>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn_f_v_edit" aria-label="Close">Close</button>
                 </div>
             </div>
         </div>
@@ -172,7 +172,7 @@ unset($_SESSION['confirm']);
         </div>
         <div class="d-flex justify-content-evenly followers">
             <p>Followers<span class="badge"><?php printf(count(getUserFollowers(getUserUsername())));?></span></p>
-            <p>Track created<span class="badge">20</span></p>
+            <p>Following<span class="badge">20</span></p>
         </div>
         <div class="offcanvas-body">
             <div>
@@ -242,25 +242,25 @@ unset($_SESSION['confirm']);
             </div>
             <div class="mt-1">
                 <ul class="list-group">
-                    <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center mb-2">
+                    <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
-                        <img src="../../ressources/IMG-CONTENT/eye.png" width="30">    
+                        <img class="me-3" src="../../ressources/IMG-CONTENT/eye.png" width="30">    
                         Views<span class="badge rounded-pill">200</span></p>
                     </li>
-                    <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center mb-2">
+                    <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
-                        <img src="../../ressources/IMG-CONTENT/like.png" width="30">    
-                        Views<span class="badge rounded-pill">200</span></p>
+                        <img class="me-3" src="../../ressources/IMG-CONTENT/like.png" width="30">    
+                        Likes<span class="badge rounded-pill">200</span></p>
                     </li>
-                    <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center mb-2">
+                    <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
-                        <img src="../../ressources/IMG-CONTENT/bubble.png" width="30">    
-                        Views<span class="badge rounded-pill">200</span></p>
+                        <img class="me-3" src="../../ressources/IMG-CONTENT/bubble.png" width="30">    
+                        Comments<span class="badge rounded-pill">200</span></p>
                     </li>
-                    <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center mb-2">
+                    <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
-                        <img src="../../ressources/IMG-CONTENT/Request.png" width="30">    
-                        Views<span class="badge rounded-pill">200</span></p>
+                        <img class="me-3" src="../../ressources/IMG-CONTENT/Request.png" width="30">    
+                        Requests<span class="badge rounded-pill">200</span></p>
                     </li>
                 </ul>
             </div>
@@ -374,7 +374,7 @@ unset($_SESSION['confirm']);
         </div>
         <!-------------------------------------------------EDIT BLOCK-------------------------------------------------------------->
         <div class="p-2 block1 col-lg-4 col-md-12 mt-4 ms-3">
-            <div class="row">
+            <div class="row p-2">
                 <div class="col-6 mt-3">
                     <!---CREATE TRACK------>
                     <div class="d-inline-flex p-2">
@@ -390,7 +390,7 @@ unset($_SESSION['confirm']);
                         <!-- Modal Create track-->
                         <div class="modal fade" id="myFirstModal">
                             <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
+                                <div class="modal-content bg-edit">
                                     <div class="modal-header"></div>
                                     <div class="modal-body">
                                     <form class="row g-3">
@@ -419,7 +419,7 @@ unset($_SESSION['confirm']);
                         <!-- Modal File track-->
                         <div class="modal fade" id="myFirstModal2">
                             <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
+                                <div class="modal-content bg-edit">
                                     <div class="modal-header">My File</div>
                                     <div class="modal-body"></div>
 
@@ -444,7 +444,7 @@ unset($_SESSION['confirm']);
                         <!-- Modal Album-->
                         <div class="modal fade" id="myFirstModal3">
                             <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
+                                <div class="modal-content bg-edit">
                                     <div class="modal-header"></div>
                                     <div class="modal-body">
                                     <form class="row g-3">
@@ -496,7 +496,7 @@ unset($_SESSION['confirm']);
                         <!-- Modal Notif-->
                         <div class="modal fade" id="myFirstModal4">
                             <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
+                                <div class="modal-content bg-edit">
                                     <div class="modal-header">NOTIF</div>
                                     <div class="modal-body"></div>
                                     <div class="modal-footer">
