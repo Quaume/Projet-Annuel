@@ -43,8 +43,8 @@ function sendNewsletter($to, &$errors)
 
     /*============================================================*/
 
-    foreach (getSubscribedToNewsletter() as $email){
-    sendNewsletter($email[0], $errors);
+    foreach (getSubscribedToNewsletter() as $emailid){
+    sendNewsletter(getUserEmailById($emailid[0]), $errors);
     }
 
     if (count($errors) != 0) {

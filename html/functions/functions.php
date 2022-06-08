@@ -86,6 +86,17 @@ function getUserUsername(){
 
 }
 
+// Username by user Id
+function getUserUsernameById($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT username FROM utrackpa_users WHERE id=:id");	
+	$queryPrepared->execute(["id"=>$id]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
 // Birthday
 function getUserBirthday(){
 
@@ -107,6 +118,19 @@ function getUserId(){
 	return $queryPrepared->fetch()[0];
 
 }
+
+// Id by user username
+function getUserIdByUsername($username){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT id FROM utrackpa_users WHERE username=:username");	
+	$queryPrepared->execute(["username"=>$username]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+
 //img_profile
 function getUserImg(){
 	$pdo = connectDB();
@@ -115,12 +139,33 @@ function getUserImg(){
 
 	return $queryPrepared->fetch()[0];
 }
+
+//img_profile by user Id
+function getUserImgByUserId($id){
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_users WHERE id=:id");
+	$queryPrepared->execute(["id"=>$id]);
+
+	return $queryPrepared->fetch()[0];
+}
+
 // AccountType
 function getUserAccountType(){
 
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT accountType FROM utrackpa_users WHERE token=:token");	
 	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+// AccountType by user id
+function getUserAccountTypeByUserId($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT accountType FROM utrackpa_users WHERE id=:id");	
+	$queryPrepared->execute(["id"=>$id]);
 	
 	return $queryPrepared->fetch()[0];
 
@@ -137,12 +182,34 @@ function getUserEmail(){
 
 }
 
+// Email by user Id
+function getUserEmailById($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT email FROM utrackpa_users WHERE id=:id");	
+	$queryPrepared->execute(["id"=>$id]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
 // Date Inserted
 function getUserDateInserted(){
 
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT dateInserted FROM utrackpa_users WHERE token=:token");	
 	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+// Date Inserted by user Id
+function getUserDateInsertedByUserId($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT dateInserted FROM utrackpa_users WHERE id=:id");	
+	$queryPrepared->execute(["id"=>$id]);
 	
 	return $queryPrepared->fetch()[0];
 
@@ -185,7 +252,7 @@ function getUserVerified(){
 
 ///// FOLLOWS /////
 
-//Recupe tous follows
+//Recup tous follows
 function getFollows(){
 
 	$pdo = connectDB();
@@ -237,7 +304,7 @@ function isUserFollowed($user,$followed){
 function getSubscribedToNewsletter(){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT email FROM utrackpa_newsletter");	
+	$queryPrepared = $pdo->prepare("SELECT emailid FROM utrackpa_newsletter");	
 	$queryPrepared->execute();
 	
 	return $queryPrepared->fetchAll();
@@ -248,17 +315,19 @@ function getSubscribedToNewsletter(){
 function isSubscribedToNewsletter(){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT 'email' FROM utrackpa_newsletter WHERE email = '".getUserEmail()."'");	
+	$queryPrepared = $pdo->prepare("SELECT 'emailid' FROM utrackpa_newsletter WHERE emailid = '".getUserId()."'");	
 	$queryPrepared->execute();
 	
 	return $queryPrepared->fetch();
 
 }
 
+
+// Verif si admin
 function isAdmin(){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT 'username' FROM utrackpa_admins WHERE username = '".getUserUsername()."'");	
+	$queryPrepared = $pdo->prepare("SELECT 'username' FROM utrackpa_admins WHERE username = '".getUserId()."'");	
 	$queryPrepared->execute();
 	
 	return $queryPrepared->fetch();

@@ -85,7 +85,7 @@ echo "<br><br><br><br><br>";
         ';
         if($user["username"] != getUserUsername()){
 
-        if(empty(isUserFollowed(getUserUsername(),$user["username"]))){
+        if(empty(isUserFollowed(getUserId(),$user["id"]))){
             echo'<a href="follow.php?follower='.getUserUsername().'&amp;followed='.$user["username"].'" class="btn btn-info" >Follow</a>';
         }else{
             echo'<a href="unfollow.php?follower='.getUserUsername().'&amp;followed='.$user["username"].'" class="btn btn-info">Unfollow</a>';
@@ -115,8 +115,8 @@ echo "<br><br><br><br><br>";
         <?php
         foreach (getFollows() as $follow){
             echo '<tr>
-                    <td>'.$follow['follower'].'</td>
-                    <td>'.$follow['followed'].'</td>
+                    <td>'.getUserUsernameById($follow['follower']).'</td>
+                    <td>'.getUserUsernameById($follow['followed']).'</td>
                 </tr>';
 
         }
@@ -135,9 +135,9 @@ echo "<br><br><br><br><br>";
     <tbody>
         
         <?php
-        foreach (getUserFollowed(getUserUsername()) as $follow){
+        foreach (getUserFollowed(getUserId()) as $follow){
             echo '<tr>
-                <td>'.$follow['followed'].'</td>
+                <td>'.getUserUsernameById($follow['followed']).'</td>
                 </tr>';
         }
         ?>
@@ -154,9 +154,9 @@ echo "<br><br><br><br><br>";
     <tbody>
         
         <?php
-        foreach (getUserFollowers(getUserUsername()) as $follow){
+        foreach (getUserFollowers(getUserId()) as $follow){
             echo '<tr>
-                <td>'.$follow['follower'].'</td>
+                <td>'.getUserUsernameById($follow['follower']).'</td>
                 </tr>';
         }
         ?>

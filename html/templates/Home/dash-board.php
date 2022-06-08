@@ -159,20 +159,92 @@ unset($_SESSION['confirm']);
         </div>
     </div>
 
+    <!-- Followed Users -->
+    <div class="modal fade" id="modalFollowed" tabindex="-1" role="dialog" aria-labelledby="modalFollowedLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-edit">
+                <div class="modal-header d-flex justify-content-evenly">
+                    <h5 class="pr_modal py-2 px-3">You Follow Them</h5>
+                </div>
+
+                <div class="modal-body text-center">
+                    <div class="overflow-auto" style="height:400px;">
+                    <?php foreach(getUserFollowed(getUserId()) as $followed){
+                    echo'
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgByUserId($followed[0]).' width=35>
+                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed[0]).
+                        ' - '.getUserAccountTypeByUserId($followed[0]).'</label>
+                        <br>
+                    ';
+                    }
+                    
+                    
+                    ?>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" data-bs-dismiss="modal" class="btn btn_f_v_edit" aria-label="Close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+
+    <!-- Followers of User -->
+    <div class="modal fade" id="modalFollowers" tabindex="-1" role="dialog" aria-labelledby="modalFollowersLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-edit">
+                <div class="modal-header d-flex justify-content-evenly">
+                    <h5 class="pr_modal py-2 px-3">They Follow You</h5>
+                </div>
+
+                <div class="modal-body text-center">
+                    <div class="overflow-auto" style="height:400px;">
+                    <?php foreach(getUserFollowers(getUserId()) as $followed){
+                    echo'
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgByUserId($followed[0]).' width=35>
+                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed[0]).
+                        ' - '.getUserAccountTypeByUserId($followed[0]).'</label>
+                        <br>
+                    ';
+                    }
+                    
+                    
+                    ?>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" data-bs-dismiss="modal" class="btn btn_f_v_edit" aria-label="Close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+
     <!--        -->
+
+    <!-- Profil -->
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-            <a href="#" alt="Modify my profile">
                 <img src="../../ressources/img-profile/<?php printf(getUserImg());?>" class="rounded-circle profile">
-            </a>
             <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel"><?php printf(getUserUsername());?></h5>
             <br>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="d-flex justify-content-evenly followers">
-            <p>Followers<span class="badge"><?php printf(count(getUserFollowers(getUserUsername())));?></span></p>
-            <p>Following<span class="badge">20</span></p>
+
+            <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"
+                data-bs-target="#modalFollowers"><p>Followers<span class="badge">
+                <?php printf(count(getUserFollowers(getUserId())));?></span></p>
+            </a>
+
+            <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"
+                data-bs-target="#modalFollowed"><p>Followed<span class="badge">
+                <?php printf(count(getUserFollowed(getUserId())));?></span></p>
+            </a>
+
         </div>
         <div class="offcanvas-body">
             <div>

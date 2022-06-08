@@ -2,13 +2,13 @@
 
     require 'functions.php';
 
-    $email = getUserEmail();
+    $emailid = getUserId();
 
 	$pdo = connectDB();
-    $queryPrepared = $pdo->prepare("INSERT INTO utrackpa_newsletter(email) VALUES (:email);");
+    $queryPrepared = $pdo->prepare("INSERT INTO utrackpa_newsletter(emailid) VALUES (:emailid);");
     $queryPrepared->execute(
         [
-        "email" => $email,
+        "emailid" => $emailid,
         ]
     );
 
