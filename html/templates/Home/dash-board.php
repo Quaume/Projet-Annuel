@@ -201,11 +201,11 @@ unset($_SESSION['confirm']);
 
                 <div class="modal-body text-center">
                     <div class="overflow-auto" style="height:400px;">
-                    <?php foreach(getUserFollowers(getUserId()) as $followed){
+                    <?php foreach(getUserFollowers(getUserId()) as $followers){
                     echo'
-                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgByUserId($followed[0]).' width=35>
-                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed[0]).
-                        ' - '.getUserAccountTypeByUserId($followed[0]).'</label>
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgByUserId($followers[0]).' width=35>
+                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followers[0]).
+                        ' - '.getUserAccountTypeByUserId($followers[0]).'</label>
                         <br>
                     ';
                     }

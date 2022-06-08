@@ -267,7 +267,7 @@ function getFollows(){
 function getUserFollowers($user){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_followers WHERE followed = '$user'");	
+	$queryPrepared = $pdo->prepare("SELECT follower FROM utrackpa_followers WHERE followed = '$user'");	
 	$queryPrepared->execute();
 	
 	return $queryPrepared->fetchAll();
@@ -289,7 +289,7 @@ function getUserFollowed($user){
 function isUserFollowed($user,$followed){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT follower FROM utrackpa_followers WHERE follower = '$user' AND followed = '$followed'");	
+	$queryPrepared = $pdo->prepare("SELECT 'follower' FROM utrackpa_followers WHERE follower = '$user' AND followed = '$followed'");	
 	$queryPrepared->execute();
 	
 	return $queryPrepared->fetch();
