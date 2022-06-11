@@ -11,6 +11,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     if($checkExistPost->rowCount() > 0){
         $infoPost = $checkExistPost->fetch();
             
+            $post_id_author = $infoPost["id_usr"];
             $post_author = $infoPost["author"];
             $post_title = $infoPost["title"];
             $post_category = $infoPost["category"];

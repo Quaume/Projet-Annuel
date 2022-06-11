@@ -22,7 +22,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="d-flex align-items-center">
-                        <div class="p-2 flex-fill"><img class="profile" src="../../ressources/img-profile/<?=getUserImg();?>"></div>
+                        <div class="p-2 flex-fill"><img class="profile" src="../../ressources/img-profile/<?=getUserImg($post['id_usr']);?>"></div>
                         <div class="p-2 flex-fill">
                             <h4 class="card-title"><?=$post['title'];?></h4>
                         </div>

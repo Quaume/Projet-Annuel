@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include '../../../includes/forum-layout/head.php'; ?>
+    <head>
+        <?php include '../../../includes/forum-layout/head.php'; ?>
+        <link rel="stylesheet" href="../../../assets/styles/forum.css">
+    </head>
 
 <body>
 
@@ -9,7 +12,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="../../../main/forum.php" alt="Home">
-                <img src="../../../../ressources/IMAGES-HEADER/Utrack_logo.png" alt="" width="150" height="70">
+                <img src="../../../../ressources/IMAGES-HEADER/logo-utrack.png" alt="" width="150" height="70">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -63,7 +66,7 @@
                     <div class="row">
                         <div class="d-flex align-items-center">
                             <div class="p-2 flex-fill">
-                                <img class="profile" src="../../ressources/img-profile/<?=getUserImg();?>"></div>
+                                <img class="profile" src="../../../../ressources/img-profile/<?=getUserImg($post_id_author);?>"></div>
                             <div class="p-2 flex-fill">
                                 <h4 class="card-title"><?=$post_title;?></h4>
                             </div>
@@ -82,7 +85,7 @@
                     </div>
                     <div class="me-2 mb-1">
                         <button type="button" class="btn btn-secondary btn_like">
-                            <img src="../../ressources/IMG-CONTENT/hearth.png">
+                            <img src="../../../../ressources/IMG-CONTENT/hearth.png">
                             <span class="ms-2 badge">177</span>
                         </button>
                     </div>
