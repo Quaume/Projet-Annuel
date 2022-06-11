@@ -64,5 +64,5 @@
     </div>
     <!--FOOTER-->
     <footer>
-        <?php include "footer-home.php"?>
+        <?php include "../footer-index.php"?>
     </footer>
