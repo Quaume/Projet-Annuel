@@ -3,3 +3,5 @@ html/functions/newUser.php
 html/ressources/img-profile
 
 
+html/functions/config.inc.php
+.gitignore
