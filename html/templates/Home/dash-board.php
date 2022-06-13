@@ -268,7 +268,7 @@ unset($_SESSION['confirm']);
             </div>
 
             <div class="d-flex justify-content-evenly mt-3 mb-2">
-                <a href="../utrackForum/forum.php">
+                <a href="../../utrack_forum/main/forum.php">
                     <button class="btn btn-outline-light">
                         Join The Forum !
                     </button>

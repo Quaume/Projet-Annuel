@@ -1,0 +1,29 @@
+
+:root {
+    --bs-gray-dark: #3A3845;
+    --bs-body-bg: #3A3845;
+    --bs-success-bg: #789395;
+    --bs-btn-focus-shadow-rgb: #F7CCAC;
+}
+
+body{
+    background-color: var(--bs-body-bg);
+}
+
+.card{
+    background-color: var(--bs-success-bg) !important;
+}
+.flex-fill {
+    flex: 1 1 auto!important;
+}
+.profile{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #94B49F;
+}
+.btn-secondary:focus {
+    background-color: #F38BA0;
+    border-color: #F38BA0;
+    --bs-btn-focus-shadow-rgb :var(--bs-btn-focus-shadow-rgb);
+}
