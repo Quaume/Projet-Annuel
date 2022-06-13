@@ -113,7 +113,7 @@ unset($_SESSION['confirm']);
                     <label>Current Image Profile : </label>
                 </div>
                 <div class="rounded-circle">
-                    <?="<img class=border src=../../ressources/img-profile/".getUserImg()." width=100>";?> 
+                    <?="<img class=border src=../../ressources/img-profile/".getUserImgById(getUserId())." width=100>";?> 
                 </div>
                     <div class="overflow-auto" style="height: 180px;">
                         <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
@@ -141,8 +141,8 @@ unset($_SESSION['confirm']);
                     <div class="overflow-auto" style="height:400px;">
 
                         <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
-                            <label class="mb-3 p-2">Current Username : <?php printf(getUserUsername());?></label><br>
-                            <label class="mb-3 p-2">Current Email : <?php printf(getUserEmail());?></label>
+                            <label class="mb-3 p-2">Current Username : <?php printf(getUserUsernameById(getUserId()),);?></label><br>
+                            <label class="mb-3 p-2">Current Email : <?php printf(getUserEmailById(getUserId()),);?></label><br>
                             <input type="text" class="form-control edit-form" name="username" placeholder="New Username"><br>
                             <input type="email" class="form-control edit-form" name="email" placeholder="New Email"><br>
                             <input type="text" class="form-control edit-form" name="pwd" placeholder="New Password"><br>
@@ -171,9 +171,9 @@ unset($_SESSION['confirm']);
                     <div class="overflow-auto" style="height:400px;">
                     <?php foreach(getUserFollowed(getUserId()) as $followed){
                     echo'
-                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgByUserId($followed[0]).' width=35>
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followed[0]).' width=35>
                         <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed[0]).
-                        ' - '.getUserAccountTypeByUserId($followed[0]).'</label>
+                        ' - '.getUserAccountTypeById($followed[0]).'</label>
                         <br>
                     ';
                     }
@@ -203,9 +203,9 @@ unset($_SESSION['confirm']);
                     <div class="overflow-auto" style="height:400px;">
                     <?php foreach(getUserFollowers(getUserId()) as $followers){
                     echo'
-                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgByUserId($followers[0]).' width=35>
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followers[0]).' width=35>
                         <label class="mb-3 p-2 me-3">'.getUserUsernameById($followers[0]).
-                        ' - '.getUserAccountTypeByUserId($followers[0]).'</label>
+                        ' - '.getUserAccountTypeById($followers[0]).'</label>
                         <br>
                     ';
                     }
@@ -228,8 +228,8 @@ unset($_SESSION['confirm']);
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-                <img src="../../ressources/img-profile/<?php printf(getUserImg());?>" class="rounded-circle profile">
-            <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel"><?php printf(getUserUsername());?></h5>
+                <img src="../../ressources/img-profile/<?php printf(getUserImgById(getUserId()));?>" class="rounded-circle profile">
+            <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel"><?php printf(getUserUsernameById(getUserId()));?></h5>
             <br>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -293,7 +293,7 @@ unset($_SESSION['confirm']);
             <p class="text-center mb-1">Hello Utrack !</p>
 
             <div class="d-flex justify-content-center">
-                <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since <?php printf(getUserDateInserted()); ?></p>
+                <p class="fs-6 fw-light mb-2 mt-2 border-top">Registered Since <?php printf(getUserDateInsertedById(getUserId())); ?></p>
                 <br>
             </div>
         </footer>

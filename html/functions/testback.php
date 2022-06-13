@@ -25,23 +25,23 @@ if(!empty($_SESSION['errors'])){
 
 echo("Récupération des données Utilisateur =>");
 echo "<br> Username : ";
-printf(getUserUsername());
+printf(getUserUsernameById(getUserId()));
 echo "<br> Date de naissance : ";
-printf(getUserBirthday());
+printf(getUserBirthdayById(getUserId()));
 echo "<br> Id : ";
 printf(getUserId());
 echo "<br> AccountType : ";
-printf(getUserAccountType());
+printf(getUserAccountTypeById(getUserId()));
 echo "<br> Email : ";
-printf(getUserEmail());
+printf(getUserEmailById(getUserId()));
 echo "<br> Date inserted : ";
-printf(getUserDateInserted());
+printf(getUserDateInsertedById(getUserId()));
 echo "<br> Date updated : ";
-printf(getUserDateUpdated());
+printf(getUserDateUpdatedById(getUserId()));
 echo "<br> Verified : ";
-printf(getUserVerified());
+printf(getUserVerifiedById(getUserId()));
 echo "<br> Image Profile : ";
-printf("<img src=../ressources/img-profile/".getUserImg()." width=30>");
+printf("<img src=../ressources/img-profile/".getUserImgById(getUserId())." width=30>");
 
 echo "<br><br><br><br><br>";
 
@@ -83,12 +83,12 @@ echo "<br><br><br><br><br>";
                         <a href="deleteUser.php?id='.$user["id"].'" class="btn btn-danger">Supprimer</a>
                         <a href="editUser.php?id='.$user["id"].'" class="btn btn-warning" >Modifier</a>
         ';
-        if($user["username"] != getUserUsername()){
+        if($user["username"] != getUserUsernameById(getUserId())){
 
         if(empty(isUserFollowed(getUserId(),$user["id"]))){
-            echo'<a href="follow.php?follower='.getUserUsername().'&amp;followed='.$user["username"].'" class="btn btn-info" >Follow</a>';
+            echo'<a href="follow.php?follower='.getUserUsernameById($user["id"]).'&amp;followed='.$user["username"].'" class="btn btn-info" >Follow</a>';
         }else{
-            echo'<a href="unfollow.php?follower='.getUserUsername().'&amp;followed='.$user["username"].'" class="btn btn-info">Unfollow</a>';
+            echo'<a href="unfollow.php?follower='.getUserUsernameById($user["id"]).'&amp;followed='.$user["username"].'" class="btn btn-info">Unfollow</a>';
         }
         }
         '            

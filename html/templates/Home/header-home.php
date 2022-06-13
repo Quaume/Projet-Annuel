@@ -108,8 +108,8 @@ require '../../functions/functions.php';
                             <div class="img-thumbnail img-circle">
                                 <div type="file" id="formFile">
                                     <a href="dash-board.php">
-                                        <?php printf(getUserUsername());?>
-                                        <img src="../../ressources/img-profile/<?php printf(getUserImg());?>" class="profile img-circle ms-1" type="file">
+                                        <?php printf(getUserUsernameById(getUserId()));?>
+                                        <img src="../../ressources/img-profile/<?php printf(getUserImgById(getUserId()));?>" class="profile img-circle ms-1" type="file">
                                     </a>
                                     <span class="position-absolute"></span>
                                 </div>

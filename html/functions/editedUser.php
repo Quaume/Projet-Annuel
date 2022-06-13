@@ -18,7 +18,7 @@ $user = $queryPrepared->fetch();
 //récupérer les données du formulaire
 $email = $_POST["email"];
 $username = $_POST["username"];
-$profilePictureUsername = getUserUsername();
+$profilePictureUsername = getUserUsernameById(getUserId());
 $pwd = $_POST["pwd"];
 $img_profile = $_FILES["img-profile"];
 

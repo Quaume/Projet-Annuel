@@ -67,26 +67,16 @@ function getAllUsers(){
 }
 
 //Bio 
-function getUsrBio(){
+function getUsrBioById($id){
 	$pdo = connectDB();
 
-	$queryPrepared = $pdo->prepare("SELECT bio FROM utrackpa_users WHERE token=:token");
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	$queryPrepared = $pdo->prepare("SELECT bio FROM utrackpa_users WHERE id=:id");
+	$queryPrepared->execute(["id"=>$id]);
 
 	return $queryPrepared->fetch()[0];
 }
+
 // Username
-function getUserUsername(){
-
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT username FROM utrackpa_users WHERE token=:token");	
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
-	
-	return $queryPrepared->fetch()[0];
-
-}
-
-// Username by user Id
 function getUserUsernameById($id){
 
 	$pdo = connectDB();
@@ -98,11 +88,11 @@ function getUserUsernameById($id){
 }
 
 // Birthday
-function getUserBirthday(){
+function getUserBirthdayById($id){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT birthday FROM utrackpa_users WHERE token=:token");	
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	$queryPrepared = $pdo->prepare("SELECT birthday FROM utrackpa_users WHERE id=:id");	
+	$queryPrepared->execute(["id"=>$id]);
 	
 	return $queryPrepared->fetch()[0];
 
@@ -132,16 +122,7 @@ function getUserIdByUsername($username){
 
 
 //img_profile
-function getUserImg(){
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_users WHERE token=:token");
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
-
-	return $queryPrepared->fetch()[0];
-}
-
-//img_profile by user Id
-function getUserImgByUserId($id){
+function getUserImgById($id){
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_users WHERE id=:id");
 	$queryPrepared->execute(["id"=>$id]);
@@ -150,18 +131,7 @@ function getUserImgByUserId($id){
 }
 
 // AccountType
-function getUserAccountType(){
-
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT accountType FROM utrackpa_users WHERE token=:token");	
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
-	
-	return $queryPrepared->fetch()[0];
-
-}
-
-// AccountType by user id
-function getUserAccountTypeByUserId($id){
+function getUserAccountTypeById($id){
 
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT accountType FROM utrackpa_users WHERE id=:id");	
@@ -172,17 +142,6 @@ function getUserAccountTypeByUserId($id){
 }
 
 // Email
-function getUserEmail(){
-
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT email FROM utrackpa_users WHERE token=:token");	
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
-	
-	return $queryPrepared->fetch()[0];
-
-}
-
-// Email by user Id
 function getUserEmailById($id){
 
 	$pdo = connectDB();
@@ -194,18 +153,7 @@ function getUserEmailById($id){
 }
 
 // Date Inserted
-function getUserDateInserted(){
-
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT dateInserted FROM utrackpa_users WHERE token=:token");	
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
-	
-	return $queryPrepared->fetch()[0];
-
-}
-
-// Date Inserted by user Id
-function getUserDateInsertedByUserId($id){
+function getUserDateInsertedById($id){
 
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT dateInserted FROM utrackpa_users WHERE id=:id");	
@@ -216,22 +164,22 @@ function getUserDateInsertedByUserId($id){
 }
 
 // Date Updated
-function getUserDateUpdated(){
+function getUserDateUpdatedById($id){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT dateUpdated FROM utrackpa_users WHERE token=:token");	
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	$queryPrepared = $pdo->prepare("SELECT dateUpdated FROM utrackpa_users WHERE id=:id");	
+	$queryPrepared->execute(["id"=>$id]);
 	
 	return $queryPrepared->fetch()[0];
 
 }
 
 // Verified
-function getUserVerified(){
+function getUserVerifiedById($id){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT verified FROM utrackpa_users WHERE token=:token");	
-	$queryPrepared->execute(["token"=>$_SESSION["token"]]);
+	$queryPrepared = $pdo->prepare("SELECT verified FROM utrackpa_users WHERE id=:id");	
+	$queryPrepared->execute(["id"=>$id]);
 	
 	if($queryPrepared->fetch()[0] == 1){
 		return(
