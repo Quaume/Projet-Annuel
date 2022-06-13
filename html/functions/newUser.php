@@ -72,7 +72,7 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 }
 
 
-//username : Min 4 Max 60
+//username : Min 4 Max 20
 if( strlen($username)<4 || strlen($username)>20 ){
 	$errors[] = "Username must be between 4 and 20 characters";
 }
@@ -88,15 +88,15 @@ if( strlen($username)<4 || strlen($username)>20 ){
 	}
 
 //Date anniversaire : YYYY-mm-dd
-//entre 16 et 100 ans
+//Supérieur à 16 ans
 $birthdayExploded = explode("-", $birthday);
 
 if( count($birthdayExploded)!=3 || !checkdate($birthdayExploded[1], $birthdayExploded[2], $birthdayExploded[0])){
 	$errors[] = "Birthday is not valid";
 }else{
 	$age = (time() - strtotime($birthday))/60/60/24/365.2425;
-	if($age < 16 || $age > 100){
-		$errors[] = "Your age do not allow you to sign up";
+	if($age < 16){
+		$errors[] = "Your too young to sign up";
 	}
 }
 

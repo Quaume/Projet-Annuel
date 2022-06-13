@@ -189,7 +189,7 @@ echo "<br><br><br><br><br>";
         <?php
         foreach (getSubscribedToNewsletter() as $subscribed){
             echo '<tr>
-                    <td>'.$subscribed['email'].'</td>
+                    <td>'.getUserEmailById($subscribed['emailid']).'</td>
                 </tr>';
 
         }
