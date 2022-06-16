@@ -4,7 +4,7 @@ require "functions.php";
 
 $id = $_SESSION["id"];
 if(!isConnected()){
-	die("Il faut se connecter !!!");
+	die(header("Location: ../index.php"));
 }
 
 // Récupération des données déjà existantes en bdd
@@ -18,7 +18,7 @@ $user = $queryPrepared->fetch();
 //récupérer les données du formulaire
 $email = $_POST["email"];
 $username = $_POST["username"];
-$profilePictureUsername = getUserUsernameById(getUserId());
+$profilePictureUsernameId = getUserId();
 $pwd = $_POST["pwd"];
 $img_profile = $_FILES["img-profile"];
 
@@ -41,13 +41,13 @@ if(isset($img_profile) && !empty($img_profile['name'])){
 		$extensionUpload = strtolower(substr(strrchr($img_profile['name'], '.'),1));
 		if(in_array($extensionUpload, $extension)){
 			// Creation de chemin du fichier
-			$path = "../ressources/img-profile/".$profilePictureUsername.".".$extensionUpload;
+			$path = "../ressources/img-profile/".$profilePictureUsernameId.".".$extensionUpload;
 			//On va deplacer se fichier stocker temporairement et le placer dans path
 			$result = move_uploaded_file($img_profile['tmp_name'],$path);
 			if($result){
 				$queryPrepared = $pdo->prepare("UPDATE utrackpa_users SET img_profile = :img_profile WHERE id =:id");
 				$queryPrepared->execute(array(
-					'img_profile'=>$profilePictureUsername.'.'.$extensionUpload,
+					'img_profile'=>$profilePictureUsernameId.'.'.$extensionUpload,
 					'id'=>$id));	
 			}else{
 				$error[] = "Failed import";

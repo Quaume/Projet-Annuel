@@ -2,6 +2,16 @@
 
 require 'functions.php';
 
+if(!isAdmin()){
+
+    if(!isConnected()){
+        die(header("Location: ../index.php"));
+    }else{
+        die(header("Location: ../templates/Home/Home.php"));
+    }
+
+}
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

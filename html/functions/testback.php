@@ -1,3 +1,10 @@
+<?php
+
+require 'functions.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,8 +18,7 @@
 </head>
 
 <?php
-
-require 'functions.php';
+if(isAdmin()) {
 
 if(!empty($_SESSION['errors'])){
     echo "<div class='mt-3'>";
@@ -202,6 +208,16 @@ echo "<br><br><br><br><br>";
     <input type="text" name="mailbody" class="form-control" placeholder="Write the Newsletter ...">
     <input type="submit" value="Send the newsletter">
 </form>
+
+<?php
+}else{
+    if(isConnected()){
+        header("Location: ../templates/Home/Home.php");
+    }else{
+        header("Location: ../index.php");
+    }
+}
+?>
 
 
 

@@ -10,7 +10,7 @@ require "functions.php";
 $id = $_SESSION["id"];
 
 if(!isConnected()){
-	die("You need to log in !!!");
+	die(header("Location: ../index.php"));
 }
     $pdo = connectDB();
 

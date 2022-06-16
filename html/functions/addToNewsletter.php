@@ -2,6 +2,7 @@
 
     require 'functions.php';
 
+    if(isConnected()){
     $emailid = getUserId();
 
 	$pdo = connectDB();
@@ -11,6 +12,10 @@
         "emailid" => $emailid,
         ]
     );
+        header("Location: ../templates/Home/dash-board.php");
+    } else {
+        header("Location: ../index.php");
+    }   
 
-    header("Location: ../templates/Home/dash-board.php")
+
 ?>

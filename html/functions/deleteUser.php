@@ -1,12 +1,9 @@
 <?php
 require "functions.php";
 
-
+if(isAdmin()){
 //Vérification de l'utilisateur
 $id = $_GET["id"];
-if(!isConnected()){
-	die("Il faut se connecter !!!");
-}
 
 //Suppression du user en bdd
 $pdo = connectDB();
@@ -17,5 +14,13 @@ $queryPrepared->execute(["id"=>$id]);
 if ($_SESSION['id'] == $id){
 	header("Location: ./logout.php");
 }else{
-header("Location: ./testback.php");
+    header("Location: ./testback.php");
 }
+}else{
+	if(isConnected()){
+		header("Location: ../templates/Home/Home.php");
+	}else{
+		header("Location: ../index.php");
+	}
+}
+

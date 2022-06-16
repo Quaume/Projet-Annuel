@@ -1,5 +1,10 @@
 <?php
 require '../../functions/functions.php';
+
+if(!isConnected()){
+	die(header("Location: ../../index.php"));
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +45,10 @@ require '../../functions/functions.php';
 
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto me-5 pe-5">
+
+                        <a type="button" class="discoverUsers me-5 mt-3" href="#">
+                        Discover Users !
+                        </a>
 
 
                             <!-- DropDowns -->

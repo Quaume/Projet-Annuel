@@ -1,5 +1,11 @@
 <?php
-require 'functions/functions.php'
+require 'functions/functions.php';
+
+if(!isConnected()){
+    header("Location: index.php");
+}else if(!isAdmin()){
+    header("Location: templates/Home/Home.php");
+}
 ?>
 
 <!DOCTYPE html>

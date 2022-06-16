@@ -2,6 +2,10 @@
 
     require 'functions.php';
 
+    if(!isConnected()){
+        die(header("Location: ../index.php"));
+    }
+
     $follower = getUserIdByUsername($_GET['follower']);
     $followed = getUserIdByUsername($_GET['followed']);
 
@@ -13,6 +17,6 @@
         "followed" => $followed
         ]
     );
+    header("Location: testback.php");
 
-    header("Location: testback.php")
 ?>
