@@ -341,7 +341,7 @@ unset($_SESSION['confirm']);
         <div class="mt-4 p-2 ps-4 col-lg-4 col-md-12  me-sm-3">
             <div class="row">
                 <div class="col-5 statsBlock pb-4 overflow-auto">
-                    <p class="subtitle darkB text-center ms-2 mt-3 mb-2 recentlyPost">Unfinished</p>
+                    <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Unfinished</p>
                     <div class="">
                         <div class="overflow-auto" style="height: 120px;">
                             <ul class="list-group list-group-light">
@@ -449,13 +449,12 @@ unset($_SESSION['confirm']);
             <div class="row p-2">
                 <div class="col-6 mt-3">
                     <!---CREATE TRACK------>
-                    <div class="d-inline-flex p-2">
+                    <div class="d-inline-flex p-3">
                         <!-- Button trigger modal -->
                         <div class="">
-                            <button type="button" class="btn darkBlock" data-bs-toggle="modal"
-                                data-bs-target="#myFirstModal">
-                                <img src="../../ressources/IMG-CONTENT/note.png" width="60" alt="">
-                                <p class="subtitle pt-1">Create Track</p>
+                            <button type="button" class="btn darkBlockTr" data-bs-toggle="modal" data-bs-target="#myFirstModal">
+                                <img src="../../ressources/IMG-CONTENT/note.png" width="50" alt="">
+                                <p class="subtitle pt-2">Create Track</p>
                             </button>
                         </div>
 
@@ -479,13 +478,12 @@ unset($_SESSION['confirm']);
                         </div>
                     </div>
 
-                    <div class="d-inline-flex p-2">
+                    <div class="d-inline-flex p-3">
                         <!-- Button trigger modal -->
-                        <div class="mt-5">
-                            <button type="button" class="btn darkBlockF" data-bs-toggle="modal"
-                                data-bs-target="#myFirstModal2">
-                                <img src="../../ressources/IMG-CONTENT/doc.png" width="60" alt="">
-                                <p class="subtitle pt-1">My Files</p>
+                        <div class="mt-3">
+                            <button type="button" class="btn darkBlockF" data-bs-toggle="modal" data-bs-target="#myFirstModal2">
+                                <img src="../../ressources/IMG-CONTENT/doc.png" width="50" alt="">
+                                <p class="subtitle pt-2">My Files</p>
                             </button>
                         </div>
                         <!-- Modal File track-->
@@ -505,12 +503,11 @@ unset($_SESSION['confirm']);
                 </div>
 
                 <div class="col-6 mt-3">
-                <div class="d-inline-flex p-2 mb-5">
+                <div class="d-inline-flex p-3 mb-3">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn darkBlock" data-bs-toggle="modal"
-                            data-bs-target="#myFirstModal3">
-                            <img src="../../ressources/IMG-CONTENT/vinyl.png" width="55" alt="">
-                            <p class="subtitle pt-1">Create Album</p>
+                        <button type="button" class="btn darkBlockA" data-bs-toggle="modal" data-bs-target="#myFirstModal3">
+                            <img src="../../ressources/IMG-CONTENT/vinyl.png" width="50" alt="">
+                            <p class="subtitle pt-2">Create Album</p>
                         </button>
 
                         <!-- Modal Album-->
@@ -529,10 +526,10 @@ unset($_SESSION['confirm']);
                                         <div class="col-md-4 mt-5">
                                             <label for="trackType" class="form-label">TRACK TYPE</label>
                                             <select id="trackType" class="form-select">
-                                            <option selected>Beat..</option>
+                                            <option selected="">Beat..</option>
                                             <option>Trap</option>
                                             <option>Rap / Old School</option>
-                                            <option>R&B</option>
+                                            <option>R&amp;B</option>
                                             <option>Pop Rock</option>
                                             <option>Latin Pop</option>
                                             <option>Uk Drill</option>
@@ -557,12 +554,11 @@ unset($_SESSION['confirm']);
                     </div>
 
 
-                    <div class="d-inline-flex p-2 mb-5">
+                    <div class="d-inline-flex p-3 mb-5">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn darkBlock" data-bs-toggle="modal"
-                            data-bs-target="#myFirstModal4">
-                            <img src="../../ressources/IMG-CONTENT/notif.png" width="60" alt="">
-                            <p class="subtitle pt-1">Create Track</p>
+                        <button type="button" class="btn darkBlockN" data-bs-toggle="modal" data-bs-target="#myFirstModal4">
+                            <img src="../../ressources/IMG-CONTENT/notif.png" width="40" alt="">
+                            <p class="subtitle pt-2">Create Track</p>
                         </button>
 
                         <!-- Modal Notif-->
