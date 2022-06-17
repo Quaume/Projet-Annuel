@@ -1,4 +1,6 @@
-<?php require '../functions/functions.php';?>
+<?php require '../functions/functions.php';
+      //require '../../functions/functions.php';
+?>
 <?php require '../functions/php-config/publications/show_all_post.php';?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +24,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="d-flex align-items-center">
-                        <div class="p-2 flex-fill"><img class="profile" src="../../ressources/img-profile/<?=getUserImg($post['id_usr']);?>"></div>
+                        <div class="p-2 flex-fill"><img class="profile" src="../../ressources/img-profile/<?php=getUserImgById(getUserIdByUsername($post['author']));?>"></div>
                         <div class="p-2 flex-fill">
                             <h4 class="card-title"><?=$post['title'];?></h4>
                         </div>
@@ -56,12 +58,7 @@
     <?php
         }
     ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
-    <div class="d-flex justify-content-center">
-
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>

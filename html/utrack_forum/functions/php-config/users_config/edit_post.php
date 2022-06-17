@@ -10,7 +10,7 @@ require 'edited_post.php';
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="forum.php" alt="Home">
+            <a class="navbar-brand" href="../../../main/forum.php" alt="Home">
                 <img src="../../../../ressources/IMAGES-HEADER/Utrack_logo.png" alt="" width="150" height="70">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

@@ -7,7 +7,8 @@
 
 <body>
 
-    <?php require '../../../functions/functions.php';?>
+    <?php require '../../../functions/functions.php';
+     //require '../../../../functions/functions.php';?>
     <?php require 'view_one_post.php';?>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -61,47 +62,45 @@
     if(isset($post_date_of_release))
         ?>
         <div class="d-flex justify-content-center">
-            <div class="card w-75 mt-4">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="d-flex align-items-center">
-                            <div class="p-2 flex-fill">
-                                <img class="profile" src="../../../../ressources/img-profile/<?=getUserImg($post_id_author);?>"></div>
-                            <div class="p-2 flex-fill">
-                                <h4 class="card-title"><?=$post_title;?></h4>
-                            </div>
-                        </div>
-                        
-                        <p class="fw-lighter text-start ms-2">
-                            <?=$post_author;?>
-                        </p>
-                    </div>
-                    <p class="card-text fw-light text-start mt-3"><?=$post_content;?></p>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <div class="cat-subCat-gory d-flex align-items-center ms-5">
-                        <h6 class="fw-light pe-2"><?=$post_category;?></h6>
-                        <h6 class="fw-light "><?=$post_sub_category;?></h6>
-                    </div>
-                    <div class="me-2 mb-1">
-                        <button type="button" class="btn btn-secondary btn_like">
-                            <img src="../../../../ressources/IMG-CONTENT/hearth.png">
-                            <span class="ms-2 badge">177</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-footer bg-transparent fw-lighter text-end border-dark">
-                    <?=$post_date_of_release;?>
-                </div>
+        <div class="card w-75 mt-4">
+        <div class="card-body">
+        <div class="row">
+        <div class="d-flex align-items-center">
+        <div class="p-2 flex-fill">
+        <img class="profile" src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post_author));?>"></div>
+        <div class="p-2 flex-fill">
+        <h4 class="card-title"><?=$post_title;?></h4>
+        </div>
+        </div>
+        
+        <p class="fw-lighter text-start ms-2">
+        <?=$post_author;?>
+        </p>
+        </div>
+        <p class="card-text fw-light text-start mt-3"><?=$post_content;?></p>
+        </div>
+        <div class="d-flex justify-content-between">
+        <div class="cat-subCat-gory d-flex align-items-center ms-5">
+        <h6 class="fw-light pe-2"><?=$post_category;?></h6>
+        <h6 class="fw-light "><?=$post_sub_category;?></h6>
+        </div>
+        <div class="me-2 mb-1">
+        <button type="button" class="btn btn-secondary btn_like">
+        <img src="../../../../ressources/IMG-CONTENT/hearth.png">
+        <span class="ms-2 badge">177</span>
+        </button>
+        </div>
+        </div>
+            <div class="card-footer bg-transparent fw-lighter text-end border-dark">
+                <?=$post_date_of_release;?>
             </div>
         </div>
+        </div>
+    </div>
         <?php
 
     ?>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>

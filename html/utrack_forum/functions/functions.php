@@ -56,6 +56,26 @@ function getUserId(){
 
 }
 
+// Id by user username
+function getUserIdByUsername($username){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT id FROM utrackpa_users WHERE username=:username");	
+	$queryPrepared->execute(["username"=>$username]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
+// Username by user Id
+function getUserUsernameById($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT username FROM utrackpa_users WHERE id=:id");	
+	$queryPrepared->execute(["id"=>$id]);
+	
+	return $queryPrepared->fetch()[0];
+
+}
 function getUserImg(){
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_users WHERE token=:token");
@@ -63,6 +83,16 @@ function getUserImg(){
 
 	return $queryPrepared->fetch()[0];
 }
+
+//img_profile by user Id
+function getUserImgByUserId($id){
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_users WHERE id=:id");
+	$queryPrepared->execute(["id"=>$id]);
+
+	return $queryPrepared->fetch()[0];
+}
+
 // get Username;
 function getUserUsername(){
 
@@ -74,43 +104,7 @@ function getUserUsername(){
 
 }
 $_SESSION['id'];
-/*
-//FORUM FUNCTION POST
-function usrPost(){
-	if (isset($_POST['submit'])){
-	
-		if(!empty($_POST['title']) && !empty($_POST['category']) && !empty($_POST['content']) && !empty($_POST['sub_category'])){
-			$pdo = connectDB();
-	
-			$title = htmlspecialchars($_POST['title']);
-			$category = $_POST['category'];
-			$sub_category= $_POST['sub_category'];
-			$content = nl2br(htmlspecialchars($_POST['content']));
-	
-			//$datePosted = date('d/m/Y');
-			$usrId = getUserId($pdo);
-			$author = getUserUsername($pdo);
-	
-			$queryPrepared = $pdo->prepare("INSERT INTO utrackpa_forum(id_usr, author, title, category, sub_category, content) VALUES (?, ?, ?, ?, ?, ?)");
-		
-			$query = $queryPrepared->execute(array($usrId, $author, $title, $category, $sub_category, $content));
-			
-			$successMsg = '
-				<div class="toast show align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
-					<div class="d-flex">
-						<div class="toast-body">
-							Posted !
-						</div>
-						<button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-					</div>
-				</div>';
-		}else{
-			$errors = 'Please fill in all fields !';
-		}
-		
-	}
-}
-*/
+
 //get user all post
 function getAllPosts(){
 	
@@ -125,24 +119,6 @@ function getAllPosts(){
 	$errors = 'No posts found';
 }
 
-/*function getPostIds(){
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT id FROM utrackpa_forum WHERE id = '".getUserId()."' ");
-	$queryPrepared->execute();
-
-	return $queryPrepared->fetchAll();
-}
-function getPostIdUser(){
-
-	$pdo = connectDB();
-	$id_usr = getUserId($pdo);
-	$queryPrepared = $pdo->prepare("SELECT id_usr FROM utrackpa_forum WHERE id_usr =:id_usr");	
-	$queryPrepared->execute(["id_usr"=>$id_usr]);
-	
-	$result = $queryPrepared->fetch();
-	return $result['id_usr'];
-}*/
-
 function getPostId(){
 	$pdo = connectDB();
 	
@@ -152,33 +128,3 @@ function getPostId(){
 	$result = $queryPrepared->fetchAll()[0];
 	return $result;
 }
-
-/*if($queryPrepared->rowCount() > 0){
-		$postInfo = $queryPrepared->fetch();
-	
-		if($postInfo['id_usr'] == $user_id){
-	
-			$postTitle = $postInfo['title'];
-			$postCategory = $postInfo['category'];
-			$postSubCategory = $postInfo['sub_category'];
-			$postContent = $postInfo['content'];
-			
-			
-			
-		}else{
-			
-		}
-	}else{
-		$errors = 'No posts found';
-	}
-
-}
-// get user post
-
-	$pdo = connectDB();
-	$user_id = getUserId($pdo);
-
-	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_forum WHERE id = ?");
-	$queryPrepared->execute(array($user_id));
-*/
-
