@@ -2,6 +2,5 @@ html/functions/config.inc.php
 html/functions/newUser.php
 html/ressources/img-profile
 
-
-html/functions/config.inc.php
+html/utrack_forum/functions/php-config/config.inc.php
 .gitignore
