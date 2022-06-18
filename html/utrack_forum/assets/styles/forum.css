@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
 :root {
     --bs-gray-dark: #3A3845;
     --bs-body-bg: #3A3845;
@@ -7,6 +7,7 @@
 }
 
 body{
+    font-family: 'Dosis', "sans-serif";
     background-color: var(--bs-body-bg);
 }
 
