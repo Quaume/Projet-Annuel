@@ -1,4 +1,4 @@
-<?php require '../../../functions/functions.php';
+<?php require '../../../../functions/functions.php';
 
     if(isset($_GET['id']) AND !empty($_GET['id'])){
     $pdo = connectDB();
