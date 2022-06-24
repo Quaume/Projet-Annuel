@@ -1,13 +1,14 @@
 <?php 
-require '../functions/functions.php';
+require '../../functions/functions.php';
 require '../functions/php-config/publications/see_all_post.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include '../includes/forum-layout/head.php'?>
+    <link rel="stylesheet" href="../assets/styles/forum.css">
 </head>
 <body>
-    <?php include '../includes/bs-layout/nav-bar.php'?>
+    <?php include '../includes/bs-layout/nav_bar.php'?>
     <?php
         while($post = $getAllPosts->fetch()){
             ?>

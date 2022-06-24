@@ -1,7 +1,7 @@
 <?php 
 require '../../functions/functions.php';
-      //require '../../functions/functions.php';
 require '../functions/forum_functions.php';
+require '../functions/php-config/publications/see_all_post.php';
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,33 +17,32 @@ require '../functions/forum_functions.php';
     <?php include '../includes/bs-layout/nav-bar.php'; ?>
 
     <?php
-        //recuperation de chaque donnée  lors de la requetes search !
-        foreach (getAllPosts() as $post){
-    echo'
-    <div class="d-flex justify-content-center">
+        while ($post = $getAllPosts->fetch()) {
+            ?>
+        <div class="d-flex justify-content-center">
         <div class="card w-75 mt-4">
             <div class="card-body">
                 <div class="row">
                     <div class="d-flex align-items-center">
-                        <div class="p-2 flex-fill"><img class="profile" src="../../ressources/img-profile/'.getUserImgById(getUserIdByUsername($post['author'])).'" ></div>
+                        <div class="p-2 flex-fill">
+                            <img class="profile"src="../../ressources/img-profile/'<?=getUserImgById(getUserIdByUsername($post['author']));?>'">
+                        </div>
 
                         <div class="p-2 flex-fill">
-                            <h4 class="card-title">'.$post["title"].'</h4>
+                            <h4 class="card-title"><?=$post["title"];?></h4>
                         </div>
                         <div class="p-2 text-end">
-                            <a href="../functions/php-config/publications/see_post.php?id="'.$post['id'].'" class="btn btn-outline-secondary">See</a>
+                        <a href="../functions/php-config/publications/see_post.php?id=<?=$post['id'];?>" class="btn btn-outline-secondary">See</a>
                         </div>
                     </div>
-                    <p class="fw-lighter text-start ms-2">
-                        '.$post["author"].'
-                    </p>
+                    <p class="fw-lighter text-start ms-2"><?=$post["author"];?></p>
                 </div>
-                <p class="card-text fw-light text-start mt-3">'.$post["content"].'</p>
+                <p class="card-text fw-light text-start mt-3"><?=$post["content"];?></p>
             </div>
             <div class="d-flex justify-content-between">
                 <div class="cat-subCat-gory d-flex align-items-center ms-5">
-                    <h6 class="fw-light pe-2">'.$post["category"].'</h6>
-                    <h6 class="fw-light ">'.$post["sub_category"].'</h6>
+                    <h6 class="fw-light pe-2"><?=$post["category"];?></h6>
+                    <h6 class="fw-light "><?=$post["sub_category"];?></h6>
                 </div>
                 <div class="me-2 mb-1">
                     <button type="button" class="btn btn-secondary btn_like">
@@ -53,11 +52,11 @@ require '../functions/forum_functions.php';
                 </div>
             </div>
             <div class="card-footer bg-transparent fw-lighter text-end border-dark">
-            '.$post["dateOfRelease"].'
+                <?=$post["dateOfRelease"];?>
             </div>
         </div>
     </div>
-    ';
+    <?php
         }
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
