@@ -11,11 +11,11 @@ if (isset($_POST['submit'])){
 
         //$datePosted = date('d/m/Y');
         $usrId = getUserId($pdo);
-        $author = getUserUsername($pdo);
+        $author = getUserUsernameById($usrId);
 
         $queryPrepared = $pdo->prepare("INSERT INTO utrackpa_forum(id_usr, author, title, category, sub_category, content) VALUES (?, ?, ?, ?, ?, ?)");
     
-        $query = $queryPrepared->execute(array($usrId, $author, $title, $category, $sub_category, $content));
+        $query = $queryPrepared->execute(array($usrId, $author, $title, $category, $sub_category, $content));  
 
         $successMsg = '
             <div class="toast show align-items-center" role="alert" aria-live="assertive" aria-atomic="true">

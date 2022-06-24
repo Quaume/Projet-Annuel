@@ -1,4 +1,10 @@
 <?php
 $pdo = connectDB();
-$getAllPosts = $pdo->prepare("SELECT id, author, title, category, sub_category, content FROM utrackpa_forum WHERE id_usr = ? ORDER BY id DESC");
-$getAllPosts->execute(array($_SESSION['id']));
+$getAllPosts = $pdo->query('SELECT id, id_usr, author, title, category, sub_category, content, dateOfRelease FROM utrackpa_forum ORDER BY dateOfRelease DESC');
+
+
+if(isset($_GET['search']) && !empty($_GET['search'])){
+    $search = $_GET['search'];
+
+    $getAllPosts = $pdo->query('SELECT * FROM utrackpa_forum WHERE title LIKE "%'.$search.'%" ORDER BY dateOfRelease DESC');
+}
