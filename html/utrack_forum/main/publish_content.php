@@ -1,5 +1,5 @@
 <?php 
-require '../functions/functions.php';
+require '../../functions/functions.php';
 include '../functions/php-config/publications/publish.conf.php';
 $pdo = connectDB();
 ?>
@@ -8,10 +8,10 @@ $pdo = connectDB();
 <html lang="en">
 <head>
     <?php include '../includes/forum-layout/head.php';?>
+    <link rel="stylesheet" href="../assets/styles/forum.css">
 </head>
 
 <body>
-    <a href="forum.php">back</a>
     <?php include '../includes/bs-layout/nav-bar.php'; ?>
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -27,11 +27,11 @@ $pdo = connectDB();
                     }    
                     ?>
                     <div class="col-md-6">
-                        <label class="form-label">Title</label>
+                        <label class="form-label labelTitle">Title</label>
                         <input type="text" name="title" class="form-control">
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Category</label>
+                        <label class="form-label labelTitle">Category</label>
                         <select name="category" class="form-select" aria-label="Default select example">
                             <option value="Hip Pop">Hip Pop</option>
                             <option value="Pop">Pop</option>
@@ -39,7 +39,7 @@ $pdo = connectDB();
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label class="form-label">Sub Categories</label>
+                        <label class="form-label labelTitle">Sub Categories</label>
                         <select name="sub_category" class="form-select" aria-label="Default select example">
                             <option value="Trap">Trap</option>
                             <option value="Rap / Old school">Rap / Old School</option>
@@ -51,11 +51,11 @@ $pdo = connectDB();
                         </select>
                     </div>
                     <div class="col-12">
-                        <label class="form-label">Content</label>
+                        <label class="form-label labelTitle">Content</label>
                         <textarea name="content" class="form-control" placeholder="Description"></textarea>
                     </div>
-                    <div class="col-12">
-                        <button type="submit" name="submit" class="btn btn-primary">Publish !</button>
+                    <div class="col-12 text-end">
+                        <button type="submit" name="submit" class="btn btn-outline-success btn-sm">Publish !</button>
                     </div>
                 </form>
             </div>

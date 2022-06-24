@@ -15,7 +15,7 @@ if(isset($_POST['modified'])){
                 <div class="toast show align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body">
-                            Modified !
+                                Modified !
                             <a class="text-decoration-none fw-lighter" href="../../../main/my_post.php">See</a>
                         </div>
                         <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>

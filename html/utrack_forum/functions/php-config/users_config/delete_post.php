@@ -1,4 +1,4 @@
-<?php require '../../../functions/functions.php';
+<?php require '../../../../functions/functions.php';
 $pdo = connectDB();
 
 if(!isset($_SESSION["token"])){

@@ -4,14 +4,17 @@ require 'edited_post.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include '../../../includes/forum-layout/head.php';?>
-<link rel="icon" type="image/png" href="../../../../ressources/IMAGES-HEADER/icon.png">
+    <head>
+        <?php include '../../../includes/forum-layout/head.php';?>
+        <link rel="icon" type="image/png" href="../../../../ressources/IMAGES-HEADER/icon.png">
+        <link rel="stylesheet" href="../../../assets/styles/forum.css">
+    </head>
 
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="../../../main/forum.php" alt="Home">
-                <img src="../../../../ressources/IMAGES-HEADER/Utrack_logo.png" alt="" width="150" height="70">
+                <img src="../../../../ressources/IMAGES-HEADER/logo-utrack.png" alt="" width="150" height="70">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -44,7 +47,7 @@ require 'edited_post.php';
                         <hr class="dropdown-divider">
                         <li><a class="dropdown-item" href="../../../main/my_post.php">See my posts</a></li>
                         <li><a class="dropdown-item" href="../../../main/publish_content.php">Publish post</li>
-                        <li><a class="dropdown-item" href="edit_post.php">Edit post</a></li>
+                        <!--<li><a class="dropdown-item" href="edit_post.php">Edit post</a></li>-->
                         <hr class="dropdown-divider">
                         <li><a class="dropdown-item" href="../../../../templates/Home/dash-board.php">return
                                 dashboard</a></li>
@@ -68,20 +71,50 @@ require 'edited_post.php';
                     <!--TOAST -->
                     <!--    -->
                     <?php if(isset($errors)){
-                        echo '<h5 class="d-flex justify-content-center">'.$errors.'</h5>';
+                        echo '
+                        <div class="">
+                            <div class="toast show align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                            <div class="toast-body">
+                            <div class="ms-5 ps-2">
+                                '.$errors.'
+                                <a class="btn btn-outline-secondary btn-sm fw-lighter ms-4" type="button"  href="../../../main/forum.php">
+                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>return forum</a>
+                            </div>
+                            </div>
+                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            </div>
+                        </div>';
                     } elseif(isset($successMsg)){
-                        echo '<h5 class="d-flex justify-content-center">'.$successMsg.'</h5>';
+                        echo '
+                        <div class="">
+                            <div class="toast show align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                            <div class="toast-body">
+                            <div class="ms-5 ps-2">
+                            '.$successMsg.'
+                                <a class="btn btn-outline-secondary btn-sm fw-lighter ms-4" type="button"  href="../../../main/forum.php">
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                return forum
+                                </a>
+                            </div>
+                            </div>
+                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            </div>
+                        </div>';
                     }    
                     ?>
                     <?php
                         if(isset($postContent)){
                             ?>
                             <div class="col-md-6">
-                                <label class="form-label">Title</label>
+                                <label class="form-label labelTitle">Title</label>
                                 <input type="text" name="title" class="form-control" value="<?=$postTitle;?>">
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Category</label>
+                                <label class="form-label labelTitle">Category</label>
                                 <select name="category" class="form-select" aria-label="Default select example">
                                     <option value="<?=$postCategory;?>"><?=$postCategory;?></option>
                                     <option value="Hip Pop">Hip Pop</option>
@@ -90,7 +123,7 @@ require 'edited_post.php';
                                 </select>
                             </div>
                             <div class="col-md-12">
-                                <label class="form-label">Sub Categories</label>
+                                <label class="form-label labelTitle">Sub Categories</label>
                                 <select name="sub_category" class="form-select" aria-label="Default select example">
                                     <option value="<?=$postSubCategory;?>"><?=$postSubCategory;?></option>
                                     <option value="Trap">Trap</option>
@@ -103,11 +136,11 @@ require 'edited_post.php';
                                 </select>
                             </div>
                             <div class="col-12">
-                                <label class="form-label">Content</label>
+                                <label class="form-label labelTitle">Content</label>
                                 <textarea name="content" class="form-control" value="" placeholder="Description"><?=$postContent;?></textarea>
                             </div>
                             <div class="col-12">
-                                <button type="submit" name="modified" class="btn btn-primary">Modified !</button>
+                                <button type="submit" name="modified" class="btn btn-outline-success btn-sm">Modified !</button>
                             </div>
                 </form>
             </div>

@@ -23,17 +23,18 @@
                 </li>
             </ul>
             <ul class="me-5 mt-3 dropdown">
-                <button class="btn btn-link dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" role="button" id="dropdown">Post Menu</button>
+                <button class="btn btn-link dropdown-toggle text-decoration-none lead" data-bs-toggle="dropdown" role="button" id="dropdown">Menu</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdown">
-                <li><a class="dropdown-item" href="#" >Hip pop post</a></li>
-                    <li><a class="dropdown-item" href="#" >Pop Post</li>
-                    <li><a class="dropdown-item" href="#">Drill Post</a></li>
+                <li><a class="dropdown-item" href="../functions/php-config/soon.php" >Hip pop post</a></li>
+                    <li><a class="dropdown-item" href="../functions/php-config/soon.php" >Pop Post</li>
+                    <li><a class="dropdown-item" href="../functions/php-config/soon.php">Drill Post</a></li>
                         <hr class="dropdown-divider">
                     <li><a class="dropdown-item" href="my_post.php" >See my posts</a></li>
                     <li><a class="dropdown-item" href="publish_content.php" >Publish post</li>
-                    <li><a class="dropdown-item" href="../functions/php-config/users_config/edit_post.php">Edit post</a></li>
+                    <!--<li><a class="dropdown-item" href="../functions/php-config/users_config/edit_post.php">Edit post</a></li>-->
                         <hr class="dropdown-divider">
-                    <li><a class="dropdown-item" href="../../templates/Home/dash-board.php">return dashboard</a></li>
+                        <li><a class="dropdown-item" href="user_profile.php">My Profile</a></li>
+                        <li><a class="dropdown-item" href="../../templates/Home/dash-board.php">return dashboard</a></li>
                 </ul>
             </ul>
             <form class="d-flex" method="GET" role="search">
