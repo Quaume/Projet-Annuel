@@ -7,7 +7,7 @@
 
 <body>
 
-    <?php require '../../../functions/functions.php';
+    <?php require '../../../../functions/functions.php';
      //require '../../../../functions/functions.php';?>
     <?php require 'view_one_post.php';?>
     <nav class="navbar navbar-expand-lg">
