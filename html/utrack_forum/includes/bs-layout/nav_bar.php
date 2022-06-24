@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #FFF6EA;">
     <div class="container-fluid">
         <a class="navbar-brand" href="forum.php" alt="Home">
             <img src="../../ressources/IMAGES-HEADER/logo-utrack.png" alt="" width="150" height="70">

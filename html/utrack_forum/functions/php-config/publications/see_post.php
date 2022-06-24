@@ -17,7 +17,7 @@
           require 'publish_comment.php';
           require 'see_all_comments.php';
     ?>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" style="background-color: #FFF6EA;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../../../main/forum.php" alt="Home">
                 <img src="../../../../ressources/IMAGES-HEADER/logo-utrack.png" alt="" width="150" height="70">
@@ -76,7 +76,7 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <img class="profile rounded-circle shadow-1-strong me-3"
-                                        src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post_author));?>">
+                                        src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post_author))?>">
                                     <div>
                                         <h6 class="fw-bold mb-1"><?=$post_author;?></h6>
                                         <p class="text-muted small mb-0"><?=$post_date_of_release;?></p>
@@ -105,7 +105,7 @@
                                     <div class="modal-content bg-forum">
                                         <div class="modal-header d-flex flex-start">
                                             <img class="profile rounded-circle shadow-1-strong me-3" width="40"
-                                                src="../../../../ressources/img-profile/<?=getUserImgById(getUserId());?>" />
+                                                src="../../../../ressources/img-profile/<?=getUserImgById(getUserId())?>" />
                                         </div>
                                         <div class="modal-body">
                                             <form method="POST">
@@ -121,14 +121,13 @@
                                                         <button type="submit" name="send"
                                                             class="btn btn-outline-success btn-sm me-2">Post
                                                             comment</button>
-                                                        <button type="button"
-                                                            class="btn btn-outline-primary btn-sm">Cancel</button>
+                                                        <button type="submit" class="btn btn-outline-danger btn-sm">Cancel</button>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-outline-secondary btn-sm"
+                                            <button type="button" class="btn btn-outline-warning btn-sm"
                                                 data-bs-dismiss="modal" aria-label="Close">Close</button>
                                         </div>
                                     </div>

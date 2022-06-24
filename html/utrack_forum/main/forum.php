@@ -15,7 +15,7 @@ require '../functions/php-config/publications/see_all_post.php';
 
 <body>
     <?php include '../includes/bs-layout/nav-bar.php'; ?>
-
+    <div class="my-3 py-5"></div>
     <?php
         while ($post = $getAllPosts->fetch()) {
             ?>
@@ -25,7 +25,7 @@ require '../functions/php-config/publications/see_all_post.php';
                 <div class="row">
                     <div class="d-flex align-items-center">
                         <div class="p-2 flex-fill">
-                            <img class="profile"src="../../ressources/img-profile/'<?=getUserImgById(getUserIdByUsername($post['author']));?>'">
+                            <img class="profile"src="../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post['author']));?>">
                         </div>
 
                         <div class="p-2 flex-fill">
