@@ -128,28 +128,11 @@ if(!isConnected()){
             </a>
         </div>
     </nav>
-    <!--
-        <div class="text blockUsr">
-            <div class="d-flex justify-content-evenly mt-1">
-                <div class="d-flex align-items-center mt-3">
-                    <div class="pe-5">
-                        <a href="#">
-                            <button class="showUsr btn btn-outline-secondary">Show All users</button>
-                        </a>
-                    </div>
-                    <div class="ps-5">
-                        <a href="#">
-                            <button class="showUsr btn btn-outline-secondary">Show Banned users</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    -->
-        <div class="tableList p-4">
+
+        <div class="tableList ms-4 p-4">
             <div class="overflow-auto" style="height:500px">
             <h4>Users List</h4>
-            <table class="table mt-4 usrList">
+            <table class="table table-borderless mt-4 usrList">
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">Profile picture</th>

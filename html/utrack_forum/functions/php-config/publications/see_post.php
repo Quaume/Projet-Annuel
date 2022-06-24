@@ -5,9 +5,7 @@
     <?php include '../../../includes/forum-layout/head.php'; ?>
     <link rel="icon" type="image/png" href="../../../../ressources/IMAGES-HEADER/icon.png">
     <link rel="stylesheet" href="../../../assets/styles/forum.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -181,15 +179,15 @@
                                                                             <!--</div>
                                                                             </div>
                                                                         <div class="d-flex flex-start">
-                                                                            <img class="profile rounded-circle shadow-1-strong me-3" src="../../../../ressources/img-profile/<?//=getUserImgById(getUserIdByUsername($post_author));?>"/>
+                                                                            <img class="profile rounded-circle shadow-1-strong me-3" src="../../../../ressources/img-profile/<//?=getUserImgById(getUserIdByUsername($post_author));?>"/>
                                                                             <div class="flex-grow-1 flex-shrink-1">
                                                                                     <div>
                                                                                         <div
                                                                                             class="d-flex justify-content-between align-items-center">
-                                                                                            <p class="mb-1"><?//=$comment["username"];?><span class=" ms-2 small"><?//=$comment["dateInserted"];?></span></p>
+                                                                                            <p class="mb-1"><//?=$comment["username"];?><span class=" ms-2 small"><//?=$comment["dateInserted"];?></span></p>
                                                                                             <a href="#"><span class="small">reply</span></a>
                                                                                         </div>
-                                                                                        <p class="small mb-0"><?//=$comment['comment'];?></p>
+                                                                                        <p class="small mb-0"><//?=$comment['comment'];?></p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
