@@ -205,7 +205,7 @@
                                                 </div>
                                                 <div class="modal-footer modal-comments">
                                                     <div class="position-fixed">
-                                                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                                                        <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal" aria-label="Close">Close</button>
                                                     </div>
                                                 </div>
                                             </div>
