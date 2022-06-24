@@ -193,9 +193,6 @@
         background-color: #F7CCAC;
         border-radius: 20px;
         padding: 0.5rem;
-        padding-right: 3rem;
-        padding-left: 3rem;
-        margin-left: 7rem;
     }
     
     .modal-header .close {
@@ -320,4 +317,11 @@
         .btn_f_v_edit{
             background-color: #F7CCAC;
             color: #3A3845;
+        }
+        /*===================================== MEDIA QUERY=======================================*/
+        @media all and (max-width:1399){
+            .firstRow {
+                display : flex;
+                flex-direction: column !important;
+            }
         }

@@ -69,7 +69,7 @@ require 'edited_post.php';
             <div class="col-6">
                 <form class="row g-3" method="POST">
                     <!--TOAST -->
-                    <!--    -->
+
                     <?php if(isset($errors)){
                         echo '
                         <div class="">
