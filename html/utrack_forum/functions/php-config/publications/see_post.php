@@ -52,10 +52,9 @@
                         <hr class="dropdown-divider">
                         <li><a class="dropdown-item" href="../../../main/my_post.php">See my posts</a></li>
                         <li><a class="dropdown-item" href="../../../main/publish_content.php">Publish post</li>
-                        <li><a class="dropdown-item" href="../users_config/edit_post.php">Edit post</a></li>
                         <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="../../../../templates/Home/dash-board.php">return
-                                dashboard</a></li>
+                        <li><a class="dropdown-item" href="forum.php">Return forum</a></li>
+                        <li><a class="dropdown-item" href="../../../../templates/Home/dash-board.php">Return dashboard</a></li>
                     </ul>
                 </ul>
             </div>
@@ -75,8 +74,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <img class="profile rounded-circle shadow-1-strong me-3"
-                                        src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post_author))?>">
+                                    <a href="../users_config/see_profile.php?id=<?=$post_id_author?>">
+                                        <img class="profile rounded-circle shadow-1-strong me-3" src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post_author))?>">
+                                    </a>                                    
                                     <div>
                                         <h6 class="fw-bold mb-1"><?=$post_author;?></h6>
                                         <p class="text-muted small mb-0"><?=$post_date_of_release;?></p>
@@ -104,8 +104,7 @@
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content bg-forum">
                                         <div class="modal-header d-flex flex-start">
-                                            <img class="profile rounded-circle shadow-1-strong me-3" width="40"
-                                                src="../../../../ressources/img-profile/<?=getUserImgById(getUserId())?>" />
+                                            <img class="profile rounded-circle shadow-1-strong me-3" width="40" src="../../../../ressources/img-profile/<?=getUserImgById(getUserId())?>"/>
                                         </div>
                                         <div class="modal-body">
                                             <form method="POST">
@@ -160,9 +159,10 @@
                                             while($comment = $getAllComments->fetch()){
                                                 ?>
                                                                             <div class="d-flex flex-start mt-4">
-                                                                                <img class="profile rounded-circle shadow-1-strong me-3"
-                                                                                    src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($comment['username']));?>" />
-                                                                                <div class="flex-grow-1 flex-shrink-1">
+                                                                                <a href="../users_config/see_profile.php?id=<?=$comment["usr_id"];?>">
+                                                                                    <img class="profile rounded-circle shadow-1-strong me-3" src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($comment['username']));?>" />
+                                                                                </a>
+                                                                                    <div class="flex-grow-1 flex-shrink-1">
                                                                                     <div>
                                                                                         <div
                                                                                             class="d-flex justify-content-between align-items-center">

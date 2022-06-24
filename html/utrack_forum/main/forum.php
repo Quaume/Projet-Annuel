@@ -25,7 +25,9 @@ require '../functions/php-config/publications/see_all_post.php';
                 <div class="row">
                     <div class="d-flex align-items-center">
                         <div class="p-2 flex-fill">
-                            <img class="profile"src="../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post['author']));?>">
+                            <a href="../functions/php-config/users_config/see_profile.php?id=<?=$post["id_usr"];?>">
+                                <img class="profile"src="../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post['author']));?>">
+                            </a>
                         </div>
 
                         <div class="p-2 flex-fill">

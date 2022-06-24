@@ -44,9 +44,8 @@ require '../functions/forum_functions.php';
                         <hr class="dropdown-divider">
                     <li><a class="dropdown-item" href="my_post.php" >See my posts</a></li>
                     <li><a class="dropdown-item" href="publish_content.php" >Publish post</li>
-                    <!--<li><a class="dropdown-item" href="../functions/php-config/users_config/edit_post.php">Edit post</a></li>-->
                         <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="user_profile.php">My Profile</a></li>
+                        <li><a class="dropdown-item" href="forum.php">Return forum</a></li>
                         <li><a class="dropdown-item" href="../../templates/Home/dash-board.php">return dashboard</a></li>
                 </ul>
             </ul>
