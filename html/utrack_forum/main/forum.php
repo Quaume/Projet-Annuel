@@ -47,10 +47,10 @@ require '../functions/php-config/publications/see_all_post.php';
                     <h6 class="fw-light "><?=$post["sub_category"];?></h6>
                 </div>
                 <div class="me-2 mb-1">
-                    <button type="button" class="btn btn-secondary btn_like">
-                        <img src="../../ressources/IMG-CONTENT/hearth.png">
-                        <span class="ms-2 badge">177</span>
+                    <button type="button" class="btn btn-outline-light btn-floating">
+                        <i class="fa-solid fa-heart"></i>
                     </button>
+                    <span class="ms-2 badge">177</span>
                 </div>
             </div>
             <div class="card-footer bg-transparent fw-lighter text-end border-dark">
