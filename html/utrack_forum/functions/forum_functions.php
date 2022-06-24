@@ -22,7 +22,16 @@ function getAllPosts(){
 
 	$errors = 'No posts found';
 }
+// get All User Posts
+function getAllUserPosts(){
+	$pdo = connectDB();
+	$iduser = getUserId($pdo);
 
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_forum WHERE id_usr = ?");
+	$queryPrepared->execute(array($iduser));
+	
+	return $queryPrepared->fetchAll();
+}
 function getPostId($id){
 	$pdo = connectDB();
 
