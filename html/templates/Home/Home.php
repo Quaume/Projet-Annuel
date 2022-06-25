@@ -190,6 +190,15 @@ if(!isConnected()){
                     </blockquote>
                 </div>
             </div>
+            <div>
+                <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse block" alt="...">
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <h4 class="title font-weight-bold text-center">Track Title</h4>
+                        <p class="blockquote-footer text-center">Made By <cite title="Source title">Flacko..</p>
+                    </blockquote>
+                </div>
+            </div>
         </div>
         <div class="col-2"></div>
     </div>
