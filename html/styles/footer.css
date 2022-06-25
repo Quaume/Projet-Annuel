@@ -24,3 +24,11 @@ input.form-control{
 input.form-control::placeholder{
     color: #F7CCAC;
 }
+input.newsletterInput{
+    background-color: #3A3845 !important;
+    color: #F7CCAC;
+}
+
+.btn .btn-outline-success{
+    border-radius: none !important;
+}

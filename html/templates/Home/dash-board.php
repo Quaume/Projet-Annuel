@@ -4,7 +4,7 @@ include "header-home.php";
 unset($_SESSION['errors']);
 unset($_SESSION['confirm']);
 ?>
-<div class="container mt-3 mb-5">
+<div class="container my-5">
     <div class="row">
         <div class="d-flex justify-content-between">
             <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas"
@@ -387,7 +387,7 @@ unset($_SESSION['confirm']);
                             <p class="subtitle darkB text-center mt-3 pt-1 recentlyPost">Recently Post</p>
                             <div class="recentlyBlock d-flex justify-content-center mt-3">
                                 <div class="d-flex align-items-center">
-                                    <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse">
+                                    <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse1">
                                 </div>
                             </div>
                         </div>
