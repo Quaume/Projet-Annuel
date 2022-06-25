@@ -33,7 +33,7 @@ if(!isConnected()){
     <div class="container-fluid navContent">
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand ms-5" href="Home.php">
+                <a class="navbar-brand ms-3" href="Home.php">
                     <img src="../../ressources/IMAGES-HEADER/Utrack_logo.png" width="150" height="65" alt="Logo">
                 </a>
 
@@ -43,8 +43,8 @@ if(!isConnected()){
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto me-5 pe-5">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
 
                         <a type="button" class="discoverUsers me-5 mt-3" href="#">
                             Discover Users !
@@ -127,7 +127,7 @@ if(!isConnected()){
                         </div>
 
                         <!--logout--->
-                        <a href="../../functions/logout.php" class="ps-3 mt-1">
+                        <a href="../../functions/logout.php" class="mx-3 mt-1">
                             <img src="../../ressources/IMAGES-HEADER/logout.png" class="ms-3 mt-1" width="40"
                                 alt="logout">
                         </a>
