@@ -300,7 +300,7 @@ unset($_SESSION['confirm']);
     </div>
     <div class="row mt-5 d-flex justify-content-center">
 
-        <!-------------------------------------------------BLOCK BLOCK------------------------------------------------------------>
+    <!-------------------------------------------------BLOCK BLOCK------------------------------------------------------------>
         <div class="p-2 ps-3 pe-3 block1 col-lg-4 col-md-12 mt-4 me-sm-3">
             <div class="d-flex justify-content-center">
 
@@ -341,41 +341,34 @@ unset($_SESSION['confirm']);
         <div class="mt-4 p-2 ps-4 col-lg-4 col-md-12  me-sm-3">
             <div class="row">
                 <div class="col-5 statsBlock pb-4 overflow-auto">
-                    <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Unfinished</p>
+                    <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Posted Tracks</p>
                     <div class="">
                         <div class="overflow-auto" style="height: 120px;">
                             <ul class="list-group list-group-light">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" alt=""
-                                            style="width: 45px; height: 45px" class="rounded" />
-                                        <div class="ms-3">
-                                            <p class="fw-bold mb-1">Track Name</p>
-                                            <p class="text-muted mb-0"></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" class="rounded" alt=""
-                                            style="width: 45px; height: 45px" />
-                                        <div class="ms-3">
-                                            <p class="fw-bold mb-1">Track Name</p>
-                                            <p class="text-muted mb-0"></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" class="rounded" alt=""
-                                            style="width: 45px; height: 45px" />
-                                        <div class="ms-3">
-                                            <p class="fw-bold mb-1">Track Name</p>
-                                            <p class="text-muted mb-0"></p>
-                                        </div>
-                                    </div>
+                                <?php foreach(getUserTracksById(getUserId()) as $track){ 
 
+                                echo '
+                                
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="../../ressources/tracks_cover/'.$track['img_profile'].'" alt="track_cover"
+                                        style="width: 45px; height: 45px" class="rounded" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">'.$track["title"].'</p>
+                                        <p class="text-muted mb-0"></p>
+                                    </div>
+                                    <audio
+                                        controls
+                                    src="../../ressources/tracks/'.$track['trackName'].'">
+                                    Your browser does not support the
+                                    <code>audio</code> element.
+                                    </audio>
+                                </div>
                                 </li>
+                                
+                                ';
+                                } ?>
+
                             </ul>
                         </div>
                     </div>
@@ -452,32 +445,58 @@ unset($_SESSION['confirm']);
                     <div class="d-inline-flex p-3">
                         <!-- Button trigger modal -->
                         <div class="">
-                            <button type="button" class="btn darkBlockTr" data-bs-toggle="modal" data-bs-target="#myFirstModal">
+                            <button type="button" class="btn darkBlockTr" data-bs-toggle="modal" data-bs-target="#createTrackModal">
                                 <img src="../../ressources/IMG-CONTENT/note.png" width="50" alt="">
                                 <p class="subtitle pt-2">Create Track</p>
                             </button>
                         </div>
 
-                        <!-- Modal Create track-->
-                        <div class="modal fade" id="myFirstModal">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content bg-edit">
-                                    <div class="modal-header"></div>
-                                    <div class="modal-body">
-                                    <form class="row g-3">
+                <!-- Modal Create track-->
+                <div class="modal fade" id="createTrackModal">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content bg-edit">
+                            <div class="modal-header"></div>
+                                <div class="modal-body">
+                                    <form class="row g-3" method="POST" action="../../functions/uploadTrack.php" enctype="multipart/form-data">
+                                                <div class="d-flex flex-column mb-3">
+                                                    <div class="col-md-8">
+                                                        <label for="inputTitle" class="form-label p-2">Title</label>
+                                                        <input type="text" name="title" class="form-control" id="inputTitle" placeholder="New Track">
+                                                    </div>
                                         
-                                    </form>
+                                        <div class="col-md-4 mt-3">
+                                            <label for="trackType" class="form-label p-2">Track Type</label>
+                                            <select id="trackType" name="trackType" class="form-select">
+                                            <option selected="">Beat</option>
+                                            <option>Trap</option>
+                                            <option>Rap / Old School</option>
+                                            <option>R&amp;B</option>
+                                            <option>Pop Rock</option>
+                                            <option>Latin Pop</option>
+                                            <option>Uk Drill</option>
+                                            <option>Jersey Concept</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <label for="track" class="form-label p-2">Choose your track</label>
+                                        <input type="file" name="track" id="track" class="form-control form-control-md" accept="audio/mp3">
+                                        <label for="trackCover" class="form-label p-2 mt-2">Choose the cover for your track</label>
+                                        <input type="file" name="trackCover" id="trackCover" class="form-control form-control-md" accept=".png,.jpg,.jpeg">
+                                    </div>
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Create Track</button>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#createTrackModal">Close</button>
+                                        <input type="submit" class="btn btn-outline-secondary" value="Create Track">
                                     </div>
+                                    </form> 
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
+                    
                     <div class="d-inline-flex p-3">
                         <!-- Button trigger modal -->
                         <div class="mt-3">
@@ -505,13 +524,13 @@ unset($_SESSION['confirm']);
                 <div class="col-6 mt-3">
                 <div class="d-inline-flex p-3 mb-3">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn darkBlockA" data-bs-toggle="modal" data-bs-target="#myFirstModal3">
+                        <button type="button" class="btn darkBlockA" data-bs-toggle="modal" data-bs-target="#createAlbumModal">
                             <img src="../../ressources/IMG-CONTENT/vinyl.png" width="50" alt="">
                             <p class="subtitle pt-2">Create Album</p>
                         </button>
 
                         <!-- Modal Album-->
-                        <div class="modal fade" id="myFirstModal3">
+                        <div class="modal fade" id="createAlbumModal">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content bg-edit">
                                     <div class="modal-header"></div>
@@ -519,14 +538,14 @@ unset($_SESSION['confirm']);
                                     <form class="row g-3">
                                     <div class="d-flex flex-column mb-3">
                                         <div class="col-md-8">
-                                            <label for="inputTitle" class="form-label">Title*</label>
-                                            <input type="text" class="form-control" id="inputTitle" placeholder="New Track">
+                                            <label for="inputTitle" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="inputTitle" placeholder="Album Name">
                                         </div>
                                         
                                         <div class="col-md-4 mt-5">
-                                            <label for="trackType" class="form-label">TRACK TYPE</label>
+                                            <label for="trackType" class="form-label">Album Type</label>
                                             <select id="trackType" class="form-select">
-                                            <option selected="">Beat..</option>
+                                            <option selected="">Beat</option>
                                             <option>Trap</option>
                                             <option>Rap / Old School</option>
                                             <option>R&amp;B</option>
@@ -538,16 +557,17 @@ unset($_SESSION['confirm']);
                                         </div>
                                     </div>
                                     <div class="">
-                                        <label for="formFileLg" class="form-label">Large file input example</label>
-                                        <input class="form-control form-control-lg" id="formFileLg" type="file">
+                                        <label for="formFilemd" class="form-label">Choose the cover for your album</label>
+                                        <input class="form-control form-control-md" id="formFilemd" type="file">
                                     </div>
-                                    </form>
+
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal3">Close</button>
-                                        <button type="submit" class="btn btn-primary">Create Album</button>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#createAlbumModal">Close</button>
+                                        <input type="submit" class="btn btn-outline-secondary" value="Create Album">
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

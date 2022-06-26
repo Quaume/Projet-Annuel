@@ -197,6 +197,18 @@ function getUserVerifiedById($id){
 
 }
 
+// Verif si admin
+function isAdmin(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT 'username' FROM utrackpa_admins WHERE username = '".getUserId()."'");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetch();
+
+}
+
+
 
 ///// FOLLOWS /////
 
@@ -271,13 +283,16 @@ function isSubscribedToNewsletter(){
 }
 
 
-// Verif si admin
-function isAdmin(){
+
+///// Tracks /////
+
+//Recup toutes tracks user par id
+function getUserTracksById($id){
 
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT 'username' FROM utrackpa_admins WHERE username = '".getUserId()."'");	
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_tracks WHERE artist = '$id'");	
 	$queryPrepared->execute();
 	
-	return $queryPrepared->fetch();
+	return $queryPrepared->fetchAll();
 
 }

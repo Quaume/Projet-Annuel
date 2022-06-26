@@ -13,17 +13,12 @@
 <body>
 
     <?php require '../../../../functions/functions.php';
-<<<<<<< HEAD
-     //require '../../../../functions/functions.php';?>
-    <?php require 'view_one_post.php';?>
-=======
           require '../../forum_functions.php';
     ?>
     <?php require 'view_one_post.php';
           require 'publish_comment.php';
           require 'see_all_comments.php';
     ?>
->>>>>>> b8e0077dddacdd7c3e6804dc1e628f7020e9582a
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="../../../main/forum.php" alt="Home">
