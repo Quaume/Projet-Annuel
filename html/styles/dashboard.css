@@ -10,25 +10,6 @@
     .title_rqst{
         color: #F7CCAC;
     }
-    /*====================USER PROFILE===========================*/
-    
-    .userProfile {
-        color: #789395;
-    }
-    
-    .profile {
-        width: 50px;
-        height: 50px;
-        border: 1px solid #3A3845;
-        border-radius: 50px;
-    }
-    /*============================================================*/
-    
-    .img-thumbnail {
-        background-color: transparent !important;
-        border: none;
-    }
-    /*============================================================*/
     /*====================GREEN BLOCK EDIT USER PROFILE===========================*/
     
     .bio {
@@ -168,13 +149,11 @@
         border-radius: 35px;
     }
     /*==================== MEDIA QUERY TESTS =================*/
-    /*
-@media (max-width:900px) {
-    statsBlock{
-        flex-direction: column;
+    .pulse1 {
+        width: 80px;
+        height: 80px;
     }
-}
-*/
+
     /*===========================MODAL CONTENT==============================*/
     
     .modal-content {
@@ -193,9 +172,6 @@
         background-color: #F7CCAC;
         border-radius: 20px;
         padding: 0.5rem;
-        padding-right: 3rem;
-        padding-left: 3rem;
-        margin-left: 7rem;
     }
     
     .modal-header .close {

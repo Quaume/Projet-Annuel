@@ -15,7 +15,7 @@ require '../functions/php-config/publications/see_all_post.php';
 
 <body>
     <?php include '../includes/bs-layout/nav-bar.php'; ?>
-
+    <div class="my-3 py-5"></div>
     <?php
         while ($post = $getAllPosts->fetch()) {
             ?>
@@ -25,7 +25,9 @@ require '../functions/php-config/publications/see_all_post.php';
                 <div class="row">
                     <div class="d-flex align-items-center">
                         <div class="p-2 flex-fill">
-                            <img class="profile"src="../../ressources/img-profile/'<?=getUserImgById(getUserIdByUsername($post['author']));?>'">
+                            <a href="../functions/php-config/users_config/see_profile.php?id=<?=$post["id_usr"];?>">
+                                <img class="profile"src="../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post['author']));?>">
+                            </a>
                         </div>
 
                         <div class="p-2 flex-fill">
@@ -45,10 +47,10 @@ require '../functions/php-config/publications/see_all_post.php';
                     <h6 class="fw-light "><?=$post["sub_category"];?></h6>
                 </div>
                 <div class="me-2 mb-1">
-                    <button type="button" class="btn btn-secondary btn_like">
-                        <img src="../../ressources/IMG-CONTENT/hearth.png">
-                        <span class="ms-2 badge">177</span>
+                    <button type="button" class="btn btn-outline-light btn-floating">
+                        <i class="fa-solid fa-heart"></i>
                     </button>
+                    <span class="ms-2 badge">177</span>
                 </div>
             </div>
             <div class="card-footer bg-transparent fw-lighter text-end border-dark">

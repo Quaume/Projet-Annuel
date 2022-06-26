@@ -4,27 +4,26 @@ include "header-home.php";
 unset($_SESSION['errors']);
 unset($_SESSION['confirm']);
 ?>
-<div class="container mt-3 mb-5">
+<div class="container my-5">
     <div class="row">
-        <div class="d-block p-2 col-10">
+        <div class="d-flex justify-content-between">
             <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 My Profile
             </button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Copyright requests</button>
         </div>
 
-        <div class="d-block p-2 col-2  d-flex align-items-center">
+        <div class="d-flex d-flex align-items-center">
             <span class="d-block ms-3 ps-1" data-bs-toggle="popover" data-bs-trigger="hover focus">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">My Rights Requests</button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content bg-edit">
-                            <div class="modal-header">
+                            <div class="modal-header d-flex justify-content-center">
                                 <h5 class="modal-title" id="exampleModalLabel">Confirm / Decline</h5>
                             </div>
 
@@ -339,7 +338,7 @@ unset($_SESSION['confirm']);
         </div>
         <!-------------------------------------------------STATUS BLOCK-------------------------------------------------------------->
         <div class="mt-4 p-2 ps-4 col-lg-4 col-md-12  me-sm-3">
-            <div class="row">
+            <div class="row firstRow">
                 <div class="col-5 statsBlock pb-4 overflow-auto">
                     <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Posted Tracks</p>
                     <div class="">
@@ -381,7 +380,7 @@ unset($_SESSION['confirm']);
                             <p class="subtitle darkB text-center mt-3 pt-1 recentlyPost">Recently Post</p>
                             <div class="recentlyBlock d-flex justify-content-center mt-3">
                                 <div class="d-flex align-items-center">
-                                    <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse">
+                                    <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse1">
                                 </div>
                             </div>
                         </div>

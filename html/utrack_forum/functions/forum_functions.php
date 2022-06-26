@@ -27,7 +27,7 @@ function getAllUserPosts(){
 	$pdo = connectDB();
 	$iduser = getUserId($pdo);
 
-	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_forum WHERE id_usr = ?");
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_forum WHERE id_usr = ? ORDER BY dateOfRelease DESC");
 	$queryPrepared->execute(array($iduser));
 	
 	return $queryPrepared->fetchAll();

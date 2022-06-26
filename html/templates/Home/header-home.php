@@ -28,6 +28,7 @@ if(!isConnected()){
     <link href="../../styles/header.css" rel="stylesheet">
     <link href="../../styles/body.css" rel="stylesheet">
     <link href="../../styles/dashboard.css" rel="stylesheet">
+    <link href="../../styles/footer.css" rel="stylesheet">
 </head>
 
 <body>

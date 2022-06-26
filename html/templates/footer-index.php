@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid mt-5">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-4 col-sm-6">
                     <p class="lead text-center">About us</p>
@@ -42,9 +42,9 @@
                     <p class="lead text-center">Newsletters</p>
                     <p class="text-center p-1">Stay update with our latest</p>
                     <div class="input-group mb-4">
-                        <input type="text" class="form-control" placeholder="Enter Email" aria-label="" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control newsletterInput" placeholder="Enter Email" aria-label="" aria-describedby="basic-addon1">
                         <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary" type="button">send</button>
+                            <button class="btn btn-outline-success" type="button">send</button>
                         </div>
                     </div>
                 </div>

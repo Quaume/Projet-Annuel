@@ -5,9 +5,7 @@
     <?php include '../../../includes/forum-layout/head.php'; ?>
     <link rel="icon" type="image/png" href="../../../../ressources/IMAGES-HEADER/icon.png">
     <link rel="stylesheet" href="../../../assets/styles/forum.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -19,7 +17,7 @@
           require 'publish_comment.php';
           require 'see_all_comments.php';
     ?>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" style="background-color: #FFF6EA;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../../../main/forum.php" alt="Home">
                 <img src="../../../../ressources/IMAGES-HEADER/logo-utrack.png" alt="" width="150" height="70">
@@ -54,10 +52,9 @@
                         <hr class="dropdown-divider">
                         <li><a class="dropdown-item" href="../../../main/my_post.php">See my posts</a></li>
                         <li><a class="dropdown-item" href="../../../main/publish_content.php">Publish post</li>
-                        <li><a class="dropdown-item" href="../users_config/edit_post.php">Edit post</a></li>
                         <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="../../../../templates/Home/dash-board.php">return
-                                dashboard</a></li>
+                        <li><a class="dropdown-item" href="forum.php">Return forum</a></li>
+                        <li><a class="dropdown-item" href="../../../../templates/Home/dash-board.php">Return dashboard</a></li>
                     </ul>
                 </ul>
             </div>
@@ -77,8 +74,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <img class="profile rounded-circle shadow-1-strong me-3"
-                                        src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post_author));?>">
+                                    <a href="../users_config/see_profile.php?id=<?=$post_id_author?>">
+                                        <img class="profile rounded-circle shadow-1-strong me-3" src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post_author))?>">
+                                    </a>                                    
                                     <div>
                                         <h6 class="fw-bold mb-1"><?=$post_author;?></h6>
                                         <p class="text-muted small mb-0"><?=$post_date_of_release;?></p>
@@ -106,8 +104,7 @@
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content bg-forum">
                                         <div class="modal-header d-flex flex-start">
-                                            <img class="profile rounded-circle shadow-1-strong me-3" width="40"
-                                                src="../../../../ressources/img-profile/<?=getUserImgById(getUserId());?>" />
+                                            <img class="profile rounded-circle shadow-1-strong me-3" width="40" src="../../../../ressources/img-profile/<?=getUserImgById(getUserId())?>"/>
                                         </div>
                                         <div class="modal-body">
                                             <form method="POST">
@@ -123,14 +120,13 @@
                                                         <button type="submit" name="send"
                                                             class="btn btn-outline-success btn-sm me-2">Post
                                                             comment</button>
-                                                        <button type="button"
-                                                            class="btn btn-outline-primary btn-sm">Cancel</button>
+                                                        <button type="submit" class="btn btn-outline-danger btn-sm">Cancel</button>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-outline-secondary btn-sm"
+                                            <button type="button" class="btn btn-outline-warning btn-sm"
                                                 data-bs-dismiss="modal" aria-label="Close">Close</button>
                                         </div>
                                     </div>
@@ -163,9 +159,10 @@
                                             while($comment = $getAllComments->fetch()){
                                                 ?>
                                                                             <div class="d-flex flex-start mt-4">
-                                                                                <img class="profile rounded-circle shadow-1-strong me-3"
-                                                                                    src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($comment['username']));?>" />
-                                                                                <div class="flex-grow-1 flex-shrink-1">
+                                                                                <a href="../users_config/see_profile.php?id=<?=$comment["usr_id"];?>">
+                                                                                    <img class="profile rounded-circle shadow-1-strong me-3" src="../../../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($comment['username']));?>" />
+                                                                                </a>
+                                                                                    <div class="flex-grow-1 flex-shrink-1">
                                                                                     <div>
                                                                                         <div
                                                                                             class="d-flex justify-content-between align-items-center">
@@ -181,15 +178,15 @@
                                                                             <!--</div>
                                                                             </div>
                                                                         <div class="d-flex flex-start">
-                                                                            <img class="profile rounded-circle shadow-1-strong me-3" src="../../../../ressources/img-profile/<?//=getUserImgById(getUserIdByUsername($post_author));?>"/>
+                                                                            <img class="profile rounded-circle shadow-1-strong me-3" src="../../../../ressources/img-profile/<//?=getUserImgById(getUserIdByUsername($post_author));?>"/>
                                                                             <div class="flex-grow-1 flex-shrink-1">
                                                                                     <div>
                                                                                         <div
                                                                                             class="d-flex justify-content-between align-items-center">
-                                                                                            <p class="mb-1"><?//=$comment["username"];?><span class=" ms-2 small"><?//=$comment["dateInserted"];?></span></p>
+                                                                                            <p class="mb-1"><//?=$comment["username"];?><span class=" ms-2 small"><//?=$comment["dateInserted"];?></span></p>
                                                                                             <a href="#"><span class="small">reply</span></a>
                                                                                         </div>
-                                                                                        <p class="small mb-0"><?//=$comment['comment'];?></p>
+                                                                                        <p class="small mb-0"><//?=$comment['comment'];?></p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -207,7 +204,7 @@
                                                 </div>
                                                 <div class="modal-footer modal-comments">
                                                     <div class="position-fixed">
-                                                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                                                        <button type="button" class="btn btn-outline-dark btn-sm" data-bs-dismiss="modal" aria-label="Close">Close</button>
                                                     </div>
                                                 </div>
                                             </div>

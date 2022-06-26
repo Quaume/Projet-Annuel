@@ -22,7 +22,7 @@ if(isset($_POST['modified'])){
                     </div>
                 </div>';
             
-                /*header("Location: ../../../main/my_post.php");*/
+                header("Location: ../../../main/my_post.php");
     }else{
         echo '<div class="toast show align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
 					        <div class="d-flex">
