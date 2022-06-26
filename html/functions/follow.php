@@ -6,7 +6,7 @@
         die(header("Location: ../index.php"));
     }
 
-    $follower = getUserIdByUsername($_GET['follower']);
+    $follower = getUserId();
     $followed = getUserIdByUsername($_GET['followed']);
 
 	$pdo = connectDB();

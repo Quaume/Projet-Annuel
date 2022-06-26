@@ -92,9 +92,9 @@ echo "<br><br><br><br><br>";
         if($user["username"] != getUserUsernameById(getUserId())){
 
         if(empty(isUserFollowed(getUserId(),$user["id"]))){
-            echo'<a href="follow.php?follower='.getUserUsernameById($user["id"]).'&amp;followed='.$user["username"].'" class="btn btn-info" >Follow</a>';
+            echo'<a href="follow.php?followed='.$user["username"].'" class="btn btn-info" >Follow</a>';
         }else{
-            echo'<a href="unfollow.php?follower='.getUserUsernameById($user["id"]).'&amp;followed='.$user["username"].'" class="btn btn-info">Unfollow</a>';
+            echo'<a href="unfollow.php?followed='.$user["username"].'" class="btn btn-info">Unfollow</a>';
         }
         }
         '            
