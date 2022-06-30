@@ -52,6 +52,9 @@
                     You must confirm your email to sign in !
                     </div>
                     ';
+                    unset($_SESSION['token']);
+                    unset($_SESSION['email']);
+                    unset($_SESSION['id']);
                 }
                 }
 
