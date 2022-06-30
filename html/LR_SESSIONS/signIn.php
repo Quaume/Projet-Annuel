@@ -8,10 +8,10 @@
                 <div class="col-lg-4 col-sm-6 col-12 commoncontainer text-center">
             <div>
             <?php
+
                 if( !empty($_POST['email']) &&  !empty($_POST['pwd']) && count($_POST)==2 ){
 
                     //Récupérer en bdd le mot de passe hashé pour l'email provenant du formulaire
-
 
                         $pdo = connectDB();
                         $queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users WHERE email=:email");
@@ -19,31 +19,41 @@
                         $results = $queryPrepared->fetch();
 
                     if(!empty($results) && password_verify($_POST['pwd'], $results['pwd'])){
-                        $queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users WHERE verified=:verified");
-                        $queryPrepared->execute(["verified"=>$_SESSION['verified']]);
-                        $verified = $queryPrepared->fetch();
 
                         $token = createToken();
                         updateToken($results["id"], $token);
                         //Insertion dans la session du token
-                        $_SESSION['email'] = $_POST['email'];
-                        $_SESSION['id'] = $results["id"];
-                        $_SESSION['token'] = $token;
-                        header("location: ../templates/Home/Home.php");
+                            $_SESSION['email'] = $_POST['email'];
+                            $_SESSION['id'] = $results["id"];
+                            $_SESSION['token'] = $token;
                     }else{
                         echo "<h5 class='errors mt-3'>Incorrect login informations</h5>";
                     }
 
                 }
 
-				if(!empty($_SESSION['confirm'])){
-					echo "<div class='confirm mt-3'>";
-                    foreach ($_SESSION['confirm'] as $confirm){
-                        echo "$confirm<br>";
-                    }
-                    echo "</div>";
-					unset($_SESSION['confirm']);
-				}
+                if(!empty($_SESSION['confirm'])){
+					echo "<div class='errors mt-3'>".
+                    $_SESSION['confirm']."
+                    </div>";
+                    unset($_SESSION['confirm']);
+                }else if(!empty($_POST['email'])){
+
+                    $pdo = connectDB();
+                    $queryPrepared = $pdo->prepare("SELECT verified FROM utrackpa_users WHERE email=:email");
+                    $queryPrepared->execute(["email"=>$_POST['email']]);
+                    $verified = $queryPrepared->fetch()[0];
+
+                if(($verified) == 1){
+                    header("location: ../templates/Home/Home.php");
+                } else {
+                    echo'
+                    <div class="errors mt-3">
+                    You must confirm your email to sign in !
+                    </div>
+                    ';
+                }
+                }
 
             ?>
                     

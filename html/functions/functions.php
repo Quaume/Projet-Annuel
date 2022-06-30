@@ -60,7 +60,7 @@ function isConnected(){
 function getAllUsers(){
 	
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users");	
+	$queryPrepared = $pdo->prepare("SELECT username, accountType, dateInserted, img_profile FROM utrackpa_users");	
 	$queryPrepared->execute();
 	
 	return $queryPrepared->fetchAll();
@@ -181,19 +181,7 @@ function getUserVerifiedById($id){
 	$queryPrepared = $pdo->prepare("SELECT verified FROM utrackpa_users WHERE id=:id");	
 	$queryPrepared->execute(["id"=>$id]);
 	
-	if($queryPrepared->fetch()[0] == 1){
-		return(
-			"Your account has been verified"
-		);
-	} else if ($queryPrepared->fetch() == 0){
-		return(
-			"Your account must be verified"
-		);
-	} else {
-		return(
-			"What are you doing with our website ?"
-		);
-	}
+	return $queryPrepared->fetch()[0];
 
 }
 

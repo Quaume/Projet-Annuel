@@ -1,12 +1,10 @@
 <?php
-require '../../functions/functions.php';
+include "header-home.php";
 
 if(!isConnected()){
 	die(header("Location: ../../index.php"));
 }
-
 ?>
-<?php require 'header-home.php';?>
 
 <!-- CAROUSEL -->
 <div class="container my-5 p-5">

@@ -2,6 +2,11 @@
 header, body{
     font-family: 'Dosis', "sans-serif";
 }
+
+header {
+    position: sticky;
+    top: 0;
+}
  /*====================USER PROFILE===========================*/
     
  .userProfile {
@@ -30,12 +35,12 @@ header, body{
     font-size: 17px;
 }
 
-a {
+.a {
     text-decoration: none;
     color: #789395;
 }
 
-a:hover {
+.a:hover {
     color: #5f7d80;
 }
 

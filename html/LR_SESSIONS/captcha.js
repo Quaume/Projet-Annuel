@@ -23,11 +23,11 @@
 /*** Couleurs  ***/
 
     // Tableau couleurs captcha
-    const colors = ['red', 'green', 'blue']
+    const colors = ['red', 'green', 'yellow']
     
     // Couleur de Validation
     let colorToComplete = colors[Math.floor(Math.random() * colors.length)]
-    colorCompleteInfo.textContent = `All Squares Must be ${colorToComplete}`;
+    colorCompleteInfo.textContent = `All Squares Must be ${colorToComplete} -> (${colors.indexOf(colorToComplete)})`;
 /**/
 
 /*** Vérification ***/
@@ -60,7 +60,9 @@ signUpButton.addEventListener('mouseover', isButtonActivated)
 /*** Initialisation des couleurs random des différents carrés ***/
 
     Array.from(captchaSquares).forEach((square) => {
-        square.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        randomColor = colors[Math.floor(Math.random() * colors.length)];
+        square.style.backgroundColor = randomColor;
+        square.textContent = colors.indexOf(randomColor);
     })
 
 /**/
@@ -73,9 +75,11 @@ signUpButton.addEventListener('mouseover', isButtonActivated)
     function changeColor(evt) {
         if(color < 2){
             evt.path[0].style.backgroundColor = colors[color];
+            evt.path[0].textContent = colors.indexOf(colors[color]);
             color++;
         } else {
             evt.path[0].style.backgroundColor = colors[color];
+            evt.path[0].textContent = colors.indexOf(colors[color]);
             color = 0;
         }
         squaresIds.forEach((square) => {
