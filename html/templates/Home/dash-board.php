@@ -407,8 +407,26 @@ unset($_SESSION['confirm']);
                                     <p class="text-muted mb-0"></p>
                                 </div>
                             </div>
-                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">Listen</a>
+                            <a class="btn btn-link btn-rounded btn-sm" data-bs-toggle="modal" data-bs-target="#listenModal" role="button">Listen</a>
                         </li>
+                        <!-- Listen Modal -->
+                        <div class="modal fade" id="listenModal" tabindex="-1" aria-labelledby="listenModal" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title listenTitle" id="listenModal">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" class="rounded" alt=""
@@ -452,7 +470,7 @@ unset($_SESSION['confirm']);
 
                 <!-- Modal Create track-->
                 <div class="modal fade" id="createTrackModal">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog">
                         <div class="modal-content bg-edit">
                             <div class="modal-header"></div>
                                 <div class="modal-body">
