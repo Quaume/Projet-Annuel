@@ -258,7 +258,7 @@ unset($_SESSION['confirm']);
                 <?php
                 if(isAdmin()){
                     echo'
-                    <a href="../../admin_page.php" class="text-center list-group-item list-group-item-action">Admins Dashboard</a>
+                    <a href="../../admin_page.php?display=users" class="text-center list-group-item list-group-item-action">Admins Dashboard</a>
                     ';
                 }
                 ?>

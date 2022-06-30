@@ -28,6 +28,7 @@ if(!isConnected()){
 </head>
 
 <body>
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -53,9 +54,9 @@ if(!isConnected()){
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="admin_page.php?display=users">
                             <i class='bx bx-list-ul icon'></i>
-                            <span class="text nav-text">Table List</span>
+                            <span class="text nav-text">Users List</span>
                         </a>
                     </li>
 
@@ -67,7 +68,7 @@ if(!isConnected()){
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="admin_page.php?display=newsletter">
                             <i class='bx bxs-news icon'></i>
                             <span class="text nav-text">Newsletters</span>
                         </a>
@@ -129,8 +130,39 @@ if(!isConnected()){
         </div>
     </nav>
 
+    <?php 
+    $display = $_GET['display'];
+
+
+    switch ($display){
+        case 'users':
+        echo'
         <div class="tableList ms-4 p-4">
             <div class="overflow-auto" style="height:500px">
+
+            ';if(!empty($_SESSION['errors'])){
+                echo "<div class='errors mt-3'>
+                <ul>
+                ";
+                foreach($_SESSION['errors'] as $error){
+                    echo "<li>".
+                    $_SESSION['errors']."
+                    </li>";
+                }
+                echo"</ul>
+                </div>
+                ";
+                unset($_SESSION['errors']);
+            }
+
+            if(!empty($_SESSION['confirm'])){
+                echo "<div class='errors text-center mt-3'>".
+                $_SESSION['confirm']."
+                </div>";
+                unset($_SESSION['confirm']);
+            }
+            echo'
+
             <h4>Users List</h4>
             <table class="table table-borderless mt-4 usrList">
                 <thead>
@@ -147,27 +179,29 @@ if(!isConnected()){
                         <th scope="col" class="text-center">Edit</th>
                     </tr>
                 </thead>
-                <tbody>
-                <?php
-                foreach (getAllUsers() as $user){
-                    echo '<tr>
+                <tbody>';
 
+                foreach (getAllUsers() as $user){
+
+                    $id = getUserIdByUsername($user["username"]);
+
+                    echo '<tr>
                     <td><img src="ressources/img-profile/'.$user["img_profile"].'" height="30"></td>
-                    <td>'.$user["id"].'</td>
-                    <td>'.$user["username"].'</td>
-                    <td>'.$user["birthday"].'</td>
-                    <td>'.$user["email"].'</td>
-                    <td>'.$user["accountType"].'</td>
-                    <td>'.$user["dateInserted"].'</td>
-                    <td>'.$user["dateUpdated"].'</td>
-                    <td>'.$user["verified"].'</td>
+                    <td>'.$id.'</td>
+                    <td>'.getUserUsernameById($id).'</td>
+                    <td>'.getUserBirthdayById($id).'</td>
+                    <td>'.getUserEmailById($id).'</td>
+                    <td>'.getUserAccountTypeById($id).'</td>
+                    <td>'.getUserDateInsertedById($id).'</td>
+                    <td>'.getUserDateUpdatedById($id).'</td>
+                    <td>'.getUserVerifiedById($id).'</td>
                     
                     <td>
                     <div class="btn-group" role="group">
-                        <a href="deleteUser.php?id='.$user["id"].'" >
+                        <a href="deleteUser.php?id='.$id.'" >
                             <button type="button" class="btn"><img src="ressources/IMG-CONTENT/cross.png" width="20" height="20" alt="Delete"></button>
                         </a>
-                        <a href="editUser.php?id='.$user["id"].'" >
+                        <a href="editUser.php?id='.$id.'" >
                             <button type="button" class="btn"><img src="ressources/IMG-CONTENT/pen.png" width="20" height="20" alt="edit"></button>
                         </a>
                     </div>
@@ -176,13 +210,60 @@ if(!isConnected()){
                 </tr>';
 
                 }
-                ?>
+                echo'
                 </tbody>
             </table>
             </div>
+            </div>
         </div>
-    </div>
+        ';
+        break;
 
+        case 'newsletter':
+
+            echo'
+            <div class="container newsletter">
+                <div class="row">
+                    <div class="col-11 text-center">
+
+                    ';if(!empty($_SESSION['errors'])){
+                        echo "<div class='errors mt-3'>
+                        <ul>
+                        ";
+                        foreach($_SESSION['errors'] as $error){
+                            echo "<li>".
+                            $_SESSION['errors']."
+                            </li>";
+                        }
+                        echo"</ul>
+                        </div>
+                        ";
+                        unset($_SESSION['errors']);
+                    }
+        
+                    if(!empty($_SESSION['confirm'])){
+                        echo "<div class='errors text-center mt-3'>".
+                        $_SESSION['confirm']."
+                        </div>";
+                        unset($_SESSION['confirm']);
+                    }
+                    echo'
+                        <h2 class="mt-4">Newsletter</h2><br>
+
+                <form action="functions/sendNewsletter.php" method="post">
+                    <input type="text" name="subject" class="newsletterinputs" placeholder="Newsletter Subject"><br>
+                    <textarea name="mailbody" class="newsletterinputs newslettercontent mt-5" placeholder="Newsletter Content"></textarea><br>
+                    <input type="submit" class="newsletterinputs" value="Send the newsletter">
+                    </form>
+
+                    </div>
+                </div>
+            </div>
+            ';
+            break;
+        
+}
+?>
     <script src="scriptAdmin.js"></script>
 </body>
 

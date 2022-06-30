@@ -338,3 +338,27 @@ thead, tbody, tfoot, tr, td, th{
 td{
     color: #94B49F;
 }
+
+
+/* Newsletter */
+
+.newsletter{
+
+    background-color: #789395;
+    color: #3A3845;
+    border-radius: 25px;
+    height: 550px;
+
+}
+
+.newsletterinputs{
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    color: #3A3845;
+}
+
+.newslettercontent{
+    width: 750px;
+    height: 275px;
+}

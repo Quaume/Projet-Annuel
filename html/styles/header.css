@@ -3,10 +3,6 @@ header, body{
     font-family: 'Dosis', "sans-serif";
 }
 
-header {
-    position: sticky;
-    top: 0;
-}
  /*====================USER PROFILE===========================*/
     
  .userProfile {
