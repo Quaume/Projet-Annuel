@@ -4,6 +4,8 @@ include "header-home.php";
 if(!isConnected()){
 	die(header("Location: ../../index.php"));
 }
+
+
 ?>
 
 <!-- CAROUSEL -->
