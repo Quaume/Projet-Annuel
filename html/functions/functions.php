@@ -296,3 +296,21 @@ function getUserTracksById($id){
 	return $queryPrepared->fetchAll();
 
 }
+
+// All username
+function getAllTracks(){
+	
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT id,title,artist,category,dateOfRelease,img_profile FROM utrackpa_tracks");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
+}
+
+function getUserImgByTrackId($id){
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_tracks WHERE id=:id");
+	$queryPrepared->execute(["id"=>$id]);
+
+	return $queryPrepared->fetch()[0];
+}

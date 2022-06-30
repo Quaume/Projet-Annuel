@@ -26,7 +26,7 @@ require '../functions/php-config/publications/see_all_post.php';
                     <div class="d-flex align-items-center">
                         <div class="p-2 flex-fill">
                             <a href="../functions/php-config/users_config/see_profile.php?id=<?=$post["id_usr"];?>">
-                                <img class="profile"src="../../ressources/img-profile/<?=getUserImgById(getUserIdByUsername($post['author']));?>">
+                                <img class="profile"src="../../ressources/img-profile/<?=getUserImgById(($post['id_usr']));?>">
                             </a>
                         </div>
 
@@ -37,7 +37,7 @@ require '../functions/php-config/publications/see_all_post.php';
                         <a href="../functions/php-config/publications/see_post.php?id=<?=$post['id'];?>" class="btn btn-outline-secondary">See</a>
                         </div>
                     </div>
-                    <p class="fw-lighter text-start ms-2"><?=$post["author"];?></p>
+                    <p class="fw-lighter text-start ms-2"><?=getUserUsernameById($post['id_usr']);?></p>
                 </div>
                 <p class="card-text fw-light text-start mt-3"><?=$post["content"];?></p>
             </div>

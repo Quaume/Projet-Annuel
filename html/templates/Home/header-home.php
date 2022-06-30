@@ -1,5 +1,6 @@
 <?php
-require '../../functions/functions.php';
+require_once '../../functions/functions.php';
+require '../../functions/searchAjax.php';
 
 if(!isConnected()){
 	die(header("Location: ../../index.php"));
@@ -21,9 +22,7 @@ if(!isConnected()){
     <!--CSS / JS BOOTSTRAP LINK-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <link href="../../styles/header.css" rel="stylesheet">
     <link href="../../styles/body.css" rel="stylesheet">
@@ -105,15 +104,12 @@ if(!isConnected()){
                             <!--SEARCH-BAR-->
 
                             <div class="mt-2">
-                                <form class="d-flex justify-content-center form-inline my-2 my-lg-0 me-5">
-                                    <input class="form-control mr-sm-2" type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <a href="#">
-                                        <img src="../../ressources/IMAGES-HEADER/search-logo2.png"
-                                            class="search img-responsive ms-2 mt-1" alt="Search">
-                                    </a>
+                                <form class="d-flex" method="GET">
+                                    <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search" onkeyup="showHint(this.value)">
+                                    <button class="btn btn-success btnSearch" type="submit"><img src="../../ressources/IMAGES-HEADER/search-logo2.png" class="search img-responsive ms-2 mt-1" alt="Search"></button>
                                 </form>
                             </div>
+                            
 
                             <div class="img-thumbnail img-circle">
                                 <div type="file" id="formFile">
@@ -135,4 +131,16 @@ if(!isConnected()){
             </div>
         </div>
         <script src="lightDarkMode.js" type="text/javascript"></script>
+        <script src="searchAjax.js" type="text/javascript"></script>
     </header>
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            
+                <?php if(!empty($_GET['search'])){
+                   echo $hint;
+                }
+                ?>
+        </div>
+
+    </div>
+</div>

@@ -99,3 +99,29 @@ input.form-control {
     height: 30px;
     width: 30px;
 }
+.btn-success .btn{
+background-color: #00000000 !important;
+}
+.btn-success{
+    background-color: #00000000 !important;
+    border-color: #00000000 !important;
+}
+.btn-success:active {
+    color: #00000000 !important;
+}
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: #789395;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card {
+    background-color: #789395;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+.toast-header{
+    background-color: transparent !important;
+}
