@@ -30,7 +30,7 @@ if($q !== ""){
                             <div class="toast-body">
                                 <div class="d-flex justify-content-between">
                                     <a href="#!">
-                                        <img src="../../ressources/tracks_cover/'.getUserImgByTrackId($id_track).'" class="rounded" style="width: 50px; height: 50px" ">                         
+                                        <img src="../../ressources/tracks_cover/'.getImgTrackById($id_track).'" class="rounded" style="width: 50px; height: 50px" ">                         
                                     </a>
                                     <p class="d-flex align-items-center">
                                     '.$title.'

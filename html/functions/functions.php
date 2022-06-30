@@ -295,7 +295,7 @@ function getAllTracks(){
 	return $queryPrepared->fetchAll();
 }
 
-function getUserImgByTrackId($id){
+function getImgTrackById($id){
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_tracks WHERE id=:id");
 	$queryPrepared->execute(["id"=>$id]);
