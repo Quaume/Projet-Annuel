@@ -175,3 +175,21 @@ img.rounded-circle.img-size{
         margin-bottom: 0 !important;
     }
 }
+
+/* USERS */
+
+.userBlock {
+
+    background-color: #789395;
+    border-radius: 15px;
+    
+}
+
+.userLink {
+    text-decoration: none;
+    color:#3A3845;
+}
+
+.userLink:hover {
+    color:#63616d;
+}

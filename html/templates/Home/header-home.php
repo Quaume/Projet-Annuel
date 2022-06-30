@@ -36,7 +36,7 @@ if(!isConnected()){
         <div class="container-fluid navContent">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand ms-5" href="Home.php">
+                    <a class="navbar-brand ms-5 a" href="Home.php">
                         <img src="../../ressources/IMAGES-HEADER/Utrack_logo.png" width="150" height="65" alt="Logo">
                     </a>   
                     
@@ -47,7 +47,7 @@ if(!isConnected()){
                     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto me-5 pe-5">
 
-                        <a type="button" class="discoverUsers me-5 mt-3" href="#">
+                        <a type="button" class="discoverUsers me-5 mt-3 a" href="allUsers.php">
                         Discover Users !
                         </a>
 
@@ -117,7 +117,7 @@ if(!isConnected()){
 
                             <div class="img-thumbnail img-circle">
                                 <div type="file" id="formFile">
-                                    <a href="dash-board.php">
+                                    <a href="dash-board.php" class="a">
                                         <?php printf(getUserUsernameById(getUserId()));?>
                                         <img src="../../ressources/img-profile/<?php printf(getUserImgById(getUserId()));?>" class="profile img-circle ms-1" type="file">
                                     </a>
