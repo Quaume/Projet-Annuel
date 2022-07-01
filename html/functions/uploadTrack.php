@@ -18,6 +18,7 @@
 
     $trackName = $artist."_".$title;
 
+
 		//je renvoie l'extension de fichier en ignorant le caractère '.'
             $trackextension = array('wav','mp3');
             $trackextensionToUpload = strtolower(substr(strrchr($track['name'], '.'),1));
@@ -25,17 +26,12 @@
 
                 $trackNameToUpload = $trackName.'.'.$trackextensionToUpload;
 
-                printf($trackNameToUpload);
-                printf($trackextensionToUpload);
-                printf($track['name']);                
-
                 // Creation de chemin du fichier
                 $path = "../ressources/tracks/".$trackNameToUpload."";
                 //On va deplacer se fichier stocker temporairement et le placer dans path
                 $result = move_uploaded_file($track['tmp_name'],$path);
 
                 }
-
 
                 $max_size = 2097152;
                 $coverextension = array('jpeg','jpg','png');
@@ -47,7 +43,7 @@
                     
                     if(in_array($coverextensionUpload, $coverextension)){
                         // Creation de chemin du fichier
-                        $path = "../ressources/tracks_cover/".$trackCoverName."";
+                        $path = "../ressources/tracks_cover/".$trackCoverName."";;
                         //On va deplacer se fichier stocker temporairement et le placer dans path
                         $result = move_uploaded_file($trackCover['tmp_name'],$path);
 
@@ -62,7 +58,7 @@
     header("Location: ../templates/Home/dash-board.php");
 
     }else{
-        
+
 	$pdo = connectDB();
     $queryPrepared = $pdo->prepare("INSERT INTO utrackpa_tracks(title, artist, category, trackName, img_profile) VALUES (:title, :artist, :category, :trackName, :img_profile)");
     $queryPrepared->execute(
