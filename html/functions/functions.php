@@ -285,6 +285,16 @@ function getUserTracksById($id){
 
 }
 
+function getRecentUserTracksById($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_tracks WHERE artist = '$id' ORDER BY dateOfRelease DESC LIMIT 0,3");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
+
+}
+
 // All username
 function getAllTracks(){
 	

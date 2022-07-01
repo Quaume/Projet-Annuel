@@ -344,26 +344,48 @@ unset($_SESSION['confirm']);
                     <div class="">
                         <div class="overflow-auto" style="height: 120px;">
                             <ul class="list-group list-group-light">
-                                <?php foreach(getUserTracksById(getUserId()) as $track){ 
+                                <?php foreach(getRecentUserTracksById(getUserId()) as $track){ 
 
                                 echo '
                                 
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="../../ressources/tracks_cover/'.$track['img_profile'].'" alt="track_cover"
-                                        style="width: 45px; height: 45px" class="rounded" />
-                                    <div class="ms-3">
-                                        <p class="fw-bold mb-1">'.$track["title"].'</p>
-                                        <p class="text-muted mb-0"></p>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img src="../../ressources/tracks_cover/'.$track['img_profile'].'" alt="track_cover" style="width: 45px; height: 45px" class="rounded mx-2"/>
+                                        <a class="text-decoration-none fw-bold mb-1" data-bs-toggle="modal" data-bs-target="#listenModal">
+                                            '.$track["title"].'
+                                        </a>
                                     </div>
-                                    <audio
-                                        controls
-                                    src="../../ressources/tracks/'.$track['trackName'].'">
-                                    Your browser does not support the
-                                    <code>audio</code> element.
-                                    </audio>
-                                </div>
                                 </li>
+                                <!-- Listen Modal -->
+                                    <div class="modal fade" id="listenModal" tabindex="-1" aria-labelledby="listenModal" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title listenTitle" id="listenModal">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body modalAudio">
+                                                <audio id="player" src="../../ressources/tracks/'.$track['trackName'].'"></audio>
+                                                    <div class="player">
+                                                        <div class="control">
+                                                            <i class="fas fa-play" id="playBtn"></i>
+                                                        </div>
+                                                        <div class="info">'.$track['title'].'
+                                                            <div class="bar">
+                                                                <div id="progress"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="" id="current">O:00</div>
+                                                    </div>
+                                                <script src="./player.js"></script>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 
                                 ';
                                 } ?>
@@ -409,24 +431,6 @@ unset($_SESSION['confirm']);
                             </div>
                             <a class="btn btn-link btn-rounded btn-sm" data-bs-toggle="modal" data-bs-target="#listenModal" role="button">Listen</a>
                         </li>
-                        <!-- Listen Modal -->
-                        <div class="modal fade" id="listenModal" tabindex="-1" aria-labelledby="listenModal" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title listenTitle" id="listenModal">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" class="rounded" alt=""

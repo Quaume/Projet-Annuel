@@ -17,7 +17,6 @@ if(!isConnected()){
 
     <title>Utrack</title>
     <link rel="icon" type="image/png" href="../../ressources/IMAGES-HEADER/icon.png">
-    
     <script src="https://kit.fontawesome.com/9dc661cec8.js" crossorigin="anonymous"></script>
     <!--CSS / JS BOOTSTRAP LINK-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,6 +27,7 @@ if(!isConnected()){
     <link href="../../styles/body.css" rel="stylesheet">
     <link href="../../styles/dashboard.css" rel="stylesheet">
     <link href="../../styles/footer.css" rel="stylesheet">
+    <link href="../../styles/audio.css" rel="stylesheet">
 </head>
 
 <body>
@@ -105,8 +105,10 @@ if(!isConnected()){
 
                             <div class="mt-2">
                                 <form class="d-flex" method="GET">
-                                    <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search" onkeyup="showHint(this.value)">
-                                    <button class="btn btn-success btnSearch" type="submit"><img src="../../ressources/IMAGES-HEADER/search-logo2.png" class="search img-responsive ms-2 mt-1" alt="Search"></button>
+                                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search" onkeyup="showHint(this.value)">
+                                    <button class="btn btn-success btnSearch" type="submit">
+                                        <img src="../../ressources/IMAGES-HEADER/search-logo2.png" class="search img-responsive ms-2 mt-1" alt="Search">
+                                    </button>
                                 </form>
                             </div>
                             
@@ -141,6 +143,5 @@ if(!isConnected()){
                 }
                 ?>
         </div>
-
     </div>
 </div>

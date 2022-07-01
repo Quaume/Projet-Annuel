@@ -1,9 +1,12 @@
 <?php
 
 getAllTracks();
+
 $hint = "";
+
 if(isset($_GET['search'])){
-$q = $_REQUEST["search"];
+
+    $q = $_REQUEST["search"];
 
 
 
@@ -11,6 +14,7 @@ if($q !== ""){
     $q = strtolower($q);
     $length = strlen($q);
     foreach(getAllTracks() as  $track){
+        
         $artist = $track['artist'];
         $title = $track['title'];
         $category = $track['category'];
