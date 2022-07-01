@@ -43,7 +43,7 @@
                     
                     if(in_array($coverextensionUpload, $coverextension)){
                         // Creation de chemin du fichier
-                        $path = "../ressources/tracks_cover/".$trackCoverName."";;
+                        $path = "../ressources/tracks_cover/".$trackCoverName."";
                         //On va deplacer se fichier stocker temporairement et le placer dans path
                         $result = move_uploaded_file($trackCover['tmp_name'],$path);
 
