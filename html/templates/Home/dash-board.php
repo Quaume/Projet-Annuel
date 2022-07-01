@@ -374,17 +374,17 @@ unset($_SESSION['confirm']);
                                 <li class="list-group-item d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
                                         <img src="../../ressources/tracks_cover/'.$track['img_profile'].'" alt="track_cover" style="width: 45px; height: 45px" class="rounded mx-2"/>
-                                        <a class="text-decoration-none fw-bold mb-1" data-bs-toggle="modal" data-bs-target="#listenModal">
+                                        <a class="text-decoration-none fw-bold mb-1" data-bs-toggle="modal" data-bs-target="#listenModal'.$track['id'].'">
                                             '.$track["title"].'
                                         </a>
                                     </div>
                                 </li>
                                 <!-- Listen Modal -->
-                                    <div class="modal fade" id="listenModal" tabindex="-1" aria-labelledby="listenModal" aria-hidden="true">
+                                    <div class="modal fade" id="listenModal'.$track['id'].'" tabindex="-1" aria-labelledby="listenModal'.$track['id'].'" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title listenTitle" id="listenModal">Modal title</h5>
+                                                <h5 class="modal-title listenTitle" id="listenModal'.$track['id'].'">Modal title</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body modalAudio">
