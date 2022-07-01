@@ -14,6 +14,8 @@ $colcount = 0;
 
 foreach(getAllUsers() as $user){
 
+if($user['id'] != getUserId()){
+
 if($colcount == 1){
     echo'<div class="col-2"></div>';
     $colcount = 0;
@@ -43,7 +45,7 @@ echo'
 ';
 
 }
-
+}
 ?>
 </div>
 </div>

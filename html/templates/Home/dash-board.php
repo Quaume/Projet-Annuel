@@ -173,6 +173,7 @@ unset($_SESSION['confirm']);
                         <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followed[0]).' width=35>
                         <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed[0]).
                         ' - '.getUserAccountTypeById($followed[0]).'</label>
+                        <a href="../../functions/unfollow.php?followed='.getUserUsernameById($followed[0]).'&amp;source=dashboard" class="btn btn-outline-secondary">Unfollow</a>
                         <br>
                     ';
                     }
@@ -276,9 +277,9 @@ unset($_SESSION['confirm']);
             <div class="d-flex justify-content-evenly mt-3 mb-2">
                 <?php
                     if(empty(isSubscribedToNewsletter())){
-                        echo'<a href="../../functions/addToNewsLetter.php" class="btn btn-outline-light">Subscribe to newsletter</a>';
+                        echo'<a href="../../functions/addToNewsletter.php" class="btn btn-outline-light">Subscribe to newsletter</a>';
                     }else{
-                        echo'<a href="../../functions/removeFromNewsLetter.php" class="btn btn-outline-light">Unsubscribe from newsletter</a>';   
+                        echo'<a href="../../functions/removeFromNewsletter.php" class="btn btn-outline-light">Unsubscribe from newsletter</a>';   
                     }
                 ?>
             </div>
@@ -298,11 +299,33 @@ unset($_SESSION['confirm']);
         </footer>
     </div>
     <div class="row mt-5 d-flex justify-content-center">
+        <?php
+            if(!empty($_SESSION['errors'])){
+                echo "<div class='errors mt-3'>
+                <ul>
+                ";
+                foreach($_SESSION['errors'] as $error){
+                    echo "<li>".
+                    $_SESSION['errors']."
+                    </li>";
+                }
+                echo"</ul>
+                </div>
+                ";
+                unset($_SESSION['errors']);
+            }
+
+            if(!empty($_SESSION['confirm'])){
+                echo "<div class='errors text-center mt-3'>".
+                $_SESSION['confirm']."
+                </div>";
+                unset($_SESSION['confirm']);
+            }
+        ?>
 
     <!-------------------------------------------------BLOCK BLOCK------------------------------------------------------------>
         <div class="p-2 ps-3 pe-3 block1 col-lg-4 col-md-12 mt-4 me-sm-3">
             <div class="d-flex justify-content-center">
-
                 <div class="dropdown d-flex align-items-center mt-2">
 
                     <select class="form-select" aria-label="Default select example">

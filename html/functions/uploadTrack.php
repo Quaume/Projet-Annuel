@@ -2,13 +2,35 @@
 
     require 'functions.php';
 
-    if(isConnected()){
+    if(
+    
+        !isset($_POST['title']) ||
+        !isset($_POST['trackType']) ||
+        !isset($_FILES['track']) ||
+        !isset($_FILES['trackCover']) ||
+    
+        (count($_POST) + count($_FILES)) != 4
+    
+        ) {
+    
+            $_SESSION['errors'] = "Missing informations !";
+            die(header('Location: ../templates/Home/dash-board.php'));
+    
+        }
 
-    $title = $_POST["title"];
+    if(isConnected()){
+    
+    $errors = [];
+
+
+
+
+        $title = $_POST["title"];
+        $type = $_POST["trackType"];
+        $track = $_FILES["track"];
+        $trackCover = $_FILES["trackCover"];
+    
     $artist = getUserId();
-    $type = $_POST["trackType"];
-    $track = $_FILES["track"];
-    $trackCover = $_FILES["trackCover"];
 
     $title = trim($title);
     $type = trim($type);
@@ -17,6 +39,9 @@
     $trackCoverName = $artist."_".$title;
 
 	$trackextension = "mp3";
+
+
+    
 		//je renvoie l'extension de fichier en ignorant le caractère '.'
 		$trackextensionUpload = strtolower(substr(strrchr($track['name'], '.'),1));
 		if($trackextensionUpload == $trackextension){
@@ -58,6 +83,8 @@
         "img_profile" => $trackCoverName
         ]
     );
+
+    $_SESSION["confirm"] = "Your track has been successfully uploaded";
 
         header("Location: ../templates/Home/dash-board.php");
     } else {
