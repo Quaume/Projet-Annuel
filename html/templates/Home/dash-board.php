@@ -387,7 +387,7 @@ unset($_SESSION['confirm']);
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body modalAudio">
-                                                <audio id="player" src="../../ressources/tracks/'.$track['trackName'].'"></audio>
+                                                <audio class="playerAudio" src="../../ressources/tracks/'.$track['trackName'].'"></audio>
                                                     <div class="player">
                                                         <div class="control">
                                                             <i class="fas fa-play" id="playbtn"></i>
@@ -441,6 +441,7 @@ unset($_SESSION['confirm']);
                 <div class="col-3"></div>
                 <div class="overflow-auto" style="height: 107px;">
                     <ul class="list-group list-group-light">
+                        
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
                                 <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" alt=""
@@ -451,29 +452,6 @@ unset($_SESSION['confirm']);
                                 </div>
                             </div>
                             <a class="btn btn-link btn-rounded btn-sm" data-bs-toggle="modal" data-bs-target="#listenModal" role="button">Listen</a>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" class="rounded" alt=""
-                                    style="width: 45px; height: 45px" />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">Track Name</p>
-                                    <p class="text-muted mb-0"></p>
-                                </div>
-                            </div>
-                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">Listen</a>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" class="rounded" alt=""
-                                    style="width: 45px; height: 45px" />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">Track Name</p>
-                                    <p class="text-muted mb-0"></p>
-                                </div>
-                            </div>
-
-                            <a class="btn btn-link btn-rounded btn-sm" href="#" role="button">Listen</a>
                         </li>
                     </ul>
                 </div>

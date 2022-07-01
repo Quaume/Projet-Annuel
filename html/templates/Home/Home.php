@@ -76,7 +76,7 @@ if(!isConnected()){
 </div>
 <!--FOOTER-->
 <footer class="">
-    <?php include "../footer-index.php"?>
+    <?php include "footer-home.php"?>
 </footer>
 </body>
 
