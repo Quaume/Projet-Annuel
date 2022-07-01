@@ -181,6 +181,14 @@ if(count($errors) != 0){
 
     $_SESSION['confirm'] = "Your account has been created successfully !<br>Confirm your email to sign in !";
 
+    unset($_POST['email']);
+	unset($_POST["username"]);
+	unset($_POST['password']);
+    unset($_POST['birthday']);
+    unset($_POST['passwordConfirm']);
+    unset($_POST['accountType']);
+    unset($_POST['cgu']);
+
     header("Location: ../LR_SESSIONS/signIn.php");
 
 }

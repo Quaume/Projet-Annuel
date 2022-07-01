@@ -61,8 +61,17 @@ function sendNewsletter($to, &$errors)
     }
 
     if (count($errors) != 0) {
+
+        unset($_POST['mailbody']);
+        unset($_POST['subject']);
+
         $_SESSION['errors'] = $errors;
+        header("Location: ../admin_page.php?display=newsletter");
+
     } else {
+        unset($_POST['mailbody']);
+        unset($_POST['subject']);
+
         $_SESSION['confirm'] = "Newsletter envoyée !";
         header("Location: ../admin_page.php?display=newsletter");
     }

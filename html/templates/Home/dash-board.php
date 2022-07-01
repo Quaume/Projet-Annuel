@@ -1,8 +1,5 @@
 <?php
 include "header-home.php";
-
-unset($_SESSION['errors']);
-unset($_SESSION['confirm']);
 ?>
 <div class="container my-5">
     <div class="row">
@@ -384,17 +381,18 @@ unset($_SESSION['confirm']);
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                             <div class="modal-header">
+                                                <h5 class="modal-title listenTitle" id="listenModal'.$track['id'].'">Modal title</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body modalAudio">
                                                 <audio id="player" src="../../ressources/tracks/'.$track['trackName'].'"></audio>
                                                     <div class="player">
                                                         <div class="control">
-                                                            <i class="fas fa-play" id="playbtn"></i>
+                                                            <i class="fas fa-play" id="playBtn"></i>
                                                         </div>
                                                         <div class="info">'.$track['title'].'
                                                             <div class="bar">
-                                                                <div id="progress" role="progressbar"></div>
+                                                                <div id="progress"></div>
                                                             </div>
                                                         </div>
                                                         <div class="" id="current">O:00</div>
@@ -403,6 +401,7 @@ unset($_SESSION['confirm']);
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
                                             </div>
                                             </div>
                                         </div>
@@ -503,7 +502,7 @@ unset($_SESSION['confirm']);
                                                 <div class="d-flex flex-column mb-3">
                                                     <div class="col-md-8">
                                                         <label for="inputTitle" class="form-label p-2">Title</label>
-                                                        <input type="text" name="title" class="form-control" id="inputTitle" placeholder="New Track">
+                                                        <input type="text" name="title" class="form-control" id="inputTitle" placeholder="New Track" required="required">
                                                     </div>
                                         
                                         <div class="col-md-4 mt-3">
@@ -522,9 +521,9 @@ unset($_SESSION['confirm']);
                                     </div>
                                     <div class="">
                                         <label for="track" class="form-label p-2">Choose your track</label>
-                                        <input type="file" name="track" id="track" class="form-control form-control-md" accept=".mp3,audio/*">
+                                        <input type="file" name="trackFile" id="track" class="form-control form-control-md" accept="audio/mp3" required="required">
                                         <label for="trackCover" class="form-label p-2 mt-2">Choose the cover for your track</label>
-                                        <input type="file" name="trackCover" id="trackCover" class="form-control form-control-md" accept=".png,.jpg,.jpeg">
+                                        <input type="file" name="trackCover" id="trackCover" class="form-control form-control-md" accept=".png,.jpg,.jpeg" required="required">
                                     </div>
                                     </div>
 

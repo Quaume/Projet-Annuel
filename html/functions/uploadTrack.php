@@ -2,81 +2,122 @@
 
     require 'functions.php';
 
-
     if(isConnected()){
 
-    $errors = [];
+        $errors = [];
 
-    $title = $_POST["title"];
-    $type = $_POST["trackType"];
-    $track = $_FILES["track"];
-    $trackCover = $_FILES["trackCover"];
-    $artist = getUserId();
+        // Verif formulaire
 
-    $title = trim($title);
-    $type = trim($type);
+        if(
 
-    $trackName = $artist."_".$title;
+            !isset($_POST['title']) ||
+            !isset($_POST['trackType']) ||
+            !isset($_FILES['trackFile']) ||
+            !isset($_FILES['trackCover'])
+
+        ){
+
+                $_SESSION['errors'] = ("Missing informations for track upload");
+                header('Location: ../templates/Home/dash-board.php');
+
+        }else{
+
+        // Recup données post
+
+        $title = $_POST['title'];
+        $trackType = $_POST['trackType'];
+        $trackFile = $_FILES['trackFile'];
+        $trackCover = $_FILES['trackCover'];
+
+        $title = trim($title);
+        $artist = getUserId();
+
+        $trackName = $artist.'_'.$title;
+
+        // Recup extension fichier
+
+        $trackExtensionToUpload = strtolower(substr(strrchr($trackFile['name'], '.'),1));
+
+        // Gestion fichier track
+
+        if($trackExtensionToUpload == 'mp3'){
+
+            $trackToUpload = $trackName.'.'.$trackExtensionToUpload;
+
+            $trackPath = '../ressources/tracks/'.$trackToUpload;
+
+        }else{
+            $errors[] = "The file must be a mp3 file";
+        }
+
+        // Gestion fichier cover
+
+        $maxCoverSize = 2097152;
+
+        $coverExtension = ['jpg','png','jpeg'];
+
+        if($trackCover['size'] < $maxCoverSize){
+
+        $coverExtensionToUpload = strtolower(substr(strrchr($trackCover['name'], '.'),1));
+
+            if(in_array($coverExtensionToUpload,$coverExtension)){
+
+                $coverToUpload = $trackName.'.'.$coverExtensionToUpload;
+
+                $coverPath = '../ressources/tracks_cover/'.$coverToUpload;
+
+            }else{
+                $errors[] = "The file must be a jpg/png/jpeg file";
+            }
+
+        }else{
+            $errors[] = "The file shouldn't exceed 2mb";
+        }
 
 
-		//je renvoie l'extension de fichier en ignorant le caractère '.'
-            $trackextension = array('wav','mp3');
-            $trackextensionToUpload = strtolower(substr(strrchr($track['name'], '.'),1));
-            if(in_array($trackextensionToUpload, $trackextension)){
+        // Création fichiers et insertion BDD
+            if(count($errors) != 0){
 
-                $trackNameToUpload = $trackName.'.'.$trackextensionToUpload;
+                $_SESSION['errors'] = $errors;
+                header("Location: ../templates/Home/dash-board.php");
 
-                // Creation de chemin du fichier
-                $path = "../ressources/tracks/".$trackNameToUpload."";
-                //On va deplacer se fichier stocker temporairement et le placer dans path
-                $result = move_uploaded_file($track['tmp_name'],$path);
+            }else{
 
-                }
+                $trackHasBeenUploaded = move_uploaded_file($trackFile['tmp_name'],$trackPath);
+                $coverHasBeenUploaded = move_uploaded_file($trackCover['tmp_name'],$coverPath);
 
-                $max_size = 2097152;
-                $coverextension = array('jpeg','jpg','png');
-                if($trackCover['size'] <= $max_size){
-                    //je renvoie l'extension de fichier en ignorant le caractère '.'
-                    $coverextensionUpload = strtolower(substr(strrchr($trackCover['name'], '.'),1));
+                $pdo = connectDB();
+                $queryprepared = $pdo->prepare("INSERT INTO utrackpa_tracks(title, artist, category, trackName, img_profile) VALUES (:title, :artist, :category, :trackName, :img_profile)");
+                $query = $queryprepared->execute(
+                [
+                    "title" => $title,
+                    "artist" => $artist,
+                    "category" => $trackType,
+                    "trackName" => $trackToUpload,
+                    "img_profile" => $coverToUpload
+                ]
+                );
 
-                    $trackCoverName = $trackName.'.'.$coverextensionUpload;
-                    
-                    if(in_array($coverextensionUpload, $coverextension)){
-                        // Creation de chemin du fichier
-                        $path = "../ressources/tracks_cover/".$trackCoverName."";;
-                        //On va deplacer se fichier stocker temporairement et le placer dans path
-                        $result = move_uploaded_file($trackCover['tmp_name'],$path);
+                unset($_POST['title']);
+                unset($_POST['trackType']);  
+                unset($_FILES['trackFile']);  
+                unset($_FILES['trackCover']);
 
-                    }
-                }else{
-                    $errors[] = "The cover should not exceed 2Mb";
-                }
+                $_SESSION['confirm'] = "Your track has been successfully uploaded";
+                header('Location: ../templates/Home/dash-board.php');
 
-    if(count($errors) != 0){
-
-    $_SESSION['errors'] = $errors;
-    header("Location: ../templates/Home/dash-board.php");
-
+            }
+        
+        }
+            
     }else{
 
-	$pdo = connectDB();
-    $queryPrepared = $pdo->prepare("INSERT INTO utrackpa_tracks(title, artist, category, trackName, img_profile) VALUES (:title, :artist, :category, :trackName, :img_profile)");
-    $queryPrepared->execute(
-        [
-        "title" => $title,
-        "artist" => $artist,
-        "category" => $type,
-        "trackName" => $trackNameToUpload,
-        "img_profile" => $trackCoverName
-        ]
-    );
+        unset($_POST['title']);
+        unset($_POST['trackType']);  
+        unset($_FILES['trackFile']);  
+        unset($_FILES['trackCover']);
+
+        header('Location: ../index.php');
     }
-
-    $_SESSION["confirm"] = "Your track has been successfully uploaded";
-
-        header("Location: ../templates/Home/dash-board.php");
-    } else {
-        header("Location: ../index.php");
-    }   
 
 ?>
