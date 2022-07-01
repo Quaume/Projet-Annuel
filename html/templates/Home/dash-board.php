@@ -105,7 +105,7 @@ unset($_SESSION['confirm']);
         <div class="modal-dialog" role="document">
             <div class="modal-content bg-edit">
                 <div class="modal-header d-flex justify-content-evenly">
-                    <h5 class="pr_modal p-2">my profile image</h5>
+                    <h5 class="pr_modal p-2">My profile image</h5>
                 </div>
                 <div class="modal-body text-center form-group">
                 <div class="d-flex justify-content-center mb-3">
@@ -522,7 +522,7 @@ unset($_SESSION['confirm']);
                                     </div>
                                     <div class="">
                                         <label for="track" class="form-label p-2">Choose your track</label>
-                                        <input type="file" name="track" id="track" class="form-control form-control-md" accept="audio/mp3">
+                                        <input type="file" name="track" id="track" class="form-control form-control-md" accept=".mp3,audio/*">
                                         <label for="trackCover" class="form-label p-2 mt-2">Choose the cover for your track</label>
                                         <input type="file" name="trackCover" id="trackCover" class="form-control form-control-md" accept=".png,.jpg,.jpeg">
                                     </div>
