@@ -1,6 +1,9 @@
 :root{
     --bs-border-color : #F7CCAC;
 }
+    a{
+        cursor: pointer;
+    }
     p {
         margin-bottom: 0em!important;
     }

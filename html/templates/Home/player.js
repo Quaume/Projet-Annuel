@@ -1,42 +1,44 @@
-const player = document.querySelector("#player");
-let progess = document.getElementById("progess");
-let playBtn = document.getElementById("playBtn");
 
-const playPause = function() {
-    if (player.paused){
-        player.play();  
-    }else{
-        player.pause();
-    }
+const player = document.getElementById("player");
+let progress = document.getElementById("progress");
+let playbtn = document.getElementById("playbtn");
+
+var playpause = function () {
+  if (player.paused) {
+    player.play();
+  } else {
+    player.pause();
+  }
 }
 
-playBtn.addEventListener("click", playPause);
+playbtn.addEventListener("click", playpause);
 
-playBtn.onplay = function(){
-    playBtn.classList.remove("fa-play");
-    playBtn.classList.add("fa-pause");
+player.onplay = function () {
+  playbtn.classList.remove("fa-play");
+  playbtn.classList.add("fa-pause");
 }
 
-playBtn.onpause = function(){
-    playBtn.classList.remove("fa-pause");
-    playBtn.classList.add("fa-play");
+player.onpause = function () {
+  playbtn.classList.add("fa-play");
+  playbtn.classList.remove("fa-pause");
 }
 
-playBtn.ontimeupdate = function(){
-    let ct = player.currentTime;
-    current.innerHTML = timeFormat(ct);
-
-    let duration = player.duration;
-    prog=Math.floor((ct * 100)/duration);
-    progess.style.setProperty("--progress", prog + "%")
+player.ontimeupdate = function () {
+  let ct = player.currentTime;
+  current.innerHTML = timeFormat(ct);
+  //progress
+  let duration = player.duration;
+  prog = Math.floor((ct * 100) / duration);
+  progress.style.setProperty("--progress", prog + "%");
 }
 
-function timeFormat(ct){
-    minutes = Math.floor(ct / 60);
-    seconds = Math.floor(ct % 60);
+function timeFormat(ct) {
+  minutes = Math.floor(ct / 60);
+  seconds = Math.floor(ct % 60);
 
-    if(seconds < 10){
-        seconds = "0"+seconds;
-    }
-    return minutes + ":" + seconds; 
+  if (seconds < 10) {
+    seconds = "0"+seconds;
+  }
+
+  return minutes + ":" + seconds;
 }
