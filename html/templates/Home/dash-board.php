@@ -373,8 +373,8 @@ include "header-home.php";
                                 
                                 <li class="list-group-item d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
-                                        <img src="../../ressources/tracks_cover/'.$track['img_profile'].'" alt="track_cover" style="width: 45px; height: 45px" class="rounded mx-2"/>
-                                        <a class="text-decoration-none fw-bold mb-1" data-bs-toggle="modal" data-bs-target="#listenModal'.$track['id'].'">
+                                        <a class="text-decoration-none fw-bold mb-1 userLink" data-bs-toggle="modal" data-bs-target="#listenModal'.$track['id'].'">
+                                            <img src="../../ressources/tracks_cover/'.$track['img_profile'].'" alt="track_cover" style="width: 45px; height: 45px" class="rounded mx-2"/>
                                             '.$track["title"].'
                                         </a>
                                     </div>
