@@ -17,7 +17,7 @@
 
         ){
 
-                $_SESSION['errors'] = ("Missing informations for track upload");
+                $_SESSION['errors'] = "Missing informations for track upload";
                 header('Location: ../templates/Home/dash-board.php');
 
         }else{
