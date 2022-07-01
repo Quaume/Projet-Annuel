@@ -167,10 +167,13 @@ include "header-home.php";
                     <div class="overflow-auto" style="height:400px;">
                     <?php foreach(getUserFollowed(getUserId()) as $followed){
                     echo'
-                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followed[0]).' width=35>
-                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed[0]).
+                    
+                    <a href="user.php?user='.$followed['followed'].'" class="userLink">
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followed['followed']).' width=35>
+                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed['followed']).
                         ' - '.getUserAccountTypeById($followed[0]).'</label>
-                        <a href="../../functions/unfollow.php?followed='.getUserUsernameById($followed[0]).'&amp;source=dashboard" class="btn btn-outline-secondary">Unfollow</a>
+                        </a>
+                        <a href="../../functions/unfollow.php?followed='.getUserUsernameById($followed['followed']).'&amp;source=dashboard" class="btn btn-outline-secondary">Unfollow</a>
                         <br>
                     ';
                     }
@@ -200,9 +203,11 @@ include "header-home.php";
                     <div class="overflow-auto" style="height:400px;">
                     <?php foreach(getUserFollowers(getUserId()) as $followers){
                     echo'
-                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followers[0]).' width=35>
-                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followers[0]).
-                        ' - '.getUserAccountTypeById($followers[0]).'</label>
+                        <a href="user.php?user='.$followers['follower'].'" class="userLink">
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followers['follower']).' width=35>
+                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followers['follower']).
+                        ' - '.getUserAccountTypeById($followers['follower']).'</label>
+                        </a>
                         <br>
                     ';
                     }
