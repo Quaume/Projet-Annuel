@@ -25,14 +25,19 @@ echo'
 
 <div class="col-md-5 text-center mt-4 mb-4 py-3 userBlock">
 <a href="#" class="userLink">
-<img src=../../ressources/img-profile/'.getUserImgById(getUserIdByUsername($user['username'])).' width=40>
+<img src=../../ressources/img-profile/'.getUserImgById(getUserIdByUsername($user['username'])).' class="rounded-circle profile">
 </a>
 <a href="#" class="userLink mx-2">
 '.$user['username'].'
 </a> -
-<a href="#" class="userLink mx-2">
 '.$user['accountType'].'
-</a>
+';
+if(empty(isUserFollowed(getUserId(),$user["id"]))){
+    echo'<a href="../../functions/follow.php?followed='.$user["username"].'&amp;source=allUsers" class="btn btn-outline-secondary" >Follow</a>';
+}else{
+    echo'<a href="../../functions/unfollow.php?followed='.$user["username"].'&amp;source=allUsers" class="btn btn-outline-secondary">Unfollow</a>';
+}
+echo'
 </div>
 
 ';

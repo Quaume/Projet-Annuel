@@ -9,6 +9,8 @@
     $follower = getUserId();
     $followed = getUserIdByUsername($_GET['followed']);
 
+    $source = $_GET['source'];
+    
 	$pdo = connectDB();
     $queryPrepared = $pdo->prepare("INSERT INTO utrackpa_followers(follower, followed) VALUES (:follower, :followed);");
     $queryPrepared->execute(
@@ -17,6 +19,10 @@
         "followed" => $followed
         ]
     );
-    header("Location: testback.php");
 
+    switch($source){
+        case "allUsers":
+            header("Location: ../templates/Home/allUsers.php");
+        break;
+    }
 ?>
