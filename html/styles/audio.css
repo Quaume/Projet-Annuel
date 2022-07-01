@@ -45,6 +45,13 @@
     background-color:#3A3845;
     transition: all 1s linear;
 }
+#progress{
+    height: 100%;
+    display: block;
+    width: var(--progress,30%);
+    background-color:#3A3845;
+    transition: all 1s linear;
+}
 
 .info{
     display:flex;

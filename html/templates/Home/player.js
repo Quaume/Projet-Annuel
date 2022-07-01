@@ -26,7 +26,7 @@ player.onpause = function () {
 player.ontimeupdate = function () {
   let ct = player.currentTime;
   current.innerHTML = timeFormat(ct);
-  //progress
+
   let duration = player.duration;
   prog = Math.floor((ct * 100) / duration);
   progress.style.setProperty("--progress", prog + "%");
@@ -40,5 +40,5 @@ function timeFormat(ct) {
     seconds = "0"+seconds;
   }
 
-  return minutes + ":" + seconds;
+  return minutes+":"+seconds;
 }

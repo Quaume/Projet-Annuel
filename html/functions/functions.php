@@ -299,7 +299,7 @@ function getRecentUserTracksById($id){
 function getAllTracks(){
 	
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT id,title,artist,category,dateOfRelease,img_profile FROM utrackpa_tracks");	
+	$queryPrepared = $pdo->prepare("SELECT id,title,artist,category,dateOfRelease,img_profile,trackName FROM utrackpa_tracks");	
 	$queryPrepared->execute();
 	
 	return $queryPrepared->fetchAll();

@@ -394,7 +394,7 @@ unset($_SESSION['confirm']);
                                                         </div>
                                                         <div class="info">'.$track['title'].'
                                                             <div class="bar">
-                                                                <div id="progress"></div>
+                                                                <div id="progress" role="progressbar"></div>
                                                             </div>
                                                         </div>
                                                         <div class="" id="current">O:00</div>
