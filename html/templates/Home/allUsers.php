@@ -33,6 +33,9 @@ echo'
 '.$user['username'].'
 </a> -
 '.$user['accountType'].'
+<a href="#" class="btn btn-outline-secondary mx-2">
+    View Page
+</a>
 ';
 if(empty(isUserFollowed(getUserId(),$user["id"]))){
     echo'<a href="../../functions/follow.php?followed='.$user["username"].'&amp;source=allUsers" class="btn btn-outline-secondary" >Follow</a>';

@@ -13,8 +13,8 @@ const playPause = function() {
 playBtn.addEventListener("click", playPause);
 
 playBtn.onplay = function(){
-    playBtn.classList.add("fa-pause");
     playBtn.classList.remove("fa-play");
+    playBtn.classList.add("fa-pause");
 }
 
 playBtn.onpause = function(){
