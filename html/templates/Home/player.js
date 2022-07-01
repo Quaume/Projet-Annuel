@@ -1,4 +1,4 @@
-const player = document.getElementById("player");
+const player = document.querySelector("#player");
 let progess = document.getElementById("progess");
 let playBtn = document.getElementById("playBtn");
 
@@ -18,8 +18,8 @@ playBtn.onplay = function(){
 }
 
 playBtn.onpause = function(){
-    playBtn.classList.add("fa-pause");
-    playBtn.classList.remove("fa-play");
+    playBtn.classList.remove("fa-pause");
+    playBtn.classList.add("fa-play");
 }
 
 playBtn.ontimeupdate = function(){
