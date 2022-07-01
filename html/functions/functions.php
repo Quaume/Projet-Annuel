@@ -304,7 +304,7 @@ function getAllTracks(){
 	
 	return $queryPrepared->fetchAll();
 }
-
+// get cover track By Id
 function getImgTrackById($id){
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_tracks WHERE id=:id");
@@ -312,3 +312,5 @@ function getImgTrackById($id){
 
 	return $queryPrepared->fetch()[0];
 }
+
+// Get Fav Tracks 
