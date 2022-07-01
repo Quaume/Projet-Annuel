@@ -222,14 +222,19 @@ include "header-home.php";
     <!--        -->
 
     <!-- Profil -->
-
+    <?php
+    echo'
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <a href="user.php?user='.getUserId().'" class="btn btn-outline">
         <div class="offcanvas-header">
-                <img src="../../ressources/img-profile/<?php printf(getUserImgById(getUserId()));?>" class="rounded-circle profile">
-            <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel"><?php printf(getUserUsernameById(getUserId()));?></h5>
+                <img src="../../ressources/img-profile/'.getUserImgById(getUserId()).'" class="rounded-circle profile">
+                <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel">'.getUserUsernameById(getUserId()).'</h5>
             <br>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+    </a>
+    ';
+    ?>
         <div class="d-flex justify-content-evenly followers">
 
             <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"

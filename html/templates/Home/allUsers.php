@@ -26,14 +26,14 @@ if($colcount == 1){
 echo'
 
 <div class="col-md-5 text-center mt-4 mb-4 py-3 userBlock">
-<a href="#" class="userLink">
+<a href="user.php?user='.$user['id'].'" class="userLink">
 <img src=../../ressources/img-profile/'.getUserImgById(getUserIdByUsername($user['username'])).' class="rounded-circle profile">
 </a>
-<a href="#" class="userLink mx-2">
+<a href="user.php?user='.$user['id'].'" class="userLink mx-2">
 '.$user['username'].'
 </a> -
-'.$user['accountType'].'
-<a href="#" class="btn btn-outline-secondary mx-2">
+'.ucwords($user['accountType']).'
+<a href="user.php?user='.$user['id'].'" class="btn btn-outline-secondary mx-2">
     View Page
 </a>
 ';
