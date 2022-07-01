@@ -500,38 +500,38 @@ unset($_SESSION['confirm']);
                             <div class="modal-header"></div>
                                 <div class="modal-body">
                                     <form class="row g-3" method="POST" action="../../functions/uploadTrack.php" enctype="multipart/form-data">
-                                                <div class="d-flex flex-column mb-3">
-                                                    <div class="col-md-8">
-                                                        <label for="inputTitle" class="form-label p-2">Title</label>
-                                                        <input type="text" name="title" class="form-control" id="inputTitle" placeholder="New Track">
-                                                    </div>
-                                        
-                                        <div class="col-md-4 mt-3">
-                                            <label for="trackType" class="form-label p-2">Track Type</label>
-                                            <select id="trackType" name="trackType" class="form-select">
-                                            <option selected="">Beat</option>
-                                            <option>Trap</option>
-                                            <option>Rap / Old School</option>
-                                            <option>R&amp;B</option>
-                                            <option>Pop Rock</option>
-                                            <option>Latin Pop</option>
-                                            <option>Uk Drill</option>
-                                            <option>Jersey Concept</option>
-                                            </select>
+                                            <div class="d-flex flex-column mb-3">
+                                                <div class="col-md-8">
+                                                    <label for="inputTitle" class="form-label p-2">Title</label>
+                                                    <input type="text" name="title" class="form-control" id="inputTitle" placeholder="New Track">
+                                                </div>
+                                            
+                                                <div class="col-md-4 mt-3">
+                                                    <label for="trackType" class="form-label p-2">Track Type</label>
+                                                    <select id="trackType" name="trackType" class="form-select">
+                                                    <option selected="">Beat</option>
+                                                    <option>Trap</option>
+                                                    <option>Rap / Old School</option>
+                                                    <option>R&amp;B</option>
+                                                    <option>Pop Rock</option>
+                                                    <option>Latin Pop</option>
+                                                    <option>Uk Drill</option>
+                                                    <option>Jersey Concept</option>
+                                                    </select>
+                                                </div>
+                                            </div>            
+                                            <div class="">
+                                                <label for="track" class="form-label p-2">Choose your track</label>
+                                                <input type="file" name="track" id="track" class="form-control form-control-md" accept=".mp3,audio/*">
+                                                <label for="trackCover" class="form-label p-2 mt-2">Choose the cover for your track</label>
+                                                <input type="file" name="trackCover" id="trackCover" class="form-control form-control-md" accept=".png,.jpg,.jpeg">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="">
-                                        <label for="track" class="form-label p-2">Choose your track</label>
-                                        <input type="file" name="track" id="track" class="form-control form-control-md" accept=".mp3,audio/*">
-                                        <label for="trackCover" class="form-label p-2 mt-2">Choose the cover for your track</label>
-                                        <input type="file" name="trackCover" id="trackCover" class="form-control form-control-md" accept=".png,.jpg,.jpeg">
-                                    </div>
-                                    </div>
 
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#createTrackModal">Close</button>
-                                        <input type="submit" class="btn btn-outline-secondary" value="Create Track">
-                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#createTrackModal">Close</button>
+                                            <input type="submit" class="btn btn-outline-secondary" value="Create Track">
+                                        </div>
                                     </form> 
                                 </div>
                             </div>
