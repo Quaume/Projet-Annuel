@@ -183,7 +183,7 @@ if(!isConnected()){
 
                 foreach (getAllUsers() as $user){
 
-                    $id = getUserIdByUsername($user["username"]);
+                    $id = $user["id"];
 
                     echo '<tr>
                     <td><img src="ressources/img-profile/'.$user["img_profile"].'" height="30"></td>

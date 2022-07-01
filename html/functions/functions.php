@@ -60,7 +60,7 @@ function isConnected(){
 function getAllUsers(){
 	
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT username, accountType, dateInserted, img_profile FROM utrackpa_users");	
+	$queryPrepared = $pdo->prepare("SELECT id, username, accountType, dateInserted, img_profile FROM utrackpa_users");	
 	$queryPrepared->execute();
 	
 	return $queryPrepared->fetchAll();
