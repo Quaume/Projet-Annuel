@@ -23,7 +23,11 @@
             $trackextensionToUpload = strtolower(substr(strrchr($track['name'], '.'),1));
             if(in_array($trackextensionToUpload, $trackextension)){
 
-                $trackNameToUpload = $trackName.'.'.$trackextensionToUpload;             
+                $trackNameToUpload = $trackName.'.'.$trackextensionToUpload;
+
+                printf($trackNameToUpload);
+                printf($trackextensionToUpload);
+                printf($track['name']);                
 
                 // Creation de chemin du fichier
                 $path = "../ressources/tracks/".$trackNameToUpload."";
