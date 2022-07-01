@@ -4,7 +4,6 @@
     align-items: center;
     color: #3A3845;   
 }
-
 .player{
     width: 300px;
     background-color: #F7CCAC;
@@ -65,4 +64,7 @@
     position:absolute;
     border-radius: 64px;
     z-index: -2;
+}
+.control{
+    cursor: pointer;
 }
