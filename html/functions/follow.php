@@ -24,5 +24,8 @@
         case "allUsers":
             header("Location: ../templates/Home/allUsers.php");
         break;
+        case "dashboard":
+            header("Location: ../templates/Home/dash-board.php");
+        break;
     }
 ?>
