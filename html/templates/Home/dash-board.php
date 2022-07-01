@@ -230,14 +230,15 @@ include "header-home.php";
     <?php
     echo'
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <a href="user.php?user='.getUserId().'" class="btn btn-outline">
         <div class="offcanvas-header">
+            <a href="user.php?user='.getUserId().'" class="btn btn-outline">
                 <img src="../../ressources/img-profile/'.getUserImgById(getUserId()).'" class="rounded-circle profile">
                 <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel">'.getUserUsernameById(getUserId()).'</h5>
+            </a>
             <br>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-    </a>
+
     ';
     ?>
         <div class="d-flex justify-content-evenly followers">
