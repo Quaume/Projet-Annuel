@@ -295,6 +295,17 @@ function getRecentUserTracksById($id){
 
 }
 
+// All tracks by type
+
+function getAllTracksByType($type){
+	
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT id,title,artist,category,dateOfRelease,img_profile,trackName FROM utrackpa_tracks WHERE category = $type");	
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
+}
+
 // All username
 function getAllTracks(){
 	
