@@ -3,6 +3,8 @@
 require "functions.php";
 
 $id = $_SESSION["id"];
+$source = $_GET["source"];
+
 if(!isConnected()){
 	die(header("Location: ../index.php"));
 }
@@ -61,7 +63,7 @@ if(isset($img_profile) && !empty($img_profile['name'])){
 //Email OK
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 	if(!empty($email)){
-		$errors[] = "Email incorrect";	
+		$errors[] = "Email is not valid";	
 	}	
 }else{
 
@@ -71,11 +73,11 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 	$queryPrepared->execute(["email"=>$email]);
 		
 	if(!empty($queryPrepared->fetch())){
-		$errors[] = "Le nouvel email ne peut pas être le même que l'ancien";
+		$errors[] = "The new email can't be the same as the old";
 	}else{
 		$queryPrepared = $pdo->prepare("UPDATE utrackpa_users SET email=:email WHERE id=:id");
 		$queryPrepared->execute(["email"=>$email,"id"=>$id]);
-		$confirm[] = "Email a été modifié";
+		$confirm[] = "Email has been modified";
 	}
 
 }
@@ -84,7 +86,7 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 
 if(strlen($username)<4 || strlen($username)>60){
 	if(!empty($username)){
-		$errors[] = "Votre username doit faire entre 4 et 60 caractères";	
+		$errors[] = "Username must be between 4 and 60 charaters";	
 	}	
 }else{
 
@@ -93,11 +95,11 @@ if(strlen($username)<4 || strlen($username)>60){
 	$queryPrepared->execute(["username"=>$username]);
 		
 	if(!empty($queryPrepared->fetch())){
-		$errors[] = "Le nouvel username ne peut pas être le même que l'ancien";
+		$errors[] = "The new username can't be the same as the old";
 	}else{
 		$queryPrepared = $pdo->prepare("UPDATE utrackpa_users SET username=:username WHERE id=:id");
 		$queryPrepared->execute(["username"=>$username,"id"=>$id]);
-		$confirm[] = "Username a été modifié";
+		$confirm[] = "Username has been modified";
 	}
 
 }
@@ -106,13 +108,13 @@ if(strlen($username)<4 || strlen($username)>60){
 
 if(strlen($pwd) < 8 || preg_match("#\d#", $pwd)==0 && preg_match("#[a-z]#", $pwd)==0 && preg_match("#[A-Z]#", $pwd)==0){
 	if(!empty($pwd)){
-		$errors[] = "Votre mot de passe doit faire plus de 8 caractères avec une minuscule, une majuscule et un chiffre";	
+		$errors[] = "Password must be more than 8 characters with a lowercase letter and a capital letter";	
 	}	
 }else{
 	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
 	$queryPrepared = $pdo->prepare("UPDATE utrackpa_users SET pwd=:pwd WHERE id=:id");
 	$queryPrepared->execute(["pwd"=>$pwd,"id"=>$id]);
-	$confirm[] = "Password a été modifié";
+	$confirm[] = "Password has been modified";
 }
 
 
@@ -130,7 +132,14 @@ if(count($errors) == 0){
 	unset($_POST["username"]);
 	unset($_POST['pwd']);
 
-	header("Location: ../templates/Home/dash-board.php");
+    switch($source){
+        case "admin":
+            header("Location: ../admin_page.php?display=users");
+        break;
+        case "dashboard":
+            header("Location: ../templates/Home/dash-board.php");
+        break;
+    }
 
 }else{
 
@@ -138,6 +147,12 @@ if(count($errors) == 0){
 	unset($_POST["username"]);
 	unset($_POST['pwd']);
 
-	$_SESSION['errors'] = $errors;
-	header("Location: ../templates/Home/dash-board.php");
+    switch($source){
+        case "admin":
+            header("Location: ../admin_page.php?display=users");
+        break;
+        case "dashboard":
+            header("Location: ../templates/Home/dash-board.php");
+        break;
+    }
 }

@@ -77,8 +77,6 @@ $id = $_GET['user'];
     <!-----------------> 
 
 
-
-
     <!-- Tracks -->
         <div class="p-2 ps-3 pe-3 block1 col-lg-4 col-md-12 mt-4 me-sm-3">
             <div class="text-center">

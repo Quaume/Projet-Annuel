@@ -230,25 +230,29 @@ if(!isConnected()){
                 <div class="row">
                     <div class="col-11 text-center">
 
-                    ';if(!empty($_SESSION['errors'])){
-                        echo "<div class='errors mt-3'>
-                        <ul>
+                    ';
+                    if(!empty($_SESSION['errors'])){
+                        echo "<div class='errors mt-3 text-center'>
                         ";
                         foreach($_SESSION['errors'] as $error){
-                            echo "<li>".
-                            $_SESSION['errors']."
-                            </li>";
+                            printf($error);
+                            echo"<br>";
                         }
-                        echo"</ul>
+                        echo"
                         </div>
                         ";
                         unset($_SESSION['errors']);
                     }
         
                     if(!empty($_SESSION['confirm'])){
-                        echo "<div class='errors text-center mt-3'>".
-                        $_SESSION['confirm']."
-                        </div>";
+                        echo "<div class='errors mt-3 text-center'>";
+                        foreach($_SESSION['confirm'] as $confirm){
+                            printf($confirm);
+                            echo"<br>";
+                        }
+                        echo"
+                        </div>
+                        ";
                         unset($_SESSION['confirm']);
                     }
                     echo'

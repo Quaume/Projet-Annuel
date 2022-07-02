@@ -40,14 +40,22 @@
 
         // Gestion fichier track
 
-        if($trackExtensionToUpload == 'mp3'){
+        $maxTrackSize = 20971520;
 
-            $trackToUpload = $trackName.'.'.$trackExtensionToUpload;
+        if($trackFile['size'] < $maxTrackSize){
 
-            $trackPath = '../ressources/tracks/'.$trackToUpload;
+            if($trackExtensionToUpload == 'mp3'){
+
+                $trackToUpload = $trackName.'.'.$trackExtensionToUpload;
+
+                $trackPath = '../ressources/tracks/'.$trackToUpload;
+
+            }else{
+                $errors[] = "The file must be a mp3 file";
+            }
 
         }else{
-            $errors[] = "The file must be a mp3 file";
+            $errors[] = "The file shouldn't exceed 20mb";
         }
 
         // Gestion fichier cover
@@ -74,6 +82,25 @@
             $errors[] = "The file shouldn't exceed 2mb";
         }
 
+
+        // Vérification unicité de la track
+            $pdo = connectDB();
+            $queryPrepared = $pdo->prepare("SELECT id from utrackpa_tracks WHERE artist=:artist AND title=:title");
+
+            $queryPrepared->execute(
+                [
+                "artist"=>$artist,
+                "title"=>$title            
+                ]);
+            
+            if(!empty($queryPrepared->fetch())){
+                $errors[] = "You already posted a track with this name";
+            }
+
+        // Vérification longueur title
+            if(strlen($title) > 15){
+                $errors[] = "The track title shouldn't exceed 15 characters";
+            }
 
         // Création fichiers et insertion BDD
             if(count($errors) != 0){
