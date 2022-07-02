@@ -99,7 +99,7 @@ if(!isConnected()){
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="functions/logout.php">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -198,10 +198,10 @@ if(!isConnected()){
                     
                     <td>
                     <div class="btn-group" role="group">
-                        <a href="deleteUser.php?id='.$id.'" >
+                        <a href="functions/deleteUser.php?id='.$id.'" >
                             <button type="button" class="btn"><img src="ressources/IMG-CONTENT/cross.png" width="20" height="20" alt="Delete"></button>
                         </a>
-                        <a href="editUser.php?id='.$id.'" >
+                        <a href="functions/editUser.php?id='.$id.'" >
                             <button type="button" class="btn"><img src="ressources/IMG-CONTENT/pen.png" width="20" height="20" alt="edit"></button>
                         </a>
                     </div>
