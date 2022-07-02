@@ -1,6 +1,7 @@
 <?php
 require_once '../../functions/functions.php';
 require '../../functions/searchAjax.php';
+require '../../functions/seeAllTrackByCategory.php';
 
 if(!isConnected()){
 	die(header("Location: ../../index.php"));
@@ -61,9 +62,9 @@ if(!isConnected()){
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="seeAllTracks.php">Trap</a></li>
-                                        <li><a class="dropdown-item" href="#">Rap / Old School</a></li>
-                                        <li><a class="dropdown-item" href="#">R&B</a></li>
+                                        <li><a class="dropdown-item" href="seeAllTracks.php?category=Trap">Trap</a></li>
+                                        <li><a class="dropdown-item" href="seeAllTracks.php?category=Rap / Old school">Rap / Old School</a></li>
+                                        <li><a class="dropdown-item" href="seeAllTracks.php?category=R&B">R&B</a></li>
                                     </ul>
                                 </div>
 
