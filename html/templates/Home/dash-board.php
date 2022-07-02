@@ -1,8 +1,5 @@
 <?php
 include "header-home.php";
-
-unset($_SESSION['errors']);
-unset($_SESSION['confirm']);
 ?>
 <div class="container my-5">
     <div class="row">
@@ -170,10 +167,13 @@ unset($_SESSION['confirm']);
                     <div class="overflow-auto" style="height:400px;">
                     <?php foreach(getUserFollowed(getUserId()) as $followed){
                     echo'
-                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followed[0]).' width=35>
-                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed[0]).
+                    
+                    <a href="user.php?user='.$followed['followed'].'" class="userLink">
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followed['followed']).' width=35>
+                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followed['followed']).
                         ' - '.getUserAccountTypeById($followed[0]).'</label>
-                        <a href="../../functions/unfollow.php?followed='.getUserUsernameById($followed[0]).'&amp;source=dashboard" class="btn btn-outline-secondary">Unfollow</a>
+                        </a>
+                        <a href="../../functions/unfollow.php?followed='.getUserUsernameById($followed['followed']).'&amp;source=dashboard" class="btn btn-outline-secondary">Unfollow</a>
                         <br>
                     ';
                     }
@@ -203,9 +203,11 @@ unset($_SESSION['confirm']);
                     <div class="overflow-auto" style="height:400px;">
                     <?php foreach(getUserFollowers(getUserId()) as $followers){
                     echo'
-                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followers[0]).' width=35>
-                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followers[0]).
-                        ' - '.getUserAccountTypeById($followers[0]).'</label>
+                        <a href="user.php?user='.$followers['follower'].'" class="userLink">
+                        <img class="border me-2" src=../../ressources/img-profile/'.getUserImgById($followers['follower']).' width=35>
+                        <label class="mb-3 p-2 me-3">'.getUserUsernameById($followers['follower']).
+                        ' - '.getUserAccountTypeById($followers['follower']).'</label>
+                        </a>
                         <br>
                     ';
                     }
@@ -225,14 +227,18 @@ unset($_SESSION['confirm']);
     <!--        -->
 
     <!-- Profil -->
-
+    <?php
+    echo'
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-                <img src="../../ressources/img-profile/<?php printf(getUserImgById(getUserId()));?>" class="rounded-circle profile">
-            <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel"><?php printf(getUserUsernameById(getUserId()));?></h5>
+                <img src="../../ressources/img-profile/'.getUserImgById(getUserId()).'" class="rounded-circle profile">
+                <h5 class="offcanvas-title ms-5" id="offcanvasExampleLabel">'.getUserUsernameById(getUserId()).'</h5>
             <br>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+
+    ';
+    ?>
         <div class="d-flex justify-content-evenly followers">
 
             <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"
@@ -301,15 +307,13 @@ unset($_SESSION['confirm']);
     <div class="row mt-5 d-flex justify-content-center">
         <?php
             if(!empty($_SESSION['errors'])){
-                echo "<div class='errors mt-3'>
-                <ul>
+                echo "<div class='errors mt-3 text-center'>
                 ";
                 foreach($_SESSION['errors'] as $error){
-                    echo "<li>".
-                    $_SESSION['errors']."
-                    </li>";
+                    printf($error);
+                    echo"<br>";
                 }
-                echo"</ul>
+                echo"
                 </div>
                 ";
                 unset($_SESSION['errors']);
@@ -373,8 +377,8 @@ unset($_SESSION['confirm']);
                                 
                                 <li class="list-group-item d-flex justify-content-between">
                                     <div class="d-flex align-items-center">
-                                        <img src="../../ressources/tracks_cover/'.$track['img_profile'].'" alt="track_cover" style="width: 45px; height: 45px" class="rounded mx-2"/>
-                                        <a class="text-decoration-none fw-bold mb-1" data-bs-toggle="modal" data-bs-target="#listenModal'.$track['id'].'">
+                                        <a class="text-decoration-none fw-bold mb-1 userLink" data-bs-toggle="modal" data-bs-target="#listenModal'.$track['id'].'">
+                                            <img src="../../ressources/tracks_cover/'.$track['img_profile'].'" alt="track_cover" style="width: 45px; height: 45px" class="rounded mx-2"/>
                                             '.$track["title"].'
                                         </a>
                                     </div>
@@ -397,7 +401,7 @@ unset($_SESSION['confirm']);
                                                         </div>
                                                         <div class="info">
                                                             <div class="bar">
-                                                                <div id="progress" role="progressbar"></div>
+                                                                <div id="progress"></div>
                                                             </div>
                                                         </div>
                                                         <!--<div class="" id="current">O:00</div>-->
@@ -406,6 +410,7 @@ unset($_SESSION['confirm']);
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
                                             </div>
                                             </div>
                                         </div>
@@ -479,33 +484,33 @@ unset($_SESSION['confirm']);
                             <div class="modal-header"></div>
                                 <div class="modal-body">
                                     <form class="row g-3" method="POST" action="../../functions/uploadTrack.php" enctype="multipart/form-data">
-                                            <div class="d-flex flex-column mb-3">
-                                                <div class="col-md-8">
-                                                    <label for="inputTitle" class="form-label p-2">Title</label>
-                                                    <input type="text" name="title" class="form-control" id="inputTitle" placeholder="New Track">
-                                                </div>
-                                            
-                                                <div class="col-md-4 mt-3">
-                                                    <label for="trackType" class="form-label p-2">Track Type</label>
-                                                    <select id="trackType" name="trackType" class="form-select">
-                                                    <option selected="">Beat</option>
-                                                    <option>Trap</option>
-                                                    <option>Rap / Old School</option>
-                                                    <option>R&amp;B</option>
-                                                    <option>Pop Rock</option>
-                                                    <option>Latin Pop</option>
-                                                    <option>Uk Drill</option>
-                                                    <option>Jersey Concept</option>
-                                                    </select>
-                                                </div>
-                                            </div>            
-                                            <div class="">
-                                                <label for="track" class="form-label p-2">Choose your track</label>
-                                                <input type="file" name="track" id="track" class="form-control form-control-md" accept=".mp3,audio/*">
-                                                <label for="trackCover" class="form-label p-2 mt-2">Choose the cover for your track</label>
-                                                <input type="file" name="trackCover" id="trackCover" class="form-control form-control-md" accept=".png,.jpg,.jpeg">
-                                            </div>
+                                                <div class="d-flex flex-column mb-3">
+                                                    <div class="col-md-8">
+                                                        <label for="inputTitle" class="form-label p-2">Title</label>
+                                                        <input type="text" name="title" class="form-control" id="inputTitle" placeholder="New Track" required="required">
+                                                    </div>
+                                        
+                                        <div class="col-md-4 mt-3">
+                                            <label for="trackType" class="form-label p-2">Track Type</label>
+                                            <select id="trackType" name="trackType" class="form-select">
+                                            <option selected="">Beat</option>
+                                            <option>Trap</option>
+                                            <option>Rap / Old School</option>
+                                            <option>R&amp;B</option>
+                                            <option>Pop Rock</option>
+                                            <option>Latin Pop</option>
+                                            <option>Uk Drill</option>
+                                            <option>Jersey Concept</option>
+                                            </select>
                                         </div>
+                                    </div>
+                                    <div class="">
+                                        <label for="track" class="form-label p-2">Choose your track</label>
+                                        <input type="file" name="trackFile" id="track" class="form-control form-control-md" accept="audio/mp3" required="required">
+                                        <label for="trackCover" class="form-label p-2 mt-2">Choose the cover for your track</label>
+                                        <input type="file" name="trackCover" id="trackCover" class="form-control form-control-md" accept=".png,.jpg,.jpeg" required="required">
+                                    </div>
+                                    </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#createTrackModal">Close</button>

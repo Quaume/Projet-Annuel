@@ -146,7 +146,7 @@ if(!isConnected()){
                 ";
                 foreach($_SESSION['errors'] as $error){
                     echo "<li>".
-                    $_SESSION['errors']."
+                    $error."
                     </li>";
                 }
                 echo"</ul>

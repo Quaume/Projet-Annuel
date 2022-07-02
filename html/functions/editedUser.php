@@ -126,9 +126,18 @@ if(count($errors) == 0){
 
 	$_SESSION["confirm"] = $confirm;
 
+	unset($_POST['email']);
+	unset($_POST["username"]);
+	unset($_POST['pwd']);
+
 	header("Location: ../templates/Home/dash-board.php");
 
 }else{
+
+	unset($_POST['email']);
+	unset($_POST["username"]);
+	unset($_POST['pwd']);
+
 	$_SESSION['errors'] = $errors;
 	header("Location: ../templates/Home/dash-board.php");
 }
