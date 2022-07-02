@@ -72,11 +72,11 @@ require '../functions/forum_functions.php';
           <div class="p-4 text-black" style="background-color: #FFF6EA;">
             <div class="d-flex justify-content-end text-center py-1">
               <div class="px-3">
-                <p class="mb-1 h5">1026</p>
+                <p class="mb-1 h5"><?=count(getUserFollowed(getUserId()));?></p>
                 <p class="small text-muted mb-0">Followers</p>
               </div>
               <div>
-                <p class="mb-1 h5">478</p>
+                <p class="mb-1 h5"><?=count(getUserFollowed(getUserId()));?></p>
                 <p class="small text-muted mb-0">Following</p>
               </div>
             </div>

@@ -312,5 +312,20 @@ function getImgTrackById($id){
 
 	return $queryPrepared->fetch()[0];
 }
+// get last cover track By Id
+function getLastImgTrack(){
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT img_profile FROM utrackpa_tracks ORDER BY id DESC");
+	$queryPrepared->execute();
 
-// Get Fav Tracks 
+	return $queryPrepared->fetch()[0];
+}
+
+// Get All Fav Tracks 
+function getFavTrackById($id){
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_favoris_track");
+	$queryPrepared->execute(["id"=>$id]);
+	
+	return $queryPrepared->fetchAll();
+}

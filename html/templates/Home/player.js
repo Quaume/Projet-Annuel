@@ -1,8 +1,8 @@
 
+const players = document.querySelectorAll("#playerAudio");
 const progress = document.querySelectorAll("#progress");
 const playbtns = document.querySelectorAll("#playbtn");
 
-const players = document.querySelectorAll(".playerAudio");
 for (let index = 0; index < players.length; index++) {
     const player = players[index];
     const playbtn = playbtns[index];

@@ -61,7 +61,7 @@ if(!isConnected()){
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">Trap</a></li>
+                                        <li><a class="dropdown-item" href="seeAllTracks.php">Trap</a></li>
                                         <li><a class="dropdown-item" href="#">Rap / Old School</a></li>
                                         <li><a class="dropdown-item" href="#">R&B</a></li>
                                     </ul>
@@ -137,7 +137,6 @@ if(!isConnected()){
     </header>
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
-            
                 <?php if(!empty($_GET['search'])){
                    echo $hint;
                 }

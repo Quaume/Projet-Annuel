@@ -63,6 +63,15 @@ body.light .pr_usr_request{
 body.light .border-bottom {
     border-bottom: 1px solid #3A3845 !important;
 }
+body.light td{
+    color: #3A3845;
+}
+body.light th{
+    color: #3A3845;
+}
+td, th{
+    color:#F7CCAC;
+}
 /* =================================================================*/
 
 /*SEARCH-BAR*/

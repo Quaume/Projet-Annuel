@@ -254,7 +254,7 @@ unset($_SESSION['confirm']);
                 <a href="#" class="text-center list-group-item list-group-item-action">Make an Avatar</a>
                 <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"
                     data-bs-target="#modalAccount">My Account</a>
-                <a href="#" class="text-center list-group-item list-group-item-action">Edit Bio</a>
+                <a href="../../utrack_forum/functions/php-config/soon.php" class="text-center list-group-item list-group-item-action">Edit Bio</a>
 
                 <?php
                 if(isAdmin()){
@@ -359,7 +359,7 @@ unset($_SESSION['confirm']);
                 </ul>
             </div>
         </div>
-        <!-------------------------------------------------STATUS BLOCK-------------------------------------------------------------->
+        <!---------STATUS BLOCK------------->
         <div class="mt-4 p-2 ps-4 col-lg-4 col-md-12  me-sm-3">
             <div class="row firstRow">
                 <div class="col-5 statsBlock pb-4 overflow-auto">
@@ -379,25 +379,28 @@ unset($_SESSION['confirm']);
                                         </a>
                                     </div>
                                 </li>
+                                ';
+                                ?><?='
                                 <!-- Listen Modal -->
-                                    <div class="modal fade" id="listenModal'.$track['id'].'" tabindex="-1" aria-labelledby="listenModal'.$track['id'].'" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                <div class="modal fade" id="listenModal'.$track['id'].'" tabindex="-1" aria-labelledby="listenModal'.$track['id'].'" aria-hidden="true">
+                                    <div class="modal-dialog">
                                             <div class="modal-content">
                                             <div class="modal-header">
+                                                <h5 class="modal-title">'.$track['title'].'</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body modalAudio">
-                                                <audio class="playerAudio" src="../../ressources/tracks/'.$track['trackName'].'"></audio>
+                                                <audio id="playerAudio" oncontextmenu="return false;" controlslist="nodownload" controls src="../../ressources/tracks/'.$track['trackName'].'"></audio>
                                                     <div class="player">
                                                         <div class="control">
-                                                            <i class="fas fa-play" id="playbtn"></i>
+                                                            <!--<i class="fas fa-play" id="playbtn"></i>-->
                                                         </div>
-                                                        <div class="info">'.$track['title'].'
+                                                        <div class="info">
                                                             <div class="bar">
                                                                 <div id="progress" role="progressbar"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="" id="current">O:00</div>
+                                                        <!--<div class="" id="current">O:00</div>-->
                                                     </div>
                                                 <script src="./player.js"></script>
                                             </div>
@@ -406,24 +409,22 @@ unset($_SESSION['confirm']);
                                             </div>
                                             </div>
                                         </div>
-                                    </div>
-                                
-                                ';
+                                    </div>';
                                 } ?>
-
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-2"></div>
-                <!-------------------RECENTLY POST------------------->
+                <!-----RECENTLY POST----->
                 <div class="col-5 statsBlock pb-4">
                     <div class="d-flex align-items-center">
                         <div class="dash-block d-flex flex-wrap justify-content-center">
                             <p class="subtitle darkB text-center mt-3 pt-1 recentlyPost">Recently Post</p>
-                            <div class="recentlyBlock d-flex justify-content-center mt-3">
+                            <div class="recentlyBlock d-flex justify-content-center my-4">
                                 <div class="d-flex align-items-center">
-                                    <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse1">
+                                    <a href=""></a>
+                                    <img src="../../ressources/tracks_cover/<?=getLastImgTrack();?>" class="pulse1">
                                 </div>
                             </div>
                         </div>
@@ -529,9 +530,41 @@ unset($_SESSION['confirm']);
                         <div class="modal fade" id="myFirstModal2">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content bg-edit">
-                                    <div class="modal-header">My File</div>
-                                    <div class="modal-body"></div>
+                                    <div class="modal-header d-flex justify-content-center"><h3 class="subtitle">My Files</h3></div>
+                                    <div class="modal-body">
+                                        <table class="table caption-top">
+                                            <caption>All Tracks</caption>
+                                                <thead>
+                                                    <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Category</th>
+                                                    <th scope="col">Cover</th>
+                                                    <th scope="col">Date oF Release</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
 
+                                            <?php foreach (getUserTracksById(getUserId()) as $Trackfiles){
+                                                $trackId = $Trackfiles['id'];
+                                                $trackTitle = $Trackfiles['title'];
+                                                $trackCategory = $Trackfiles['category'];
+                                                $trackCover = $Trackfiles['img_profile'];
+                                                $trackDate = $Trackfiles['dateOfRelease'];
+                                                ?>
+                                                <tr>
+                                                    <th scope="row"><?=$trackId?></th>
+                                                        <td><?=$trackTitle?></td>
+                                                        <td><?=$trackCategory?></td>
+                                                        <td><img style="width: 45px; height: 45px" src="../../ressources/tracks_cover/<?=getImgTrackById($trackId)?>"/></td>
+                                                        <td><?=$trackDate?></td>
+                                                </tr>
+                                                        
+                                                <?php
+                                            }?>
+                                        </tbody>
+                                        </table>
+                                    </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal2">Close</button>
                                     </div>
@@ -551,7 +584,7 @@ unset($_SESSION['confirm']);
 
                         <!-- Modal Album-->
                         <div class="modal fade" id="createAlbumModal">
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog">
                                 <div class="modal-content bg-edit">
                                     <div class="modal-header"></div>
                                     <div class="modal-body">
@@ -596,16 +629,18 @@ unset($_SESSION['confirm']);
 
                     <div class="d-inline-flex p-3 mb-5">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn darkBlockN" data-bs-toggle="modal" data-bs-target="#myFirstModal4">
-                            <img src="../../ressources/IMG-CONTENT/notif.png" width="40" alt="">
-                            <p class="subtitle pt-2">Create Track</p>
-                        </button>
+                        <a href="../../utrack_forum/functions/php-config/soon.php">
+                            <button type="button" class="btn darkBlockN" data-bs-toggle="modal" data-bs-target="#myFirstModal4">
+                                <img src="../../ressources/IMG-CONTENT/notif.png" width="40" alt="">
+                                <p class="subtitle pt-2">Create Track</p>
+                            </button>
+                        </a>
 
                         <!-- Modal Notif-->
                         <div class="modal fade" id="myFirstModal4">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content bg-edit">
-                                    <div class="modal-header">NOTIF</div>
+                                    <div class="modal-header"></div>
                                     <div class="modal-body"></div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal4">Close</button>
