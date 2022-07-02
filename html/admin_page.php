@@ -156,9 +156,13 @@ if(!isConnected()){
             }
 
             if(!empty($_SESSION['confirm'])){
-                echo "<div class='errors text-center mt-3'>".
-                $_SESSION['confirm']."
-                </div>";
+                foreach($_SESSION['confirm'] as $confirm){
+                    echo "
+                    <div class='errors mt-3'>
+                    ".$confirm."
+                    </div>"
+                    ;
+                }
                 unset($_SESSION['confirm']);
             }
             echo'
