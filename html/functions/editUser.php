@@ -55,7 +55,7 @@ if(!isConnected()){
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="admin_page.php?display=users">
+                        <a href="../admin_page.php?display=users">
                             <i class='bx bx-list-ul icon'></i>
                             <span class="text nav-text">Users List</span>
                         </a>
@@ -69,7 +69,7 @@ if(!isConnected()){
                     </li>
 
                     <li class="nav-link">
-                        <a href="admin_page.php?display=newsletter">
+                        <a href="../admin_page.php?display=newsletter">
                             <i class='bx bxs-news icon'></i>
                             <span class="text nav-text">Newsletters</span>
                         </a>
@@ -125,7 +125,7 @@ if(!isConnected()){
     <div class="home">
     <nav class="navbar">
         <div class="container d-flex justify-content-start ms-5">
-            <a class="navbar-brand" href="templates/Home/dash-board.php">
+            <a class="navbar-brand" href="../templates/Home/dash-board.php">
                 <img src="../ressources/IMAGES-HEADER/logo-utrack.png" alt="" width="200" height="100">
             </a>
         </div>

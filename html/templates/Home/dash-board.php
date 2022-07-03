@@ -320,7 +320,8 @@ include "header-home.php";
             }
 
             if(!empty($_SESSION['confirm'])){
-                echo "<div class='errors mt-3 text-center'>";
+                echo "<div class='errors mt-3 text-center'>
+                ";
                 foreach($_SESSION['confirm'] as $confirm){
                     printf($confirm);
                     echo"<br>";
@@ -330,6 +331,7 @@ include "header-home.php";
                 ";
                 unset($_SESSION['confirm']);
             }
+        
         ?>
 
     <!-------------------------------------------------BLOCK BLOCK------------------------------------------------------------>

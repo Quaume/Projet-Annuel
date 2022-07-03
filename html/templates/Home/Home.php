@@ -2,7 +2,7 @@
 include "header-home.php";
 
 if(!isConnected()){
-	die(header("Location: ../../index.php"));
+	die(header("Location: ../../LR_SESSIONS/signIn.php"));
 }
 
 

@@ -141,28 +141,28 @@ if(!isConnected()){
             <div class="overflow-auto" style="height:500px">
 
             ';if(!empty($_SESSION['errors'])){
-                echo "<div class='errors mt-3'>
-                <ul>
+                echo "<div class='errors mt-3 text-center'>
                 ";
                 foreach($_SESSION['errors'] as $error){
-                    echo "<li>".
-                    $error."
-                    </li>";
+                    printf($error);
+                    echo"<br>";
                 }
-                echo"</ul>
+                echo"
                 </div>
                 ";
                 unset($_SESSION['errors']);
             }
 
             if(!empty($_SESSION['confirm'])){
+                echo "<div class='errors mt-3 text-center'>
+                ";
                 foreach($_SESSION['confirm'] as $confirm){
-                    echo "
-                    <div class='errors mt-3'>
-                    ".$confirm."
-                    </div>"
-                    ;
+                    printf($confirm);
+                    echo"<br>";
                 }
+                echo"
+                </div>
+                ";
                 unset($_SESSION['confirm']);
             }
             echo'
@@ -245,7 +245,8 @@ if(!isConnected()){
                     }
         
                     if(!empty($_SESSION['confirm'])){
-                        echo "<div class='errors mt-3 text-center'>";
+                        echo "<div class='errors mt-3 text-center'>
+                        ";
                         foreach($_SESSION['confirm'] as $confirm){
                             printf($confirm);
                             echo"<br>";

@@ -100,6 +100,8 @@
         // Vérification longueur title
             if(strlen($title) > 15){
                 $errors[] = "The track title shouldn't exceed 15 characters";
+            }else if(strlen($title) == 0){
+                $errors[] = "A title must be set for the track";
             }
 
         // Création fichiers et insertion BDD
@@ -130,7 +132,10 @@
                 unset($_FILES['trackFile']);  
                 unset($_FILES['trackCover']);
 
-                $_SESSION['confirm'] = "Your track has been successfully uploaded";
+                $confirm = [];
+                $confirm[] = "Your track has been successfully uploaded";
+                $_SESSION['confirm'] = $confirm;
+
                 header('Location: ../templates/Home/dash-board.php');
 
             }

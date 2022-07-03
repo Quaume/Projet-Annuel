@@ -108,7 +108,7 @@ if(strlen($username)<4 || strlen($username)>60){
 
 if(strlen($pwd) < 8 || preg_match("#\d#", $pwd)==0 && preg_match("#[a-z]#", $pwd)==0 && preg_match("#[A-Z]#", $pwd)==0){
 	if(!empty($pwd)){
-		$errors[] = "Password must be more than 8 characters with a lowercase letter and a capital letter";	
+		$errors[] = "Password must be more than 8 characters and a capital letter";	
 	}	
 }else{
 	$pwd = password_hash($pwd, PASSWORD_DEFAULT);
