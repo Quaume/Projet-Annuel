@@ -1,5 +1,5 @@
 <?php
-require_once '../../functions/functions.php';
+require '../../functions/functions.php';
 require '../../functions/seeAllTrackByCategory.php';
 require '../../functions/getUsr&Tracks.php';
 
@@ -9,10 +9,6 @@ if(!isConnected()){
 
 unset($_SESSION['errors']);
 unset($_SESSION['confirm']);
-
-if(isset($_GET['user'])){
-$id = $_GET['user'];
-}
 
 ?>
 
@@ -144,6 +140,27 @@ $id = $_GET['user'];
         <script src="lightDarkMode.js" type="text/javascript"></script>
         <script src="searchAjax.js" type="text/javascript"></script>
     </header>
+
+    <?php
+    if(!isset($_GET['user'])){
+        echo'
+        <div class="text-center subtitle mt-5">
+        This user does not exist
+        </div>
+        <div class="pb-5"></div>
+        <div class="pb-5"></div>
+        <div class="pb-5"></div>
+        <div class="pb-5"></div>
+        <div class="pb-5"></div>
+        <div class="pb-5"></div>
+        <div class="pb-5"></div>
+        <div class="pb-4"></div>
+        <div class="pb-3"></div>
+        ';
+    }else{
+        $id = $_GET['user'];
+    ?>
+
     <div class="container mt-5">
         <div class="row d-flex justify-content-center">
             <?php if(!empty($_GET['search'])){
@@ -157,6 +174,7 @@ $id = $_GET['user'];
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="container py-5">
+
                 <!-- Profil User -->
                 <?php if(isset($getTrackOfUsr)){
                     ?>
@@ -196,21 +214,100 @@ $id = $_GET['user'];
                     <div class="col-md-12 col-xl-4 mt-4">
                         <div class="" style="">
                             <div class="card p-3" style="height: 400px; border-radius: 15px;">
+
+    <?php
+        if(!empty($_SESSION['errors'])){
+            echo "<div class='errors mt-3 text-center'>
+            ";
+                foreach($_SESSION['errors'] as $error){
+                    printf($error);
+                        echo"<br>";
+                }
+                    echo"
+                        </div>
+                    ";
+                    unset($_SESSION['errors']);
+                    }
+
+        if(!empty($_SESSION['confirm'])){
+             echo "<div class='errors mt-3 text-center'>
+            ";
+                foreach($_SESSION['confirm'] as $confirm){
+                    printf($confirm);
+                        echo"<br>";
+                 }
+                    echo"
+                        </div>
+                    ";
+                    unset($_SESSION['confirm']);
+                    }
+    ?>
+
                                 <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Tracks</p>
                                 <div class="card overflow-scroll p-3" style="height: 400px; border-radius: 15px;">
                                 <?php foreach (getUserTracksById($id_usr) as $track){
                             ?>
                                 <div class="card my-2">
-                                    <div class="card-body d-flex justify-content-between align-items-center">
+                                    <div class="card-body d-flex align-items-center justify-content-between">
                                         <!-- Button trigger modal -->
                                         <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$track['id']?>">
-                                            <img src="../../ressources/tracks_cover/<?=$track['img_profile']?>" alt="track_cover" style="width: 45px; height: 45px">     
-                                        </a>
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal<?=$track['id']?>">
-                                            <p class="" style="cursor:pointer;">
+                                            <img src="../../ressources/tracks_cover/<?=$track['img_profile']?>" class="me-3" alt="track_cover" style="width: 45px; height: 45px">     
                                                 <?=$track['title']?>
-                                            </p>
                                         </a>
+                                        <div>
+                                            <a href="../../functions/deleteTrack.php?trackId=<?=$track['id']?>&user=<?=$id?>" type="button" class="btn btn-outline-secondary">
+                                                <i class="fa-solid fa-heart-circle-plus"></i>
+                                            </a>
+
+                                            <?php
+
+                                            if(userRequestTrack($track['id'])){
+
+                                            switch(getRequestStatusOfTrack($track["id"])){
+                                            case 1:
+                                                echo'
+                                                <a type="button" class="btn btn-outline-secondary disabled">
+                                                    <i class="fa-solid fa-circle-question"></i>
+                                                </a>
+                                                ';
+                                                 break;
+                                                
+                                            case 2:
+                                                echo'
+                                                <a type="button" class="btn btn-outline-secondary disabled">
+                                                    <i class="fa-solid fa-circle-xmark"></i>
+                                                </a>
+                                                ';
+                                                break;
+                                                
+                                            case 3:
+                                                echo'
+                                                <a href="../../functions/requestTrack.php?trackId='.$track["id"].'&user='.$id.'" type="button" class="btn btn-outline-secondary">
+                                                    <i class="fa-solid fa-circle-down"></i>
+                                                </a>
+                                                ';
+                                                break;
+                                                
+                                            default:
+                                                echo'
+                                                <a href="../../functions/requestTrack.php?trackId='.$track["id"].'&user='.$id.'" type="button" class="btn btn-outline-secondary">
+                                                    <i class="fa-solid fa-circle-plus"></i>
+                                                </a>
+                                                ';
+                                                break;
+
+                                            }
+                                        }else{
+
+                                            echo'
+                                            <a href="../../functions/requestTrack.php?trackId='.$track["id"].'&user='.$id.'" type="button" class="btn btn-outline-secondary">
+                                                <i class="fa-solid fa-circle-plus"></i>
+                                            </a>
+                                            ';
+
+                                        }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Modal -->
@@ -277,6 +374,9 @@ $id = $_GET['user'];
         </div>
     </div>
 </body>
+<?php
+}
+?>
 <footer class="mt-5">
     <?php include 'footer-home.php';  ?>
 </footer>

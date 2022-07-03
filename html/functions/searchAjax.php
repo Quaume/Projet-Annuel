@@ -37,9 +37,11 @@ if($q !== ""){
                         <a data-bs-toggle="modal" data-bs-target="#listenModal'.$id_track.'">
                             <img src="../../ressources/tracks_cover/'.$imgProfile.'" class="rounded" style="width: 50px; height: 50px" ">                         
                         </a>
-                        <p class="d-flex align-items-center">
-                        '.$title.'
-                        </p><br>
+                        <a data-bs-toggle="modal" data-bs-target="#listenModal'.$id_track.'">
+                            <p class="d-flex align-items-center mt-3">
+                            '.$title.'
+                            </p><br>
+                        <a>
                     </div>
                     <p class="text-end">'.$category.'</p>
                 </div>
