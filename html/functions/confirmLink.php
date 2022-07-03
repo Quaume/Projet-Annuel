@@ -22,7 +22,7 @@ if (isset($_GET['userKey']) && !empty($_GET['userKey']))
 if (count($errors) != 0) {
     $_SESSION['errors'] = $errors;
 }else{
-    header('Location: ../templates/home/Home.php');
+    header('Location: ../LR_SESSIONS/signIn.php');
 }
 /*
 $pdo = connectDB();

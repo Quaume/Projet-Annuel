@@ -136,7 +136,7 @@ include "header-home.php";
                 <div class="modal-body text-center form-group">
                     <div class="overflow-auto" style="height:400px;">
 
-                        <form method="POST" action="../../functions/editedUser.php" enctype="multipart/form-data">
+                        <form method="POST" action="../../functions/editedUser.php?source=dashboard" enctype="multipart/form-data">
                             <label class="mb-3 p-2">Current Username : <?php printf(getUserUsernameById(getUserId()),);?></label><br>
                             <label class="mb-3 p-2">Current Email : <?php printf(getUserEmailById(getUserId()),);?></label><br>
                             <input type="text" class="form-control edit-form" name="username" placeholder="New Username"><br>
@@ -320,11 +320,18 @@ include "header-home.php";
             }
 
             if(!empty($_SESSION['confirm'])){
-                echo "<div class='errors text-center mt-3'>".
-                $_SESSION['confirm']."
-                </div>";
+                echo "<div class='errors mt-3 text-center'>
+                ";
+                foreach($_SESSION['confirm'] as $confirm){
+                    printf($confirm);
+                    echo"<br>";
+                }
+                echo"
+                </div>
+                ";
                 unset($_SESSION['confirm']);
             }
+        
         ?>
 
     <!-------------------------------------------------BLOCK BLOCK------------------------------------------------------------>

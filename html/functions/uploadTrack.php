@@ -40,14 +40,22 @@
 
         // Gestion fichier track
 
-        if($trackExtensionToUpload == 'mp3'){
+        $maxTrackSize = 20971520;
 
-            $trackToUpload = $trackName.'.'.$trackExtensionToUpload;
+        if($trackFile['size'] < $maxTrackSize){
 
-            $trackPath = '../ressources/tracks/'.$trackToUpload;
+            if($trackExtensionToUpload == 'mp3'){
+
+                $trackToUpload = $trackName.'.'.$trackExtensionToUpload;
+
+                $trackPath = '../ressources/tracks/'.$trackToUpload;
+
+            }else{
+                $errors[] = "The file must be a mp3 file";
+            }
 
         }else{
-            $errors[] = "The file must be a mp3 file";
+            $errors[] = "The file shouldn't exceed 20mb";
         }
 
         // Gestion fichier cover
@@ -74,6 +82,27 @@
             $errors[] = "The file shouldn't exceed 2mb";
         }
 
+
+        // Vérification unicité de la track
+            $pdo = connectDB();
+            $queryPrepared = $pdo->prepare("SELECT id from utrackpa_tracks WHERE artist=:artist AND title=:title");
+
+            $queryPrepared->execute(
+                [
+                "artist"=>$artist,
+                "title"=>$title            
+                ]);
+            
+            if(!empty($queryPrepared->fetch())){
+                $errors[] = "You already posted a track with this name";
+            }
+
+        // Vérification longueur title
+            if(strlen($title) > 15){
+                $errors[] = "The track title shouldn't exceed 15 characters";
+            }else if(strlen($title) == 0){
+                $errors[] = "A title must be set for the track";
+            }
 
         // Création fichiers et insertion BDD
             if(count($errors) != 0){
@@ -103,7 +132,10 @@
                 unset($_FILES['trackFile']);  
                 unset($_FILES['trackCover']);
 
-                $_SESSION['confirm'] = "Your track has been successfully uploaded";
+                $confirm = [];
+                $confirm[] = "Your track has been successfully uploaded";
+                $_SESSION['confirm'] = $confirm;
+
                 header('Location: ../templates/Home/dash-board.php');
 
             }

@@ -72,7 +72,7 @@ function sendNewsletter($to, &$errors)
         unset($_POST['mailbody']);
         unset($_POST['subject']);
 
-        $_SESSION['confirm'] = "Newsletter envoyée !";
+        $_SESSION['confirm'] = "Newsletter has been sent successfully !";
         header("Location: ../admin_page.php?display=newsletter");
     }
 

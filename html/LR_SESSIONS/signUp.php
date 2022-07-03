@@ -26,7 +26,8 @@
                     placeholder="Username" required="required"><br>
                 <input type="email" name="email" class="form-control-md text-center mt-3 formsbtns px-5 py-1"
                     placeholder="Email" required="required"><br>
-                <input type="date" name="birthday" class="form-control-md text-center mt-3 formsdate px-5 py-1"
+                <label>Birthday</label>
+                <input type="date" name="birthday" class="form-control-md text-center mt-3 formsdate px-2 mx-2 py-1"
                     required="required"><br>
                 <input type="password" name="password" class="form-control-md text-center mt-3 formsbtns px-5 py-1"
                     placeholder="Password" required="required"><br>
@@ -34,18 +35,17 @@
                     class="form-control-md text-center mt-3 formsbtns px-5 py-1" placeholder="Confirm Password"
                     required="required"><br>
 
-                Your Account Type
-
-                <select name="accountType" class="form-control-md text-center mt-3 formsselect py-1">
+                <a type="button" class="formsbtns py-1 px-3 my-3" data-bs-toggle="modal" data-bs-target="#modalCaptcha"
+                    id="captchaVerif">Click To Complete The Captcha</a><br>
+                    
+                    Your Account Type
+                <select name="accountType" class="form-control-md text-center mt-2 formsselect py-1">
                     <option value="Listener" class="form-control-md text-center">Listener</option>
                     <option value="Artist" class="form-control-md text-center">Artist</option>
                     <option value="Beatmaker" class="form-control-md text-center">Beatmaker</option>
                 </select><br>
 
                 <!-- Modal Captcha -->
-                <a type="button" class="formsbtns py-1 px-3 my-2" data-bs-toggle="modal" data-bs-target="#modalCaptcha"
-                    id="captchaVerif">Click To Complete The Captcha</a><br>
-
                 <div class="modal fade" id="modalCaptcha" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content captcha">
