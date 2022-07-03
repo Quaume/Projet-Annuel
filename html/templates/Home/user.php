@@ -161,7 +161,7 @@ $id = $_GET['user'];
                 <?php if(isset($getTrackOfUsr)){
                     ?>
                 <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-md-12 col-xl-4">
+                    <div class="col-md-12 col-xl-4 mt-4">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body text-center">
                                 <div class="mt-3 mb-4">
@@ -195,7 +195,8 @@ $id = $_GET['user'];
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-xl-4">
+
+                    <div class="col-md-12 col-xl-4 mt-4">
                         <div class="" style="">
                             <div class="card p-3" style="height: 400px; border-radius: 15px;">
                                 <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Tracks</p>
@@ -241,7 +242,8 @@ $id = $_GET['user'];
                         </div>
 
                     </div>
-                    <div class="col-md-12 col-xl-4">
+
+                    <div class="col-md-12 col-xl-4 mt-4">
                         <div class="" style="">
                             <div class="card p-3" style="height: 300px; border-radius: 15px;">
                                 <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Albums</p>
