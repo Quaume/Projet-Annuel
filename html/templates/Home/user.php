@@ -37,6 +37,7 @@ $id = $_GET['user'];
     <link href="../../styles/dashboard.css" rel="stylesheet">
     <link href="../../styles/footer.css" rel="stylesheet">
     <link href="../../styles/audio.css" rel="stylesheet">
+    <link href="../../styles/user.css" rel="stylesheet">
 </head>
 
 <body>
@@ -163,7 +164,7 @@ $id = $_GET['user'];
                             <div class="card-body text-center">
                                 <div class="mt-3 mb-4">
                                     <img src="../../ressources/img-profile/<?=$usrProfile;?>"
-                                        class="rounded-circle img-fluid" style="width: 100px;" />
+                                        class="rounded-circle img-fluid" style="width: 60px; height:75%;" />
                                 </div>
                                 <h4 class="mb-2"><?=$usrName;?></h4>
                                 <p class="text-muted mb-4"><span class="mx-2"><?=$usrAccountType;?></span>
