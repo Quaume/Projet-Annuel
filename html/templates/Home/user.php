@@ -255,10 +255,22 @@ unset($_SESSION['confirm']);
                                                 <?=$track['title']?>
                                         </a>
                                         <div>
-                                            <a href="../../functions/favTrackList.php?id=<?=$track['id']?>&user=<?=$id?>" type="button" class="btn btn-outline-secondary">
-                                                <i class="fa-solid fa-heart-circle-plus"></i>
-                                            </a>
 
+                                            <?php
+                                            if(!isTrackInFav($track['id'],getUserId())){
+                                                echo'
+                                                <a href="../../functions/favTrackList.php?id='.$track['id'].'&user='.$id.'" type="button" class="btn btn-outline-secondary">
+                                                    <i class="fa-solid fa-heart-circle-plus"></i>
+                                                </a>
+                                                ';
+                                            }else{
+                                                echo'
+                                                <a href="../../functions/removeFromFavTrackList.php?id='.$track['id'].'&user='.$id.'" type="button" class="btn btn-outline-secondary">
+                                                    <i class="fa-solid fa-heart-circle-minus"></i>
+                                                </a>
+                                                ';
+                                            }
+                                            ?>
                                             <?php
 
                                             if(userRequestTrack($track['id'])){
