@@ -24,6 +24,8 @@ if(!empty($queryprepared->fetch())){
     $queryprepared = $pdo->prepare("DELETE FROM utrackpa_tracks WHERE id=:id");
     $queryprepared->execute(['id' => $trackId]);
 
+    addToLogs(getUserId(),"Deleted a track : ".getTrackNameByTrackId($trackId)."");
+
     $confirm[] = "Track has been deleted successfully";
     $_SESSION['confirm'] = $confirm;
 

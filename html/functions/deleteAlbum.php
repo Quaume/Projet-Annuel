@@ -31,6 +31,8 @@ if(!empty($queryprepared->fetch())){
 
     }
 
+    addToLogs(getUserId(),"Deleted an album : ".getAlbumNameById($albumId)."");
+
     $confirm[] = "Album has been deleted successfully";
     $_SESSION['confirm'] = $confirm;
 
