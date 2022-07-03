@@ -202,3 +202,12 @@ img.rounded-circle.img-size{
 .userLink:hover {
     color:#F7CCAC;
 }
+
+/* album */
+
+.albumDisplay {
+
+    background-color: #789395;
+    border-radius: 15px;
+
+}

@@ -20,6 +20,19 @@ include "formheader.php";
                                 ";
                                 unset($_SESSION['errors']);
                             }
+
+                            if(!empty($_SESSION['confirm'])){
+                                echo "<div class='errors mt-3 text-center'>
+                                ";
+                                foreach($_SESSION['confirm'] as $confirm){
+                                    printf($confirm);
+                                    echo"<br>";
+                                }
+                                echo"
+                                </div>
+                                ";
+                                unset($_SESSION['confirm']);
+                            }
                         ?>
                         <h2 class="mt-4 text-center">Sign In</h2>
                         <form method="POST" action="../functions/signIn.php" class="mt-3 form-group"> 

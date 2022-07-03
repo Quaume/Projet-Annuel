@@ -535,14 +535,14 @@ include "header-home.php";
                         <div class="mt-3">
                             <button type="button" class="btn darkBlockF" data-bs-toggle="modal" data-bs-target="#myFirstModal2">
                                 <img src="../../ressources/IMG-CONTENT/doc.png" width="50" alt="">
-                                <p class="subtitle pt-2">My Files</p>
+                                <p class="subtitle pt-2">Tracks</p>
                             </button>
                         </div>
                         <!-- Modal File track-->
                         <div class="modal fade" id="myFirstModal2">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content bg-edit">
-                                    <div class="modal-header d-flex justify-content-center"><h3 class="subtitle">My Files</h3></div>
+                                    <div class="modal-header d-flex justify-content-center"><h3 class="subtitle">My Track</h3></div>
                                     <div class="modal-body">
                                         <table class="table caption-top">
                                             <caption>All Tracks</caption>
@@ -551,8 +551,9 @@ include "header-home.php";
                                                     <th scope="col">#</th>
                                                     <th scope="col">Title</th>
                                                     <th scope="col">Category</th>
+                                                    <th scope="col">Album</th>
                                                     <th scope="col">Cover</th>
-                                                    <th scope="col">Date oF Release</th>
+                                                    <th scope="col">Date Of Release</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -561,6 +562,7 @@ include "header-home.php";
                                                 $trackId = $Trackfiles['id'];
                                                 $trackTitle = $Trackfiles['title'];
                                                 $trackCategory = $Trackfiles['category'];
+                                                $trackAlbum = $Trackfiles['album'];
                                                 $trackCover = $Trackfiles['img_profile'];
                                                 $trackDate = $Trackfiles['dateOfRelease'];
                                                 ?>
@@ -568,6 +570,7 @@ include "header-home.php";
                                                     <th scope="row"><?=$trackId?></th>
                                                         <td><?=$trackTitle?></td>
                                                         <td><?=$trackCategory?></td>
+                                                        <td><?=$trackAlbum?></td>
                                                         <td><img style="width: 45px; height: 45px" src="../../ressources/tracks_cover/<?=getImgTrackById($trackId)?>"/></td>
                                                         <td><?=$trackDate?></td>
                                                 </tr>
@@ -587,7 +590,7 @@ include "header-home.php";
                 </div>
 
                 <div class="col-6 mt-3">
-                <div class="d-inline-flex p-3 mb-3">
+                <div class="d-inline-flex p-3 mb-1">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn darkBlockA" data-bs-toggle="modal" data-bs-target="#createAlbumModal">
                             <img src="../../ressources/IMG-CONTENT/vinyl.png" width="50" alt="">
@@ -599,34 +602,34 @@ include "header-home.php";
                             <div class="modal-dialog">
                                 <div class="modal-content bg-edit">
                                     <div class="modal-header"></div>
-                                    <div class="modal-body">
-                                    <form class="row g-3">
-                                    <div class="d-flex flex-column mb-3">
-                                        <div class="col-md-8">
-                                            <label for="inputTitle" class="form-label">Title</label>
-                                            <input type="text" class="form-control" id="inputTitle" placeholder="Album Name">
-                                        </div>
-                                        
-                                        <div class="col-md-4 mt-5">
-                                            <label for="trackType" class="form-label">Album Type</label>
-                                            <select id="trackType" class="form-select">
-                                            <option selected="">Beat</option>
-                                            <option>Trap</option>
-                                            <option>Rap / Old School</option>
-                                            <option>R&amp;B</option>
-                                            <option>Pop Rock</option>
-                                            <option>Latin Pop</option>
-                                            <option>Uk Drill</option>
-                                            <option>Jersey Concept</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="">
-                                        <label for="formFilemd" class="form-label">Choose the cover for your album</label>
-                                        <input class="form-control form-control-md" id="formFilemd" type="file">
-                                    </div>
+                                        <div class="modal-body">
+                                            <form class="row g-3" method="post" action="../../functions/createAlbum.php" enctype="multipart/form-data">
+                                                <div class="d-flex flex-column mb-3">
+                                                    <div class="col-md-8">
+                                                        <label for="inputTitle" class="form-label p-2">Title</label>
+                                                        <input type="text" class="form-control" id="inputTitle" name="albumName" placeholder="Album Name" required="required">
+                                                    </div>
+                                            
+                                                    <div class="col-md-4 mt-5">
+                                                        <label for="albumType" class="form-label p-2">Album Type</label>
+                                                        <select id="albumType" name="albumType" class="form-select">
+                                                        <option selected="">Beat</option>
+                                                        <option>Trap</option>
+                                                        <option>Rap / Old School</option>
+                                                        <option>R&amp;B</option>
+                                                        <option>Pop Rock</option>
+                                                        <option>Latin Pop</option>
+                                                        <option>Uk Drill</option>
+                                                        <option>Jersey Concept</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <label for="formFilemd" class="form-label p-2">Choose the cover for your album</label>
+                                                    <input class="form-control form-control-md" id="formFilemd" type="file" name="albumCover" accept=".png,.jpg,.jpeg" required="required">
+                                                </div>
 
-                                    </div>
+                                        </div>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#createAlbumModal">Close</button>
@@ -639,23 +642,58 @@ include "header-home.php";
                     </div>
 
 
-                    <div class="d-inline-flex p-3 mb-5">
+                    <div class="d-inline-flex p-3">
                         <!-- Button trigger modal -->
-                        <a href="../../utrack_forum/functions/php-config/soon.php">
-                            <button type="button" class="btn darkBlockN" data-bs-toggle="modal" data-bs-target="#myFirstModal4">
-                                <img src="../../ressources/IMG-CONTENT/notif.png" width="40" alt="">
-                                <p class="subtitle pt-2">Create Track</p>
+                        <div class="mt-3">
+                            <button type="button" class="btn darkBlockF" data-bs-toggle="modal" data-bs-target="#albumsModal">
+                                <img src="../../ressources/IMG-CONTENT/doc.png" width="50" alt="">
+                                <p class="subtitle pt-2">Albums</p>
                             </button>
-                        </a>
-
-                        <!-- Modal Notif-->
-                        <div class="modal fade" id="myFirstModal4">
+                        </div>
+                        <!-- Modal File track-->
+                        <div class="modal fade" id="albumsModal">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content bg-edit">
-                                    <div class="modal-header"></div>
-                                    <div class="modal-body"></div>
+                                    <div class="modal-header d-flex justify-content-center"><h3 class="subtitle">My Albums</h3></div>
+                                    <div class="modal-body">
+                                        <table class="table caption-top text-center">
+                                            <caption>All Album</caption>
+                                                <thead>
+                                                    <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Category</th>
+                                                    <th scope="col">Cover</th>
+                                                    <th scope="col">Date Of Release</th>
+                                                    <th scope="col">Manage</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                            <?php foreach (getUserAlbumsById(getUserId()) as $albumFiles){
+                                                $albumId = $albumFiles['id'];
+                                                $albumTitle = $albumFiles['title'];
+                                                $albumCategory = $albumFiles['category'];
+                                                $albumCover = $albumFiles['img_profile'];
+                                                $albumDate = $albumFiles['dateOfRelease'];
+                                                $albumArtist = $albumFiles['artist'];
+
+                                                echo'
+                                                <tr>
+                                                    <th scope="row">'.$albumId.'</th>
+                                                        <td>'.$albumTitle.'</td>
+                                                        <td>'.$albumCategory.'</td>
+                                                        <td><img style="width: 45px; height: 45px" src="../../ressources/albums_cover/'.$albumCover.'"/></td>
+                                                        <td>'.$albumDate.'</td>
+                                                        <td><a href="album.php?album='.$albumId.'&artist='.$albumArtist.'" type="button" class="btn btn-outline-secondary">Manage</a></td>
+                                                </tr>
+                                                ';       
+                                            }?>
+                                        </tbody>
+                                        </table>
+                                    </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#myFirstModal4">Close</button>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" data-bs-target="#albumsModal">Close</button>
                                     </div>
                                 </div>
                             </div>

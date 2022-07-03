@@ -324,8 +324,54 @@ function getLastImgTrack(){
 // Get All Fav Tracks 
 function getFavTrackById($id){
 	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_favoris_track");
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_favoris_track WHERE id=:id");
 	$queryPrepared->execute(["id"=>$id]);
 	
 	return $queryPrepared->fetchAll();
+}
+
+function getTracksByAlbum($album,$artist){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_tracks WHERE artist=:artist AND album=:album");
+	$queryPrepared->execute(
+		[
+		"artist"=>$artist,
+		"album"=>$album	
+		]);
+	
+	return $queryPrepared->fetchAll();
+
+}
+
+function getTrackAlbumByTrackId($trackId){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT album FROM utrackpa_tracks WHERE id='".$trackId."'");
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetch()[0];
+
+}
+
+///// ALBUMS /////
+
+function getUserAlbumsById($artist){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_albums WHERE artist=:artist");
+	$queryPrepared->execute(["artist"=>$artist]);
+	
+	return $queryPrepared->fetchAll();
+
+}
+
+function getAlbumNameById($album){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT title FROM utrackpa_albums WHERE id='".$album."'");
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetch()[0];
+
 }
