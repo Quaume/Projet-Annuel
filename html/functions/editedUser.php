@@ -121,6 +121,7 @@ if(strlen($pwd) < 8 || preg_match("#\d#", $pwd)==0 && preg_match("#[a-z]#", $pwd
 
 if(count($errors) == 0){
 
+	addToLogs(getUserId(),"Edited his/her account");
 
 	if(!empty($email)){
 	$_SESSION["email"] = $email;

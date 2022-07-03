@@ -348,6 +348,7 @@ td{
     color: #3A3845;
     border-radius: 25px;
     height: 550px;
+    width: 900px !important;
 
 }
 
@@ -361,4 +362,15 @@ td{
 .newslettercontent{
     width: 750px;
     height: 275px;
+}
+
+
+/* logs */
+
+.logs {
+
+    background-color: #789395;
+    color: #3A3845;
+    border-radius: 25px;
+
 }

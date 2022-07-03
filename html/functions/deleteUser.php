@@ -5,7 +5,8 @@ if(isAdmin()){
 //Vérification de l'utilisateur
 $id = $_GET["id"];
 
-//Suppression du user en bdd
+addToLogs(getUserId(),"Deleted an user : ".getUserUsernameById($id)."");
+
 $pdo = connectDB();
 
 // Suppression table followers followed

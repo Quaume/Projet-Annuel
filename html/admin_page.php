@@ -61,13 +61,6 @@ if(!isConnected()){
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-bell-ring icon'></i>
-                            <span class="text nav-text">Notification</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
                         <a href="admin_page.php?display=newsletter">
                             <i class='bx bxs-news icon'></i>
                             <span class="text nav-text">Newsletters</span>
@@ -75,9 +68,9 @@ if(!isConnected()){
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Stats_users</span>
+                        <a href="admin_page.php?display=logs">
+                            <i class='bx bxl-stack-overflow icon'></i>
+                            <span class="text nav-text">Logs</span>
                         </a>
                     </li>
 
@@ -226,7 +219,7 @@ if(!isConnected()){
         case 'newsletter':
 
             echo'
-            <div class="container newsletter">
+            <div class="container newsletter ps-1">
                 <div class="row">
                     <div class="col-11 text-center">
 
@@ -258,12 +251,11 @@ if(!isConnected()){
                     }
                     echo'
                         <h2 class="mt-4">Newsletter</h2><br>
-
                 <form action="functions/sendNewsletter.php" method="post">
                     <input type="text" name="subject" class="newsletterinputs" placeholder="Newsletter Subject"><br>
                     <textarea name="mailbody" class="newsletterinputs newslettercontent mt-5" placeholder="Newsletter Content"></textarea><br>
                     <input type="submit" class="newsletterinputs" value="Send the newsletter">
-                    </form>
+                </form>
 
                     </div>
                 </div>
@@ -271,6 +263,67 @@ if(!isConnected()){
             ';
             break;
         
+            case 'logs':
+                echo'
+                <div class="text-center ms-4 p-4 logs">
+                    <div class="overflow-auto" style="height:500px">
+        
+                    ';if(!empty($_SESSION['errors'])){
+                        echo "<div class='errors mt-3 text-center'>
+                        ";
+                        foreach($_SESSION['errors'] as $error){
+                            printf($error);
+                            echo"<br>";
+                        }
+                        echo"
+                        </div>
+                        ";
+                        unset($_SESSION['errors']);
+                    }
+        
+                    if(!empty($_SESSION['confirm'])){
+                        echo "<div class='errors mt-3 text-center'>
+                        ";
+                        foreach($_SESSION['confirm'] as $confirm){
+                            printf($confirm);
+                            echo"<br>";
+                        }
+                        echo"
+                        </div>
+                        ";
+                        unset($_SESSION['confirm']);
+                    }
+                    echo'
+        
+                    <h4>Logs</h4>
+                    <table class="table table-borderless mt-4 usrList">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">User</th>
+                                <th scope="col" class="text-center">Action</th>
+                                <th scope="col" class="text-center">DateInserted</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+        
+                        foreach (getAllLogs() as $log){
+                
+                            echo '<tr>
+                            <td>'.getUserUsernameById($log['usr_id']).'</td>
+                            <td>'.$log['usr_action'].'</td>
+                            <td>'.$log['date_inserted'].'</td>        
+                        </tr>';
+        
+                        }
+                        echo'
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                </div>
+                ';
+                break;
+
 }
 ?>
     <script src="scriptAdmin.js"></script>

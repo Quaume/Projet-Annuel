@@ -12,6 +12,9 @@
         "emailid" => $emailid,
         ]
     );
+
+    addToLogs(getUserId(),"Subscribed to newsletter");
+
         header("Location: ../templates/Home/dash-board.php");
     } else {
         header("Location: ../index.php");

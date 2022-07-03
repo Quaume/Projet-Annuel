@@ -15,6 +15,8 @@
     $queryPrepared = $pdo->prepare("DELETE FROM utrackpa_followers WHERE follower='$follower' AND followed='$followed';");
     $queryPrepared->execute();
 
+    addToLogs(getUserId(),"Unfollowed ".getUserUsernameById($followed)."");
+
     switch($source){
         case "allUsers":
             header("Location: ../templates/Home/allUsers.php");

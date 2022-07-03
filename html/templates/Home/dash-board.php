@@ -434,10 +434,19 @@ include "header-home.php";
                         <div class="dash-block d-flex flex-wrap justify-content-center">
                             <p class="subtitle darkB text-center mt-3 pt-1 recentlyPost">Recently Post</p>
                             <div class="recentlyBlock d-flex justify-content-center my-4">
+
+                            <?
+                            if(userPostedTrack(getUserId())){
+                                echo'
                                 <div class="d-flex align-items-center">
-                                    <a href=""></a>
-                                    <img src="../../ressources/tracks_cover/<?=getLastImgTrack();?>" class="pulse1">
+
+                                    <img src="../../ressources/tracks_cover/'.getLastImgTrack().'" class="pulse1">
+
                                 </div>
+                                ';
+                            }
+                            ?>
+
                             </div>
                         </div>
                     </div>
@@ -554,6 +563,7 @@ include "header-home.php";
                                                     <th scope="col">Album</th>
                                                     <th scope="col">Cover</th>
                                                     <th scope="col">Date Of Release</th>
+                                                    <th scope="col">Manage</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -573,6 +583,9 @@ include "header-home.php";
                                                         <td><?=$trackAlbum?></td>
                                                         <td><img style="width: 45px; height: 45px" src="../../ressources/tracks_cover/<?=getImgTrackById($trackId)?>"/></td>
                                                         <td><?=$trackDate?></td>
+                                                        <td>
+                                                            <a href="../../functions/deleteTrack.php?trackId=<?=$trackId?>" type="button" class="btn btn-outline-secondary">Delete</a>
+                                                        </td>
                                                 </tr>
                                                         
                                                 <?php
@@ -685,7 +698,10 @@ include "header-home.php";
                                                         <td>'.$albumCategory.'</td>
                                                         <td><img style="width: 45px; height: 45px" src="../../ressources/albums_cover/'.$albumCover.'"/></td>
                                                         <td>'.$albumDate.'</td>
-                                                        <td><a href="album.php?album='.$albumId.'&artist='.$albumArtist.'" type="button" class="btn btn-outline-secondary">Manage</a></td>
+                                                        <td>
+                                                        <a href="album.php?album='.$albumId.'&artist='.$albumArtist.'" type="button" class="btn btn-outline-secondary">Manage</a>
+                                                        <a href="../../functions/deleteAlbum.php?albumId='.$albumId.'" type="button" class="btn btn-outline-secondary">Delete</a>
+                                                        </td>
                                                 </tr>
                                                 ';       
                                             }?>

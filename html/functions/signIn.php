@@ -30,6 +30,8 @@
                 $_SESSION['id'] = $signInResults["id"];
                 $_SESSION['token'] = $token;
 
+            addToLogs(getUserId(),"Signed In");
+
             header("location: ../templates/Home/Home.php");
         } else {
 

@@ -5,9 +5,12 @@ if(!isConnected()){
 	die(header("Location: ../../index.php"));
 }
 
+if(isset($_GET['album'])){
 $album = $_GET['album'];
+}
+if(isset($_GET['artist'])){
 $artist = $_GET['artist'];
-
+}
 ?>  
 
 <!DOCTYPE html>
@@ -170,8 +173,42 @@ $artist = $_GET['artist'];
                 unset($_SESSION['confirm']);
             }
         
-        ?>
 
+if(isset($album)){
+$pdo = connectDB();
+
+$queryPrepared = $pdo->prepare("SELECT id FROM utrackpa_albums WHERE id =:id");
+$queryPrepared->execute(['id' => $album]);
+
+if(empty($queryPrepared->fetch())){
+
+    echo'
+    <div class="text-center subtitle">
+    This album does not exist
+    </div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-1"></div>
+    ';
+    
+}
+
+}
+ if(!isset($_GET['album']) || !isset($_GET['artist'])){
+
+    echo'
+    <div class="text-center subtitle">
+    This album does not exist
+    </div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-1"></div>
+    ';
+
+}else{
+?>
                         <div class="col-2"></div>
                         <div class="col-8 albumDisplay py-4 pb-5">
 
@@ -290,10 +327,16 @@ $artist = $_GET['artist'];
                                
                                 } ?>
                                  </ol>
+
+                                 <?php
+}
+?>
                         </div> 
                 </div>
             </div>
         </div>
+
+
         </body>
 
 <div class="pb-5"></div>

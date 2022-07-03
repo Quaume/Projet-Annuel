@@ -20,6 +20,8 @@
         ]
     );
 
+    addToLogs(getUserId(),"Started following ".getUserUsernameById($followed)."");
+
     switch($source){
         case "allUsers":
             header("Location: ../templates/Home/allUsers.php");

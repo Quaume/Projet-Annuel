@@ -132,6 +132,8 @@
                 unset($_FILES['trackFile']);  
                 unset($_FILES['trackCover']);
 
+                addToLogs(getUserId(),"Uploaded a track : ".$title."");
+
                 $confirm = [];
                 $confirm[] = "Your track has been successfully uploaded";
                 $_SESSION['confirm'] = $confirm;

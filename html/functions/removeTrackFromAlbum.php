@@ -20,6 +20,8 @@ $pdo = connectDB();
 $queryPrepared = $pdo->prepare("UPDATE utrackpa_tracks SET album = null WHERE id =:id");
 $queryPrepared->execute(['id' => $track]);
 
+addToLogs(getUserId(),"Removed : ".getTrackNameByTrackId($track)." from : ".getAlbumNameById($album)."");
+
 $confirm[] = "Track has been removed";
 $_SESSION['confirm'] = $confirm;
 header("Location: ../templates/Home/album.php?album=$album&artist=$artist");

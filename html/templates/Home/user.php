@@ -245,38 +245,21 @@ $id = $_GET['user'];
                             <div class="card p-3" style="height: 300px; border-radius: 15px;">
                                 <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Albums</p>
                                 <div class="card overflow-scroll p-3" style="height: 400px; border-radius: 15px;">
-                                <?php foreach (getUserTracksById($id_usr) as $track){
+                                <?php foreach (getUserAlbumsById($id_usr) as $album){
                             ?>
                                 <div class="card my-2">
                                     <div class="card-body d-flex justify-content-between align-items-center">
                                         <!-- Button trigger modal -->
-                                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$track['id']?>">
-                                            <img src="../../ressources/tracks_cover/<?=$track['img_profile']?>" alt="track_cover" style="width: 45px; height: 45px">     
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$album['id']?>">
+                                            <img src="../../ressources/albums_cover/<?=$album['img_profile']?>" alt="track_cover" style="width: 45px; height: 45px">     
                                         </a>
-                                        <a data-bs-toggle="modal" data-bs-target="#exampleModal<?=$track['id']?>">
+                                        <a class="btn" href="album.php?album=<?=$album['id']?>&artist=<?=$id?>">
+  
                                             <p class="" style="cursor:pointer;">
-                                                <?=$track['title']?>
+                                                <?=$album['title']?>
                                             </p>
                                         </a>
                                     </div>
-                                </div>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal<?=$track['id']?>" tabindex="-1" aria-labelledby="exampleModalLabel"   aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel"><?=$track['title']?></h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body d-flex justify-content-center">
-                                    <audio id="playerAudio" controlslist="nodownload" controls src="../../ressources/tracks/<?=$track['trackName']?>"></audio>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                    </div>
-                                </div>
                                 </div>
                                 <?php
                         }

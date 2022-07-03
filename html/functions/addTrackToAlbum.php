@@ -51,6 +51,9 @@ if(getUserId() == $artist){
 
     $queryPrepared = $pdo->prepare("UPDATE utrackpa_tracks SET album=:album WHERE id =:id");
     $queryPrepared->execute(['id' => $track,'album' => $album]);
+
+    addToLogs(getUserId(),"Added a track : ".getTrackNameByTrackId($track)." to his album : ".getAlbumNameById($album)."");
+
     }
 
     }

@@ -12,4 +12,6 @@
     $queryPrepared = $pdo->prepare("DELETE FROM utrackpa_newsletter WHERE emailid='$emailid';");
     $queryPrepared->execute();
 
+    addToLogs(getUserId(),"Unsubscribed from newsletter");
+
         header("Location: ../templates/Home/dash-board.php");

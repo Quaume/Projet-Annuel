@@ -104,6 +104,8 @@
                 unset($_POST['albumType']);  
                 unset($_FILES['albumCover']);
 
+                addToLogs(getUserId(),"Created an album : ".$title."");
+
                 $confirm = [];
                 $confirm[] = "Your album has been successfully created";
                 $_SESSION['confirm'] = $confirm;
