@@ -1,6 +1,7 @@
 <?php require_once 'functions.php';
 $pdo = connectDB();
 $errors = [];
+$confirm = [];
 
 if (isset($_GET['userKey']) && !empty($_GET['userKey'])) 
 {
@@ -12,18 +13,20 @@ if (isset($_GET['userKey']) && !empty($_GET['userKey']))
     {
         $query=$pdo->prepare('UPDATE utrackpa_users SET verified=:verified WHERE userKey=:userKey');
         $query->execute(['userKey'=>$validKey, 'verified'=>1]);
-        //$_SESSION['confirm'] = 1;
+        
+        $confirm[] = "Your account has been verified";
+        $_SESSION['confirm'] = $confirm;
+        header('Location: ../LR_SESSIONS/signIn.php');
+
     }
     else
     {
-        die();
+        $errors[] = "This account does not exist";
+        $_SESSION['errors'] = $errors;
+        header('Location: ../LR_SESSIONS/signIn.php');
     }
 }
-if (count($errors) != 0) {
-    $_SESSION['errors'] = $errors;
-}else{
-    header('Location: ../LR_SESSIONS/signIn.php');
-}
+
 /*
 $pdo = connectDB();
 if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['userKey']) && !empty($_GET['id'])){

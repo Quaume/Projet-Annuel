@@ -10,7 +10,9 @@ if(!isConnected()){
 unset($_SESSION['errors']);
 unset($_SESSION['confirm']);
 
+if(isset($_GET['user'])){
 $id = $_GET['user'];
+}
 
 ?>
 
@@ -194,7 +196,7 @@ $id = $_GET['user'];
                     </div>
                     <div class="col-md-12 col-xl-4">
                         <div class="" style="">
-                            <div class="card overflow-scroll p-3" style="height: 400px; border-radius: 15px;">
+                            <div class="card p-3" style="height: 400px; border-radius: 15px;">
                                 <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Tracks</p>
                                 <div class="card overflow-scroll p-3" style="height: 400px; border-radius: 15px;">
                                 <?php foreach (getUserTracksById($id_usr) as $track){
@@ -240,7 +242,7 @@ $id = $_GET['user'];
                     </div>
                     <div class="col-md-12 col-xl-4">
                         <div class="" style="">
-                            <div class="card overflow-scroll p-3" style="height: 300px; border-radius: 15px;">
+                            <div class="card p-3" style="height: 300px; border-radius: 15px;">
                                 <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Albums</p>
                                 <div class="card overflow-scroll p-3" style="height: 400px; border-radius: 15px;">
                                 <?php foreach (getUserTracksById($id_usr) as $track){

@@ -48,6 +48,7 @@ $accountType = strtolower(trim($accountType));
 
 //vérifier les données
 $errors = [];
+$confirm = [];
 
 //Email OK
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -178,8 +179,8 @@ if(count($errors) != 0){
         sendConfirmMail($email, $userKey, $errors);
 
 
-
-    $_SESSION['confirm'] = "Your account has been created successfully !<br>Confirm your email to sign in !";
+    $confirm[] = "Your account has been created successfully !<br>Confirm your email to sign in !";
+    $_SESSION['confirm'] = $confirm;
 
     unset($_POST['email']);
 	unset($_POST["username"]);

@@ -132,8 +132,8 @@ $colcount = 0;
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
+<div class="container pb-5">
+    <div class="row pb-5">
         <?php
 
         foreach(getAllUsers() as $user){
@@ -177,8 +177,12 @@ $colcount = 0;
 </div>
 </div>
 
+<div class="pb-5"></div>
+<div class="pb-5"></div>
+<div class="pb-5"></div>
+
 <!--FOOTER-->
-<footer class="">
+<footer class="mt-5 py-3">
     <?php include "footer-home.php"?>
 </footer>
 </body>
