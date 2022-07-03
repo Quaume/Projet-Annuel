@@ -172,10 +172,7 @@ $id = $_GET['user'];
                                 <p class="text-muted mb-4"><span class="mx-2"><?=$usrAccountType;?></span>
                                     <a href="#!"></a>
                                 </p>
-                                <div class="mb-4 pb-2"></div>
-                                <button type="button" class="btn btn-outline-secondary btn-rounded btn-lg">
-                                    Follow now
-                                </button>
+                                <div class="mb-4 pb-2"><p>Registered Since :</p><br><?=$usrRegister?></div>
                                 <div class="d-flex justify-content-between text-center mt-5 mb-2">
                                     <div>
                                         <p class="mb-2 h5"><?=count(getUserFollowers(getUserIdByUsername($usrName)));?>
