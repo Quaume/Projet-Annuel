@@ -1,10 +1,11 @@
 <?php
 
-	session_start();
+require 'functions.php';
+
+addToLogs(getUserId(),"Signed out");
+
 	unset($_SESSION['email']);
 	unset($_SESSION['token']);
 	unset($_SESSION['id']);
-
-	addToLogs(getUserId(),"Signed out");
 
 	header("Location: ../index.php");
