@@ -418,6 +418,35 @@ function getTrackArtistById($trackId){
 
 }
 
+// Statut track request
+
+function getRequestStatusOfTrack($trackId){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT statut FROM utrackpa_users_requests WHERE requestedTrack='".$trackId."'");
+	$queryPrepared->execute();
+	
+
+	return $queryPrepared->fetch()[0];
+
+}
+
+// user request track
+
+function userRequestTrack($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users_requests WHERE requestedTrack='$id'");	
+	$queryPrepared->execute();
+	
+	if(!empty($queryPrepared->fetchAll())){
+		return true;
+	}else{
+		return false;
+	}
+	
+}
+
 ///// ALBUMS /////
 
 function getUserAlbumsById($artist){

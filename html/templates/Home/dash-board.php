@@ -435,7 +435,7 @@ include "header-home.php";
                             <p class="subtitle darkB text-center mt-3 pt-1 recentlyPost">Recently Post</p>
                             <div class="recentlyBlock d-flex justify-content-center my-4">
 
-                            <?
+                            <?php
                             if(userPostedTrack(getUserId())){
                                 echo'
                                 <div class="d-flex align-items-center">

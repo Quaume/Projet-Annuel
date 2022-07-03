@@ -324,6 +324,94 @@ if(!isConnected()){
                 ';
                 break;
 
+                default:
+                    echo'
+                    <div class="tableList ms-4 p-4">
+                        <div class="overflow-auto" style="height:500px">
+            
+                        ';if(!empty($_SESSION['errors'])){
+                            echo "<div class='errors mt-3 text-center'>
+                            ";
+                            foreach($_SESSION['errors'] as $error){
+                                printf($error);
+                                echo"<br>";
+                            }
+                            echo"
+                            </div>
+                            ";
+                            unset($_SESSION['errors']);
+                        }
+            
+                        if(!empty($_SESSION['confirm'])){
+                            echo "<div class='errors mt-3 text-center'>
+                            ";
+                            foreach($_SESSION['confirm'] as $confirm){
+                                printf($confirm);
+                                echo"<br>";
+                            }
+                            echo"
+                            </div>
+                            ";
+                            unset($_SESSION['confirm']);
+                        }
+                        echo'
+            
+                        <h4>Users List</h4>
+                        <table class="table table-borderless mt-4 usrList">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">Profile picture</th>
+                                    <th scope="col" class="text-center">Id</th>
+                                    <th scope="col" class="text-center">Username</th>
+                                    <th scope="col" class="text-center">Birthday</th>
+                                    <th scope="col" class="text-center">Email</th>
+                                    <th scope="col" class="text-center">Acc_Type</th>
+                                    <th scope="col" class="text-center">DateInserted</th>
+                                    <th scope="col" class="text-center">DateUpdated</th>
+                                    <th scope="col" class="text-center">Verified</th>
+                                    <th scope="col" class="text-center">Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+            
+                            foreach (getAllUsers() as $user){
+            
+                                $id = $user["id"];
+            
+                                echo '<tr>
+                                <td><img src="ressources/img-profile/'.$user["img_profile"].'" height="30"></td>
+                                <td>'.$id.'</td>
+                                <td>'.getUserUsernameById($id).'</td>
+                                <td>'.getUserBirthdayById($id).'</td>
+                                <td>'.getUserEmailById($id).'</td>
+                                <td>'.getUserAccountTypeById($id).'</td>
+                                <td>'.getUserDateInsertedById($id).'</td>
+                                <td>'.getUserDateUpdatedById($id).'</td>
+                                <td>'.getUserVerifiedById($id).'</td>
+                                
+                                <td>
+                                <div class="btn-group" role="group">
+                                    <a href="functions/deleteUser.php?id='.$id.'" >
+                                        <button type="button" class="btn"><img src="ressources/IMG-CONTENT/cross.png" width="20" height="20" alt="Delete"></button>
+                                    </a>
+                                    <a href="functions/editUser.php?id='.$id.'" >
+                                        <button type="button" class="btn"><img src="ressources/IMG-CONTENT/pen.png" width="20" height="20" alt="edit"></button>
+                                    </a>
+                                </div>
+                                </td>
+            
+                            </tr>';
+            
+                            }
+                            echo'
+                            </tbody>
+                        </table>
+                        </div>
+                        </div>
+                    </div>
+                    ';
+                    break;
+
 }
 ?>
     <script src="scriptAdmin.js"></script>
