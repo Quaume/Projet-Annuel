@@ -39,6 +39,7 @@ $id = $_GET['user'];
     <link href="../../styles/dashboard.css" rel="stylesheet">
     <link href="../../styles/footer.css" rel="stylesheet">
     <link href="../../styles/audio.css" rel="stylesheet">
+    <link href="../../styles/user.css" rel="stylesheet">
 </head>
 
 <body>
@@ -160,21 +161,18 @@ $id = $_GET['user'];
                 <?php if(isset($getTrackOfUsr)){
                     ?>
                 <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-md-12 col-xl-4">
+                    <div class="col-md-12 col-xl-4 mt-4">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body text-center">
                                 <div class="mt-3 mb-4">
                                     <img src="../../ressources/img-profile/<?=$usrProfile;?>"
-                                        class="rounded-circle img-fluid" style="width: 100px;" />
+                                        class="rounded-circle img-fluid" style="width: 60px; height:75%;" />
                                 </div>
                                 <h4 class="mb-2"><?=$usrName;?></h4>
                                 <p class="text-muted mb-4"><span class="mx-2"><?=$usrAccountType;?></span>
                                     <a href="#!"></a>
                                 </p>
-                                <div class="mb-4 pb-2"></div>
-                                <button type="button" class="btn btn-outline-secondary btn-rounded btn-lg">
-                                    Follow now
-                                </button>
+                                <div class="mb-4 pb-2"><p>Registered Since :</p><br><?=$usrRegister?></div>
                                 <div class="d-flex justify-content-between text-center mt-5 mb-2">
                                     <div>
                                         <p class="mb-2 h5"><?=count(getUserFollowers(getUserIdByUsername($usrName)));?>
@@ -194,7 +192,8 @@ $id = $_GET['user'];
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-xl-4">
+
+                    <div class="col-md-12 col-xl-4 mt-4">
                         <div class="" style="">
                             <div class="card p-3" style="height: 400px; border-radius: 15px;">
                                 <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Tracks</p>
@@ -240,7 +239,8 @@ $id = $_GET['user'];
                         </div>
 
                     </div>
-                    <div class="col-md-12 col-xl-4">
+
+                    <div class="col-md-12 col-xl-4 mt-4">
                         <div class="" style="">
                             <div class="card p-3" style="height: 300px; border-radius: 15px;">
                                 <p class="subtitle darkB text-center ms-2 mt-3 mb-2 p-1 recentlyPost">Albums</p>
