@@ -52,7 +52,7 @@ function sendPasswordRecover($to, &$errors)
             $mail->isHTML(true);
             $mail->Subject = 'Password Recover';
             $mail->Body = 'Here is the link to recover your password.<br>
-            <a href="http://localhost/ProjetAnnuel/html/functions/passwordRecover.php?mail=' . $_POST['email'] . '">
+            <a href="http://utrack.website/functions/passwordRecover.php?mail=' . $_POST['email'] . '">
                 Utrack password recover
             </a>';
 

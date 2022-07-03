@@ -163,7 +163,7 @@ if(count($errors) != 0){
                 $mail->isHTML(true);
                 $mail->Subject = 'Utrack confirmation e-mail !';
                 $mail->Body = 'Validate your account.<br>
-                    <a href="http://localhost/ProjetAnnuel/html/functions/confirmLink.php?id=' . $_SESSION['id'] . '&userKey=' . $userKey . '">
+                    <a href="http://utrack.website/functions/confirmLink.php?id=' . $_SESSION['id'] . '&userKey=' . $userKey . '">
                         Utrack confirmation link
                     </a>';
     
