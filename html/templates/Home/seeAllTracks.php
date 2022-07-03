@@ -168,9 +168,9 @@ if(!isConnected()){
                     </td>
                     <td><?=$info['category'];?></td>
                     <td>
-                        <button type="button" class="btn btn-link btn-sm btn-rounded">
-                            Like??
-                        </button>
+                        <a href="../../functions/favTrackList.php?id=<?=$info['id'];?>" type="button" class="btn btn-link btn-sm btn-rounded">
+                           Count Like
+                        </a>
                     </td>
                 </tr>
                 <?php

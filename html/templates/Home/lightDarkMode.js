@@ -1,7 +1,7 @@
 
-const localTheme = localStorage.getItem('theme');
 const body = document.querySelector("body"),
 switchMode = body.querySelector(".form-check-input");
+const localTheme = localStorage.getItem('theme');
 
 switchMode.addEventListener('click', function (){
 document.body.classList.toggle('light');
