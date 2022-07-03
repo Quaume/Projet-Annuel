@@ -282,7 +282,7 @@ unset($_SESSION['confirm']);
                                                 
                                             case 3:
                                                 echo'
-                                                <a href="../../functions/requestTrack.php?trackId='.$track["id"].'&user='.$id.'" type="button" class="btn btn-outline-secondary">
+                                                <a href="../../ressources/tracks/'.$track["trackName"].'" type="button" class="btn btn-outline-secondary" download>
                                                     <i class="fa-solid fa-circle-down"></i>
                                                 </a>
                                                 ';

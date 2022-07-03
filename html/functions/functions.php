@@ -418,34 +418,6 @@ function getTrackArtistById($trackId){
 
 }
 
-// Statut track request
-
-function getRequestStatusOfTrack($trackId){
-
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT statut FROM utrackpa_users_requests WHERE requestedTrack='".$trackId."'");
-	$queryPrepared->execute();
-	
-
-	return $queryPrepared->fetch()[0];
-
-}
-
-// user request track
-
-function userRequestTrack($id){
-
-	$pdo = connectDB();
-	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users_requests WHERE requestedTrack='$id'");	
-	$queryPrepared->execute();
-	
-	if(!empty($queryPrepared->fetchAll())){
-		return true;
-	}else{
-		return false;
-	}
-	
-}
 
 ///// ALBUMS /////
 
@@ -479,5 +451,83 @@ function getAlbumArtistById($albumId){
 	
 	return $queryPrepared->fetch()[0];
 
+}
+
+///// Requests /////
+
+function userHaveRequest($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users_requests WHERE requestedUser='$id' AND statut = 1");	
+	$queryPrepared->execute();
+
+	if(!empty($queryPrepared->fetchAll())){
+		return true;
+	}else{
+		return false;
+	}
+
+}
+
+// listener requests
+function getListenerRequestsForUser($user){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users_requests WHERE requestedUser='$user' AND requestingUserAccountType = 'listener' AND statut = 1");	
+	$queryPrepared->execute();
+
+	return $queryPrepared->fetchAll();
+
+}
+
+// artists requests
+function getArtistRequestsForUser($user){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users_requests WHERE requestedUser='$user' AND requestingUserAccountType = 'artist' AND statut = 1");	
+	$queryPrepared->execute();
+
+	return $queryPrepared->fetchAll();
+
+}
+
+// beatmakers requests
+function getBeatmakerRequestsForUser($user){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users_requests WHERE requestedUser='$user' AND requestingUserAccountType = 'beatmaker' AND statut = 1");	
+	$queryPrepared->execute();
+
+	return $queryPrepared->fetchAll();
+
+}
+
+// Statut track request
+
+function getRequestStatusOfTrack($trackId){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT statut FROM utrackpa_users_requests WHERE requestedTrack='".$trackId."'");
+	$queryPrepared->execute();
+	
+
+	return $queryPrepared->fetch()[0];
+
+}
+
+// user request track
+
+function userRequestTrack($id){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users_requests WHERE requestedTrack='$id'");	
+	$queryPrepared->execute();
+	
+	if(!empty($queryPrepared->fetchAll())){
+		return true;
+	}else{
+		return false;
+	}
+	
 }
 

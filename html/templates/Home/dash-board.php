@@ -9,7 +9,17 @@ include "header-home.php";
                 My Profile
             </button>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Copyright requests</button>
+            <button type="button" class="btn btn-outline-secondary position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Copyright requests 
+
+            <?php if(userHaveRequest(getUserId())){
+            echo'
+                <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-warning p-2">
+                <span class="visually-hidden">unread messages</span></span>
+            ';
+            }
+            ?>
+            </button>
         </div>
 
         <div class="d-flex d-flex align-items-center">
@@ -30,56 +40,113 @@ include "header-home.php";
                                     <!-----------------------BEATMAKER REQUEST----------------------->
                                     <h6 class="p-2 border-bottom title_rqst">Beatmaker</h6>
                                     <ul class="list-group list-group-light mb-4">
+
+                                    <?php
+                                    foreach(getBeatmakerRequestsForUser(getUserId()) as $request){
+
+                                        $userId = $request['requestingUser'];
+                                        $trackId = $request['requestedTrack'];
+
+                                        echo'
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
-                                                <img src="../../ressources/IMG-CONTENT/enceintes.png" alt=""
+   
+                                                <img src="../../ressources/img-profile/'.getUserImgById($userId).'"
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1 pr_usr_request">@Username</p>
-                                                    <p class="text-muted mb-0"></p>
+                                                <a href="user.php?user='.$userId.'" type"button" class="btn">
+                                                    <p class="fw-bold mb-1 pr_usr_request">'.getUserUsernameById($userId).'</p>
+                                                </a>
+                                                    <p class="text-muted mb-0">Requested : '.getTrackNameByTrackId($trackId).'</p>
                                                 </div>
                                             </div>
                                             <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light me-3">Y</button>
-                                                <button type="button" class="btn btn-outline-danger">N</button>
+                                                <a href="../../functions/allowRequest.php?user='.$userId.'&track='.$trackId.'" type="button" class="btn btn-outline-light me-3">
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </a>
+                                                <a href="../../functions/denyRequest.php?user='.$userId.'&track='.$trackId.'" type="button" class="btn btn-outline-danger">
+                                                    <i class="fa-solid fa-circle-xmark"></i>
+                                                </a>
                                             </span>
                                         </li>
+                                        ';
+                                    }
+                                    ?>
+
                                     </ul>
                                     <!-----------------------ARTIST REQUEST----------------------->
                                     <h6 class="p-2 border-bottom title_rqst">Artist</h6>
                                     <ul class="list-group list-group-light">
+
+                                    <?php
+                                    foreach(getArtistRequestsForUser(getUserId()) as $request){
+
+                                        $userId = $request['requestingUser'];
+                                        $trackId = $request['requestedTrack'];
+
+                                        echo'
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
-                                                <img src="../../ressources/IMG-CONTENT/enceintes.png" alt=""
+                                                <img src="../../ressources/img-profile/'.getUserImgById($userId).'"
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1 pr_usr_request">@Username</p>
-                                                    <p class="text-muted mb-0"></p>
+                                                <a href="user.php?user='.$userId.'" type"button" class="btn">
+                                                    <p class="fw-bold mb-1 pr_usr_request">'.getUserUsernameById($userId).'</p>
+                                                </a>
+                                                    <p class="text-muted mb-0">Requested : '.getTrackNameByTrackId($trackId).'</p>
                                                 </div>
                                             </div>
                                             <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light me-3">Y</button>
-                                                <button type="button" class="btn btn-outline-danger">N</button>
+                                                <a href="../../functions/allowRequest.php?user='.$userId.'&track='.$trackId.'" type="button" class="btn btn-outline-light me-3">
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </a>
+                                                <a href="../../functions/denyRequest.php?user='.$userId.'&track='.$trackId.'" type="button" class="btn btn-outline-danger">
+                                                    <i class="fa-solid fa-circle-xmark"></i>
+                                                </a>
                                             </span>
                                         </li>
+                                        ';
+                                    }
+                                    ?>
+
                                     </ul>
                                     <!-----------------------LISTENER REQUEST----------------------->
                                     <h6 class="p-2 border-bottom title_rqst mt-4">Listener</h6>
                                     <ul class="list-group list-group-light">
+
+                                    <?php
+                                    foreach(getListenerRequestsForUser(getUserId()) as $request){
+
+                                        $userId = $request['requestingUser'];
+                                        $trackId = $request['requestedTrack'];
+
+                                        echo'
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
-                                                <img src="../../ressources/IMG-CONTENT/enceintes.png" alt=""
+                                            
+                                                <img src="../../ressources/img-profile/'.getUserImgById($userId).'"
                                                     style="width: 45px; height: 45px" class="rounded-circle" />
                                                 <div class="ms-3">
-                                                    <p class="fw-bold mb-1 pr_usr_request">@Username</p>
-                                                    <p class="text-muted mb-0"></p>
+                                            <a href="user.php?user='.$userId.'" type"button" class="btn">
+                                                    <p class="fw-bold mb-1 pr_usr_request">'.getUserUsernameById($userId).'</p>
+                                            </a>
+                                                    <p class="text-muted mb-0">Requested : '.getTrackNameByTrackId($trackId).'</p>
                                                 </div>
+
                                             </div>
                                             <span class="badge rounded-pill badge-success">
-                                                <button type="button" class="btn btn-outline-light me-3">Y </button>
-                                                <button type="button" class="btn btn-outline-danger">N</button>
+                                            <a href="../../functions/allowRequest.php?user='.$userId.'&track='.$trackId.'" type="button" class="btn btn-outline-light me-3">
+                                                <i class="fa-solid fa-circle-check"></i>
+                                            </a>
+                                            <a href="../../functions/denyRequest.php?user='.$userId.'&track='.$trackId.'" type="button" class="btn btn-outline-danger">
+                                                <i class="fa-solid fa-circle-xmark"></i>
+                                            </a>
                                             </span>
                                         </li>
+                                        ';
+                                    }
+                                    ?>
+
                                     </ul>
                                 </div>
                             </div>
@@ -252,15 +319,13 @@ include "header-home.php";
             </a>
 
         </div>
-        <div class="offcanvas-body">
-            <div>
+        <div class="offcanvas-body mt-5">
+            <div class="pb-5">
                 <div class="list-group">
                 <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"
                     data-bs-target="#modalProfilePicture">Change my profile image</a>
-                <a href="#" class="text-center list-group-item list-group-item-action">Make an Avatar</a>
                 <a type="button" class="text-center list-group-item list-group-item-action" data-bs-toggle="modal"
                     data-bs-target="#modalAccount">My Account</a>
-                <a href="../../utrack_forum/functions/php-config/soon.php" class="text-center list-group-item list-group-item-action">Edit Bio</a>
 
                 <?php
                 if(isAdmin()){
@@ -273,22 +338,25 @@ include "header-home.php";
                 </div>
             </div>
 
-            <div class="d-flex justify-content-evenly mt-3 mb-2">
-                <a href="../../utrack_forum/main/forum.php">
-                    <button class="btn btn-outline-light">
-                        Join The Forum !
-                    </button>
-                </a>
+            <div class="mt-5">
+                <div class="d-flex justify-content-evenly mt-3 mb-2">
+                    <a href="../../utrack_forum/main/forum.php">
+                        <button class="btn btn-outline-light">
+                            Join The Forum !
+                        </button>
+                    </a>
+                </div>
+                <div class="d-flex justify-content-evenly mt-3 mb-2">
+                    <?php
+                        if(empty(isSubscribedToNewsletter())){
+                            echo'<a href="../../functions/addToNewsletter.php" class="btn btn-outline-light">Subscribe to newsletter</a>';
+                        }else{
+                            echo'<a href="../../functions/removeFromNewsletter.php" class="btn btn-outline-light">Unsubscribe from newsletter</a>';   
+                        }
+                    ?>
+                </div>
             </div>
-            <div class="d-flex justify-content-evenly mt-3 mb-2">
-                <?php
-                    if(empty(isSubscribedToNewsletter())){
-                        echo'<a href="../../functions/addToNewsletter.php" class="btn btn-outline-light">Subscribe to newsletter</a>';
-                    }else{
-                        echo'<a href="../../functions/removeFromNewsletter.php" class="btn btn-outline-light">Unsubscribe from newsletter</a>';   
-                    }
-                ?>
-            </div>
+
         </div>
 
         <footer class="">
