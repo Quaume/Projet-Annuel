@@ -70,14 +70,11 @@ if(!isConnected()){
 
                                 <!-- Second Dropdown -->
                                 <div class="dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Pop
-                                    </a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"data-bs-toggle="dropdown" aria-expanded="false">Pop</a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">Pop Rock</a></li>
-                                        <li><a class="dropdown-item" href="#">Latin Pop</a></li>
+                                        <li><a class="dropdown-item" href="seeAllTracks.php?category=Pop Rock">Pop Rock</a></li>
+                                        <li><a class="dropdown-item" href="seeAllTracks.php?category=Latin Pop">Latin Pop</a></li>
                                     </ul>
                                 </div>
 
@@ -89,8 +86,8 @@ if(!isConnected()){
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">Uk Drill</a></li>
-                                        <li><a class="dropdown-item" href="#">Jersey Concept</a></li>
+                                        <li><a class="dropdown-item" href="seeAllTracks.php?category=Uk Drill">Uk Drill</a></li>
+                                        <li><a class="dropdown-item" href="seeAllTracks.php?category=Jersey Concept">Jersey Concept</a></li>
                                     </ul>
                                 </div>
                             </div>

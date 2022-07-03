@@ -91,7 +91,7 @@ require 'get_user_profile.php';
                     <div class="p-4 text-black" style="background-color: #FFF6EA;">
                         <div class="d-flex justify-content-end text-center py-1">
                             <div class="px-3">
-                                <p class="mb-1 h5"><?=count(getUserFollowed(getUserIdByUsername($usrName)));?></p>
+                                <p class="mb-1 h5"><?=count(getUserFollowers(getUserIdByUsername($usrName)));?></p>
                                 <p class="small text-muted mb-0">Followers</p>
                             </div>
                             <div>
