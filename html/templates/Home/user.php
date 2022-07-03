@@ -255,7 +255,7 @@ unset($_SESSION['confirm']);
                                                 <?=$track['title']?>
                                         </a>
                                         <div>
-                                            <a href="../../functions/deleteTrack.php?trackId=<?=$track['id']?>&user=<?=$id?>" type="button" class="btn btn-outline-secondary">
+                                            <a href="../../functions/favTrackList.php?id=<?=$track['id']?>&user=<?=$id?>" type="button" class="btn btn-outline-secondary">
                                                 <i class="fa-solid fa-heart-circle-plus"></i>
                                             </a>
 
