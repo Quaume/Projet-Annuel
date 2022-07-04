@@ -145,9 +145,7 @@ img.rounded-circle.img-size{
 
 /*BLOCK TRACK*/
 .block {
-    background-color: #94B49F;
     border-radius: 20% !important;
-    /* padding: 50px; */
     width: 200px;
     height: 200px;
 }

@@ -17,19 +17,14 @@ if(!isConnected()){
                     aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                     aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
             </div>
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
+                    <img src="../../ressources/IMG-CONTENT/welcome.png" class="d-block w-100" alt="A la une">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
-                </div>
-                <div class="carousel-item">
-                    <img src="../../ressources/IMG-CONTENT/caroussel.png" class="d-block w-100" alt="A la une">
+                    <img src="../../ressources/IMG-CONTENT/carouseul2.png" class="d-block w-100" alt="A la une">
                 </div>
             </div>
         </div>
@@ -38,40 +33,22 @@ if(!isConnected()){
 
 <!--TRACK BLOCK-->
 <div class="container my-5 py-5">
+    <?php foreach (getAllTracks() as $track){
+                ?>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8 d-flex justify-content-around trackBlock">
-            <div>
-                <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse block" alt="...">
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <h4 class="title font-weight-bold text-center">Track Title</h4>
-                        <p class="blockquote-footer text-center">Made By <cite title="Source title">Flacko..</p>
-                    </blockquote>
-                </div>
-            </div>
-            <div>
-                <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse block" alt="...">
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <h4 class="title font-weight-bold text-center">Track Title</h4>
-                        <p class="blockquote-footer text-center">Made By <cite title="Source title">Flacko..</p>
-                    </blockquote>
-                </div>
-            </div>
-            <div>
-                <img src="../../ressources/IMG-CONTENT/pulse.png" class="pulse block" alt="...">
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <h4 class="title font-weight-bold text-center">Track Title</h4>
-                        <p class="blockquote-footer text-center">Made By <cite title="Source title">Flacko..</p>
-                    </blockquote>
-                </div>
-            </div>
+        <img src="../../ressources/tracks_cover/<?=$track['img_profile']?>" class="rounded mx-auto d-block pulse block"
+            alt="...">
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <h4 class="title font-weight-bold text-center"><?=$track['title']?></h4>
+                <p class="blockquote-footer text-center">Made By <cite
+                        title="Source title"><?=getUserUsernameById($track['artist'])?></p>
+            </blockquote>
         </div>
-        <div class="col-2"></div>
     </div>
-
+    <?php
+        }
+        ?>
 
 </div>
 <!--FOOTER-->
