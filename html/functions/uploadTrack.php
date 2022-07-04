@@ -24,8 +24,8 @@
 
         // Recup données post
 
-        $title = $_POST['title'];
-        $trackType = $_POST['trackType'];
+        $title = htmlspecialchars($_POST['title']);
+        $trackType = htmlspecialchars($_POST['trackType']);
         $trackFile = $_FILES['trackFile'];
         $trackCover = $_FILES['trackCover'];
 

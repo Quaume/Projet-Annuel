@@ -666,7 +666,7 @@ include "header-home.php";
                         <div class="modal fade" id="myFirstModal2">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content bg-edit">
-                                    <div class="modal-header d-flex justify-content-center"><h3 class="subtitle">My Track</h3></div>
+                                    <div class="modal-header d-flex justify-content-center"><h3 class="subtitle">My Tracks</h3></div>
                                     <div class="modal-body">
                                         <table class="table caption-top">
                                             <caption>All Tracks</caption>
@@ -699,7 +699,7 @@ include "header-home.php";
                                                         <td><img style="width: 45px; height: 45px" src="../../ressources/tracks_cover/<?=getImgTrackById($trackId)?>"/></td>
                                                         <td><?=$trackDate?></td>
                                                         <td>
-                                                            <a href="../../functions/deleteTrack.php?trackId=<?=$trackId?>" type="button" class="btn btn-outline-secondary">Delete</a>
+                                                            <a href="../../functions/deleteTrack.php?trackId=<?=$trackId?>&source=dashboard" type="button" class="btn btn-outline-secondary">Delete</a>
                                                         </td>
                                                 </tr>
                                                         

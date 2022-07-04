@@ -78,6 +78,20 @@ if(!isConnected()){
                         </a>
                     </li>
 
+                    <li class="nav-link">
+                        <a href="admin_page.php?display=tracks">
+                            <i class='bx bxs-music icon'></i>
+                            <span class="text nav-text">Tracks</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="admin_page.php?display=albums">
+                            <i class='bx bxs-album icon' ></i>
+                            <span class="text nav-text">Albums</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
 
@@ -119,6 +133,9 @@ if(!isConnected()){
 
 
     switch ($display){
+
+        /// USERS
+
         case 'users':
         echo'
         <div class="tableList ms-4 p-4">
@@ -207,6 +224,8 @@ if(!isConnected()){
         ';
         break;
 
+        /// NEWSLETTER
+
         case 'newsletter':
 
             echo'
@@ -254,6 +273,8 @@ if(!isConnected()){
             ';
             break;
         
+            /// LOGS
+
             case 'logs':
                 echo'
                 <div class="text-center ms-4 p-4 logs">
@@ -314,6 +335,146 @@ if(!isConnected()){
                 </div>
                 ';
                 break;
+
+                /// TRACKS
+
+                case 'tracks':
+                    echo'
+                    <div class="text-center ms-4 p-4 logs">
+                        <div class="overflow-auto" style="height:500px">
+            
+                        ';if(!empty($_SESSION['errors'])){
+                            echo "<div class='errors mt-3 text-center'>
+                            ";
+                            foreach($_SESSION['errors'] as $error){
+                                printf($error);
+                                echo"<br>";
+                            }
+                            echo"
+                            </div>
+                            ";
+                            unset($_SESSION['errors']);
+                        }
+            
+                        if(!empty($_SESSION['confirm'])){
+                            echo "<div class='errors mt-3 text-center'>
+                            ";
+                            foreach($_SESSION['confirm'] as $confirm){
+                                printf($confirm);
+                                echo"<br>";
+                            }
+                            echo"
+                            </div>
+                            ";
+                            unset($_SESSION['confirm']);
+                        }
+                        echo'
+            
+                        <h4>All Tracks</h4>
+                        <table class="table table-borderless mt-4 usrList">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">Track Cover</th>
+                                    <th scope="col" class="text-center">Track Name</th>
+                                    <th scope="col" class="text-center">Artist</th>
+                                    <th scope="col" class="text-center">Category</th>
+                                    <th scope="col" class="text-center">Release Date</th>
+                                    <th scope="col" class="text-center">Manage</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+            
+                            foreach (getAllTracks() as $track){
+                    
+                                echo '<tr>
+                                <td><img src="ressources/tracks_cover/'.$track["img_profile"].'" height="30"></td>
+                                <td>'.$track['title'].'</td>
+                                <td>'.getUserUsernameById($track['artist']).'</td>
+                                <td>'.$track['category'].'</td> 
+                                <td>'.$track['dateOfRelease'].'</td>
+                                <td><a href="functions/deleteTrack.php?trackId='.$track["id"].'&source=admin" type="button" class="btn btn-outline-secondary">Delete</a></td>            
+                            </tr>';
+            
+                            }
+                            echo'
+                            </tbody>
+                        </table>
+                        </div>
+                        </div>
+                    </div>
+                    ';
+                    break;
+
+                    /// ALBUMS
+
+                    case 'albums':
+                        echo'
+                        <div class="text-center ms-4 p-4 logs">
+                            <div class="overflow-auto" style="height:500px">
+                
+                            ';if(!empty($_SESSION['errors'])){
+                                echo "<div class='errors mt-3 text-center'>
+                                ";
+                                foreach($_SESSION['errors'] as $error){
+                                    printf($error);
+                                    echo"<br>";
+                                }
+                                echo"
+                                </div>
+                                ";
+                                unset($_SESSION['errors']);
+                            }
+                
+                            if(!empty($_SESSION['confirm'])){
+                                echo "<div class='errors mt-3 text-center'>
+                                ";
+                                foreach($_SESSION['confirm'] as $confirm){
+                                    printf($confirm);
+                                    echo"<br>";
+                                }
+                                echo"
+                                </div>
+                                ";
+                                unset($_SESSION['confirm']);
+                            }
+                            echo'
+                    
+                            <h4>All albums</h4>
+                            <table class="table table-borderless mt-4 usrList">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center">Album Cover</th>
+                                        <th scope="col" class="text-center">Album Name</th>
+                                        <th scope="col" class="text-center">Artist</th>
+                                        <th scope="col" class="text-center">Category</th>
+                                        <th scope="col" class="text-center">Release Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>';
+                
+                                foreach (getAllAlbums() as $album){
+                    
+                                    echo '<tr>
+                                    <td><img src="ressources/img-profile/'.$album["img_profile"].'" height="30"></td>
+                                    <td>'.getUserUsernameById($album['artist']).'</td>
+                                    <td>'.$album['title'].'</td>
+                                    <td>'.$album['category'].'</td> 
+                                    <td>'.$album['dateOfRelease'].'</td>
+                                    <td>
+                                    <a href="functions/deleteAlbum.php?albumId='.$album['id'].'&source=admin" type="button" class="btn btn-outline-secondary">Delete</a>
+                                    </td>            
+                                </tr>';
+                
+                                }
+                                echo'
+                                </tbody>
+                            </table>
+                            </div>
+                            </div>
+                        </div>
+                        ';
+                        break;
+                
 
                 default:
                     echo'

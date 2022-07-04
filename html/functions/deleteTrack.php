@@ -6,6 +6,7 @@ $trackId = $_GET['trackId'];
 
 $errors = [];
 $confirm = [];
+$source = $_GET['source'];
 
 $pdo = connectDB();
 
@@ -14,6 +15,7 @@ $queryprepared->execute(['id' => $trackId]);
 
 if(!empty($queryprepared->fetch())){
 
+if(!isAdmin()){
     if(getTrackArtistById($trackId) != getUserId()){
 
         $errors[] = "You are not the artist of this track";
@@ -30,6 +32,17 @@ if(!empty($queryprepared->fetch())){
     $_SESSION['confirm'] = $confirm;
 
     }
+}else{
+
+    $queryprepared = $pdo->prepare("DELETE FROM utrackpa_tracks WHERE id=:id");
+    $queryprepared->execute(['id' => $trackId]);
+
+    addToLogs(getUserId(),"Deleted a track : ".getTrackNameByTrackId($trackId)."");
+
+    $confirm[] = "Track has been deleted successfully";
+    $_SESSION['confirm'] = $confirm;
+
+}
 
 }else{
 
@@ -38,5 +51,11 @@ $_SESSION['errors'] = $errors;
 
 }
 
-
-header("Location: ../templates/Home/dash-board.php");
+switch($source){
+    case "admin":
+        header('Location: ../admin_page.php?display=tracks');
+    break;
+    default:
+        header("Location: ../templates/Home/dash-board.php");
+    break;
+}

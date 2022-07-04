@@ -132,7 +132,7 @@ if(!isConnected()){
     </nav>
 
 
-<?
+<?php
 
 //Vérification de l'utilisateur
 

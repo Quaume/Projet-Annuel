@@ -446,6 +446,18 @@ function getTrackLikesById($track,$artist){
 
 ///// ALBUMS /////
 
+// all albums
+
+function getAllAlbums(){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_albums");
+	$queryPrepared->execute();
+	
+	return $queryPrepared->fetchAll();
+
+}
+
 // album par id artist
 
 function getUserAlbumsById($artist){

@@ -24,8 +24,8 @@
 
         // Recup données post
 
-        $title = $_POST['albumName'];
-        $albumType = $_POST['albumType'];
+        $title = htmlspecialchars($_POST['albumName']);
+        $albumType = htmlspecialchars($_POST['albumType']);
         $albumCover = $_FILES['albumCover'];
 
         $title = trim($title);

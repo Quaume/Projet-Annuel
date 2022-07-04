@@ -8,6 +8,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
     $myPostId = $_GET['id'];
     $idUser = getUserId($pdo);
 
+    $source = $_GET['source'];
+
     $checkMyPostId = $pdo->prepare('SELECT id_usr FROM utrackpa_forum WHERE id = ?');
     $checkMyPostId->execute(array($myPostId));
 
@@ -17,7 +19,14 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
             $deletePost = $pdo->prepare('DELETE FROM utrackpa_forum WHERE id = ?');
             $deletePost->execute(array($myPostId));
 
-            header('Location: ../../../main/my_post.php');
+            switch($source){
+                case "forum":
+                    header('Location: ../../../main/forum.php');
+                break;
+                default:
+                    header('Location: ../../../main/my_post.php');
+                break;
+            }
         }else{
             echo 'You are not connected on your sesison !';
         }

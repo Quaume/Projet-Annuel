@@ -2,8 +2,8 @@
     require 'functions.php';
 
     $errors = [];
-    $email = $_POST['email'];
-    $pwd = $_POST['pwd'];
+    $email = htmlspecialchars($_POST['email']);
+    $pwd = htmlspecialchars($_POST['pwd']);
 
     if( !empty($_POST['email']) &&  !empty($_POST['pwd']) && count($_POST)==2 ){
 

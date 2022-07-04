@@ -34,6 +34,13 @@ require '../functions/php-config/publications/see_all_post.php';
                             <h4 class="card-title"><?=$post["title"];?></h4>
                         </div>
                         <div class="p-2 text-end">
+                        <?php
+                        if(isAdmin()) {
+                        echo'
+                        <a href="../functions/php-config/users_config/delete_post.php?id='.$post['id'].'&source=forum" class="btn btn-danger">Delete</a>
+                        ';
+                        }
+                        ?>
                         <a href="../functions/php-config/publications/see_post.php?id=<?=$post['id'];?>" class="btn btn-outline-secondary">See</a>
                         </div>
                     </div>

@@ -27,13 +27,13 @@ if(
 }
 
 //récupérer les données du formulaire
-$username = $_POST["username"];
-$email = $_POST["email"];
-$birthday = $_POST["birthday"];
-$pwd = $_POST["password"];
-$pwdConfirm = $_POST["passwordConfirm"];
-$accountType = $_POST["accountType"];
-$cgu = $_POST["cgu"];
+$username = htmlspecialchars($_POST["username"]);
+$email = htmlspecialchars($_POST["email"]);
+$birthday = htmlspecialchars($_POST["birthday"]);
+$pwd = htmlspecialchars($_POST["password"]);
+$pwdConfirm = htmlspecialchars($_POST["passwordConfirm"]);
+$accountType = htmlspecialchars($_POST["accountType"]);
+$cgu = htmlspecialchars($_POST["cgu"]);
 
 
 //SESSION USERNAME

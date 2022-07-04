@@ -18,10 +18,10 @@ $user = $queryPrepared->fetch();
 
 
 //récupérer les données du formulaire
-$email = $_POST["email"];
-$username = $_POST["username"];
+$email = htmlspecialchars($_POST["email"]);
+$username = htmlspecialchars($_POST["username"]);
 $profilePictureUsernameId = getUserId();
-$pwd = $_POST["pwd"];
+$pwd = htmlspecialchars($_POST["pwd"]);
 $img_profile = $_FILES["img-profile"];
 
 //nettoyer les données

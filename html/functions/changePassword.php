@@ -2,8 +2,8 @@
 
 require 'functions.php';
 
-$pwd = $_POST["pwd"];
-$pwdConfirm = $_POST["confirmpwd"];
+$pwd = htmlspecialchars($_POST["pwd"]);
+$pwdConfirm = htmlspecialchars($_POST["confirmpwd"]);
 $userMail = $_GET['mail'];
 
 $pwd = trim($pwd);
