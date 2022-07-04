@@ -532,17 +532,55 @@ include "header-home.php";
                 <div class="overflow-auto" style="height: 107px;">
                     <ul class="list-group list-group-light">
                         
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <img src="../../ressources/IMG-CONTENT/K-dot.jpeg" alt=""
-                                    style="width: 45px; height: 45px" class="rounded" />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">Track Name</p>
-                                    <p class="text-muted mb-0"></p>
+                    <?php
+                    foreach(getAllFavTracks(getUserId()) as $track){
+                        echo'
+
+                        <!-- Listen Modal -->
+                        <div class="modal fade" id="listenModal'.$track['trackName'].'" tabindex="-1" aria-labelledby="listenModal'.$track['trackName'].'" aria-hidden="true">
+                            <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">'.getTrackNameByTrackId($track['trackName']).'</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body modalAudio">
+                                        <audio id="playerAudio" oncontextmenu="return false;" controlslist="nodownload" controls src="../../ressources/tracks/'.getTrackFileById($track['trackName']).'"></audio>
+                                            <div class="player">
+                                                <div class="control">
+                                                    <!--<i class="fas fa-play" id="playbtn"></i>-->
+                                                </div>
+                                                <div class="info">
+                                                    <div class="bar">
+                                                        <div id="progress"></div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="" id="current">O:00</div>-->
+                                            </div>
+                                        <script src="./player.js"></script>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
-                            <a class="btn btn-link btn-rounded btn-sm" data-bs-toggle="modal" data-bs-target="#listenModal" role="button">Listen</a>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="../../ressources/tracks_cover/'.getImgTrackById($track['trackName']).'" alt=""
+                                    style="width: 45px; height: 45px" class="rounded" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">'.getTrackNameByTrackId($track['trackName']).'</p>
+                                </div>
+                            </div>
+                            <a class="btn btn-link btn-rounded btn-sm" data-bs-toggle="modal" data-bs-target="#listenModal'.$track['trackName'].'" role="button">Listen</a>
                         </li>
+                        ';
+                    }
+                    ?>
+
                     </ul>
                 </div>
             </div>
