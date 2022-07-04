@@ -469,6 +469,20 @@ function getAlbumArtistById($albumId){
 
 ///// Requests /////
 
+// all requests 
+
+function getAllRequestsForUser($user){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_users_requests WHERE requestedUser='$user' AND statut = 1");	
+	$queryPrepared->execute();
+
+	return $queryPrepared->fetchAll();
+
+}
+
+
+// user a des requests ?
 function userHaveRequest($id){
 
 	$pdo = connectDB();
@@ -547,6 +561,8 @@ function userRequestTrack($id){
 
 ///// FAV TRACK /////
 
+// track dans bdd ?
+
 function isTrackInFav($trackId,$userId){
 
 	$pdo = connectDB();
@@ -569,6 +585,16 @@ function getAllFavTracks($userId){
 	$pdo = connectDB();
 	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_favoris_track WHERE id_user=:id_user");	
 	$queryPrepared->execute(['id_user' => $userId]);
+
+	return $queryPrepared->fetchAll();
+
+}
+
+function getAllFavedTracks($userId){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_favoris_track WHERE artist=:artist");	
+	$queryPrepared->execute(['artist' => $userId]);
 
 	return $queryPrepared->fetchAll();
 

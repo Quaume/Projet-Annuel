@@ -33,11 +33,15 @@ if(!isConnected()){
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="ressources/IMG-CONTENT/enceintes.png" height="30" alt="logo">
+                    <img src="ressources/img-profile/<?=getUserImgById(getUserId())?>" height="30" alt="logo">
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">Utrack</span>
+                    <span class="name">
+                    <?php
+                        printf(getUserUsernameById(getUserId()));
+                    ?>
+                    </span>
                     <span class="profession">@Admin</span>
                 </div>
             </div>
@@ -74,19 +78,6 @@ if(!isConnected()){
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Analytics</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bxs-wallet icon'></i>
-                            <span class="text nav-text">Suscribers</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
 

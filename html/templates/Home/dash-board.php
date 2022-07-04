@@ -418,22 +418,29 @@ include "header-home.php";
                     <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
                         <img class="me-3" src="../../ressources/IMG-CONTENT/eye.png" width="30">    
-                        Views<span class="badge rounded-pill">200</span></p>
+                        Views<span class="badge rounded-pill">0</span></p>
                     </li>
                     <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
                         <img class="me-3" src="../../ressources/IMG-CONTENT/like.png" width="30">    
-                        Likes<span class="badge rounded-pill">200</span></p>
+                        Likes<span class="badge rounded-pill">                            
+                            <?php
+                                printf(count(getAllFavedTracks(getUserId())))
+                            ?></span></p>
                     </li>
                     <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
                         <img class="me-3" src="../../ressources/IMG-CONTENT/bubble.png" width="30">    
-                        Comments<span class="badge rounded-pill">200</span></p>
+                        Comments<span class="badge rounded-pill">0</span></p>
                     </li>
                     <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
                         <img class="me-3" src="../../ressources/IMG-CONTENT/Request.png" width="30">    
-                        Requests<span class="badge rounded-pill">200</span></p>
+                        Requests<span class="badge rounded-pill">
+                            <?php
+                                printf(count(getAllRequestsForUser(getUserId())))
+                            ?>
+                        </span></p>
                     </li>
                 </ul>
             </div>
