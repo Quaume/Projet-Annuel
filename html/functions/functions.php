@@ -428,6 +428,21 @@ function getTrackArtistById($trackId){
 
 }
 
+// likes de la track
+
+function getTrackLikesById($track,$artist){
+
+	$pdo = connectDB();
+	$queryPrepared = $pdo->prepare("SELECT * FROM utrackpa_favoris_track WHERE artist=:artist AND trackName=:trackName");
+	$queryPrepared->execute(
+		[
+		"artist"=>$artist,
+		"trackName"=>$track
+		]);
+	
+	return $queryPrepared->fetchAll();
+
+}
 
 ///// ALBUMS /////
 

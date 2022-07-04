@@ -168,9 +168,11 @@ if(!isConnected()){
                     </td>
                     <td><?=$info['category'];?></td>
                     <td>
-                        <a href="../../functions/favTrackList.php?id=<?=$info['id'];?>" type="button" class="btn btn-link btn-sm btn-rounded">
-                           Count Like
-                        </a>
+                        <?php
+
+                        printf(count(getTrackLikesById($info['id'],$info['artist'])));
+
+                        ?>                        
                     </td>
                 </tr>
                 <?php
