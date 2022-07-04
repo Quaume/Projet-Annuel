@@ -19,8 +19,6 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-
-
 function sendNewsletter($to, &$errors)
     {
         $mail = new PHPMailer(true);
@@ -32,13 +30,13 @@ function sendNewsletter($to, &$errors)
             $mail->isSMTP();
             $mail->Host = 'smtp-mail.outlook.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'utrack@outlook.fr';
-            $mail->Password = 'Pa20_22//Ma7jA37CO&&!';
+            $mail->Username = 'utrackoff@outlook.fr';
+            $mail->Password = "Lamartine0";
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             //Recipients
-            $mail->setFrom('utrack@outlook.fr', 'Utrack');
+            $mail->setFrom('utrackoff@outlook.fr', 'Utrack');
             $mail->addAddress($to);
 
             //Content
@@ -56,8 +54,12 @@ function sendNewsletter($to, &$errors)
 
     /*============================================================*/
 
-    foreach (getSubscribedToNewsletter() as $emailid){
-    sendNewsletter(getUserEmailById($emailid[0]), $errors);
+    if(!empty(getSubscribedToNewsletter())){
+        foreach (getSubscribedToNewsletter() as $emailid){
+            sendNewsletter(getUserEmailById($emailid[0]), $errors);
+        }
+    }else{
+        $errors[] = "Nobody is subscribed to newsletter";
     }
 
     if (count($errors) != 0) {

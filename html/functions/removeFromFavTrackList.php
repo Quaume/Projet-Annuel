@@ -7,12 +7,22 @@ if(isConnected()){
     $track_id = $_GET['id'];
     $userId = getUserId();
     $artist = getTrackArtistById($track_id);
+    $source = $_GET['source'];
 
     $errors = [];
     if(!isset($_GET['id']) && !isset($_GET['user'])){
         $errors[] = "No track to add in your list";
         $_SESSION['errors'] = $errors;
-        header("Location: ../templates/Home/user.php?user=$userId");
+
+        switch($source){
+            case "user":
+                header("Location: ../templates/Home/user.php?user=$userId");
+            break;
+            case "dashboard":
+                header("Location: ../templates/Home/dash-board.php");
+            break;
+        }
+
     }else{
 
         
@@ -35,10 +45,24 @@ if(isConnected()){
                 "trackName" => $track_id,
                 "id_user" => $userId
             ]);
-            header('Location: ../templates/Home/user.php?user='.$artist.'');
+            switch($source){
+                case "user":
+                    header('Location: ../templates/Home/user.php?user='.$artist.'');
+                break;
+                case "dashboard":
+                    header("Location: ../templates/Home/dash-board.php");
+                break;
+            }
         }else{
             $errors[] = "You have already track in you track list";
-            header('Location: ../templates/Home/user.php?user='.$artist.'');
+            switch($source){
+                case "user":
+                    header('Location: ../templates/Home/user.php?user='.$artist.'');
+                break;
+                case "dashboard":
+                    header("Location: ../templates/Home/dash-board.php");
+                break;
+            }
         }
         }
     }   

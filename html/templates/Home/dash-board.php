@@ -435,7 +435,7 @@ include "header-home.php";
                     </li>
                     <li class="list-group-item px-3 border-0 rounded-3 list-group-item-primary  text-center">
                         <p class="subtitle darkB p-3">
-                        <img class="me-3" src="../../ressources/IMG-CONTENT/Request.png" width="30">    
+                        <img class="me-3" src="../../ressources/IMG-CONTENT/request.png" width="30">    
                         Requests<span class="badge rounded-pill">
                             <?php
                                 printf(count(getAllRequestsForUser(getUserId())))
@@ -568,7 +568,6 @@ include "header-home.php";
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
                                     </div>
                                     </div>
                                 </div>
@@ -583,6 +582,9 @@ include "header-home.php";
                                 </div>
                             </div>
                             <a class="btn btn-link btn-rounded btn-sm" data-bs-toggle="modal" data-bs-target="#listenModal'.$track['trackName'].'" role="button">Listen</a>
+                            <a href="../../functions/removeFromFavTrackList.php?id='.$track['trackName'].'&user='.getUserId().'&source=dashboard" type="button" class="btn btn-outline-secondary">
+                                <i class="fa-solid fa-heart-circle-minus"></i>
+                            </a>
                         </li>
                         ';
                     }

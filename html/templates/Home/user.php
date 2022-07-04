@@ -265,7 +265,7 @@ unset($_SESSION['confirm']);
                                                 ';
                                             }else{
                                                 echo'
-                                                <a href="../../functions/removeFromFavTrackList.php?id='.$track['id'].'&user='.$id.'" type="button" class="btn btn-outline-secondary">
+                                                <a href="../../functions/removeFromFavTrackList.php?id='.$track['id'].'&user='.$id.'&source=user" type="button" class="btn btn-outline-secondary">
                                                     <i class="fa-solid fa-heart-circle-minus"></i>
                                                 </a>
                                                 ';
